@@ -1,0 +1,124 @@
+\documentclass[bsc,frontabs,twoside,singlespacing,parskip,deptreport]{infthesis}
+
+\usepackage[round]{natbib}
+\usepackage[hidelinks,colorlinks,allcolors=blue]{hyperref}
+
+\usepackage{graphicx}
+
+\usepackage{textcomp} % for text tilde
+
+% Nice references including the words Figure, Section, etc
+\renewcommand*{\chapterautorefname}{Chapter}
+\renewcommand*{\sectionautorefname}{Section}
+\renewcommand*{\subsectionautorefname}{Section}
+\renewcommand*{\figureautorefname}{Fig.}
+\renewcommand*{\tableautorefname}{Tab.}
+\newcommand{\algorithmautorefname}{Alg.}
+\renewcommand{\equationautorefname}{Eq.}
+
+% Change font family and size in captions
+\DeclareCaptionFont{captionfont}{\small\fontseries{n}\fontfamily{phv}\selectfont}
+\captionsetup[table]{labelsep=period,font=captionfont,justification=centering}
+\captionsetup[figure]{labelsep=period,font=captionfont,justification=centering}
+
+
+%
+% TABLES
+%
+
+\usepackage{multirow} % multi-row and multi-column table cells
+\usepackage{makecell} % line breaks inside cells with \thead{} and \makecell{}
+\usepackage{longtable} % allow table to span multiple pages
+
+% Globally setting the vertical padding in tables
+\renewcommand{\arraystretch}{1.1}
+
+% Spacing around lines in tables
+\def\abovestrut#1{\rule[0in]{0in}{#1}\ignorespaces}
+\def\belowstrut#1{\rule[-#1]{0in}{#1}\ignorespaces}
+\def\abovespace{\abovestrut{0.17in}}
+\def\aroundspace{\abovestrut{0.17in}\belowstrut{0.10in}}
+\def\belowspace{\belowstrut{0.10in}}
+
+
+% For minipages with multiple figures, each with its own subcaption
+\usepackage{subcaption}
+
+\begin{document}
+
+\title{\vspace{-5.0cm} \centering{\includeshield} \vspace{1cm} \\ NLP knowledge distillation with different students}
+
+\author{Sam Su\v{c}\'ik}
+
+\course{Master of Informatics}
+\project{\vspace{3cm}{\bf MInf Project (Part 2) Report}}
+
+\date{2020}
+
+\abstract{
+  
+}
+
+\maketitle
+
+\section*{Acknowledgements}{
+  
+}
+
+\tableofcontents
+
+\chapter{Notes}{
+  \section{Distillation techniques}{
+    \citet[p. 13]{Papamakarios-2015} point out that mimicking teacher outputs (e.g. with cross-entropy loss) can be taken to next level by mimicking the derivatives of the loss w.r.t. inputs (i.e. including in the KD loss function also this term: $\frac{\partial \mathbf{o}_{student}}{\partial \mathbf{x}} - \frac{\partial \mathbf{o}_{teacher}}{\partial \mathbf{x}}$), the additional loss term being calculated using the R technique (Pearlmutter, 1994).
+
+    \citet{Sau-Balasubramanian-2016} show that learning from noisy logits helps (adding the noise is very simple).
+
+    \citet{Kim-Rush-2016} observe that KD and weight pruning are orthogonal (can be used together), and that mimicking top-most hidden layer outputs (instead of outputs themselves) doesn't provide improvements previously reported.
+
+    \citet{Huang-Wang-2017} propose method for matching neuron activation distributions of teacher and student (only suitable for same teacher/student architecture?). \citet{Heo-et-al-2018} do a similar thing but try to match the activation boundaries of neurons.
+  }
+
+  \section{Knowledge distillation -- assorted}{
+    \citet{Zharov-et-al-2018} use KD of DNNs into decision forests for interpretability.
+
+    \citet{Mirzadeh-et-al-2019} show that a large teacher cannot teach too small students, and that adding intermediate "teacher assistants" helps.
+  }
+
+  \section{Datasets}{
+    Unsuitable:
+    \begin{enumerate}
+      \item \href{https://github.com/microsoft/CNTK/tree/master/Examples/LanguageUnderstanding/ATIS}{ATIS}: too easy (see \href{https://github.com/nghuyong/rasa-nlu-benchmark#result}{here}). Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
+      \item \href{https://github.com/sebischair/NLU-Evaluation-Corpora}{AskUbuntu, Chatbot and Web Applications (all from TU Munich): too small (max. 206 datapoints)}. Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
+      \item \href{https://github.com/snipsco/nlu-benchmark/tree/master/2016-12-built-in-intents}{SNIPS}: too easy (see \href{https://github.com/nghuyong/rasa-nlu-benchmark#result}{here}). Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
+    \end{enumerate}
+
+    Suitable:
+    \begin{enumerate}
+      \item \href{https://fb.me/multilingual_task_oriented_data}{FB's Multilingual Task Oriented Dataset}: F1 0.99 by supervised embeddings (very easy, but perhaps usable). Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
+      \item \href{https://nyu-mll.github.io/CoLA/}{CoLA} \citep{CoLA-paper}, needs processing into Rasa format.
+      \item \href{https://nlp.stanford.edu/sentiment/index.html}{SST} \citep{SST-paper}, needs processing into Rasa format. 5-way classification may be too hard (accuracy \texttildelow{}50\%), 2-way much easier.
+      \item \href{https://cogcomp.seas.upenn.edu/Data/QA/QC/}{TREC question-type classification} \citep{TREC-paper}, needs processing into Rasa format. 6-way classification (abbreviation, entity, description, human, location, numeric), also has another (more fine-grained) level of categories.
+    \end{enumerate}
+
+    Maybe suitable:
+    \begin{enumerate}
+      \item \href{https://github.com/xiul-msr/e2e_dialog_challenge}{Microsoft Dialogue Challenge} \citep{MDC-paper} needs processing into Rasa format. Also, no results using Rasa.
+      \item \href{http://fb.me/semanticparsingdialog}{TOP} \citep{TOP-paper} needs processing into Rasa format. Also, no results using Rasa. Intents are hierarchical, would need to take only the top-most intent.
+      \item \href{https://github.com/allenai/scicite}{SciCite} \citep{SciCite-paper} needs processing into Rasa format. Also, no results using Rasa.
+    \end{enumerate}
+
+    Probing/evaluation:
+    \begin{enumerate}
+      \item \href{https://github.com/nyu-mll/jiant/tree/master/probing/data}{Google's edge probing} \citep{Tenney-et-al-2019-1} for evaluating span representations on 9 tasks closely following classical NLP pipeline (data not freely accessible!)
+      \item \href{https://github.com/facebookresearch/SentEval/tree/master/data/probing}{FB's probing} \citep{Conneau-et-al-2018} used to evaluate entire sentence embeddings (10 tasks from sentence length to semantics)
+      \item \href{https://github.com/facebookresearch/SentEval}{FB's SentEval} \citep{SentEval-paper} is meant for evaluating trained sentence encoders (i.e. not meant as downstream tasks that encoders should be fitted to), but it curates interesting existing datasets.
+    \end{enumerate}
+  }
+}
+
+\bibliographystyle{apalike}
+\bibliography{s1513472-minf2}
+
+\appendix
+
+\end{document}
