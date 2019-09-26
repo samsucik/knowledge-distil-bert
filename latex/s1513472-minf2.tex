@@ -114,6 +114,14 @@
       \item \href{https://github.com/facebookresearch/SentEval}{FB's SentEval} \citep{SentEval-paper} is meant for evaluating trained sentence encoders (i.e. not meant as downstream tasks that encoders should be fitted to), but it curates interesting existing datasets.
     \end{enumerate}
   }
+
+  \section{Plans for MVP}{
+    Let's distill BERT into a smaller BERT.
+
+    Code: pytorch-transformers (re-using code for DistilBERT), no Rasa for now
+
+    Dataset: CoLA (because pytorch-transformers offers easy feeding of GLUE datasets)
+  }
 }
 
 \bibliographystyle{apalike}

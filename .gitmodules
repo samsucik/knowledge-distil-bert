@@ -1,0 +1,3 @@
+[submodule "pytorch-transformers"]
+	path = pytorch-transformers
+	url = git@github.com:samsucik/pytorch-transformers.git
