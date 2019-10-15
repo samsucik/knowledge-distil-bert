@@ -1,2 +1,4 @@
 data/glue_data
 experiments/**/
+*.log
+

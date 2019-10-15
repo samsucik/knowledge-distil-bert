@@ -1,5 +1,20 @@
 #!/bin/bash -u
 
+set -o xtrace
+
+if [[ $(nvidia-smi -L) =~ "GPU" ]]
+then
+    echo "Some GPUs found."
+    n_gpu=1
+    no_cuda="False"
+else
+    echo "No GPUs found."
+    n_gpu=0
+    no_cuda="True"
+fi
+
+#exit 0
+
 export TASK_NAME=CoLA
 export OUT_DIR=$(pwd)/$TASK_NAME/teacher
 
@@ -63,11 +78,11 @@ python distil_from_finetuned.py \
   --learning_rate 1e-6 \
   --max_grad_norm 5.0 \
   --initializer_range 0.02  \
-  --n_gpu 0 \
+  --n_gpu $n_gpu \
   --seed 42 \
   --log_interval 4 \
   --checkpoint_interval 100 \
-  --no_cuda \
+  --no_cuda "$no_cuda" \
   --evaluate_during_training \
   --rich_eval \
   --log_examples \
