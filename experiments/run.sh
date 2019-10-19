@@ -16,36 +16,36 @@ fi
 export TASK_NAME=CoLA
 export OUT_DIR=$(pwd)/$TASK_NAME/teacher
 
-echo "TEACHER FINETUNING STARTING"
-pushd $TRANSFORMERS/examples
-python run_glue.py \
-  --data_dir $GLUE_DIR/$TASK_NAME \
-  --model_type bert \
-  --model_name_or_path bert-base-uncased \
-  --task_name $TASK_NAME \
-  --output_dir ${OUT_DIR}/ \
-  --do_lower_case \
-  --per_gpu_train_batch_size 32 \
-  --per_gpu_eval_batch_size 64 \
-  --gradient_accumulation_steps 1 \
-  --learning_rate 2e-5 \
-  --num_train_epochs 6 \
-  --logging_steps 32 \
-  --save_steps -1 \
-  --overwrite_output_dir \
-  --do_eval \
-  --do_train \
-  --evaluate_during_training \
-  --rich_eval \
-  # --log_examples \
+#echo "TEACHER FINETUNING STARTING"
+#pushd $TRANSFORMERS/examples
+#python run_glue.py \
+#  --data_dir $GLUE_DIR/$TASK_NAME \
+#  --model_type bert \
+#  --model_name_or_path bert-base-uncased \
+#  --task_name $TASK_NAME \
+#  --output_dir ${OUT_DIR}/ \
+#  --do_lower_case \
+#  --per_gpu_train_batch_size 16 \
+#  --per_gpu_eval_batch_size 64 \
+#  --gradient_accumulation_steps 2 \
+#  --learning_rate 2e-5 \
+#  --num_train_epochs 6 \
+#  --logging_steps 32 \
+#  --save_steps -1 \
+#  --overwrite_output_dir \
+#  --do_eval \
+#  --do_train \
+#  --evaluate_during_training \
+#  --rich_eval \
+#  --log_examples \
   # --no_cuda \
   # --max_steps 7 \
   # --toy_mode \
   # --eval_all_checkpoints \
 
-popd
-echo "TEACHER FINETUNING FINISHED"
-exit 0
+#popd
+#echo "TEACHER FINETUNING FINISHED"
+#exit 0
 
 export TEACHER_DIR=${OUT_DIR}
 export DISTIL_DIR=$(pwd)/$TASK_NAME/distillation
@@ -78,7 +78,7 @@ python distil_from_finetuned.py \
   --initializer_range 0.02  \
   --n_gpu $n_gpu \
   --seed 42 \
-  --log_interval 64 \
+  --log_interval 128 \
   --no_cuda "$no_cuda" \
   --evaluate_during_training \
   --rich_eval \
@@ -89,4 +89,3 @@ python distil_from_finetuned.py \
 
 popd
 echo "DISTILLATION FINISHED"
-
