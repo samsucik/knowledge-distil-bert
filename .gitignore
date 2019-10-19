@@ -3,3 +3,4 @@ data/sara
 experiments/**/
 *.log
 notes.txt
+nohup.out
