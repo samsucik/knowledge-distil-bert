@@ -13,6 +13,8 @@ else
     no_cuda="True"
 fi
 
+max_seq_len=128
+
 export TASK_NAME=CoLA
 export OUT_DIR=$(pwd)/$TASK_NAME/teacher
 
@@ -27,6 +29,7 @@ export OUT_DIR=$(pwd)/$TASK_NAME/teacher
 #  --do_lower_case \
 #  --per_gpu_train_batch_size 16 \
 #  --per_gpu_eval_batch_size 64 \
+#  --max_seq_length $max_seq_len \
 #  --gradient_accumulation_steps 2 \
 #  --learning_rate 2e-5 \
 #  --num_train_epochs 6 \
@@ -58,7 +61,7 @@ python distil_from_finetuned.py \
   --force \
   --task_name $TASK_NAME \
   --do_lower_case \
-  --max_position_embeddings 512 \
+  --max_position_embeddings $max_seq_len \
   --n_layers 3 \
   --n_heads 4 \
   --dim 256 \
