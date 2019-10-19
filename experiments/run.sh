@@ -69,19 +69,19 @@ python distil_from_finetuned.py \
   --attention_dropout 0.1 \
   --teacher_name $TEACHER_DIR \
   --temperature 2.0 \
-  --n_epoch 3 \
+  --n_epoch 150 \
   --batch_size 32 \
   --per_gpu_eval_batch_size 64 \
   --gradient_accumulation_steps 2 \
   --warmup_prop 0.05 \
   --weight_decay 0.0 \
-  --learning_rate 1e-6 \
+  --learning_rate 2e-5 \
   --max_grad_norm 5.0 \
   --initializer_range 0.02  \
   --n_gpu $n_gpu \
   --seed 42 \
-  --log_interval 4 \
-  --checkpoint_interval 100 \
+  --log_interval 64 \
+  --checkpoint_interval 200 \
   --no_cuda "$no_cuda" \
   --evaluate_during_training \
   --rich_eval \
