@@ -1,4 +1,5 @@
 data/glue_data
+data/sara
 experiments/**/
 *.log
-
+notes.txt

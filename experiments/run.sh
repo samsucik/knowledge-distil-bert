@@ -1,6 +1,6 @@
 #!/bin/bash -u
 
-set -o xtrace
+# set -o xtrace
 
 if [[ $(nvidia-smi -L) =~ "GPU" ]]
 then
@@ -12,8 +12,6 @@ else
     n_gpu=0
     no_cuda="True"
 fi
-
-#exit 0
 
 export TASK_NAME=CoLA
 export OUT_DIR=$(pwd)/$TASK_NAME/teacher
