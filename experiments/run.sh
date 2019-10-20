@@ -114,8 +114,8 @@ python distil_from_finetuned.py \
   --no_cuda "$no_cuda" \
   --evaluate_during_training \
   --rich_eval \
-  # --log_examples \
-  # --checkpoint_interval 200 \
+  --log_examples \
+  --checkpoint_interval 25 \
   # --max_steps 10 \
   # --toy_mode \
 
