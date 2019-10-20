@@ -50,8 +50,36 @@ export OUT_DIR=$(pwd)/$TASK_NAME/teacher
 #echo "TEACHER FINETUNING FINISHED"
 #exit 0
 
+
+###################################################################################################
+## DISTILLATION
+###################################################################################################
+
 export TEACHER_DIR=${OUT_DIR}
 export DISTIL_DIR=$(pwd)/$TASK_NAME/distillation
+
+n_layers=3
+n_heads=4
+dim=256
+hidden_dim=1024
+use_hard_labels="false"
+
+echo "###########################################"
+if [ "$#" -ge 1 ]; then
+  distil_cfg=$1
+  echo "Using student config: $distil_cfg"
+  source $distil_cfg
+else
+  echo "Using defaults"
+fi
+
+echo "n_heads: $n_heads"
+echo "n_layers: $n_layers"
+echo "dim: $dim"
+echo "hidden_dim: $hidden_dim"
+echo "use_hard_labels: $use_hard_labels"
+echo "###########################################"
+# exit 0
 
 echo "DISTILLATION STARTING"
 pushd $TRANSFORMERS/examples
@@ -62,13 +90,14 @@ python distil_from_finetuned.py \
   --task_name $TASK_NAME \
   --do_lower_case \
   --max_position_embeddings $max_seq_len \
-  --n_layers 3 \
-  --n_heads 4 \
-  --dim 256 \
-  --hidden_dim 1024 \
+  --n_layers $n_layers \
+  --n_heads $n_heads \
+  --dim $dim \
+  --hidden_dim $hidden_dim \
   --dropout 0.1 \
   --attention_dropout 0.1 \
   --teacher_name $TEACHER_DIR \
+  --use_hard_labels "$use_hard_labels" \
   --temperature 2.0 \
   --n_epoch 150 \
   --batch_size 32 \

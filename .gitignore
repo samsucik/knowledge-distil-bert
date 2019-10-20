@@ -1,6 +1,7 @@
 data/glue_data
 data/sara
 experiments/**/
+!experiments/student-configs/
 *.log
 notes.txt
 nohup.out
