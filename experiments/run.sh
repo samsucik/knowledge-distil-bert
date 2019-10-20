@@ -99,13 +99,13 @@ python distil_from_finetuned.py \
   --teacher_name $TEACHER_DIR \
   --use_hard_labels "$use_hard_labels" \
   --temperature 2.0 \
-  --n_epoch 150 \
+  --n_epoch 250 \
   --batch_size 32 \
   --per_gpu_eval_batch_size 64 \
   --gradient_accumulation_steps 2 \
   --warmup_prop 0.1 \
   --weight_decay 0.0 \
-  --learning_rate 2e-5 \
+  --learning_rate 5e-6 \
   --max_grad_norm 5.0 \
   --initializer_range 0.02  \
   --n_gpu $n_gpu \
