@@ -63,6 +63,7 @@ n_heads=4
 dim=256
 hidden_dim=1024
 use_hard_labels="false"
+from_pretrained="none"
 
 echo "###########################################"
 if [ "$#" -ge 1 ]; then
@@ -77,7 +78,9 @@ echo "n_heads: $n_heads"
 echo "n_layers: $n_layers"
 echo "dim: $dim"
 echo "hidden_dim: $hidden_dim"
+echo "max_seq_len: $max_seq_len"
 echo "use_hard_labels: $use_hard_labels"
+echo "from_pretrained: $from_pretrained"
 echo "###########################################"
 # exit 0
 
@@ -87,6 +90,7 @@ python distil_from_finetuned.py \
   --data_dir $GLUE_DIR/$TASK_NAME \
   --output_dir $DISTIL_DIR \
   --force \
+  --from_pretrained "$from_pretrained" \
   --task_name $TASK_NAME \
   --do_lower_case \
   --max_position_embeddings $max_seq_len \
