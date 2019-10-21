@@ -63,6 +63,9 @@ n_heads=4
 dim=256
 hidden_dim=1024
 use_hard_labels="false"
+batch_size=32
+gradient_accumulation_steps=2
+n_epoch=250
 from_pretrained="none"
 
 echo "###########################################"
@@ -80,6 +83,9 @@ echo "dim: $dim"
 echo "hidden_dim: $hidden_dim"
 echo "max_seq_len: $max_seq_len"
 echo "use_hard_labels: $use_hard_labels"
+echo "batch_size: $batch_size"
+echo "gradient_accumulation_steps: $gradient_accumulation_steps"
+echo "n_epoch: $n_epoch"
 echo "from_pretrained: $from_pretrained"
 echo "###########################################"
 # exit 0
@@ -103,10 +109,10 @@ python distil_from_finetuned.py \
   --teacher_name $TEACHER_DIR \
   --use_hard_labels "$use_hard_labels" \
   --temperature 2.0 \
-  --n_epoch 250 \
-  --batch_size 32 \
+  --n_epoch $n_epoch \
+  --batch_size $batch_size \
   --per_gpu_eval_batch_size 64 \
-  --gradient_accumulation_steps 2 \
+  --gradient_accumulation_steps $gradient_accumulation_steps \
   --warmup_prop 0.1 \
   --weight_decay 0.0 \
   --learning_rate 5e-6 \
