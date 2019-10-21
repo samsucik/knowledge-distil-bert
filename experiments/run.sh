@@ -67,6 +67,7 @@ batch_size=32
 gradient_accumulation_steps=2
 n_epoch=250
 from_pretrained="none"
+checkpoint_interval=25
 
 echo "###########################################"
 if [ "$#" -ge 1 ]; then
@@ -87,6 +88,7 @@ echo "batch_size: $batch_size"
 echo "gradient_accumulation_steps: $gradient_accumulation_steps"
 echo "n_epoch: $n_epoch"
 echo "from_pretrained: $from_pretrained"
+echo "checkpoint_interval: $checkpoint_interval"
 echo "###########################################"
 # exit 0
 
@@ -125,7 +127,7 @@ python distil_from_finetuned.py \
   --evaluate_during_training \
   --rich_eval \
   --log_examples \
-  --checkpoint_interval 25 \
+  --checkpoint_interval $checkpoint_interval \
   # --max_steps 10 \
   # --toy_mode \
 
