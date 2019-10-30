@@ -1,8 +1,8 @@
-echo -e "\nUsage: $0 distil --config=student-configs/third.cfg --task=cola --teacher-dir=CoLA/teacher\n"
+echo -e "\nUsage: $0 distil-bert --config=student-configs/third.cfg --task=CoLA --teacher-dir=CoLA/teacher\n"
 
 # defaults
-stage=distil
-task=cola
+stage=distil-bert
+task=CoLA
 config=student-configs/third.cfg
 teacher_dir=
 
@@ -52,5 +52,7 @@ if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
     run_in_cluster.sh "${stage}" "${task}" "${config}" "${teacher_dir}"
 else
   echo "Running locally."
-  ./run_${stage}.sh "${stage}" "${task}" "${config}" "${teacher_dir}"
+  dt=$(date '+%b%d-%H:%M:%S')
+  out_dir=$(pwd)/$stage-$task-$dt
+  ./run_${stage}.sh "${task}" "${config}" "${out_dir}" "${teacher_dir}"
 fi

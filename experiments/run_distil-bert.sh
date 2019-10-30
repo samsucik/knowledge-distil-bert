@@ -2,6 +2,11 @@
 
 # set -o xtrace
 
+task=$1 
+cfg=$2
+out_dir=$3
+teacher_dir=$4
+
 if [[ $(nvidia-smi -L) =~ "GPU" ]]
 then
     echo "Some GPUs found."
@@ -13,51 +18,11 @@ else
     no_cuda="True"
 fi
 
+export TASK_NAME=$task
+export TEACHER_DIR=$teacher_dir
+export DISTIL_DIR=$out_dir
+
 max_seq_len=128
-
-export TASK_NAME=CoLA
-export OUT_DIR=$(pwd)/$TASK_NAME/teacher
-
-#echo "TEACHER FINETUNING STARTING"
-#pushd $TRANSFORMERS/examples
-#python run_glue.py \
-#  --data_dir $GLUE_DIR/$TASK_NAME \
-#  --model_type bert \
-#  --model_name_or_path bert-base-uncased \
-#  --task_name $TASK_NAME \
-#  --output_dir ${OUT_DIR}/ \
-#  --do_lower_case \
-#  --per_gpu_train_batch_size 16 \
-#  --per_gpu_eval_batch_size 64 \
-#  --max_seq_length $max_seq_len \
-#  --gradient_accumulation_steps 2 \
-#  --learning_rate 2e-5 \
-#  --num_train_epochs 6 \
-#  --logging_steps 32 \
-#  --save_steps -1 \
-#  --overwrite_output_dir \
-#  --do_eval \
-#  --do_train \
-#  --evaluate_during_training \
-#  --rich_eval \
-#  --log_examples \
-  # --no_cuda \
-  # --max_steps 7 \
-  # --toy_mode \
-  # --eval_all_checkpoints \
-
-#popd
-#echo "TEACHER FINETUNING FINISHED"
-#exit 0
-
-
-###################################################################################################
-## DISTILLATION
-###################################################################################################
-
-export TEACHER_DIR=${OUT_DIR}
-export DISTIL_DIR=$(pwd)/$TASK_NAME/distillation
-
 n_layers=3
 n_heads=4
 dim=256
@@ -69,15 +34,9 @@ n_epoch=250
 from_pretrained="none"
 checkpoint_interval=25
 
-echo "###########################################"
-if [ "$#" -ge 1 ]; then
-  distil_cfg=$1
-  echo "Using student config: $distil_cfg"
-  source $distil_cfg
-else
-  echo "Using defaults"
-fi
+source $cfg
 
+echo "###########################################"
 echo "n_heads: $n_heads"
 echo "n_layers: $n_layers"
 echo "dim: $dim"
@@ -90,7 +49,8 @@ echo "n_epoch: $n_epoch"
 echo "from_pretrained: $from_pretrained"
 echo "checkpoint_interval: $checkpoint_interval"
 echo "###########################################"
-# exit 0
+
+exit 0
 
 echo "DISTILLATION STARTING"
 pushd $TRANSFORMERS/examples

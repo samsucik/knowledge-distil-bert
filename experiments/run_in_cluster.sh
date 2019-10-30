@@ -12,7 +12,8 @@ mkdir -p /disk/scratch/s1513472
 SPACE=/disk/scratch/s1513472
 mkdir -p $SPACE/data
 GLUE_DIR_LOCAL=${SPACE}/data/glue_data
-TGT_DIR=$SPACE/slurm-${SLURM_JOB_NAME}-${SLURM_JOB_ID}
+dt=$(date '+%b%d-%H:%M:%S')
+TGT_DIR=$SPACE/$stage-$task-$dt
 mkdir -p $TGT_DIR
 OUT_F=$TGT_DIR/out.txt
 touch $OUT_F
