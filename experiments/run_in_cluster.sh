@@ -3,33 +3,26 @@
 stage=$1
 task=$2
 config=$3
-teacher_dir=$4
+out_dir=$4
+teacher_dir=$5
 
-echo "'${stage}' '${task}' '${config}' '${teacher_dir}'"
+echo "'${stage}' '${task}' '${config}' '${out_dir}' '${teacher_dir}'"
 
 # create scratch disk space and set up paths
-mkdir -p /disk/scratch/s1513472
 SPACE=/disk/scratch/s1513472
 mkdir -p $SPACE/data
 GLUE_DIR_LOCAL=${SPACE}/data/glue_data
-dt=$(date '+%b%d-%H:%M:%S')
-TGT_DIR=$SPACE/$stage-$task-$dt
-mkdir -p $TGT_DIR
-OUT_F=$TGT_DIR/out.txt
-touch $OUT_F
+OUT_DIR=$SPACE/$out_dir
+mkdir -p $OUT_DIR
 
 # copy data to scratch disk
 rsync -az ${GLUE_DIR}/ $GLUE_DIR_LOCAL
 
 # do computation
-nvidia-smi >> $OUT_F
-hostname >> $OUT_F
-head $GLUE_DIR_LOCAL/CoLA/test.tsv >> $OUT_F
-echo $TRANSFORMERS >> $OUT_F
-echo $GLUE_DIR >> $OUT_F
+./run_${stage}.sh "${task}" "${config}" "${OUT_DIR}" "${teacher_dir}"
 
 # copy results back to distributed FS
-rsync -az $TGT_DIR $(pwd)
+rsync -az $OUT_DIR $(pwd)
 
 # destroy the scratch disk space
 rm -rf $SPACE/*

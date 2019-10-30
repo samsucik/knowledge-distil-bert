@@ -39,7 +39,10 @@ echo "teacher-dir: $teacher_dir"
 
 # exit 0
 
+dt=$(date '+%b%d-%H:%M:%S')
+
 if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
+  out_dir=$stage-$task-$dt
   sbatch \
     --gres=gpu:1 \
     --partition=General_Usage \
@@ -49,10 +52,9 @@ if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
     --open-mode=append \
     --time=0-2 \
     --mem=30G \
-    run_in_cluster.sh "${stage}" "${task}" "${config}" "${teacher_dir}"
+    run_in_cluster.sh "${stage}" "${task}" "${config}" "${out_dir}" "${teacher_dir}"
 else
   echo "Running locally."
-  dt=$(date '+%b%d-%H:%M:%S')
   out_dir=$(pwd)/$stage-$task-$dt
   ./run_${stage}.sh "${task}" "${config}" "${out_dir}" "${teacher_dir}"
 fi
