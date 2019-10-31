@@ -1,7 +1,5 @@
 #!/bin/bash -u
 
-# set -o xtrace
-
 task=$1 
 cfg=$2
 out_dir=$3

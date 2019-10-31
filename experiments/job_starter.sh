@@ -16,15 +16,15 @@ do
 case $i in
     -c=*|--config=*)
     config="${i#*=}"
-    shift # past argument=value
+    shift
     ;;
     -t=*|--task=*)
     task="${i#*=}"
-    shift # past argument=value
+    shift
     ;;
     -d=*|--teacher-dir=*)
     teacher_dir="${i#*=}"
-    shift # past argument=value
+    shift
     ;;
     *)
 	echo "Unknown option: $i"
@@ -40,21 +40,20 @@ echo "teacher-dir: $teacher_dir"
 # exit 0
 
 dt=$(date '+%b%d-%H:%M:%S')
+out_dir=$stage-$task-$dt
 
 if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
-  out_dir=$stage-$task-$dt
   sbatch \
     --gres=gpu:1 \
     --partition=General_Usage \
     --job-name=$stage \
     --no-requeue \
-    --output=slurm.out \
-    --open-mode=append \
-    --time=0-2 \
+    --output=${out_dir}.out \
+    --open-mode=truncate \
+    --time=0-4 \
     --mem=30G \
     run_in_cluster.sh "${stage}" "${task}" "${config}" "${out_dir}" "${teacher_dir}"
 else
   echo "Running locally."
-  out_dir=$(pwd)/$stage-$task-$dt
-  ./run_${stage}.sh "${task}" "${config}" "${out_dir}" "${teacher_dir}"
+  ./run_${stage}.sh "${task}" "${config}" "$(pwd)/${out_dir}" "${teacher_dir}" &> ${out_dir}.out
 fi
