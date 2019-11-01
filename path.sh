@@ -12,3 +12,4 @@ fi
 export GLUE_DIR=$pwd/data/glue_data
 export TRANSFORMERS=$pwd/pytorch-transformers
 export DICE=/afs/inf.ed.ac.uk/user/s15/s1513472
+export DBERT=$pwd/d-bert

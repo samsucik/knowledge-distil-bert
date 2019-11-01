@@ -1,3 +1,6 @@
 [submodule "pytorch-transformers"]
 	path = pytorch-transformers
 	url = git@github.com:samsucik/pytorch-transformers.git
+[submodule "d-bert"]
+	path = d-bert
+	url = git@github.com:samsucik/d-bert.git
