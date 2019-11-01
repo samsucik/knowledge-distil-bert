@@ -14,3 +14,8 @@ wget -N https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-py
 wget -N https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-config.json
 wget -N https://s3.amazonaws.com/models.huggingface.co/bert/bert-base-uncased-vocab.txt
 
+# GPT-2
+wget -N https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-medium-pytorch_model.bin
+wget -N https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-medium-config.json
+wget -N https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-medium-vocab.json
+wget -N https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-medium-merges.txt
