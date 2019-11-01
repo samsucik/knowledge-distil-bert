@@ -11,3 +11,4 @@ fi
 
 export GLUE_DIR=$pwd/data/glue_data
 export TRANSFORMERS=$pwd/pytorch-transformers
+export DBERT=$pwd/d-bert
