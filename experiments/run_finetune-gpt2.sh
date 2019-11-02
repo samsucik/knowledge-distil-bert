@@ -50,7 +50,8 @@ pushd $DBERT
 # cache the dataset
 python -m dbert.generate.cache_datasets \
   --data-dir $GLUE_DIR_LOCAL/$TASK_NAME \
-  --output-file $OUT_DIR/dataset
+  --output-file $OUT_DIR/dataset \
+  --dataset_name $TASK_NAME
 
 # finetune gpt2
 python -m dbert.generate.finetune_gpt \
