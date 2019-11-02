@@ -48,20 +48,20 @@ echo "GPT-2 FINETUNING STARTING"
 pushd $DBERT
 
 # cache the dataset
-python -m dbert.generate.cache_datasets \
-  --data-dir $GLUE_DIR_LOCAL/$TASK_NAME \
-  --output-file $OUT_DIR/dataset \
-  --dataset_name $TASK_NAME
+#python -m dbert.generate.cache_datasets \
+#  --data-dir $GLUE_DIR_LOCAL/$TASK_NAME \
+#  --output-file $OUT_DIR/dataset \
+#  --dataset_name $TASK_NAME
 
 # finetune gpt2
 python -m dbert.generate.finetune_gpt \
   --save $OUT_DIR/pytorch_model.bin \
   --cache-file $OUT_DIR/dataset \
   --train-batch-size 16 \
-  --cache_dir "$cache_dir" \
+  --cache-dir "$cache_dir" \
   --gpt2-model "gpt2-medium" \
-  --num_train_epochs 1 \
-
+  --num-train-epochs 1
+exit 0
 # sample prefixes
 python -m dbert.generate.build_sampler \
   --cache-file $OUT_DIR/dataset \
