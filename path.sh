@@ -7,6 +7,7 @@ if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
 else
 	echo "I am in a DICE or other PC"
 	pwd=$(pwd)
+        export PYTORCH_TRANSFORMERS_CACHE=~/.cache/torch/pytorch_transformers
 fi
 
 export GLUE_DIR=$pwd/data/glue_data
