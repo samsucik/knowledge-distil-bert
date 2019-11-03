@@ -43,6 +43,7 @@ cache_dir=$PYTORCH_TRANSFORMERS_CACHE
 
 export TASK_NAME=$task
 export OUT_DIR=$out_dir
+mkdir -p $OUT_DIR
 
 echo "GPT-2 FINETUNING STARTING"
 pushd $DBERT
