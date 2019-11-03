@@ -41,18 +41,20 @@ echo "teacher-dir: $teacher_dir"
 
 dt=$(date '+%b%d-%H:%M:%S')
 out_dir=$stage-$task-$dt
+interactive=false
 
 if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
   sbatch \
     --gres=gpu:1 \
     --partition=General_Usage \
+    --nodelist=letha03 \
     --job-name=$stage \
     --no-requeue \
     --output=${out_dir}.out \
     --open-mode=truncate \
-    --time=0-4 \
-    --mem=30G \
-    run_in_cluster.sh "${stage}" "${task}" "${config}" "${out_dir}" "${teacher_dir}"
+    --time=0-1 \
+    --mem=20G \
+    run_in_cluster.sh "${stage}" "${task}" "${config}" "${out_dir}" "${teacher_dir}" "${interactive}"
 else
   echo "Running locally."
   export GLUE_DIR_LOCAL=$GLUE_DIR
