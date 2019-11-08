@@ -5,5 +5,5 @@ experiments/**/
 !experiments/teacher-configs/
 *.log
 *.out
-notes.txt
+notes.md
 nohup.out

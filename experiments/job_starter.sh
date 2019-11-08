@@ -57,5 +57,6 @@ if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
     run_in_cluster.sh "${stage}" "${task}" "${config}" "${out_dir}" "${teacher_dir}" "${interactive}"
 else
   echo "Running locally."
+  export GLUE_DIR_LOCAL=$GLUE_DIR
   ./run_${stage}.sh "${task}" "${config}" "$(pwd)/${out_dir}" "${teacher_dir}" &> ${out_dir}.out
 fi
