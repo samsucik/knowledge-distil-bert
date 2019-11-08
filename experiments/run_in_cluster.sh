@@ -38,5 +38,6 @@ if [ "$interactive" != "true" ]; then
   rsync -az $OUT_DIR $(pwd)
 
   # destroy the scratch disk space
+  #rm -rf $OUT_DIR
   rm -rf $SPACE/*
 fi

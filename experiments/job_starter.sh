@@ -45,15 +45,15 @@ interactive=false
 
 if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
   sbatch \
-    --gres=gpu:1 \
-    --partition=General_Usage \
-    --nodelist=letha03 \
+    --gres=gpu:4 \
+    --partition=Teach-LongJobs \
+    --nodelist=landonia[11,21] \
     --job-name=$stage \
     --no-requeue \
     --output=${out_dir}.out \
     --open-mode=truncate \
-    --time=0-1 \
-    --mem=20G \
+    --time=3-8 \
+    --mem=30G \
     run_in_cluster.sh "${stage}" "${task}" "${config}" "${out_dir}" "${teacher_dir}" "${interactive}"
 else
   echo "Running locally."
