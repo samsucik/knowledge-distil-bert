@@ -37,8 +37,6 @@ echo "task: $task"
 echo "config: $config"
 echo "teacher-dir: $teacher_dir"
 
-# exit 0
-
 dt=$(date '+%b%d-%H:%M:%S')
 out_dir=$stage-$task-$dt
 interactive=false
@@ -58,5 +56,5 @@ if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
 else
   echo "Running locally."
   export GLUE_DIR_LOCAL=$GLUE_DIR
-  ./run_${stage}.sh "${task}" "${config}" "$(pwd)/${out_dir}" "${teacher_dir}" &> ${out_dir}.out
+  ./run_${stage}.sh "${task}" "${config}" "$(pwd)/${out_dir}" "${teacher_dir}" #&> ${out_dir}.out
 fi

@@ -17,7 +17,7 @@ else
 fi
 
 export TASK_NAME=$task
-export TEACHER_DIR=$teacher_dir
+export TEACHER_DIR=$(pwd)/$teacher_dir
 export DISTIL_DIR=$out_dir
 
 max_seq_len=128
@@ -47,8 +47,6 @@ echo "n_epoch: $n_epoch"
 echo "from_pretrained: $from_pretrained"
 echo "checkpoint_interval: $checkpoint_interval"
 echo "###########################################"
-
-exit 0
 
 echo "DISTILLATION STARTING"
 pushd $TRANSFORMERS/examples
@@ -86,6 +84,8 @@ python distil_from_finetuned.py \
   --rich_eval \
   --log_examples \
   --checkpoint_interval $checkpoint_interval \
+  --augmentation_data_file "data_augmentation-${TASK_NAME}/sampled_sentences" \
+  --augmentation_type "gpt-2"
   # --max_steps 10 \
   # --toy_mode \
 
