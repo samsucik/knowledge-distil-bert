@@ -31,7 +31,7 @@ gradient_accumulation_steps=2
 n_epoch=250
 from_pretrained="none"
 checkpoint_interval=25
-
+augmentation_data_file="$(pwd)/data_augmentation-${TASK_NAME}/sampled_sentences"
 source $cfg
 
 echo "###########################################"
@@ -46,6 +46,7 @@ echo "gradient_accumulation_steps: $gradient_accumulation_steps"
 echo "n_epoch: $n_epoch"
 echo "from_pretrained: $from_pretrained"
 echo "checkpoint_interval: $checkpoint_interval"
+echo "augmentation_data_file: $augmentation_data_file"
 echo "###########################################"
 
 echo "DISTILLATION STARTING"
@@ -84,7 +85,7 @@ python distil_from_finetuned.py \
   --rich_eval \
   --log_examples \
   --checkpoint_interval $checkpoint_interval \
-  --augmentation_data_file "data_augmentation-${TASK_NAME}/sampled_sentences" \
+  --augmentation_data_file $augmentation_data_file \
   --augmentation_type "gpt-2"
   # --max_steps 10 \
   # --toy_mode \
