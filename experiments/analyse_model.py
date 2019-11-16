@@ -1,6 +1,6 @@
 import torch
 
-path = "CoLA.bak/distillation/tensorboard/Oct15_08-33-57_mario.inf.ed.ac.uk/pytorch_model.bin"
+path = "teacher-CoLA/pytorch_model.bin"
 state_dict = torch.load(path, map_location=torch.device('cpu'))
 
 for (name, value) in state_dict.items():

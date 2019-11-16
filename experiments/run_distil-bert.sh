@@ -32,6 +32,7 @@ n_epoch=250
 from_pretrained="none"
 checkpoint_interval=25
 augmentation_data_file="$(pwd)/data_augmentation-${TASK_NAME}/sampled_sentences"
+embeddings_from_teacher=false
 source $cfg
 
 echo "###########################################"
@@ -47,6 +48,7 @@ echo "n_epoch: $n_epoch"
 echo "from_pretrained: $from_pretrained"
 echo "checkpoint_interval: $checkpoint_interval"
 echo "augmentation_data_file: $augmentation_data_file"
+echo "embeddings_from_teacher: $embeddings_from_teacher"
 echo "###########################################"
 
 echo "DISTILLATION STARTING"
@@ -86,7 +88,8 @@ python distil_from_finetuned.py \
   --log_examples \
   --checkpoint_interval $checkpoint_interval \
   --augmentation_data_file $augmentation_data_file \
-  --augmentation_type "gpt-2"
+  --augmentation_type "gpt-2" \
+  --embeddings_from_teacher $embeddings_from_teacher
   # --max_steps 10 \
   # --toy_mode \
 
