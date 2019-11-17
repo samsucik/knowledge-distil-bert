@@ -20,6 +20,7 @@ export TASK_NAME=$task
 export TEACHER_DIR=$(pwd)/$teacher_dir
 export DISTIL_DIR=$out_dir
 
+optimizer="adam"
 learning_rate=5e-6
 max_seq_len=128
 n_layers=3
@@ -38,6 +39,7 @@ embeddings_from_teacher=false
 source $cfg
 
 echo "###########################################"
+echo "optimizer: $optimizer"
 echo "learning_rate: $learning_rate"
 echo "n_heads: $n_heads"
 echo "n_layers: $n_layers"
@@ -80,6 +82,7 @@ python distil_from_finetuned.py \
   --gradient_accumulation_steps $gradient_accumulation_steps \
   --warmup_prop 0.1 \
   --weight_decay 0.0 \
+  --optimizer $optimizer \
   --learning_rate $learning_rate \
   --max_grad_norm 5.0 \
   --initializer_range 0.02  \
