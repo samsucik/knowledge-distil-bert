@@ -43,9 +43,9 @@ interactive=false
 
 if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
   sbatch \
-    --gres=gpu:4 \
+    --gres=gpu:1 \
     --partition=Teach-LongJobs \
-    --nodelist=landonia[11,21] \
+    --nodelist=landonia11 \
     --job-name=$stage \
     --no-requeue \
     --output=${out_dir}.out \
