@@ -10,9 +10,9 @@ interactive=$6
 echo "'${stage}' '${task}' '${config}' '${out_dir}' '${teacher_dir}'"
 
 # create scratch disk space and set up paths
-hostname
-ls -l /disk
-ls -l /disk/scratch
+# hostname
+# ls -l /disk
+# ls -l /disk/scratch
 nvidia-smi
 SPACE=/disk/scratch/s1513472
 mkdir -p $SPACE/data
@@ -28,16 +28,17 @@ if [ "$stage" == "finetune-gpt2" ] && [ -d "$DATA_AUGMENTATION_DIR" ]; then
   rsync -az ${DATA_AUGMENTATION_DIR}/ $DATA_AUGMENTATION_DIR_LOCAL
 fi
 echo $GLUE_DIR_LOCAL
-ls -l $GLUE_DIR_LOCAL/CoLA
+# ls -l $GLUE_DIR_LOCAL/CoLA
 
 # do computation
 ./run_${stage}.sh "${task}" "${config}" "${OUT_DIR}" "${teacher_dir}"
 
 if [ "$interactive" != "true" ]; then
   # copy results back to distributed FS
+  ls -la $OUT_DIR
   rsync -az $OUT_DIR $(pwd)
 
   # destroy the scratch disk space
-  #rm -rf $OUT_DIR
-  rm -rf $SPACE/*
+  rm -rf $OUT_DIR
+  # rm -rf $SPACE/*
 fi
