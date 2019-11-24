@@ -7,3 +7,6 @@ experiments/**/
 *.out
 notes.md
 nohup.out
+glove.840B.300d.*
+GoogleNews-vectors-negative300.*
+.ipynb_checkpoints
