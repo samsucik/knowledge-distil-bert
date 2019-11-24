@@ -56,5 +56,6 @@ if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
 else
   echo "Running locally."
   export GLUE_DIR_LOCAL=$GLUE_DIR
+  mkdir -p $(pwd)/${out_dir}
   ./run_${stage}.sh "${task}" "${config}" "$(pwd)/${out_dir}" "${teacher_dir}" #&> ${out_dir}.out
 fi

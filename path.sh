@@ -10,7 +10,9 @@ else
         export PYTORCH_TRANSFORMERS_CACHE=~/.cache/torch/pytorch_transformers
 fi
 
-export GLUE_DIR=$pwd/data/glue_data
+export DATA_DIR=$pwd/data
+export GLUE_DIR=$DATA_DIR/glue_data
 export TRANSFORMERS=$pwd/pytorch-transformers
 export DICE=/afs/inf.ed.ac.uk/user/s15/s1513472
 export DBERT=$pwd/d-bert
+export WORD_VECTORS_DIR=$pwd/data/word_vectors
