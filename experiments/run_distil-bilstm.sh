@@ -34,7 +34,7 @@ python -m dbert.distill.run.distill_birnn \
 	--dev_file "dev.tsv" \
 	--lr 1.0 \
 	--distill_lambda 1.0 \
-	--epochs 1 \
+	--epochs 30 \
 	--mode "multichannel" \
 	--optimizer "adadelta" \
 	--logits_path "" \
