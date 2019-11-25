@@ -5,7 +5,7 @@ cfg=$2
 out_dir=$3
 teacher_dir=$4
 
-if [[ $(nvidia-smi -L) =~ "GPU" ]]
+if [[ $(nvidia-smi -L 2>/dev/null) =~ "GPU" ]]
 then
     echo "Some GPUs found."
     n_gpu=1
@@ -31,6 +31,7 @@ use_hard_labels="false"
 batch_size=32
 gradient_accumulation_steps=2
 n_epochs=250
+max_steps=-1
 from_pretrained="none"
 checkpoint_interval=25
 log_interval=128
@@ -50,6 +51,7 @@ echo "use_hard_labels: $use_hard_labels"
 echo "batch_size: $batch_size"
 echo "gradient_accumulation_steps: $gradient_accumulation_steps"
 echo "n_epochs: $n_epochs"
+echo "max_steps: $max_steps"
 echo "from_pretrained: $from_pretrained"
 echo "checkpoint_interval: $checkpoint_interval"
 echo "log_interval: $log_interval"
@@ -58,7 +60,7 @@ echo "embeddings_from_teacher: $embeddings_from_teacher"
 echo "###########################################"
 
 echo "DISTILLATION STARTING"
-pushd $TRANSFORMERS/examples
+pushd $TRANSFORMERS/examples > /dev/null
 python distil_from_finetuned.py \
   --data_dir $GLUE_DIR/$TASK_NAME \
   --output_dir $DISTIL_DIR \
@@ -96,9 +98,9 @@ python distil_from_finetuned.py \
   --checkpoint_interval $checkpoint_interval \
   --augmentation_data_file $augmentation_data_file \
   --augmentation_type "gpt-2" \
-  --embeddings_from_teacher $embeddings_from_teacher
-  # --max_steps 10 \
+  --embeddings_from_teacher $embeddings_from_teacher \
+  --max_steps $max_steps
   # --toy_mode \
 
-popd
+popd > /dev/null
 echo "DISTILLATION FINISHED"

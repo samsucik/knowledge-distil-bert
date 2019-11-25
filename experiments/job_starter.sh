@@ -4,7 +4,7 @@ echo -e "\nUsage: $0 distil-bert --config=student-configs/third.cfg --task=CoLA 
 stage=distil-bert
 task=CoLA
 config=student-configs/third.cfg
-teacher_dir=
+teacher_dir=teacher-$task
 
 if [ "$#" -ge 1 ]; then
   stage=$1

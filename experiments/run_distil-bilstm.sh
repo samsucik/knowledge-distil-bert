@@ -12,7 +12,7 @@ WORD_VECTORS_FILE="GoogleNews-vectors-negative300.txt"
 
 TASK_NAME_LC=$(echo "$TASK_NAME" | awk '{print tolower($0)}')
 
-if [[ $(nvidia-smi -L) =~ "GPU" ]]
+if [[ $(nvidia-smi -L 2>/dev/null) =~ "GPU" ]]
 then
     echo "Some GPUs found."
     device="cuda:0"
@@ -21,7 +21,7 @@ else
     device="cpu"
 fi
 
-pushd $DBERT
+pushd $DBERT > /dev/null
 python -m dbert.distill.run.distill_birnn \
 	--transformers_path $TRANSFORMERS \
 	--config confs/birnn_${TASK_NAME_LC}.json \
@@ -44,7 +44,7 @@ python -m dbert.distill.run.distill_birnn \
 	--weight_decay 0.0
 	# --eval_test_only
 
-popd
+popd > /dev/null
 
 # {'dataset_path': '/mnt/nvme/glue/CoLA', 
 # 'dataset_name': 'cola', 
