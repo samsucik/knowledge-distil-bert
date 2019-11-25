@@ -22,8 +22,8 @@ else
 fi
 
 pushd $DBERT
-echo $WORD_VECTORS_DIR
 python -m dbert.distill.run.distill_birnn \
+	--transformers_path $TRANSFORMERS \
 	--config confs/birnn_${TASK_NAME_LC}.json \
 	--device $device \
 	--workspace $out_dir \
@@ -36,10 +36,12 @@ python -m dbert.distill.run.distill_birnn \
 	--distill_lambda 1.0 \
 	--epochs 1 \
 	--mode "multichannel" \
+	--optimizer "adadelta" \
 	--logits_path "" \
 	--ce_lambda 0.0 \
 	--n_feature_maps 0 \
-	--output_channel 0
+	--output_channel 0 \
+	--weight_decay 0.0
 	# --eval_test_only
 
 popd
