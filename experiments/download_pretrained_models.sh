@@ -2,7 +2,7 @@
 
 cache_dir=$PYTORCH_TRANSFORMERS_CACHE
 mkdir -p $cache_dir
-cd $cache_dir
+pushd $cache_dir > /dev/null
 
 # BERT large uncased
 wget -N https://s3.amazonaws.com/models.huggingface.co/bert/bert-large-uncased-pytorch_model.bin
@@ -19,3 +19,5 @@ wget -N https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-medium-pytorch_
 wget -N https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-medium-config.json
 wget -N https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-medium-vocab.json
 wget -N https://s3.amazonaws.com/models.huggingface.co/bert/gpt2-medium-merges.txt
+
+popd > /dev/null
