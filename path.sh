@@ -1,15 +1,23 @@
 #!/bin/bash -u
 
+cluster_node=$1
+
 if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
 	echo "I am in the cluster"
-	pwd=/mnt/mscteach_home/s1513472/minfp2
-	export PYTORCH_TRANSFORMERS_CACHE=/mnt/mscteach_home/s1513472/.cache/torch/pytorch_transformers
+	if [[ "$cluster_node" = "landonia21" ]]; then
+		home_dir=/mnt/glusterfs/teaching-home
+	else
+		home_dir=/mnt/mscteach_home
+	fi
+	pwd=$home_dir/s1513472/minfp2
+	export PYTORCH_TRANSFORMERS_CACHE=$home_dir/s1513472/.cache/torch/pytorch_transformers
 else
 	echo "I am in a DICE or other PC"
 	pwd=$(pwd)
-        export PYTORCH_TRANSFORMERS_CACHE=~/.cache/torch/pytorch_transformers
+	export PYTORCH_TRANSFORMERS_CACHE=~/.cache/torch/pytorch_transformers
 fi
 
+export PROJECT_DIR=$pwd
 export DATA_DIR=$pwd/data
 export GLUE_DIR=$DATA_DIR/glue_data
 export TRANSFORMERS=$pwd/pytorch-transformers

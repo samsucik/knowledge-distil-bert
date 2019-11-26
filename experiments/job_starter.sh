@@ -42,10 +42,12 @@ out_dir=$stage-$task-$dt
 interactive=false
 
 if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
+  nodelist=landonia21
+  source $PROJECT_DIR/path.sh "$nodelist"
   sbatch \
     --gres=gpu:1 \
     --partition=Teach-LongJobs \
-    --nodelist=landonia11 \
+    --nodelist=$nodelist \
     --job-name=$stage \
     --no-requeue \
     --output=${out_dir}.out \
