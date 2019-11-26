@@ -37,6 +37,8 @@ checkpoint_interval=25
 log_interval=128
 augmentation_data_file="$(pwd)/data_augmentation-${TASK_NAME}/sampled_sentences"
 embeddings_from_teacher=false
+embedding_dimensionality=$hidden_dim
+embedding_dimensionality_reduction_technique="linear"
 source $cfg
 
 echo "###########################################"
@@ -57,6 +59,8 @@ echo "checkpoint_interval: $checkpoint_interval"
 echo "log_interval: $log_interval"
 echo "augmentation_data_file: $augmentation_data_file"
 echo "embeddings_from_teacher: $embeddings_from_teacher"
+echo "embedding_dimensionality: $embedding_dimensionality"
+echo "embedding_dimensionality_reduction_technique: $embedding_dimensionality_reduction_technique"
 echo "###########################################"
 
 echo "DISTILLATION STARTING"
@@ -99,6 +103,8 @@ python distil_from_finetuned.py \
   --augmentation_data_file $augmentation_data_file \
   --augmentation_type "gpt-2" \
   --embeddings_from_teacher $embeddings_from_teacher \
+  --embedding_dimensionality $embedding_dimensionality \
+  --embedding_dimensionality_reduction_technique $embedding_dimensionality_reduction_technique \
   --max_steps $max_steps
   # --toy_mode \
 
