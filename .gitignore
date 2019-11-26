@@ -1,6 +1,11 @@
-data/glue_data
-data/sara
+# data directories
+glove.840B.300d.*
+GoogleNews-vectors-negative300.*
+data/glue_data/*
+data/sara/*
+!data/sara/*.tsv
 !data/sara/*.py
+
 experiments/**/
 !experiments/student-configs/
 !experiments/teacher-configs/
@@ -8,6 +13,5 @@ experiments/**/
 *.out
 notes.md
 nohup.out
-glove.840B.300d.*
-GoogleNews-vectors-negative300.*
 .ipynb_checkpoints
+*.zip

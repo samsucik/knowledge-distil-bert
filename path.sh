@@ -16,3 +16,4 @@ export TRANSFORMERS=$pwd/pytorch-transformers
 export DICE=/afs/inf.ed.ac.uk/user/s15/s1513472
 export DBERT=$pwd/d-bert
 export WORD_VECTORS_DIR=$pwd/data/word_vectors
+export PYTHONPATH=$TRANSFORMERS:$DBERT:$PYTHONPATH
