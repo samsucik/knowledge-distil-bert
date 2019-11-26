@@ -1,5 +1,6 @@
 data/glue_data
 data/sara
+!data/sara/*.py
 experiments/**/
 !experiments/student-configs/
 !experiments/teacher-configs/

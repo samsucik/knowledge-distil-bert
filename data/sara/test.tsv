@@ -1,0 +1,987 @@
+0	Yes
+0	That would be great
+0	I guess so
+0	please
+0	Yes
+0	Okay
+0	yap
+0	hm, i'd like that
+0	ok fine
+0	ya cool
+0	Sweet
+0	yep if i have to
+0	ja cool
+0	Yea
+0	how nice!
+0	yesss
+0	Oh yes
+0	yesssss
+0	ya go for it
+0	Yes please
+0	Yes please!
+0	go for it
+0	absolutely
+0	it is ok
+0	Accept
+0	yyeeeh
+0	ok
+0	yez
+0	ok sara
+0	Yep
+0	done
+0	that's great
+0	alright
+0	ok, Sara
+0	yes.
+0	great
+0	yep that's nice
+0	okay cool
+0	ya i want
+0	you asked me a yes or no question, which i answered with yes
+0	Yes, I accept
+0	yes please!
+0	ja thats great
+0	yes great
+0	yeah sure
+0	I am using it
+0	Okay!
+0	yeeees
+1	Who modeled you?
+1	tell me more about your founders
+1	why were you made?
+1	Who created and built you?
+1	Who is the name of your creator?
+1	Who made you?
+1	which company invented you?
+1	who developed you
+1	Tell me the name of the person who built you.
+1	Who were you made by?
+1	who is your boss tell me
+1	who developed
+1	who had the idea to make you?
+1	who is your boss
+1	who is your father ?
+1	Who is the person responsible for building you?
+1	Who put you together?
+1	Who created you?
+1	who made you?
+1	Do you know who built you?
+1	who do you work for?
+2	what chat channels does rasa uses
+2	which messaging channels are supported by rasa?
+2	what are the channels Rasa NLU supports
+2	what channels does rasa support
+2	What communication channels are supported by rasa?
+2	what channels do you support?
+2	What are the requirements for connecting messaging channel to rasa?
+2	channels supported by Rasa
+3	Do you know how many people are in the Rasa community?
+3	How many individuals reside in your community?
+3	How far does the Rasa community spread?
+3	Do you know how big the Rasa community is?
+3	Is the community large?
+3	What is the magnitude of the Rasa community?
+3	Is the Rasa Community large?
+3	How big is this community?
+3	How many people are in your community?
+4	What sets nlu apart from core?
+4	what is the difference between nlu and core?
+4	what's the  difference between rasa nlu and rasa core
+4	What makes core distinct to nlu?
+4	What is the difference between NLU and Core?
+4	What makes core and nlu different?
+4	what the different with rasa nlu and rasa core?
+4	How do core and nlu differ?
+4	what is the difference between core and nlu?
+4	Is nlu different to core and, if so, how?
+4	How does core differ to nlu?
+4	Is Core different than NLU?
+5	does rasa works in spanish
+5	Which programming language is rasa written in?
+5	do you support french ?
+5	How many languages can you speak
+5	which languages are supported?
+5	which languages does rasa support
+5	What languages does rasa know?
+5	I want Vietnamese language processing
+5	what dialects does rasa support
+5	When I use Rasa, Can I make bot speaking Japanese?
+5	What languages can be used with rasa?
+5	What languages does rasa work for?
+5	I want to add Romanian language support
+5	do you know of the languages rasa supports
+5	does Rasa support other languages like spanish?
+5	need to use portuguese
+5	which language supports rasa
+5	language support
+5	what language supported by rasa?
+5	what languages does rasa support?
+6	is Rasa open sourced?
+6	rasa is the open source
+6	would an example of open source software be rasa?
+6	would you call rasa open source software?
+6	would rasa fall into the category of open source software?
+6	how do i get the open source rasa
+6	Could you tell me whether rasa is open source or not?
+6	is it open source
+6	Is rasa open source?
+6	are you full open source
+6	is it open source?
+7	Tell me about rasa platform
+7	tell me what is platform
+7	tell me about rasa platform
+7	tell me more about rasa platform
+8	which python version
+8	what version of python
+8	What Python version should I use?
+9	Please define the word slots for me.
+9	Please elaborate on the game of slots?
+9	What exactly are slots?
+9	I dunno what a slot is
+9	What are slots?
+9	help mi with slots
+9	Not sure what slots are.
+9	describe the word slot please
+9	a slot is what
+9	what do you mean by slots?
+9	What is the meaning of the word slots?
+9	slots
+9	how can we keep buttons to get slots
+10	i cannot find tutorial for rasa
+10	basic tutorials
+10	do you have a rasa tutorial
+10	i'm looking for the youtube tutorial
+10	tutorial?
+10	Did you have an tutorial.
+10	what's the best tutorial
+10	is there a tutorial for this?
+11	can I construct a voice bot with rasa?
+11	How can I build a voice bot with rasa?
+11	Do you see an application of rasa in voice bot building?
+11	i want to build a voice bot
+11	how to add voice assitant to chat bot
+11	How to use rasa to build a voice bot.
+11	How could I construct a voice bot with rasa?
+11	rasa can't be used to build a voice bot, can it?
+11	How can I build my voice bot using rasa?
+11	How to build a voice bot with rasa?
+11	can rasa be used with alexa
+11	you have speech recognition?
+11	Do you know how to build a voice bot with rasa?
+11	Can one make a voice bot with rasa?
+12	List the characteristics of rasa forum?
+12	what is the Rasa forum used for
+12	what area is the forum for?
+12	What can a person do in the forum
+12	How do you define the Rasa forum?
+12	what does a person do in the Rasa forum
+12	what can people in Rasa do at the forum
+12	which are the topics covered in this forum
+12	what can I post in the forum?
+12	is there anything specific to be done in this forum
+13	Is there some way I can help?
+13	How can I be more involved?
+13	how can I help improve your code
+13	What can I do to help?
+13	Tell me how I can contribute
+13	How can I assist the cause?
+13	What should I do fo this project?
+13	What ways can one make a contribution?
+13	There must be a way I can put forth my ideas to the situation.
+13	How does one go about making their contribution?
+13	How can I add code to Rasa
+14	How were you conceived?
+14	How were you set up?
+14	How were you made into who you are?
+14	How were you materialized?
+14	In what manner were you built?
+14	How exactly were you made?
+14	so how were you made?
+14	how were you made?
+14	I want to know how you were formed
+14	Let me know how you were made exactly
+15	hw r u?
+15	h r u ?
+15	How's life treating you friend?
+15	how is your evening
+15	Hows it going
+15	is everything all right
+15	how you doing?
+15	how are you
+15	okay hi how are you?
+15	how are you doing?
+15	and you
+15	what are you up to?
+15	Do you have a great day?
+15	whats new
+15	how do you do?
+15	How are you today?
+15	how r u>
+15	yow are you
+15	Hi Sara! How are you?
+16	whats your age?
+16	Whats your age?
+16	what age are you
+16	can you tell me exactly how old you are?
+16	What was your age on your last birthday?
+16	Tell me your day, month and year of birth.
+16	do you know how old you are?
+16	how aold are you
+16	How old are you?
+16	How long have you occupied the earth?
+16	how many ages?
+17	are you real
+17	are you rasa bot?
+17	what are you, a bot?
+17	are you a chatbot
+17	are you a bot ?
+17	are you sure that you're a bot?
+17	are you really a bot
+17	you are ai
+18	What languages can you communicate in?
+18	Can you speak more than one language?
+18	Do you speak any other languages?
+18	What languages do you speak?
+18	are you multilingual?
+18	What are the languages you can speak?
+18	Which languages are you familiar with?
+18	Do you know other languages?
+18	how many languages are you fluent in?
+18	In which languages can you speak?
+18	Do you know any other languages?
+18	what languages are you comfortable speaking at?
+19	how can I leave a query in the forum?
+19	I have an inquiry for the forum
+19	How do I ask a question on the forum?
+19	Take me to the forum help section.
+19	Is the forum the right place to ask questions?
+19	How do I post on the forum?
+19	How to I post a question on the forum?
+19	I wonder if the forum can answer my question.
+19	Where can I post on the forum?
+20	i want a french restaurant
+20	Can you find me a burger joint?
+20	Could you find me a restaurant to eat at?
+20	can i be shown a gluten free restaurant
+20	Where should I eat?
+20	Can you find a restaurant for me?
+20	I'm looking for a Spanish restaurant.
+20	Do you seek me a restaurant?
+20	Can you find me a restaurant?
+20	Recommend me a restaurant around here.
+20	Is there any restaurant?
+21	what is the time?
+21	What is the hour and minute right now?
+21	what is the current time?
+21	Do you know what time it is?
+21	What is the current time?
+21	I need to know what time it is.
+21	What might the time be?
+21	Pardon me, but do you know the time?
+21	What time do we have?
+21	tell me the time it is.
+22	Is it raining?
+22	what about the weather in Lüneburg
+22	hows the waether
+22	What is the weather for tomorrow?
+22	What's it like out there?
+22	What's the weather forecast?
+22	Do you have good weather?
+22	What is the weather at your place?
+22	what's the weather like?
+22	How is the weather?
+22	weather?
+22	Are we in for a scorcher?
+22	excellent - is it hot in Berlin?
+22	what's the weather like where you are?
+22	whats the weather like tomorrowtomorrow?
+22	Is it hot or cold?
+23	Say my name.
+23	Can you tell me what I am called?
+23	I'd like to know my name
+23	can you tell me my name?
+23	What name should I recognize for myself?
+23	Can you tell me my name?
+23	What is my first name?
+23	What is my full name?
+24	What components does Rasa have?
+24	I want to know what rasa actually does that isn't clear to me yet
+24	what can i build with rasa core?
+24	What do you do at Rasa?
+24	What's rasa?
+24	OK can u brief me Abt rasa
+24	can you pls explain what rasa does
+24	how does rasa work
+24	Rasa Is?
+24	I want to learn what rasa is
+24	what can I do with Rasa?
+24	what is rasa ?
+24	What can rasa do?
+24	tell me bout rasa
+24	what is rasa actually
+25	so what can you help me with?
+25	what do you do
+25	what can you?
+25	what are you ding
+25	how can you help me
+25	how u can help me
+25	can I ask you anything else?
+25	i don't know what i want
+25	can you help me
+25	what you can do?
+25	so what can you do?
+25	what are the options?
+25	what can you do
+25	more info
+25	what can I do with this bot
+25	hep me
+25	How can you help me
+25	how you help me
+25	Can you explain me in one sentence what you are doing?
+25	talk to me
+26	Do you know the exact date for the next community event?
+26	When is it scheduled the next community event?
+26	What even is coming up next and when is it please?
+26	At which date the next community event will take place?
+26	At what time is the next event scheduled?
+26	what date is the next community event?
+26	when is our next group event going to take place?
+26	Is there any special in next community event?
+27	You were conceived in what location?
+27	Where do you live?
+27	Where do you consider home?
+27	Where were you born?
+27	Around where are you from?
+27	Where did you come from?
+27	where did you grow up?
+27	where are from
+27	What is your root?
+27	What state were you born in?
+28	What are the events now?
+28	what kind of events will be held?
+28	What kinds of events are on your calendar?
+28	what are the events?
+28	what sort of social events are we throwing?
+28	What kinds of events do you host here?
+28	What is on the calendar for this month?
+28	what events will there be?
+28	can you explain what the events are?
+28	Is there a Rasa meetup
+29	tell me who I am?
+29	How do I discover who am I?
+29	Can you tell me who I am?
+29	Do you know who I am?
+29	what's my identity?
+29	who are I ?
+30	who is this?
+30	What are you ?
+30	wer bist Du?
+30	who are you??
+30	What's your name?
+30	What's your name
+30	WHo are you ?
+30	who am i talking to
+30	tell me something about you
+30	who are you and what do you want from me
+30	who talks?
+30	who are you?
+30	who am i speaking with
+31	Why add to your business?
+31	Why should I devote time to your code
+31	Why aid your opportunity?
+31	Why contribute to Rasa?
+31	Why should I contribute to your code?
+32	bye was nice talking to you
+32	take care
+32	goodnight
+32	bye .
+32	bye!
+32	see ya
+32	Bye
+32	catch you later
+33	you can't help me
+33	you can't help me with what i need
+33	i guess you can't help me then
+33	exit now
+33	stop
+34	can i talk to your disagreeable sales man?
+34	ok sales
+34	have a call
+34	i need to know how i can book support
+34	let me contact sales
+34	i think I want to talk to your sales folks
+34	i want to talk to sales
+34	sign me up, my email is __EMAIL_ADDRESS__
+34	i want to call
+34	id like a call please
+34	booking sales call
+34	request call with sales team
+34	Can I have a call?
+34	i want someone to call me
+34	book a sales call
+34	how to book a sales call
+34	let me call the sales team
+34	i'd like to talk to a sales person
+34	sales pl
+34	sales team connection
+34	Please schedule a sales call
+34	I wanna talk to your sales people.
+34	can i get a ssales call
+34	i want to have a call with sales
+34	call with sales team
+34	are there different packages customers can book?
+34	I want to book a call
+34	just gimme a call
+34	book sales call
+34	we started working with rasa but now we need support
+34	I want to talk to your sales team
+35	i guess it means - no
+35	nah, first time
+35	no!!!!
+35	nehi
+35	no i can't
+35	no sorry
+35	nah
+35	decline
+35	i don't want either of those
+35	Never
+35	No
+35	Neither
+35	noooooooooo
+35	never
+35	i don not like this
+35	NO
+35	no go
+35	No, thank you
+35	nah I'm good
+36	__PERSON_NAME__
+36	50 p
+36	__PERSON_NAME__
+36	__EMAIL_ADDRESS____EMAIL_ADDRESS__
+36	a sales bot
+36	we plan to build a sales bot to increase our revenue by 100%.
+36	__EMAIL_ADDRESS__
+36	pip please
+36	BCG brazil
+36	reddit
+36	portuguese
+36	__EMAIL_ADDRESS__
+36	I am __PERSON_NAME__
+36	__PERSON_NAME__ company
+36	the bot speaks dutch
+36	20000k
+36	it’s only in dutch but I plan to train it in other languages
+36	im a freelancer
+36	company: uber
+36	until now it’s only in chinese
+36	60 million INR
+36	head of biz deve
+36	__EMAIL_ADDRESS__
+36	2 euro
+36	it’s only in italian but I plan to train it in other languages
+36	it’s in german
+36	the language is dutch
+36	BigBotsInc
+36	we're building a conversational assistant for our employees to book meeting rooms.
+36	sales assitant
+36	user can talk to my bot in english
+36	I’ve trained it in mandarin
+36	__EMAIL_ADDRESS__
+36	__EMAIL_ADDRESS__
+36	half a million
+36	conda please
+36	the assistant is in dutch
+36	an __PERSON_NAME__ bot that I can talk to __PERSON_NAME__ all the time
+36	__EMAIL_ADDRESS__
+36	BCG digital ventures
+36	Rasa
+36	__PERSON_NAME__
+36	__PERSON_NAME__
+36	so far it only speaks english
+36	__EMAIL_ADDRESS__
+36	ACME Mops
+36	a killer bot
+36	a cool boy
+36	__PERSON_NAME____PERSON_NAME__
+36	BBC
+36	a good one?
+36	spam bot
+36	my bot is in portuguese
+36	150,000 USD
+36	__PERSON_NAME__
+36	I'm __PERSON_NAME__
+36	__EMAIL_ADDRESS____EMAIL_ADDRESS__
+36	none
+36	one billion
+36	I do not know yet
+36	ok it's __EMAIL_ADDRESS__
+36	the language is spanish
+36	This is __PERSON_NAME__
+36	the bot should help with HR stuff
+36	__EMAIL_ADDRESS__
+36	__EMAIL_ADDRESS__
+36	i am a projject manager
+36	Club Mate
+36	I'm a business woman
+36	i'm a dev
+36	No company!! 
+36	one that will get me promoted
+36	my name's __PERSON_NAME__
+36	£50k
+36	I want a bot that sales my product that __PERSON_NAME__ finally can focus on important stuff
+36	The name of the company is Daimler
+36	my name is __PERSON_NAME__
+36	the language is italian
+36	all the training data was in mandarin
+36	it’s available in italian
+36	SCALABLE MINDS
+36	my bot is in german
+36	__PERSON_NAME____PERSON_NAME__
+36	my function is to serve butter
+36	__EMAIL_ADDRESS__
+36	dutch is the language of my bot
+36	places and names
+36	dev
+36	Rasa bot
+36	My name is __PERSON_NAME__
+36	the assistant speaks french
+36	I am a data scientist
+36	a sentient robot
+36	one bot
+36	i want to extract names
+36	user can talk to my bot in german
+36	i want to build a bot
+36	__EMAIL_ADDRESS__
+36	IBM
+36	__EMAIL_ADDRESS__
+36	until now it’s only in german
+36	5 mln
+36	My name is __PERSON_NAME__
+36	im lonely
+36	it’s an spanish bot
+36	user can talk to my bot in italian
+36	75000-150000 euro
+36	custom entity
+36	money is all ok
+36	it speaks chinese
+36	I wrote it in italian
+36	conversational
+36	COO
+36	I want to use pip
+36	the people speak mandarin
+36	__EMAIL_ADDRESS__
+36	a bot which sends cute shiba pictures
+36	__PERSON_NAME__
+36	CEO
+36	klara health
+36	portuguese is the only language but I want to add more
+36	__EMAIL_ADDRESS__
+36	the language is english
+36	it’s trained only in english
+36	i use chinese
+36	language: mandarin
+36	user can communicate with the bot in spanish
+36	im a developer
+36	I wrote it in mandarin
+36	__EMAIL_ADDRESS__
+36	project manager
+36	__EMAIL_ADDRESS__
+36	it's a small company from the US, the name is Microsoft
+36	I'm a project manager
+36	it’s available in dutch
+36	Mr. __PERSON_NAME__
+36	the assistant speaks portuguese
+36	I work for the New York Times
+36	our estimation is 10k
+36	it’s trained in italian
+36	__EMAIL_ADDRESS____EMAIL_ADDRESS__
+36	i'm in sales
+36	time
+36	__PERSON_NAME__
+36	my name is __PERSON_NAME__
+36	I'm a python developer
+36	__EMAIL_ADDRESS__
+36	user can talk to my bot in french
+36	10000k
+36	customer service
+36	__PERSON_NAME__ __PERSON_NAME__
+36	6000000
+36	it’s trained only in chinese
+36	I'm a developer
+36	500k
+36	__EMAIL_ADDRESS__
+36	__EMAIL_ADDRESS__
+36	dutch
+36	pip
+36	12
+36	__PERSON_NAME__
+36	microsoft
+36	__EMAIL_ADDRESS__
+36	funny bot
+36	it’s an french bot
+36	language = dutch
+36	it’s an english bot
+36	500 million
+36	I’ve trained it in english
+36	This is __PERSON_NAME__
+36	it’s only in portuguese but I plan to train it in other languages
+36	__PERSON_NAME__
+36	i want to build bots
+36	i ues chinese
+36	it’s an portuguese bot
+36	it’s an italian bot
+36	__EMAIL_ADDRESS__
+36	so far it only speaks german
+36	my name is __PERSON_NAME__
+36	a place
+37	Heya
+37	hi there it's me
+37	hi pal!
+37	hello Sara
+37	heya
+37	hello]
+37	hey
+37	hi there
+37	hallo sara
+37	i am __PERSON_NAME__
+37	greetings
+37	hello
+37	Hi
+37	hellio
+37	hey, sara!
+37	hi there
+37	Whats up
+37	Hi bot
+37	Hi
+37	HI Sara
+37	Hello!
+37	greetings
+37	Hello Bot
+37	Good morning
+37	Hey
+37	hiii
+37	Hi sara
+37	hey let's talk
+37	hey there..
+37	Hi rasa
+38	you asshole
+38	you suck
+38	yep but you are idiot
+38	Fuck u
+38	how can you be such an idiot?
+38	idiot
+38	Stupid
+38	You know nothing.
+38	ok shut up
+38	you're so dumb
+38	you are fucking stupid guy！
+38	Fuck you
+38	You have no intelligence.
+38	i hate your dumb face
+38	fuck you!
+38	i think that you're a bullshit
+38	you are so ignorant
+38	Loser
+38	sara you look like a burnt sparrow
+38	go away
+39	how to use
+39	How can I get started?
+39	how to start rasa
+39	Yes, I want to know more about NLU
+39	find out how to get started with Rasa
+39	how to get start with Rasa
+39	i would like to know how to get started with Rasa
+39	what is componenbts
+39	I want to create chatbot using Rasa
+39	How to make a bot
+39	more info on components of rasa pls
+39	What do I Need for Rasa implementation?
+39	how can I get started?
+39	how to start with rasa
+39	and rasa nlu?
+39	give me some information on nlu
+39	how do i build a bot
+39	More about NLU
+39	what are your features ?
+39	how to get started with Rasa?
+39	tell me about the different parts of rasa
+39	how do I build a bot?
+39	get strarted with rasa
+39	How do I get started
+39	the components of Rasa
+39	Im new
+39	i want to use rasa to build my chatbot
+39	I want to know more about NLU
+39	can i try it out
+39	Core
+39	how do i build a rasa chatbot?
+39	Hot to get started with rasa
+39	Sure, give me the basics
+39	I want to build a chatbot
+39	how can i start
+39	rasa stack
+39	how do you build a bot
+39	i m new
+39	What are the prerequisites for installing RASA
+39	Tell me more about Get started with Rasa
+39	the components of rasa
+39	what is a component in rasa?
+39	nlu part
+39	how do i get started with rasa
+39	Yeah please help me out
+39	what about nlu?
+39	core
+39	how to get strated?
+39	ok i am new to Rasa
+39	how can i get started with rasa
+39	tell me about core please
+39	how to get sarted
+39	how to setup rasa
+39	how to get started with Rasa
+39	how toget strated?
+39	how to build a chatbot
+39	how about building chatbot
+39	NLU and Core
+39	tell me more about NLU
+39	get starte
+39	how do I start
+39	what are the components of Rasa
+40	id like to talk to a real rasa employee
+40	I want to talk to the founders
+40	can you put me in touch with a human?
+40	Can I speak to anyone who can really help me?
+40	service agent
+40	i want to talk to someone else
+40	I dont like to talk to a machine
+40	give me a human
+40	let me speak with a real person please
+41	I want to install Rasa Core
+41	install Rasa on Mac
+41	Please install Rasa Stack
+41	am struck with installation of rasa nlu and core in my mac book
+41	am struck with installation
+41	can you help me with installation of rasa nlu and train my first bot
+41	Where to get Rasa Stack?
+41	how to install rasa core?
+41	How i install
+41	how to install rasa_nlu
+41	how to install rasa?
+41	Thank you in advance for suggesting I install Rasa NLU.
+41	install Rasa on Linux
+41	how to install on window
+41	Could you help me get Rasa stack?
+41	How to install Rasa Core?
+41	I need to install Rasa
+41	install Rasa NLU
+41	i need help setting up
+42	next step
+42	please go to the next step
+42	next step please
+43	It’s a pleasure to meet you
+43	I am glad he introduced us.
+43	Good to meet you!
+43	It's great to get to know you!
+43	Pleased to make your acquaintance!
+43	Pleased to meet you.
+43	I had a great meeting with you
+43	I'm happy that we have met!
+43	It's a pleasure to meet you!
+43	Glad to meet you!
+44	i need more nlu data
+44	which tools can I use to create nlu data
+44	are there tools to create nlu data
+45	how do you integrate duckling
+45	I was looking for Duckling integration
+45	how is intent classification managed in rasa?
+45	intent please
+45	intents
+45	I checked the documentation on entity recognition but I still don’t understand it
+45	I still don’t get how entity recognition works
+45	intent
+45	I don’t understand entity recognition
+45	Rasa NLu
+45	intent recognition
+45	can you explain to me how entity recognition works?
+45	what is a intent?
+46	Is today saturday?
+46	custom service
+46	how many words can you handle?
+46	go back
+46	what's 5 + 5
+46	Can I use your open source code on my website?
+46	can we keep chatting?
+46	you lock sweety
+46	who was hitler
+46	you should learn to count
+46	Can I ask you questions first?
+46	what is the day ?
+46	who are the engineers at rasa?
+46	no stop
+46	can you speak about politic ?
+46	is that any of your business
+46	colder
+46	I want to find some restauant nearby
+46	license
+46	are you human ?
+46	common, just try
+46	I like you
+46	Can you give me your datacenter's password?
+46	I need a girl friend!
+46	genocide
+46	do you have your photo?
+46	What did you eat yesterday?
+46	can I install this on a mac?
+46	how to get rasa studio
+46	I can barely see this white text on light gray background ...
+46	tell me more about next best action
+46	what do you think abou siri?
+46	how it compares to alexa
+46	how to extract relationship
+46	HomeBase is advertised as a community. Is there a way to interact with other members of the community?
+46	I want pizza
+46	i am not a developer but need this for business
+46	you already have that
+46	buy oneone __PERSON_NAME__ please
+46	ljljl
+46	refresh
+46	is rasa a studio?
+46	how long will the next version will launch?
+46	Can you give me your datacenter's password
+46	how to climb the tree?
+46	whats that
+46	hey little mama let em whisper in your ear
+46	hang on let me find it
+46	region with no. of records
+46	are you single?
+46	I am an opioid addic
+46	wait a bit i am still reading
+46	rasa topics
+46	are you russian?
+46	do you like movies
+46	privacy policy
+46	kannst du auch deutsch?
+46	I need to eat cake
+46	order good
+46	where is mexico?
+46	i want to eat
+46	will this work on windows server
+46	does it support AI
+46	I am hungry
+46	whta you think about gdpr?
+46	have you ever seen __PERSON_NAME__?
+46	buy groceries
+46	what is google rcs
+46	who is the MD of samsung bangalore ?
+46	What's 1 + 1?
+46	who is your favourite robot?
+46	how much is 10 +89
+46	how about NYC
+46	can you understand ?
+46	you're rather dull
+46	como inicio en rasa
+46	i wanna party
+46	Who are your customers
+46	cannot see
+47	what is the right pipeline to choose?
+47	pipeline recommendation
+47	what pipeline should i use?
+47	what pipeline is better?
+48	What is the price ?
+48	how mush does rasa cost
+48	is rasa free
+48	how much costs the rasa platform
+48	is rasa core paid?
+48	is rasa free of cost
+48	is it free?
+48	how much does it cost
+48	How much do you cost?
+48	Subscription cost?
+49	Now I'm sad
+49	i am feel sad
+49	i'm sad
+49	bad boy
+49	so sad :(
+49	This is bad
+50	you are doin great
+50	hahaha
+50	haha
+50	you are cool
+50	you are a badass bot!
+50	lol
+50	Lol
+50	you are cool man
+50	hAHAHA
+51	i want the newsletter
+51	subscribe me to the newsletter
+51	Newsletter please.
+51	please send me the newsletter
+51	newslettwr
+51	lets try the newsletter signup
+51	i would like to subscribe to your newsletter
+51	yes I would like to subscribe
+51	can you pelase subscribe me to the newsletter
+51	what about signing up for the newsletter?
+51	I want to subscribe to your newsletter
+51	nl
+51	sign me up for the rasa newsletter
+51	subscribe me to newsletter
+51	i want to  suscribe
+51	i want to receive the newsletter from now on
+51	id like to subscribe
+51	Sign up.
+51	Subscribe
+51	newsletter registration first
+51	add me as your subscriber
+51	subscribing to our newsletter
+51	I want to sign up for the newsletter
+51	I'll subscribe to the newsletter
+51	lets do the newsletter signup
+51	i want on that dope newsletter
+51	subscribe
+51	newsletter - my email is __EMAIL_ADDRESS__
+51	can you subscribe me to the newsletter
+52	i need the source code to this bot
+52	your code please
+52	where is the source code?
+52	Where can I find your source code?
+52	Where can i find the source code
+52	what's your source code?
+53	luis
+53	How to migrate from DialogFlow to Rasa?
+53	I currently use LUIS
+53	How to migrate from Luis?
+53	LUIS
+53	I want to switch from dialog flow
+53	How to migrate to DialogFlow?
+53	I want to switch from dialogflow to rasa
+53	Migration please
+54	how can I get a docker image
+54	training model?
+54	is rasa core able to run standalone?
+54	any other tools to create chatbots?
+54	documentation
+54	how to integrate u in my react application
+54	can rasa run standalone
+54	does rasa support prestashop?
+54	how can I train data
+54	do you have docker image for rasa?
+54	what is endpoint
+54	I wanted to build a bot my product customer support
+54	conda threw some weird error
+54	Is there a connector for skype?
+55	Tell joke.
+55	Let's hear a joke from you.
+55	Give me a joke.
+55	Would you tell me a joke
+55	Entertain me with a joke.
+55	say a funny joke
+55	say a joke that's so bad it's funny
+55	Would you share a joke with me.
+56	Thanks
+56	ok thanks sara
+56	thank you anyways
+56	thank you
+56	amazing, thanks
+56	Thanks!
+56	Cool. Thanks
+56	thanks this is great news
