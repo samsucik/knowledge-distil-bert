@@ -9,6 +9,7 @@ data/sara/*
 experiments/**/
 !experiments/student-configs/
 !experiments/teacher-configs/
+!experiments/analysis/
 *.log
 *.out
 notes.md
