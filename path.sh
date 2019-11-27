@@ -6,6 +6,7 @@ if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
 	echo "I am in the cluster"
 	if [[ "$cluster_node" = "landonia21" ]]; then
 		home_dir=/mnt/glusterfs/teaching-home
+                export PATH=$home_dir/s1513472/.miniconda/envs/minfp2/bin:$PATH
 	else
 		home_dir=/mnt/mscteach_home
 	fi

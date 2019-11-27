@@ -23,7 +23,6 @@ fi
 
 pushd $DBERT > /dev/null
 python -m dbert.distill.run.distill_birnn \
-	--transformers_path $TRANSFORMERS \
 	--config confs/birnn_${TASK_NAME_LC}.json \
 	--device $device \
 	--workspace $out_dir \
@@ -32,11 +31,11 @@ python -m dbert.distill.run.distill_birnn \
 	--vectors_file $WORD_VECTORS_FILE \
 	--train_file $TRANSFER_SET_FILE \
 	--dev_file "dev.tsv" \
-	--lr 1.0 \
+	--lr 1.5e-4 \
 	--distill_lambda 1.0 \
 	--epochs 30 \
 	--mode "multichannel" \
-	--optimizer "adadelta" \
+	--optimizer "adam" \
 	--logits_path "" \
 	--ce_lambda 0.0 \
 	--n_feature_maps 0 \

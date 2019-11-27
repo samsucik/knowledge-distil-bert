@@ -44,6 +44,7 @@ interactive=false
 if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
   nodelist=landonia21
   source $PROJECT_DIR/path.sh "$nodelist"
+  echo "Project directory in cluster node ${nodelist}: ${PROJECT_DIR}"
   sbatch \
     --gres=gpu:1 \
     --partition=Teach-LongJobs \
