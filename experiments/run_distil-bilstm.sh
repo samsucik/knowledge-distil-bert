@@ -36,6 +36,7 @@ python -m dbert.distill.run.distill_birnn \
 	--epochs 30 \
 	--mode "multichannel" \
 	--optimizer "adam" \
+	--warmup_prop 0.1 \
 	--logits_path "" \
 	--ce_lambda 0.0 \
 	--n_feature_maps 0 \
