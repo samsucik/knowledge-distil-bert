@@ -34,6 +34,7 @@ python -m dbert.distill.run.distill_birnn \
 	--lr 1.5e-4 \
 	--distill_lambda 1.0 \
 	--epochs 30 \
+	--batch_size 128 \
 	--mode "multichannel" \
 	--optimizer "adam" \
 	--warmup_prop 0.1 \
