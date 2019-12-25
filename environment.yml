@@ -123,5 +123,5 @@ dependencies:
     - werkzeug==0.16.0
     - word2number==1.1
     - zipp==0.6.0
-prefix: /mnt/mscteach_home/s1513472/.miniconda/envs/minfp2
+prefix: /mnt/glusterfs/teaching-home/s1513472/.miniconda/envs/minfp2
 
