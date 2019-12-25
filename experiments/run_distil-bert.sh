@@ -19,27 +19,30 @@ fi
 export TASK_NAME=$task
 export TEACHER_DIR=$(pwd)/$teacher_dir
 export DISTIL_DIR=$out_dir
+WORD_VECTORS_FILE="GoogleNews-vectors-negative300.txt"
+TRANSFER_SET_TSV=cached_train_augmented-gpt-2_msl128_logits_bilstm.csv
 
-optimizer="adam"
+optimizer=adam
 learning_rate=5e-6
 max_seq_len=128
 n_layers=3
 n_heads=4
 dim=256
 hidden_dim=1024
-use_hard_labels="false"
+use_hard_labels=false
 batch_size=32
 gradient_accumulation_steps=2
 n_epochs=250
 warmup_prop=0.1
 max_steps=-1
-from_pretrained="none"
+from_pretrained=none
 checkpoint_interval=25
 log_interval=128
 augmentation_data_file="$(pwd)/data_augmentation-${TASK_NAME}/sampled_sentences"
-embeddings_from_teacher=false
-embedding_dimensionality=$hidden_dim
-embedding_dimensionality_reduction_technique="linear"
+token_embeddings_from_teacher=false
+token_type_embedding_dimensionality=$hidden_dim
+token_embedding_dimensionality=$hidden_dim
+use_word_vectors=false
 source $cfg
 
 echo "###########################################"
@@ -60,15 +63,19 @@ echo "from_pretrained: $from_pretrained"
 echo "checkpoint_interval: $checkpoint_interval"
 echo "log_interval: $log_interval"
 echo "augmentation_data_file: $augmentation_data_file"
-echo "embeddings_from_teacher: $embeddings_from_teacher"
-echo "embedding_dimensionality: $embedding_dimensionality"
-echo "embedding_dimensionality_reduction_technique: $embedding_dimensionality_reduction_technique"
+echo "token_embeddings_from_teacher: $token_embeddings_from_teacher"
+echo "token_type_embedding_dimensionality: $token_type_embedding_dimensionality"
+echo "token_embedding_dimensionality: $token_embedding_dimensionality"
+echo "use_word_vectors: $use_word_vectors"
 echo "###########################################"
 
 echo "DISTILLATION STARTING"
 pushd $TRANSFORMERS/examples > /dev/null
 python distil_from_finetuned.py \
   --data_dir $GLUE_DIR/$TASK_NAME \
+  --word_vectors_dir $WORD_VECTORS_DIR \
+  --word_vectors_file $WORD_VECTORS_FILE \
+  --transfer_set_tsv $TRANSFER_SET_TSV \
   --output_dir $DISTIL_DIR \
   --force \
   --from_pretrained "$from_pretrained" \
@@ -82,7 +89,7 @@ python distil_from_finetuned.py \
   --dropout 0.1 \
   --attention_dropout 0.1 \
   --teacher_name $TEACHER_DIR \
-  --use_hard_labels "$use_hard_labels" \
+  --use_hard_labels $use_hard_labels \
   --temperature 2.0 \
   --n_epochs $n_epochs \
   --batch_size $batch_size \
@@ -103,10 +110,11 @@ python distil_from_finetuned.py \
   --log_examples \
   --checkpoint_interval $checkpoint_interval \
   --augmentation_data_file $augmentation_data_file \
-  --augmentation_type "gpt-2" \
-  --embeddings_from_teacher $embeddings_from_teacher \
-  --embedding_dimensionality $embedding_dimensionality \
-  --embedding_dimensionality_reduction_technique $embedding_dimensionality_reduction_technique \
+  --augmentation_type gpt-2 \
+  --use_word_vectors $use_word_vectors \
+  --token_embeddings_from_teacher $token_embeddings_from_teacher \
+  --token_type_embedding_dimensionality $token_type_embedding_dimensionality \
+  --token_embedding_dimensionality $token_embedding_dimensionality \
   --max_steps $max_steps
   # --toy_mode \
 
