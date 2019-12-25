@@ -3,7 +3,7 @@ echo -e "\nUsage: $0 distil-bert --config=student-configs/third.cfg --task=CoLA 
 # defaults
 stage=distil-bert
 task=CoLA
-config=student-configs/third.cfg
+config=student-configs/small.cfg
 teacher_dir=teacher-$task
 
 if [ "$#" -ge 1 ]; then
