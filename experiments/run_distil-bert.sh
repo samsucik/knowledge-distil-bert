@@ -31,6 +31,7 @@ use_hard_labels="false"
 batch_size=32
 gradient_accumulation_steps=2
 n_epochs=250
+warmup_prop=0.1
 max_steps=-1
 from_pretrained="none"
 checkpoint_interval=25
@@ -53,6 +54,7 @@ echo "use_hard_labels: $use_hard_labels"
 echo "batch_size: $batch_size"
 echo "gradient_accumulation_steps: $gradient_accumulation_steps"
 echo "n_epochs: $n_epochs"
+echo "warmup_prop: $warmup_prop"
 echo "max_steps: $max_steps"
 echo "from_pretrained: $from_pretrained"
 echo "checkpoint_interval: $checkpoint_interval"
@@ -86,7 +88,7 @@ python distil_from_finetuned.py \
   --batch_size $batch_size \
   --per_gpu_eval_batch_size 64 \
   --gradient_accumulation_steps $gradient_accumulation_steps \
-  --warmup_prop 0.1 \
+  --warmup_prop $warmup_prop \
   --weight_decay 0.0 \
   --optimizer $optimizer \
   --learning_rate $learning_rate \

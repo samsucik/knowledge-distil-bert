@@ -31,13 +31,13 @@ python -m dbert.distill.run.distill_birnn \
 	--vectors_file $WORD_VECTORS_FILE \
 	--train_file $TRANSFER_SET_FILE \
 	--dev_file "dev.tsv" \
-	--lr 1.5e-4 \
+	--lr 5e-4 \
 	--distill_lambda 1.0 \
 	--epochs 30 \
-	--batch_size 128 \
+	--batch_size 64 \
 	--mode "multichannel" \
 	--optimizer "adam" \
-	--warmup_prop 0.1 \
+	--warmup_prop 0.0 \
 	--logits_path "" \
 	--ce_lambda 0.0 \
 	--n_feature_maps 0 \
