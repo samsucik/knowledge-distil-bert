@@ -42,7 +42,7 @@ out_dir=$stage-$task-$dt
 interactive=false
 
 if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
-  nodelist=letha03
+  nodelist=letha04
   partition=General_Usage # Teach-LongJobs
   source $PROJECT_DIR/path.sh "$nodelist"
   echo "Project directory in cluster node ${nodelist}: ${PROJECT_DIR}"
