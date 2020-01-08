@@ -6,7 +6,7 @@ out_dir=$3
 teacher_dir=$4
 
 TASK_NAME=$task
-TRANSFER_SET_FILE=cached_train_augmented-gpt-2_msl128_logits_bilstm.csv
+TRANSFER_SET_FILE=cached_train_augmented-gpt-2_msl128_logits_bilstm-toy.csv
 # TRANSFER_SET_FILE=train.tsv
 WORD_VECTORS_FILE="GoogleNews-vectors-negative300.txt"
 
@@ -34,7 +34,7 @@ python -m dbert.distill.run.distill_birnn \
 	--lr 5e-4 \
 	--distill_lambda 1.0 \
 	--epochs 30 \
-	--batch_size 64 \
+	--batch_size 7 \
 	--mode "multichannel" \
 	--optimizer "adam" \
 	--warmup_prop 0.0 \
