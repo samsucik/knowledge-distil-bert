@@ -4,7 +4,7 @@ cluster_node=$1
 
 if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
 	echo "I am in the cluster"
-	if [[ ( "$cluster_node" = "landonia21" ) || ( "$cluster_node" = "letha03" )  || ( "$cluster_node" = "letha04" ) || ( "$cluster_node" = "" ) ]]; then
+	if [[ ( "$cluster_node" = "landonia21" ) || ( "$cluster_node" = "letha03" )  || ( "$cluster_node" = "letha04" ) || ( "$cluster_node" = "letha05" ) || ( "$cluster_node" = "" ) ]]; then
 		home_dir=/mnt/glusterfs/teaching-home
 		export PATH=$home_dir/s1513472/.miniconda/envs/minfp2/bin:$PATH
 	else
