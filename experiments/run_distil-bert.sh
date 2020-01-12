@@ -23,6 +23,7 @@ WORD_VECTORS_FILE="GoogleNews-vectors-negative300.txt"
 TRANSFER_SET_TSV=cached_train_augmented-gpt-2_msl128_logits_bilstm.csv
 
 student_type=BERT
+mode=non-static
 optimizer=adam
 learning_rate=5e-6
 dropout=0.1
@@ -53,6 +54,7 @@ source $cfg
 
 echo "###########################################"
 echo "student_type: $student_type"
+echo "mode: $mode"
 echo "optimizer: $optimizer"
 echo "learning_rate: $learning_rate"
 echo "dropout: $dropout"
@@ -85,6 +87,7 @@ echo "DISTILLATION STARTING"
 pushd $TRANSFORMERS/examples > /dev/null
 python distil_from_finetuned.py \
   --student_type $student_type \
+  --mode $mode \
   --data_dir $GLUE_DIR/$TASK_NAME \
   --word_vectors_dir $WORD_VECTORS_DIR \
   --word_vectors_file $WORD_VECTORS_FILE \
