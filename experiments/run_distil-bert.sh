@@ -38,6 +38,8 @@ batch_size=32
 gradient_accumulation_steps=2
 max_grad_norm=5.0
 temperature=2.0
+alpha_mse=0.0
+alpha_ce=1.0
 n_epochs=250
 warmup_prop=0.1
 weight_decay=0.0
@@ -69,6 +71,8 @@ echo "batch_size: $batch_size"
 echo "gradient_accumulation_steps: $gradient_accumulation_steps"
 echo "max_grad_norm: $max_grad_norm"
 echo "temperature: $temperature"
+echo "alpha_mse: $alpha_mse"
+echo "alpha_ce: $alpha_ce"
 echo "n_epochs: $n_epochs"
 echo "warmup_prop: $warmup_prop"
 echo "weight_decay: $weight_decay"
@@ -107,6 +111,8 @@ python distil_from_finetuned.py \
   --teacher_name $TEACHER_DIR \
   --use_hard_labels $use_hard_labels \
   --temperature $temperature \
+  --alpha_mse $alpha_mse \
+  --alpha_ce $alpha_ce \
   --n_epochs $n_epochs \
   --batch_size $batch_size \
   --per_gpu_eval_batch_size 64 \
