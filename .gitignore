@@ -1,10 +1,10 @@
 # data directories
 glove.840B.300d.*
 GoogleNews-vectors-negative300.*
-data/glue_data/*
-data/sara/*
-!data/sara/*.tsv
-!data/sara/*.py
+data/glue_data/**/
+!data/glue_data/Sara
+!data/glue_data/Sara/*.tsv
+!data/glue_data/Sara/*.py
 
 experiments/**/
 !experiments/student-configs/
