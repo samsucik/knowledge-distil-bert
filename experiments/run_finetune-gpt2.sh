@@ -35,7 +35,7 @@ if [ -d "$DATA_AUGMENTATION_DIR_LOCAL" ] && [ -f "${DATA_AUGMENTATION_DIR_LOCAL}
 else
   finetuned_gpt=$OUT_DIR
   python -m dbert.generate.finetune_gpt \
-    --save $finetuned_gpt \
+    --save $finetuned_gpt/pytorch_model.bin \
     --cache-file $cached_dataset \
     --train-batch-size 16 \
     --cache-dir "$cache_dir" \
