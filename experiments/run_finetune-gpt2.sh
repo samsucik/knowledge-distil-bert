@@ -1,7 +1,7 @@
 #!/bin/bash -u
 
 task=$1 
-cfg=$2
+cfg=$2 # dummy argument, not used here
 out_dir=$3
 
 cache_dir=$PYTORCH_TRANSFORMERS_CACHE

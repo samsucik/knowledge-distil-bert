@@ -60,6 +60,11 @@ if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
 else
   echo "Running locally."
   export GLUE_DIR_LOCAL=$GLUE_DIR
+  if [[ $stage == finetune* ]]; then
+    export DATA_AUGMENTATION_DIR_LOCAL=$(pwd)/data_augmentation-${task}
+    mkdir -p $DATA_AUGMENTATION_DIR_LOCAL
+  fi
   mkdir -p $(pwd)/${out_dir}
+  # here, config and teacher_dir are irrelevant in running GPT-2 finetuning
   ./run_${stage}.sh "${task}" "${config}" "$(pwd)/${out_dir}" "${teacher_dir}" #&> ${out_dir}.out
 fi
