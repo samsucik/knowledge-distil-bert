@@ -47,7 +47,7 @@ export OUT_DIR=$out_dir
 echo "TEACHER FINETUNING STARTING"
 pushd $TRANSFORMERS/examples
 python run_glue.py \
-  --data_dir $GLUE_DIR_LOCAL/$TASK_NAME \
+  --data_dir $GLUE_DIR/$TASK_NAME \
   --model_type bert \
   --model_name_or_path $model_name_or_path \
   --cache_dir "$cache_dir" \

@@ -26,7 +26,7 @@ python -m dbert.distill.run.distill_birnn \
 	--config confs/birnn_${TASK_NAME_LC}.json \
 	--device $device \
 	--workspace $out_dir \
-	--dataset_path $GLUE_DIR_LOCAL/$TASK_NAME \
+	--dataset_path $GLUE_DIR/$TASK_NAME \
 	--vectors_dir $WORD_VECTORS_DIR \
 	--vectors_file $WORD_VECTORS_FILE \
 	--train_file $TRANSFER_SET_FILE \
