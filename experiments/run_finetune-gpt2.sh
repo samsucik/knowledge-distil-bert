@@ -22,7 +22,7 @@ if [ -d "$DATA_AUGMENTATION_DIR_LOCAL" ] && [ -f "${DATA_AUGMENTATION_DIR_LOCAL}
 else
   cached_dataset=$OUT_DIR/dataset
   python -m dbert.generate.cache_datasets \
-    --data-dir $GLUE_DIR_LOCAL/$TASK_NAME \
+    --data-dir $GLUE_DIR/$TASK_NAME \
     --output-file $cached_dataset \
     --dataset_name $TASK_NAME
 fi
