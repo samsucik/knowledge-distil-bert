@@ -19,6 +19,7 @@ mkdir -p $SPACE/data
 export GLUE_DIR_LOCAL=${SPACE}/data/glue_data
 DATA_AUGMENTATION_DIR=$(pwd)/data_augmentation-${task}
 export DATA_AUGMENTATION_DIR_LOCAL=${SPACE}/data_augmentation-${task}
+mkdir -p $DATA_AUGMENTATION_DIR_LOCAL
 OUT_DIR=$SPACE/$out_dir
 mkdir -p $OUT_DIR
 
