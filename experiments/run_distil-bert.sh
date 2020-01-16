@@ -41,7 +41,8 @@ temperature=2.0
 alpha_mse=0.0
 alpha_ce=1.0
 n_epochs=250
-warmup_prop=0.1
+warmup_epochs=0.0
+lr_decay=false
 weight_decay=0.0
 max_steps=-1
 from_pretrained=none
@@ -74,7 +75,8 @@ echo "temperature: $temperature"
 echo "alpha_mse: $alpha_mse"
 echo "alpha_ce: $alpha_ce"
 echo "n_epochs: $n_epochs"
-echo "warmup_prop: $warmup_prop"
+echo "warmup_epochs: $warmup_epochs"
+echo "lr_decay: $lr_decay"
 echo "weight_decay: $weight_decay"
 echo "max_steps: $max_steps"
 echo "from_pretrained: $from_pretrained"
@@ -117,7 +119,8 @@ python distil_from_finetuned.py \
   --batch_size $batch_size \
   --per_gpu_eval_batch_size 64 \
   --gradient_accumulation_steps $gradient_accumulation_steps \
-  --warmup_prop $warmup_prop \
+  --warmup_epochs $warmup_epochs \
+  --lr_decay $lr_decay \
   --weight_decay $weight_decay \
   --optimizer $optimizer \
   --learning_rate $learning_rate \

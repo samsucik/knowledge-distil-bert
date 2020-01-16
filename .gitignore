@@ -12,7 +12,6 @@ experiments/**/
 !experiments/analysis/
 *.log
 *.out
-notes.md
 nohup.out
 .ipynb_checkpoints
 *.zip
