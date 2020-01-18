@@ -94,40 +94,100 @@ BiLSTM
 ## Hparam search
 ### BiLSTM
 #### Learning algorithm
-- Adadelta (1.0) #1: 	distil-bert-CoLA-Jan16-00:37:42_FCN
-- Adadelta (1.0) #2: 	distil-bert-CoLA-Jan16-00:37:50_FCN
-- Adadelta (1.0) #3: 	distil-bert-CoLA-Jan16-00:37:58_FCN
+	- Adadelta (1.0) #1: 	distil-bert-CoLA-Jan16-00:37:42_FCN
+	- Adadelta (1.0) #2: 	distil-bert-CoLA-Jan16-00:37:50_FCN
+	- Adadelta (1.0) #3: 	distil-bert-CoLA-Jan16-00:37:58_FCN
+	- Adadelta (1.0) #4:	distil-bert-CoLA-Jan17-10:37:31_FCN
+	- Adadelta (1.0) #5:	distil-bert-CoLA-Jan17-10:50:42_FCN
+	- Adadelta (1.0) #6:	distil-bert-CoLA-Jan17-10:50:57_FCN
 
-- Adam (5e-4) #1: 		distil-bert-CoLA-Jan15-16:22:30_FCN
-- Adam (5e-4) #2: 		distil-bert-CoLA-Jan15-16:23:14_FCN
-- Adam (5e-4) #3: 		distil-bert-CoLA-Jan15-16:23:19_FCN
+	- Adam (5e-4) #1: 		distil-bert-CoLA-Jan15-16:22:30_FCN
+	- Adam (5e-4) #2: 		distil-bert-CoLA-Jan15-16:23:14_FCN
+	- Adam (5e-4) #3: 		distil-bert-CoLA-Jan15-16:23:19_FCN
+	- Adam (5e-4) #4:		distil-bert-CoLA-Jan17-10:52:11_FCN
+	- Adam (5e-4) #5:		distil-bert-CoLA-Jan17-10:52:18_FCN
+	- Adam (5e-4) #6:		distil-bert-CoLA-Jan17-10:52:27_FCN
 
-- Adam (5e-3) #1: 		distil-bert-CoLA-Jan15-16:29:04_FCN
-- Adam (5e-3) #2: 		distil-bert-CoLA-Jan15-16:29:34_FCN
-- Adam (5e-3) #3: 		distil-bert-CoLA-Jan15-16:29:47_FCN
+	- Adam (5e-3) #1: 		distil-bert-CoLA-Jan15-16:29:04_FCN
+	- Adam (5e-3) #2: 		distil-bert-CoLA-Jan15-16:29:34_FCN
+	- Adam (5e-3) #3: 		distil-bert-CoLA-Jan15-16:29:47_FCN
+	- Adam (5e-3) #4:		distil-bert-CoLA-Jan17-10:54:16_FCN
+	- Adam (5e-3) #5:		distil-bert-CoLA-Jan17-10:54:23_FCN
+	- Adam (5e-3) #6:		distil-bert-CoLA-Jan17-10:54:33_FCN
 
-- Adam (5e-5) #1: 		distil-bert-CoLA-Jan15-16:41:24_FCN
-- Adam (5e-5) #2: 		distil-bert-CoLA-Jan15-16:42:04_FCN
-- Adam (5e-5) #3: 		distil-bert-CoLA-Jan15-23:38:24_FCN
+	- Adam (5e-5) #1: 		distil-bert-CoLA-Jan15-16:41:24_FCN
+	- Adam (5e-5) #2: 		distil-bert-CoLA-Jan15-16:42:04_FCN
+	- Adam (5e-5) #3: 		distil-bert-CoLA-Jan15-23:38:24_FCN
+	- Adam (5e-5) #4:		distil-bert-CoLA-Jan17-10:56:16_FCN
+	- Adam (5e-5) #5:		distil-bert-CoLA-Jan17-10:56:24_FCN
+	- Adam (5e-5) #6:		distil-bert-CoLA-Jan17-14:43:55_FCN
 
-- Adam (5e-6) #1: 		distil-bert-CoLA-Jan15-16:44:39_FCN
-- Adam (5e-6) #2: 		distil-bert-CoLA-Jan15-16:44:47_FCN
-- Adam (5e-6) #3: 		distil-bert-CoLA-Jan15-16:44:58_FCN
+	- Adam (5e-6) #1: 		distil-bert-CoLA-Jan15-16:44:39_FCN
+	- Adam (5e-6) #2: 		distil-bert-CoLA-Jan15-16:44:47_FCN
+	- Adam (5e-6) #3: 		distil-bert-CoLA-Jan15-16:44:58_FCN
+	- Adam (5e-6) #4:		distil-bert-CoLA-Jan17-10:58:03_FCN
+	- Adam (5e-6) #5:		distil-bert-CoLA-Jan17-10:58:09_FCN
+	- Adam (5e-6) #6:		distil-bert-CoLA-Jan17-10:58:17_FCN
 
-- Adam (1.5e-4) #1: 	distil-bert-CoLA-Jan16-00:45:07_FCN
-- Adam (1.5e-4) #2: 	distil-bert-CoLA-Jan16-00:45:12_FCN
-- Adam (1.5e-4) #3: 	distil-bert-CoLA-Jan16-09:09:56
+	- Adam (1.5e-4) #1: 	distil-bert-CoLA-Jan16-00:45:07_FCN
+	- Adam (1.5e-4) #2: 	distil-bert-CoLA-Jan16-00:45:12_FCN
+	- Adam (1.5e-4) #3: 	distil-bert-CoLA-Jan16-09:09:56_FCN
+	- Adam (1.5e-4) #4:		distil-bert-CoLA-Jan17-11:05:05_FCN
+	- Adam (1.5e-4) #5:		distil-bert-CoLA-Jan17-11:06:22_FCN
+	- Adam (1.5e-4) #6:		distil-bert-CoLA-Jan17-11:06:30_FCN
 
-- Adam (1.5e-5) #1: 	distil-bert-CoLA-Jan16-00:47:07_FCN
-- Adam (1.5e-5) #2: 	distil-bert-CoLA-Jan16-00:47:12_FCN
-- Adam (1.5e-5) #3: 	distil-bert-CoLA-Jan16-00:47:30_FCN
+	- Adam (1.5e-5) #1: 	distil-bert-CoLA-Jan16-00:47:07_FCN
+	- Adam (1.5e-5) #2: 	distil-bert-CoLA-Jan16-00:47:12_FCN
+	- Adam (1.5e-5) #3: 	distil-bert-CoLA-Jan16-00:47:30_FCN
+	- Adam (1.5e-5) #4:		distil-bert-CoLA-Jan17-11:09:40_FCN
+	- Adam (1.5e-5) #5:		distil-bert-CoLA-Jan17-11:10:08_FCN
+	- Adam (1.5e-5) #6:		distil-bert-CoLA-Jan17-11:10:18_FCN
 
-- Adam (1.5e-3) #1: 	distil-bert-CoLA-Jan16-09:37:40
-- Adam (1.5e-3) #2: 	distil-bert-CoLA-Jan16-09:37:45
-- Adam (1.5e-3) #3: 	distil-bert-CoLA-Jan16-09:37:49
+	- Adam (1.5e-3) #1: 	distil-bert-CoLA-Jan16-09:37:40_FCN
+	- Adam (1.5e-3) #2: 	distil-bert-CoLA-Jan16-09:37:45_FCN
+	- Adam (1.5e-3) #3: 	distil-bert-CoLA-Jan16-09:37:49_FCN
+	- Adam (1.5e-3) #4:		distil-bert-CoLA-Jan17-15:27:46_FCN
+	- Adam (1.5e-3) #5:		distil-bert-CoLA-Jan17-14:31:49_FCN
+	- Adam (1.5e-3) #6:		distil-bert-CoLA-Jan17-14:32:57_FCN
+#### Batch size
+	- 32 #1:	distil-bert-CoLA-Jan17-23:27:02
+	- 32 #2:	distil-bert-CoLA-Jan17-23:27:26
+	- 32 #3:	distil-bert-CoLA-Jan17-23:27:48
+
+	- 128 #1:	distil-bert-CoLA-Jan17-23:28:55
+	- 128 #2:	distil-bert-CoLA-Jan17-23:29:37
+	- 128 #3:	distil-bert-CoLA-Jan17-23:30:35
+
+	- 256 #1:	distil-bert-CoLA-Jan17-23:32:15
+	- 256 #2:	distil-bert-CoLA-Jan17-23:32:39
+	- 256 #3:	distil-bert-CoLA-Jan17-23:33:03
+
+	- 512 #1:	distil-bert-CoLA-Jan17-23:36:20_FC
+	- 512 #2:	distil-bert-CoLA-Jan17-23:36:28_FC
+	- 512 #3:	distil-bert-CoLA-Jan17-23:36:39_FC
+
+### BERT
+#### Learning rate
+	- 5e-3 #1:		distil-bert-CoLA-Jan17-16:10:06
+	- 1.5e-3 #1:	distil-bert-CoLA-Jan17-15:57:10
+	- 5e-4 #1:		distil-bert-CoLA-Jan17-16:10:36
+	- 1.5e-4 #1:	distil-bert-CoLA-Jan17-16:12:47
+	- 5e-5 #1:		distil-bert-CoLA-Jan17-16:13:14
+	- 1.5e-5 #1:	distil-bert-CoLA-Jan17-16:19:46
+	- 5e-6 #1:		distil-bert-CoLA-Jan17-16:14:33
+
+Letha
+1:....
+2:...
+3:..
+4:...
+5:..
+6:..
+Damnii
+7:...
 
 ```bash
-dirs=""
+dirs="distil-bert-CoLA-Jan17-23:36:20 distil-bert-CoLA-Jan17-23:36:28 distil-bert-CoLA-Jan17-23:36:39"
 for d in $dirs; do
   echo $d
   pushd $d
@@ -139,8 +199,14 @@ for d in $dirs; do
 done
 ```
 
-### BERT
-
+### Student sizes
+BERT
+large: L=24 H=1024 A=16 I=4096
+/12:   L=2  H=85   A=1  I=341  (183K)
+/6:    L=4  H=171  A=3  I=683  (1.44M)
+/5:    L=5  H=204  A=3  I=819  (2.56M) [with I=750 is 2.42M]
+BiLSTM
+Tang: H=300 FC=400 (2.41M)
 
 
 BERT
