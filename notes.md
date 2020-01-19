@@ -150,31 +150,83 @@ BiLSTM
 	- Adam (1.5e-3) #5:		distil-bert-CoLA-Jan17-14:31:49_FCN
 	- Adam (1.5e-3) #6:		distil-bert-CoLA-Jan17-14:32:57_FCN
 #### Batch size
-	- 32 #1:	distil-bert-CoLA-Jan17-23:27:02
-	- 32 #2:	distil-bert-CoLA-Jan17-23:27:26
-	- 32 #3:	distil-bert-CoLA-Jan17-23:27:48
+	- 32 #1:	distil-bert-CoLA-Jan17-23:27:02_FCN
+	- 32 #2:	distil-bert-CoLA-Jan17-23:27:26_FCN
+	- 32 #3:	distil-bert-CoLA-Jan17-23:27:48_FCN
 
-	- 128 #1:	distil-bert-CoLA-Jan17-23:28:55
-	- 128 #2:	distil-bert-CoLA-Jan17-23:29:37
-	- 128 #3:	distil-bert-CoLA-Jan17-23:30:35
+	- 128 #1:	distil-bert-CoLA-Jan17-23:28:55_FCN
+	- 128 #2:	distil-bert-CoLA-Jan17-23:29:37_FCN
+	- 128 #3:	distil-bert-CoLA-Jan17-23:30:35_FCN
 
-	- 256 #1:	distil-bert-CoLA-Jan17-23:32:15
-	- 256 #2:	distil-bert-CoLA-Jan17-23:32:39
-	- 256 #3:	distil-bert-CoLA-Jan17-23:33:03
+	- 256 #1:	distil-bert-CoLA-Jan17-23:32:15_FCN
+	- 256 #2:	distil-bert-CoLA-Jan17-23:32:39_FCN
+	- 256 #3:	distil-bert-CoLA-Jan17-23:33:03_FCN
 
-	- 512 #1:	distil-bert-CoLA-Jan17-23:36:20_FC
-	- 512 #2:	distil-bert-CoLA-Jan17-23:36:28_FC
-	- 512 #3:	distil-bert-CoLA-Jan17-23:36:39_FC
+	- 512 #1:	distil-bert-CoLA-Jan17-23:36:20_FCN
+	- 512 #2:	distil-bert-CoLA-Jan17-23:36:28_FCN
+	- 512 #3:	distil-bert-CoLA-Jan17-23:36:39_FCN
+#### Warmup proportion & lr decay
+	- wp=0, decay #1:		distil-bert-CoLA-Jan18-12:47:13_FCN
+	- wp=0, decay #2:		distil-bert-CoLA-Jan18-12:19:11_FCN
+	- wp=0, decay #3:		distil-bert-CoLA-Jan18-12:19:25_FCN
+
+	- wp=5, decay #1:		distil-bert-CoLA-Jan18-12:21:09_FCN
+	- wp=5, decay #2:		distil-bert-CoLA-Jan18-12:22:01_FCN
+	- wp=5, decay #3:		distil-bert-CoLA-Jan18-12:22:39_FCN
+
+	- wp=5, no decay #1:	distil-bert-CoLA-Jan18-12:23:19_FCN
+	- wp=5, no decay #2:	distil-bert-CoLA-Jan18-12:38:36_FCN
+	- wp=5, no decay #3:	distil-bert-CoLA-Jan18-12:38:46_FCN
+
+	- wp=10, decay #1:		distil-bert-CoLA-Jan18-12:28:34_FCN
+	- wp=10, decay #2:		distil-bert-CoLA-Jan18-12:28:54_FCN
+	- wp=10, decay #3:		distil-bert-CoLA-Jan18-17:39:44_FC
+
+	- wp=10, no decay #1:	distil-bert-CoLA-Jan18-17:40:29_FC
+	- wp=10, no decay #2:	distil-bert-CoLA-Jan18-17:40:44_FC
+	- wp=10, no decay #3:	distil-bert-CoLA-Jan18-17:41:16_FC
+
+	- wp=15, decay #1:		distil-bert-CoLA-Jan18-17:42:14_FC
+	- wp=15, decay #2:		distil-bert-CoLA-Jan18-17:42:42_FC
+	- wp=15, decay #3:		distil-bert-CoLA-Jan18-17:45:26_FC
+
+	- wp=15, no decay #1:	distil-bert-CoLA-Jan18-17:45:54_FC
+	- wp=15, no decay #2:	distil-bert-CoLA-Jan18-18:06:13_FC
+	- wp=15, no decay #3:	distil-bert-CoLA-Jan18-18:09:09_FC
+#### Embedding type
+	- wordpiece #1:				distil-bert-CoLA-Jan19-00:12:33_FC
+	- wordpiece #2:				distil-bert-CoLA-Jan19-00:26:47_FC
+	- wordpiece #3:				distil-bert-CoLA-Jan19-00:27:35_FC
+
+	- wordpiece non-static #1:	distil-bert-CoLA-Jan19-00:25:02_FC
+	- wordpiece non-static #2:	distil-bert-CoLA-Jan19-00:25:12_FC
+	- wordpiece non-static #3:	distil-bert-CoLA-Jan19-00:25:57_FC
 
 ### BERT
 #### Learning rate
-	- 5e-3 #1:		distil-bert-CoLA-Jan17-16:10:06
-	- 1.5e-3 #1:	distil-bert-CoLA-Jan17-15:57:10
-	- 5e-4 #1:		distil-bert-CoLA-Jan17-16:10:36
-	- 1.5e-4 #1:	distil-bert-CoLA-Jan17-16:12:47
-	- 5e-5 #1:		distil-bert-CoLA-Jan17-16:13:14
-	- 1.5e-5 #1:	distil-bert-CoLA-Jan17-16:19:46
-	- 5e-6 #1:		distil-bert-CoLA-Jan17-16:14:33
+	- 5e-3 #1:		distil-bert-CoLA-Jan17-16:10:06_FCN
+	- 1.5e-3 #1:	distil-bert-CoLA-Jan17-15:57:10_FCN
+	- 5e-4 #1:		distil-bert-CoLA-Jan17-16:10:36_FCN
+	- 1.5e-4 #1:	distil-bert-CoLA-Jan17-16:12:47_FCN
+	- 5e-5 #1:		distil-bert-CoLA-Jan17-16:13:14_FCN
+	- 1.5e-5 #1:	distil-bert-CoLA-Jan17-16:19:46_FCN
+	- 5e-6 #1:		distil-bert-CoLA-Jan17-16:14:33_FCN
+#### Warmup proportion & lr decay
+	- wp=0, decay #1:		distil-bert-CoLA-Jan18-11:57:08_FC
+	- wp=0, no decay #1:	distil-bert-CoLA-Jan18-11:57:42_FC
+	- wp=5, decay #1:		distil-bert-CoLA-Jan18-11:58:22_FC
+	- wp=5, no decay #1:	distil-bert-CoLA-Jan18-11:59:07_FC
+	- wp=10, no decay #1:	distil-bert-CoLA-Jan18-12:08:07_FC
+	- wp=15, decay #1:		distil-bert-CoLA-Jan18-11:59:56_FC
+	- wp=15, no decay #1:	distil-bert-CoLA-Jan18-12:00:26_FC
+	- wp=20, decay #1:		distil-bert-CoLA-Jan18-12:02:52_FC
+	- wp=20, no decay #1:	distil-bert-CoLA-Jan18-12:12:15_FC
+#### Batch size
+	- 32:	distil-bert-CoLA-Jan19-10:04:57
+	- 64:	distil-bert-CoLA-Jan19-10:05:42
+	- 128:	distil-bert-CoLA-Jan19-10:06:41
+	- 512:	doesn't fit into memory
+	- 362:	distil-bert-CoLA-Jan19-11:09:55
 
 Letha
 1:....
@@ -185,9 +237,10 @@ Letha
 6:..
 Damnii
 7:...
+3: NO SPACE
 
 ```bash
-dirs="distil-bert-CoLA-Jan17-23:36:20 distil-bert-CoLA-Jan17-23:36:28 distil-bert-CoLA-Jan17-23:36:39"
+dirs=""
 for d in $dirs; do
   echo $d
   pushd $d
