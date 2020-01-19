@@ -3,7 +3,7 @@
 task=$1 
 cfg=$2
 out_dir=$3
-# teacher_dir=$4
+teacher_dir=$4
 
 if [[ $(nvidia-smi -L 2>/dev/null) =~ "GPU" ]]
 then
@@ -17,7 +17,7 @@ else
 fi
 
 # export TASK_NAME=$task
-# export TEACHER_DIR=$(pwd)/$teacher_dir
+TEACHER_DIR=$(pwd)/$teacher_dir
 # export DISTIL_DIR=$out_dir
 WORD_VECTORS_FILE="GoogleNews-vectors-negative300.txt"
 # TRANSFER_SET_TSV=cached_train_augmented-gpt-2_msl128_logits_bilstm.csv
@@ -48,12 +48,12 @@ python distil_from_finetuned.py \
   --word_vectors_dir $WORD_VECTORS_DIR \
   --word_vectors_file $WORD_VECTORS_FILE \
   --output_dir $out_dir \
-  --seed 42 \
+  --teacher_name $TEACHER_DIR \
   --n_gpu $n_gpu \
   --no_cuda "$no_cuda" \
-  --augmentation_type gpt-2 \
   --force
-  # --teacher_name $TEACHER_DIR \
+  # --seed 42 \
+  # --augmentation_type gpt-2 \
   # --transfer_set_tsv $TRANSFER_SET_TSV \
   # --from_pretrained "$from_pretrained" \
   # --do_lower_case \
