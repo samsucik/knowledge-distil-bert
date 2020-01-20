@@ -42,8 +42,8 @@ out_dir=$stage-$task-$dt
 interactive=false
 
 if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
-  nodelist=letha03
-  partition=General_Usage #PGR-Standard #General_Usage # Teach-LongJobs
+  nodelist=damnii09
+  partition=PGR-Standard #General_Usage # Teach-LongJobs
   source $PROJECT_DIR/path.sh "$nodelist"
   echo "Project directory in cluster node ${nodelist}: ${PROJECT_DIR}"
   sbatch \
