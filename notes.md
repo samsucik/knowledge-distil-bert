@@ -201,32 +201,55 @@ BiLSTM
 	- wordpiece non-static #1:	distil-bert-CoLA-Jan19-00:25:02_FC
 	- wordpiece non-static #2:	distil-bert-CoLA-Jan19-00:25:12_FC
 	- wordpiece non-static #3:	distil-bert-CoLA-Jan19-00:25:57_FC
+#### Model size
+	- LSTM=600, FC=800 #1:		distil-bert-CoLA-Jan20-14:21:21
+	- LSTM=600, FC=800 #2:		distil-bert-CoLA-Jan20-14:21:43
+	- LSTM=600, FC=800 #3:		distil-bert-CoLA-Jan20-14:22:13
+	- LSTM=900, FC=1200 #1:		distil-bert-CoLA-Jan20-14:23:57
+	- LSTM=900, FC=1200 #2:		distil-bert-CoLA-Jan20-14:24:18
+	- LSTM=900, FC=1200 #3:		distil-bert-CoLA-Jan20-14:24:46
+	- LSTM=1200, FC=1600 #1:	distil-bert-CoLA-Jan20-14:26:20
+	- LSTM=1200, FC=1600 #2:	distil-bert-CoLA-Jan20-14:26:51
+	- LSTM=1200, FC=1600 #3:	distil-bert-CoLA-Jan20-14:27:11
+	- LSTM=1500, FC=2000 #1:	distil-bert-CoLA-Jan20-14:29:13
+	- LSTM=1500, FC=2000 #2:	distil-bert-CoLA-Jan20-14:29:30
+	- LSTM=1500, FC=2000 #3:	distil-bert-CoLA-Jan20-14:29:47
 
 ### BERT
 #### Learning rate
-	- 5e-3 #1:		distil-bert-CoLA-Jan17-16:10:06_FCN
-	- 1.5e-3 #1:	distil-bert-CoLA-Jan17-15:57:10_FCN
-	- 5e-4 #1:		distil-bert-CoLA-Jan17-16:10:36_FCN
-	- 1.5e-4 #1:	distil-bert-CoLA-Jan17-16:12:47_FCN
-	- 5e-5 #1:		distil-bert-CoLA-Jan17-16:13:14_FCN
-	- 1.5e-5 #1:	distil-bert-CoLA-Jan17-16:19:46_FCN
-	- 5e-6 #1:		distil-bert-CoLA-Jan17-16:14:33_FCN
+	<!-- - 5e-3 #1:		distil-bert-CoLA-Jan17-16:10:06_FCN -->
+	<!-- - 1.5e-3 #1:	distil-bert-CoLA-Jan17-15:57:10_FCN -->
+	<!-- - 5e-4 #1:		distil-bert-CoLA-Jan17-16:10:36_FCN -->
+	<!-- - 1.5e-4 #1:	distil-bert-CoLA-Jan17-16:12:47_FCN -->
+	<!-- - 5e-5 #1:		distil-bert-CoLA-Jan17-16:13:14_FCN -->
+	<!-- - 1.5e-5 #1:	distil-bert-CoLA-Jan17-16:19:46_FCN -->
+	<!-- - 5e-6 #1:		distil-bert-CoLA-Jan17-16:14:33_FCN -->
+	- 5e-3 #1:			distil-bert-CoLA-Jan20-14:43:09
+	- 1.5e-3 #1:		distil-bert-CoLA-Jan20-14:50:44
+	- 5e-4 #1:			distil-bert-CoLA-Jan20-14:43:45
+	- 1.5e-4 #1:		distil-bert-CoLA-Jan20-14:51:15
+	- 5e-5 #1:			distil-bert-CoLA-Jan20-14:44:29
+	- 1.5e-5 #1:		distil-bert-CoLA-Jan20-14:52:15
+	- 5e-6 #1:			distil-bert-CoLA-Jan20-14:46:00
 #### Warmup proportion & lr decay
-	- wp=0, decay #1:		distil-bert-CoLA-Jan18-11:57:08_FC
-	- wp=0, no decay #1:	distil-bert-CoLA-Jan18-11:57:42_FC
-	- wp=5, decay #1:		distil-bert-CoLA-Jan18-11:58:22_FC
-	- wp=5, no decay #1:	distil-bert-CoLA-Jan18-11:59:07_FC
-	- wp=10, no decay #1:	distil-bert-CoLA-Jan18-12:08:07_FC
-	- wp=15, decay #1:		distil-bert-CoLA-Jan18-11:59:56_FC
-	- wp=15, no decay #1:	distil-bert-CoLA-Jan18-12:00:26_FC
-	- wp=20, decay #1:		distil-bert-CoLA-Jan18-12:02:52_FC
-	- wp=20, no decay #1:	distil-bert-CoLA-Jan18-12:12:15_FC
+	<!-- - wp=0, decay #1:		distil-bert-CoLA-Jan18-11:57:08_FC -->
+	<!-- - wp=0, no decay #1:	distil-bert-CoLA-Jan18-11:57:42_FC -->
+	<!-- - wp=5, decay #1:		distil-bert-CoLA-Jan18-11:58:22_FC -->
+	<!-- - wp=5, no decay #1:	distil-bert-CoLA-Jan18-11:59:07_FC -->
+	<!-- - wp=10, no decay #1:	distil-bert-CoLA-Jan18-12:08:07_FC -->
+	<!-- - wp=15, decay #1:		distil-bert-CoLA-Jan18-11:59:56_FC -->
+	<!-- - wp=15, no decay #1:	distil-bert-CoLA-Jan18-12:00:26_FC -->
+	<!-- - wp=20, decay #1:		distil-bert-CoLA-Jan18-12:02:52_FC -->
+	<!-- - wp=20, no decay #1:	distil-bert-CoLA-Jan18-12:12:15_FC -->
 #### Batch size
-	- 32:	distil-bert-CoLA-Jan19-10:04:57
-	- 64:	distil-bert-CoLA-Jan19-10:05:42
-	- 128:	distil-bert-CoLA-Jan19-10:06:41
-	- 512:	doesn't fit into memory
-	- 362:	distil-bert-CoLA-Jan19-11:09:55
+	<!-- - 32:	distil-bert-CoLA-Jan19-10:04:57_FCN -->
+	<!-- - 64:	distil-bert-CoLA-Jan19-10:05:42_FCN -->
+	<!-- - 128:	distil-bert-CoLA-Jan19-10:06:41_FCN -->
+	<!-- - 512:	doesn't fit into memory -->
+	<!-- - 362:	distil-bert-CoLA-Jan19-11:09:55_FCN -->
+#### Embedding type
+	- word:
+	- word (multichannel):
 
 Letha
 1:....
@@ -236,11 +259,20 @@ Letha
 5:..
 6:..
 Damnii
-7:...
-3: NO SPACE
+1:
+2:..
+3:.. NO SPACE
+4:....
+5:.
+6:..
+7:..
+8:..
+10:.
+11:....
+0.05009791535310399
 
-```bash
-dirs=""
+```bash 
+dirs="distil-bert-CoLA-Jan19-10:04:57 distil-bert-CoLA-Jan19-10:05:42 distil-bert-CoLA-Jan19-10:06:41 distil-bert-CoLA-Jan19-11:09:55"
 for d in $dirs; do
   echo $d
   pushd $d

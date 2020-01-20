@@ -27,12 +27,19 @@ mode=non-static
 optimizer=adam
 learning_rate=5e-6
 dropout=0.1
+
+# BERT params
 attention_dropout=0.1
 max_seq_len=128
 n_layers=3
 n_heads=4
 dim=256
 hidden_dim=1024
+
+# LSTM params
+fc_size=400
+hidden_size=300
+
 use_hard_labels=false
 batch_size=32
 gradient_accumulation_steps=2
@@ -67,6 +74,8 @@ echo "n_layers: $n_layers"
 echo "dim: $dim"
 echo "hidden_dim: $hidden_dim"
 echo "max_seq_len: $max_seq_len"
+echo "fc_size: $fc_size"
+echo "hidden_size: $hidden_size"
 echo "use_hard_labels: $use_hard_labels"
 echo "batch_size: $batch_size"
 echo "gradient_accumulation_steps: $gradient_accumulation_steps"
@@ -108,6 +117,8 @@ python distil_from_finetuned.py \
   --n_heads $n_heads \
   --dim $dim \
   --hidden_dim $hidden_dim \
+  --fc_size $fc_size \
+  --hidden_size $hidden_size \
   --dropout $dropout \
   --attention_dropout $attention_dropout \
   --teacher_name $TEACHER_DIR \
