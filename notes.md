@@ -31,15 +31,6 @@ cd ../experiments
 ```
 Add `alias minfp='cd ~/minfp2; source activate minfp2; source path.sh'` to .bashrc/.profile
 
-## Longjobbing on DICE
-nohup './run.sh' &> nohup.log &
-(echo 'UseTheRule99!' | nohup longjob -28day -c 'nice ./run.sh' ) &
-(echo 'UseTheRule99!' | nohup longjob -28day -c 'nice ./run.sh student-configs/third.cfg' ) &
-(echo 'UseTheRule99!' | nohup longjob -28day -c 'nice ./job_starter.sh finetune-gpt2 --config=teacher-configs/large.cfg' ) &
-(echo 'UseTheRule99!' | nohup longjob -28day -c 'nice ./job_starter.sh distil-bert --config=student-configs/third.cfg --teacher-dir=teacher-CoLA' ) &
-cp -r CoLA/distillation/tensorboard/
-cp -r CoLA/teacher/tensorboard/
-
 ## About cluster nodes
 
 landonia[02,19], letha03, has /disk/scratch
@@ -202,18 +193,21 @@ BiLSTM
 	- wordpiece non-static #2:	distil-bert-CoLA-Jan19-00:25:12_FC
 	- wordpiece non-static #3:	distil-bert-CoLA-Jan19-00:25:57_FC
 #### Model size
-	- LSTM=600, FC=800 #1:		distil-bert-CoLA-Jan20-14:21:21
-	- LSTM=600, FC=800 #2:		distil-bert-CoLA-Jan20-14:21:43
-	- LSTM=600, FC=800 #3:		distil-bert-CoLA-Jan20-14:22:13
-	- LSTM=900, FC=1200 #1:		distil-bert-CoLA-Jan20-14:23:57
-	- LSTM=900, FC=1200 #2:		distil-bert-CoLA-Jan20-14:24:18
-	- LSTM=900, FC=1200 #3:		distil-bert-CoLA-Jan20-14:24:46
-	- LSTM=1200, FC=1600 #1:	distil-bert-CoLA-Jan20-14:26:20
-	- LSTM=1200, FC=1600 #2:	distil-bert-CoLA-Jan20-14:26:51
-	- LSTM=1200, FC=1600 #3:	distil-bert-CoLA-Jan20-14:27:11
-	- LSTM=1500, FC=2000 #1:	distil-bert-CoLA-Jan20-14:29:13
-	- LSTM=1500, FC=2000 #2:	distil-bert-CoLA-Jan20-14:29:30
-	- LSTM=1500, FC=2000 #3:	distil-bert-CoLA-Jan20-14:29:47
+	- LSTM=600, FC=800 #1:		distil-bert-CoLA-Jan20-15:27:08
+	- LSTM=600, FC=800 #2:		distil-bert-CoLA-Jan20-15:27:12
+	- LSTM=600, FC=800 #3:		distil-bert-CoLA-Jan20-15:27:17
+
+	- LSTM=900, FC=1200 #1:		distil-bert-CoLA-Jan20-15:27:56
+	- LSTM=900, FC=1200 #2:		distil-bert-CoLA-Jan20-15:28:00
+	- LSTM=900, FC=1200 #3:		distil-bert-CoLA-Jan20-15:28:04
+
+	- LSTM=1200, FC=1600 #1:	distil-bert-CoLA-Jan20-15:28:47
+	- LSTM=1200, FC=1600 #2:	distil-bert-CoLA-Jan20-15:28:50
+	- LSTM=1200, FC=1600 #3:	distil-bert-CoLA-Jan20-15:28:54
+
+	- LSTM=1500, FC=2000 #1:	distil-bert-CoLA-Jan20-15:29:35
+	- LSTM=1500, FC=2000 #2:	distil-bert-CoLA-Jan20-15:29:37
+	- LSTM=1500, FC=2000 #3:	distil-bert-CoLA-Jan20-15:29:41
 
 ### BERT
 #### Learning rate
@@ -224,13 +218,13 @@ BiLSTM
 	<!-- - 5e-5 #1:		distil-bert-CoLA-Jan17-16:13:14_FCN -->
 	<!-- - 1.5e-5 #1:	distil-bert-CoLA-Jan17-16:19:46_FCN -->
 	<!-- - 5e-6 #1:		distil-bert-CoLA-Jan17-16:14:33_FCN -->
-	- 5e-3 #1:			distil-bert-CoLA-Jan20-14:43:09
-	- 1.5e-3 #1:		distil-bert-CoLA-Jan20-14:50:44
-	- 5e-4 #1:			distil-bert-CoLA-Jan20-14:43:45
-	- 1.5e-4 #1:		distil-bert-CoLA-Jan20-14:51:15
-	- 5e-5 #1:			distil-bert-CoLA-Jan20-14:44:29
-	- 1.5e-5 #1:		distil-bert-CoLA-Jan20-14:52:15
-	- 5e-6 #1:			distil-bert-CoLA-Jan20-14:46:00
+	- 5e-3 #1:			distil-bert-CoLA-Jan20-15:30:50
+	- 1.5e-3 #1:		distil-bert-CoLA-Jan20-15:33:44
+	- 5e-4 #1:			distil-bert-CoLA-Jan20-15:31:04
+	- 1.5e-4 #1:		distil-bert-CoLA-Jan20-15:33:55
+	- 5e-5 #1:			distil-bert-CoLA-Jan20-15:31:49
+	- 1.5e-5 #1:		distil-bert-CoLA-Jan20-15:34:05
+	- 5e-6 #1:			distil-bert-CoLA-Jan20-15:32:03
 #### Warmup proportion & lr decay
 	<!-- - wp=0, decay #1:		distil-bert-CoLA-Jan18-11:57:08_FC -->
 	<!-- - wp=0, no decay #1:	distil-bert-CoLA-Jan18-11:57:42_FC -->
@@ -269,10 +263,9 @@ Damnii
 8:..
 10:.
 11:....
-0.05009791535310399
 
 ```bash 
-dirs="distil-bert-CoLA-Jan19-10:04:57 distil-bert-CoLA-Jan19-10:05:42 distil-bert-CoLA-Jan19-10:06:41 distil-bert-CoLA-Jan19-11:09:55"
+dirs=""
 for d in $dirs; do
   echo $d
   pushd $d
