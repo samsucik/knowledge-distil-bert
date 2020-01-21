@@ -39,6 +39,7 @@ hidden_dim=1024
 # LSTM params
 fc_size=400
 hidden_size=300
+n_layers_lstm=1
 
 use_hard_labels=false
 batch_size=32
@@ -76,6 +77,7 @@ echo "hidden_dim: $hidden_dim"
 echo "max_seq_len: $max_seq_len"
 echo "fc_size: $fc_size"
 echo "hidden_size: $hidden_size"
+echo "n_layers_lstm: $n_layers_lstm"
 echo "use_hard_labels: $use_hard_labels"
 echo "batch_size: $batch_size"
 echo "gradient_accumulation_steps: $gradient_accumulation_steps"
@@ -119,6 +121,7 @@ python distil_from_finetuned.py \
   --hidden_dim $hidden_dim \
   --fc_size $fc_size \
   --hidden_size $hidden_size \
+  --n_layers_lstm $n_layers_lstm \
   --dropout $dropout \
   --attention_dropout $attention_dropout \
   --teacher_name $TEACHER_DIR \
