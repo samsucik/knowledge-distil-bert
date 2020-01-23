@@ -193,21 +193,82 @@ BiLSTM
 	- wordpiece non-static #2:	distil-bert-CoLA-Jan19-00:25:12_FC
 	- wordpiece non-static #3:	distil-bert-CoLA-Jan19-00:25:57_FC
 #### Model size
-	- LSTM=600, FC=800 #1:		distil-bert-CoLA-Jan20-15:27:08
-	- LSTM=600, FC=800 #2:		distil-bert-CoLA-Jan20-15:27:12
-	- LSTM=600, FC=800 #3:		distil-bert-CoLA-Jan20-15:27:17
+	- LSTM=600, FC=800 #1:			distil-bert-CoLA-Jan20-15:27:08_FCN
+	- LSTM=600, FC=800 #2:			distil-bert-CoLA-Jan20-15:27:12_FCN
+	- LSTM=600, FC=800 #3:			distil-bert-CoLA-Jan20-15:27:17_FCN
 
-	- LSTM=900, FC=1200 #1:		distil-bert-CoLA-Jan20-15:27:56
-	- LSTM=900, FC=1200 #2:		distil-bert-CoLA-Jan20-15:28:00
-	- LSTM=900, FC=1200 #3:		distil-bert-CoLA-Jan20-15:28:04
+	- LSTM=900, FC=1200 #1:			distil-bert-CoLA-Jan20-15:27:56_FCN
+	- LSTM=900, FC=1200 #2:			distil-bert-CoLA-Jan20-15:28:00_FCN
+	- LSTM=900, FC=1200 #3:			distil-bert-CoLA-Jan20-15:28:04_FCN
 
-	- LSTM=1200, FC=1600 #1:	distil-bert-CoLA-Jan20-15:28:47
-	- LSTM=1200, FC=1600 #2:	distil-bert-CoLA-Jan20-15:28:50
-	- LSTM=1200, FC=1600 #3:	distil-bert-CoLA-Jan20-15:28:54
+	- LSTM=1200, FC=1600 #1:		distil-bert-CoLA-Jan20-15:28:47_FCN
+	- LSTM=1200, FC=1600 #2:		distil-bert-CoLA-Jan20-15:28:50_FCN
+	- LSTM=1200, FC=1600 #3:		distil-bert-CoLA-Jan20-15:28:54_FCN
 
-	- LSTM=1500, FC=2000 #1:	distil-bert-CoLA-Jan20-15:29:35
-	- LSTM=1500, FC=2000 #2:	distil-bert-CoLA-Jan20-15:29:37
-	- LSTM=1500, FC=2000 #3:	distil-bert-CoLA-Jan20-15:29:41
+	- LSTM=1500, FC=2000 #1:		distil-bert-CoLA-Jan20-15:29:35_FCN
+	- LSTM=1500, FC=2000 #2:		distil-bert-CoLA-Jan20-15:29:37_FCN
+	- LSTM=1500, FC=2000 #3:		distil-bert-CoLA-Jan20-15:29:41_FCN
+
+	- LSTM=300, FC=400, L=2 #1:		distil-bert-CoLA-Jan21-00:54:41_FCN
+	- LSTM=300, FC=400, L=2 #2:		distil-bert-CoLA-Jan21-00:54:45_FCN
+	- LSTM=300, FC=400, L=2 #3:		distil-bert-CoLA-Jan21-00:54:50_FCN
+
+	- LSTM=600, FC=800, L=2 #1:		distil-bert-CoLA-Jan21-00:58:53_FCN
+	- LSTM=600, FC=800, L=2 #2:		distil-bert-CoLA-Jan21-01:00:43_FCN
+	- LSTM=600, FC=800, L=2 #3:		distil-bert-CoLA-Jan21-01:00:56_FCN
+
+	- LSTM=900, FC=1200, L=2 #1:	distil-bert-CoLA-Jan21-09:08:51_FCN
+	- LSTM=900, FC=1200, L=2 #2:	distil-bert-CoLA-Jan21-09:09:04_FCN
+	- LSTM=900, FC=1200, L=2 #3:	distil-bert-CoLA-Jan21-09:09:08_FCN
+
+	- LSTM=1200, FC=1600, L=2 #1:	distil-bert-CoLA-Jan21-09:10:20_FCN
+	- LSTM=1200, FC=1600, L=2 #2:	distil-bert-CoLA-Jan21-09:10:25_FCN
+	- LSTM=1200, FC=1600, L=2 #3:	distil-bert-CoLA-Jan21-09:10:45_FCN
+
+	- LSTM=1500, FC=2000, L=2 #1:	distil-bert-CoLA-Jan21-09:11:59_FCN
+	- LSTM=1500, FC=2000, L=2 #2:	distil-bert-CoLA-Jan21-09:12:05_FCN
+	- LSTM=1500, FC=2000, L=2 #3:	distil-bert-CoLA-Jan21-09:14:17_FCN
+
+	- LSTM=300, FC=400, L=3 #1:		distil-bert-CoLA-Jan21-09:17:10_FCN
+	- LSTM=300, FC=400, L=3 #2:		distil-bert-CoLA-Jan21-09:18:42_FCN
+	- LSTM=300, FC=400, L=3 #3:		distil-bert-CoLA-Jan21-10:59:59_FCN
+
+	- LSTM=600, FC=800, L=3 #1:		distil-bert-CoLA-Jan21-11:01:09_FCN
+	- LSTM=600, FC=800, L=3 #2:		distil-bert-CoLA-Jan21-11:01:29_FCN
+	- LSTM=600, FC=800, L=3 #3:		distil-bert-CoLA-Jan21-11:02:02_FCN
+
+	- LSTM=900, FC=1200, L=3 #1:	distil-bert-CoLA-Jan21-11:04:15_FCN
+	- LSTM=900, FC=1200, L=3 #2:	distil-bert-CoLA-Jan21-11:04:40_FCN
+	- LSTM=900, FC=1200, L=3 #3:	distil-bert-CoLA-Jan21-15:47:58_FCN
+
+	- LSTM=1200, FC=1600, L=3 #1:	distil-bert-CoLA-Jan22-20:46:57
+	- LSTM=1200, FC=1600, L=3 #2:	distil-bert-CoLA-Jan22-20:47:02
+	- LSTM=1200, FC=1600, L=3 #3:	distil-bert-CoLA-Jan22-20:47:09
+
+	- LSTM=300, FC=400, L=4 #1:		distil-bert-CoLA-Jan22-09:42:07_FCN
+	- LSTM=300, FC=400, L=4 #2:		distil-bert-CoLA-Jan22-09:42:15_FCN
+	- LSTM=300, FC=400, L=4 #3:		distil-bert-CoLA-Jan22-09:42:34_FCN
+
+	- LSTM=600, FC=800, L=4 #1:		distil-bert-CoLA-Jan22-09:43:53
+	- LSTM=600, FC=800, L=4 #2:		distil-bert-CoLA-Jan22-09:43:55
+	- LSTM=600, FC=800, L=4 #3:		distil-bert-CoLA-Jan22-09:43:59
+
+	- LSTM=900, FC=1200, L=4 #1:	distil-bert-CoLA-Jan22-20:49:39
+	- LSTM=900, FC=1200, L=4 #2:	distil-bert-CoLA-Jan22-20:49:47
+	- LSTM=900, FC=1200, L=4 #3:	distil-bert-CoLA-Jan22-20:49:50
+
+	- LSTM=300, FC=400, L=5 #1:		distil-bert-CoLA-Jan22-09:51:35_FCN
+	- LSTM=300, FC=400, L=5 #2:		distil-bert-CoLA-Jan22-09:51:40_FCN
+	- LSTM=300, FC=400, L=5 #3:		distil-bert-CoLA-Jan22-09:51:54_FCN
+
+	- LSTM=600, FC=800, L=5 #1:		distil-bert-CoLA-Jan22-20:51:12
+	- LSTM=600, FC=800, L=5 #2:		distil-bert-CoLA-Jan22-20:51:17
+	- LSTM=600, FC=800, L=5 #3:		distil-bert-CoLA-Jan22-20:51:25
+
+	- LSTM=900, FC=1200, L=5 #1:	distil-bert-CoLA-Jan22-23:38:50
+	- LSTM=900, FC=1200, L=5 #2:	distil-bert-CoLA-Jan22-23:39:06
+	- LSTM=900, FC=1200, L=5 #3:	distil-bert-CoLA-Jan22-23:40:55
+
 
 ### BERT
 #### Learning rate
@@ -218,13 +279,13 @@ BiLSTM
 	<!-- - 5e-5 #1:		distil-bert-CoLA-Jan17-16:13:14_FCN -->
 	<!-- - 1.5e-5 #1:	distil-bert-CoLA-Jan17-16:19:46_FCN -->
 	<!-- - 5e-6 #1:		distil-bert-CoLA-Jan17-16:14:33_FCN -->
-	- 5e-3 #1:			distil-bert-CoLA-Jan20-15:30:50
-	- 1.5e-3 #1:		distil-bert-CoLA-Jan20-15:33:44
-	- 5e-4 #1:			distil-bert-CoLA-Jan20-15:31:04
-	- 1.5e-4 #1:		distil-bert-CoLA-Jan20-15:33:55
-	- 5e-5 #1:			distil-bert-CoLA-Jan20-15:31:49
-	- 1.5e-5 #1:		distil-bert-CoLA-Jan20-15:34:05
-	- 5e-6 #1:			distil-bert-CoLA-Jan20-15:32:03
+	- 5e-3 #1:			distil-bert-CoLA-Jan20-15:30:50_FCN
+	- 1.5e-3 #1:		distil-bert-CoLA-Jan20-15:33:44_FCN
+	- 5e-4 #1:			distil-bert-CoLA-Jan20-15:31:04_FCN
+	- 1.5e-4 #1:		distil-bert-CoLA-Jan20-15:33:55_FCN
+	- 5e-5 #1:			distil-bert-CoLA-Jan20-15:31:49_FCN
+	- 1.5e-5 #1:		distil-bert-CoLA-Jan20-15:34:05_FCN
+	- 5e-6 #1:			distil-bert-CoLA-Jan20-15:32:03_FCN
 #### Warmup proportion & lr decay
 	<!-- - wp=0, decay #1:		distil-bert-CoLA-Jan18-11:57:08_FC -->
 	<!-- - wp=0, no decay #1:	distil-bert-CoLA-Jan18-11:57:42_FC -->
@@ -235,12 +296,25 @@ BiLSTM
 	<!-- - wp=15, no decay #1:	distil-bert-CoLA-Jan18-12:00:26_FC -->
 	<!-- - wp=20, decay #1:		distil-bert-CoLA-Jan18-12:02:52_FC -->
 	<!-- - wp=20, no decay #1:	distil-bert-CoLA-Jan18-12:12:15_FC -->
+	- wp=0, decay #1:			distil-bert-CoLA-Jan21-20:50:51_FCN
+	- wp=0, no decay #1:		distil-bert-CoLA-Jan21-21:12:24_FCN
+	- wp=5, decay #1:			distil-bert-CoLA-Jan21-21:40:15_FCN
+	- wp=5, no decay #1:		distil-bert-CoLA-Jan21-23:14:47_FCN
+	- wp=10, no decay #1:		distil-bert-CoLA-Jan22-09:29:53_FCN
+	- wp=15, decay #1:			distil-bert-CoLA-Jan22-09:30:36_FCN
+	- wp=15, no decay #1:		distil-bert-CoLA-Jan22-09:31:03_FCN
+	- wp=20, decay #1:			distil-bert-CoLA-Jan22-09:31:31_FCN
+	- wp=20, no decay #1:		distil-bert-CoLA-Jan22-09:32:06_FCN
 #### Batch size
 	<!-- - 32:	distil-bert-CoLA-Jan19-10:04:57_FCN -->
 	<!-- - 64:	distil-bert-CoLA-Jan19-10:05:42_FCN -->
 	<!-- - 128:	distil-bert-CoLA-Jan19-10:06:41_FCN -->
-	<!-- - 512:	doesn't fit into memory -->
 	<!-- - 362:	distil-bert-CoLA-Jan19-11:09:55_FCN -->
+	<!-- - 512:	distil-bert-CoLA-Jan23-09:55:20
+	- 32:		distil-bert-CoLA-Jan23-09:47:32
+	- 64:		distil-bert-CoLA-Jan23-09:46:50
+	- 128:		distil-bert-CoLA-Jan23-09:48:13
+	- 512:		distil-bert-CoLA-Jan23-09:49:54
 #### Embedding type
 	- word:
 	- word (multichannel):
