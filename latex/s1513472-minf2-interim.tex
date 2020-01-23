@@ -46,7 +46,7 @@
 
 \begin{document}
 
-\title{\vspace{-5.0cm} \centering{\includeshield} \vspace{1cm} \\ NLP knowledge distillation with different students}
+\title{\vspace{-5.0cm} \centering{\includeshield} \vspace{1cm} \\ Learning small sentence classifiers from BERT using teacher-student knowledge distillation}
 
 \author{Sam Su\v{c}\'ik}
 
@@ -62,10 +62,59 @@
 \maketitle
 
 \section*{Acknowledgements}{
-  
+  Thanks to Steve and Vova, to Ralph Tang and to Sl\'avka.
 }
 
-\tableofcontents
+{
+  \hypersetup{linkcolor=black}
+  \tableofcontents
+}
+
+\chapter{Introduction}{
+  % what's the problem, 
+  \section{Motivation}{
+    \begin{itemize}
+      \item After the deep learning hype started, NLP went through an era of LSTMs. Since 2017, the area has been becoming dominated by Transformers.
+      \item As newer and bigger Transformer-based models were proposed in 2018 and 2019, improving on the SOTA, it was becoming clearer that their big size and low speed was rendering them difficult to use (both train and deploy) in practice outside of research labs.
+      \item Recently, we've seen various early attempts at making Transformers -- in particular BERT -- smaller by removing attentional heads \citep{Michel_2019}, quantisation and pruning \citep{Cheong_2019, Sucik_2019}. In terms of actually down-sizing and accelerating the models, knowledge transfer using teacher-student knowledge distillation has led to the most attractive results \citep{Mukherjee_2019,Tang-et-al-2019a,Jiao_2019,Sanh_2019}.
+      \item However, these studies focus on showing that knowledge distillation works well. Important questions about the nature of this technique and how it interacts with properties of the teacher and student models remain unexplored.
+    \end{itemize}
+  }
+  
+  % what I tried to address, 
+  \section{Aims}{
+    Since NLP tasks are often possible for humans to reason about, this setting creates an opportunity for trying to understand and interpret various characteristics of knowledge distillation, in this case in the context of Transformer models.
+
+  }
+  
+  % what I did
+  \section{Contributions}{}
+}
+
+\chapter{Background}{
+  % NLP (sentence classification), transformers, knowledge distillation, model understanding (probing)
+}
+
+\chapter{Datasets}{
+  % GLUE: CoLA, SST-2; Sara (anonymised!), probing tasks. Other alternatives considered.
+}
+
+\chapter{Implementation}{
+  % pytorch-transformers, d-bert, SentEval, Rasa. own pieces. architecture. choices made. initial hparams.
+}
+
+\chapter{Student tuning}{
+  % hparam tuning, size tuning
+  % results: best config, student size differences between datasets
+}
+
+\chapter{Analysing the students}{
+  % analysing mistakes, probing
+}
+
+\chapter{Overall discussion and conclusions}{}
+
+\chapter{Future work}{}
 
 \chapter{Notes}{
   \section{Distillation techniques}{

@@ -2,6 +2,66 @@
 Wang et al., 2018).
 BibTeX | EndNote | ACM Ref
 
+@misc{Mukherjee_2019,
+    title={Distilling Transformers into Simple Neural Networks with Unlabeled Transfer Data},
+    abstract={Distilling into BiLSTM like Ralph, but with various loss functions and staged distillation. 
+              26x smaller students match BERT large performance, but just on sentiment/topic classification.
+              Working with in-domain unlabeled data (might not always be present, then need to generate 
+              like Ralph did).},
+    author={Subhabrata Mukherjee and Ahmed Hassan Awadallah},
+    year={2019},
+    eprint={1910.01769},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+
+@misc{Sanh_2019,
+    title={{DistilBERT}, a distilled version of {BERT}: smaller, faster, cheaper and lighter},
+    author={Victor Sanh and Lysandre Debut and Julien Chaumond and Thomas Wolf},
+    year={2019},
+    eprint={1910.01108},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+
+@misc{Jiao_2019,
+    title={{TinyBERT}: Distilling {BERT} for Natural Language Understanding},
+    author={Xiaoqi Jiao and Yichun Yin and Lifeng Shang and Xin Jiang and Xiao Chen and Linlin Li and Fang Wang and Qun Liu},
+    abstract={Smaller BERT (9x smaller BERT Base), trained to match teacher's embedding, hidden and attention 
+              representations in 2 stages (general and task-specific training). Interesting data augmentation 
+              using BERT and word embeddings (see appendix).},
+    year={2019},
+    eprint={1909.10351},
+    archivePrefix={arXiv},
+    primaryClass={cs.CL}
+}
+
+@misc{Michel_2019,
+    title={Are Sixteen Heads Really Better than One?},
+    author={Paul Michel and Omer Levy and Graham Neubig},
+    year={2019},
+    eprint={1905.10650},
+    archivePrefix={arXiv},
+}
+
+@misc{Sucik_2019,
+  author={Sucik, Sam},
+  year={2019},
+  month={9},
+  title={Pruning {BERT} to accelerate inference},
+  organization={Rasa},
+  date={September 5, 2019},
+  howpublished = "\url{https://blog.rasa.com/pruning-bert-to-accelerate-inference/}",
+  urldate={2020-01-22}
+}
+
+@misc{Cheong_2019,
+  author={Cheong, R. and Daniel, R.},
+  year={2019},
+  title={{transformers.zip}: Compressing Transformers with Pruning and Quantization},
+  url={http://web.stanford.edu/class/cs224n/reports/custom/15763707.pdf}
+}
+
 @article{Tang-et-al-2019b,
   title={Natural Language Generation for Effective Knowledge Distillation},
   author={Raphael Tang and Jimmy Lin},

@@ -4,3 +4,6 @@
 [submodule "d-bert"]
 	path = d-bert
 	url = git@github.com:samsucik/d-bert.git
+[submodule "SentEval"]
+	path = SentEval
+	url = https://github.com/facebookresearch/SentEval.git
