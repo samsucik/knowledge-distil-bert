@@ -2,7 +2,6 @@
 glove.840B.300d.*
 GoogleNews-vectors-negative300.*
 data/glue_data/**/
-!data/glue_data/Sara
 !data/glue_data/Sara/*.tsv
 !data/glue_data/Sara/*.py
 
