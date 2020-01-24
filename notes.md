@@ -241,34 +241,41 @@ BiLSTM
 	- LSTM=900, FC=1200, L=3 #2:	distil-bert-CoLA-Jan21-11:04:40_FCN
 	- LSTM=900, FC=1200, L=3 #3:	distil-bert-CoLA-Jan21-15:47:58_FCN
 
-	- LSTM=1200, FC=1600, L=3 #1:	distil-bert-CoLA-Jan22-20:46:57
-	- LSTM=1200, FC=1600, L=3 #2:	distil-bert-CoLA-Jan22-20:47:02
-	- LSTM=1200, FC=1600, L=3 #3:	distil-bert-CoLA-Jan22-20:47:09
+	- LSTM=1200, FC=1600, L=3 #1:	distil-bert-CoLA-Jan22-20:46:57_FCN
+	- LSTM=1200, FC=1600, L=3 #2:	distil-bert-CoLA-Jan22-20:47:02_FCN
+	- LSTM=1200, FC=1600, L=3 #3:	distil-bert-CoLA-Jan22-20:47:09_FCN
 
 	- LSTM=300, FC=400, L=4 #1:		distil-bert-CoLA-Jan22-09:42:07_FCN
 	- LSTM=300, FC=400, L=4 #2:		distil-bert-CoLA-Jan22-09:42:15_FCN
 	- LSTM=300, FC=400, L=4 #3:		distil-bert-CoLA-Jan22-09:42:34_FCN
 
-	- LSTM=600, FC=800, L=4 #1:		distil-bert-CoLA-Jan22-09:43:53
-	- LSTM=600, FC=800, L=4 #2:		distil-bert-CoLA-Jan22-09:43:55
-	- LSTM=600, FC=800, L=4 #3:		distil-bert-CoLA-Jan22-09:43:59
+	- LSTM=600, FC=800, L=4 #1:		distil-bert-CoLA-Jan22-09:43:53_FCN
+	- LSTM=600, FC=800, L=4 #2:		distil-bert-CoLA-Jan22-09:43:55_FCN
+	- LSTM=600, FC=800, L=4 #3:		distil-bert-CoLA-Jan22-09:43:59_FCN
 
-	- LSTM=900, FC=1200, L=4 #1:	distil-bert-CoLA-Jan22-20:49:39
-	- LSTM=900, FC=1200, L=4 #2:	distil-bert-CoLA-Jan22-20:49:47
-	- LSTM=900, FC=1200, L=4 #3:	distil-bert-CoLA-Jan22-20:49:50
+	- LSTM=900, FC=1200, L=4 #1:	distil-bert-CoLA-Jan22-20:49:39_FCN
+	- LSTM=900, FC=1200, L=4 #2:	distil-bert-CoLA-Jan22-20:49:47_FCN
+	- LSTM=900, FC=1200, L=4 #3:	distil-bert-CoLA-Jan22-20:49:50_FCN
+
+	- LSTM=1200, FC=1600, L=4 #1:	distil-bert-CoLA-Jan24-10:10:34
+	- LSTM=1200, FC=1600, L=4 #2:	distil-bert-CoLA-Jan24-10:10:36
+	- LSTM=1200, FC=1600, L=4 #3:	distil-bert-CoLA-Jan24-10:10:39
 
 	- LSTM=300, FC=400, L=5 #1:		distil-bert-CoLA-Jan22-09:51:35_FCN
 	- LSTM=300, FC=400, L=5 #2:		distil-bert-CoLA-Jan22-09:51:40_FCN
 	- LSTM=300, FC=400, L=5 #3:		distil-bert-CoLA-Jan22-09:51:54_FCN
 
-	- LSTM=600, FC=800, L=5 #1:		distil-bert-CoLA-Jan22-20:51:12
-	- LSTM=600, FC=800, L=5 #2:		distil-bert-CoLA-Jan22-20:51:17
-	- LSTM=600, FC=800, L=5 #3:		distil-bert-CoLA-Jan22-20:51:25
+	- LSTM=600, FC=800, L=5 #1:		distil-bert-CoLA-Jan22-20:51:12_FCN
+	- LSTM=600, FC=800, L=5 #2:		distil-bert-CoLA-Jan22-20:51:17_FCN
+	- LSTM=600, FC=800, L=5 #3:		distil-bert-CoLA-Jan22-20:51:25_FCN
 
-	- LSTM=900, FC=1200, L=5 #1:	distil-bert-CoLA-Jan22-23:38:50
+	- LSTM=900, FC=1200, L=5 #1:	distil-bert-CoLA-Jan22-23:38:50_FCN
 	- LSTM=900, FC=1200, L=5 #2:	distil-bert-CoLA-Jan22-23:39:06
-	- LSTM=900, FC=1200, L=5 #3:	distil-bert-CoLA-Jan22-23:40:55
+	- LSTM=900, FC=1200, L=5 #3:	distil-bert-CoLA-Jan22-23:40:55_FCN
 
+	- LSTM=1200, FC=1600, L=5 #1:	distil-bert-CoLA-Jan24-10:11:12
+	- LSTM=1200, FC=1600, L=5 #2:	distil-bert-CoLA-Jan24-10:11:14
+	- LSTM=1200, FC=1600, L=5 #3:	distil-bert-CoLA-Jan24-10:11:16
 
 ### BERT
 #### Learning rate
@@ -310,14 +317,14 @@ BiLSTM
 	<!-- - 64:	distil-bert-CoLA-Jan19-10:05:42_FCN -->
 	<!-- - 128:	distil-bert-CoLA-Jan19-10:06:41_FCN -->
 	<!-- - 362:	distil-bert-CoLA-Jan19-11:09:55_FCN -->
-	<!-- - 512:	distil-bert-CoLA-Jan23-09:55:20
+	<!-- - 512:	distil-bert-CoLA-Jan23-09:55:20_FCN
 	- 32:		distil-bert-CoLA-Jan23-09:47:32
-	- 64:		distil-bert-CoLA-Jan23-09:46:50
-	- 128:		distil-bert-CoLA-Jan23-09:48:13
-	- 512:		distil-bert-CoLA-Jan23-09:49:54
+	- 64:		distil-bert-CoLA-Jan23-09:46:50_FCN
+	- 128:		distil-bert-CoLA-Jan23-09:48:13_FCN
+	- 512:		distil-bert-CoLA-Jan23-09:49:54_FCN
 #### Embedding type
-	- word:
-	- word (multichannel):
+	- word: 				distil-bert-CoLA-Jan24-10:07:32
+	- word (multichannel): 	distil-bert-CoLA-Jan24-10:07:52
 
 Letha
 1:....
@@ -339,7 +346,7 @@ Damnii
 11:....
 
 ```bash 
-dirs=""
+dirs="distil-bert-CoLA-Jan23-09:55:20 distil-bert-CoLA-Jan23-09:46:50 distil-bert-CoLA-Jan23-09:48:13 distil-bert-CoLA-Jan23-09:49:54 distil-bert-CoLA-Jan22-20:46:57 distil-bert-CoLA-Jan22-20:47:02 distil-bert-CoLA-Jan22-20:47:09 distil-bert-CoLA-Jan22-09:43:53 distil-bert-CoLA-Jan22-09:43:55 distil-bert-CoLA-Jan22-09:43:59 distil-bert-CoLA-Jan22-20:49:39 distil-bert-CoLA-Jan22-20:49:47 distil-bert-CoLA-Jan22-20:49:50 distil-bert-CoLA-Jan22-20:51:12 distil-bert-CoLA-Jan22-20:51:17 distil-bert-CoLA-Jan22-20:51:25 distil-bert-CoLA-Jan22-23:38:50 distil-bert-CoLA-Jan22-23:40:55"
 for d in $dirs; do
   echo $d
   pushd $d
