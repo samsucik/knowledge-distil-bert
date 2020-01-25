@@ -71,16 +71,21 @@ correct_bias (in AdamW): False
 Parallelised sampling of 800K sents (MSL=128) from GPT-2 medium on CoLA with 4 GPUs (each with 6GB of memory) and 20GB RAM took 16:39h.
 Parallelised generating logits with large BERT for 800K sents (MSL=128, in batches of 2048) on 4 GPUs (12GB memory each) took 1:10h.
 
-## Sizes
-BERT (small):
-	trainable parameters (all): 32771074 (32.7M)
-	trainable parameters (embeddings): 31650560 (31.6M)
-	non-embedding prameters: 1120514 (1.1M)
-BiLSTM
-	trainable parameters (all): 75354902 (75M)
-	trainable parameters (embeddings): 72948900 (73M)
-	all parameters: 148303802 (148M)
-	non-embedding prameters: 2406002 (2.4M)
+### Student sizes
+#### BERT
+theory
+- large: L=24 H=1024 A=16 I=4096
+- /12:   L=2  H=85   A=1  I=341  (183K)
+- /6:    L=4  H=171  A=3  I=683  (1.44M)
+- /5:    L=5  H=204  A=3  I=819  (2.56M) [with I=750 is 2.42M]
+
+practice
+- 2.42M: L=5 H=204 A=3 I=750
+- inflating: width up to 4x, depth up to 3x
+
+#### BiLSTM
+Tang: H=300 FC=400 (2.41M)
+
 
 ## Hparam search
 ### BiLSTM
@@ -192,6 +197,10 @@ BiLSTM
 	- wordpiece non-static #1:	distil-bert-CoLA-Jan19-00:25:02_FC
 	- wordpiece non-static #2:	distil-bert-CoLA-Jan19-00:25:12_FC
 	- wordpiece non-static #3:	distil-bert-CoLA-Jan19-00:25:57_FC
+
+	- word non-static #1:		distil-bert-CoLA-Jan25-09:40:14
+	- word non-static #2:		distil-bert-CoLA-Jan25-09:40:18
+	- word non-static #3:		distil-bert-CoLA-Jan25-09:40:23
 #### Model size
 	- LSTM=600, FC=800 #1:			distil-bert-CoLA-Jan20-15:27:08_FCN
 	- LSTM=600, FC=800 #2:			distil-bert-CoLA-Jan20-15:27:12_FCN
@@ -270,7 +279,7 @@ BiLSTM
 	- LSTM=600, FC=800, L=5 #3:		distil-bert-CoLA-Jan22-20:51:25_FCN
 
 	- LSTM=900, FC=1200, L=5 #1:	distil-bert-CoLA-Jan22-23:38:50_FCN
-	- LSTM=900, FC=1200, L=5 #2:	distil-bert-CoLA-Jan22-23:39:06
+	- LSTM=900, FC=1200, L=5 #2:	distil-bert-CoLA-Jan22-23:39:06_FCN
 	- LSTM=900, FC=1200, L=5 #3:	distil-bert-CoLA-Jan22-23:40:55_FCN
 
 	- LSTM=1200, FC=1600, L=5 #1:	distil-bert-CoLA-Jan24-10:11:12
@@ -318,14 +327,33 @@ BiLSTM
 	<!-- - 128:	distil-bert-CoLA-Jan19-10:06:41_FCN -->
 	<!-- - 362:	distil-bert-CoLA-Jan19-11:09:55_FCN -->
 	<!-- - 512:	distil-bert-CoLA-Jan23-09:55:20_FCN
-	- 32:		distil-bert-CoLA-Jan23-09:47:32
+	- 32:		distil-bert-CoLA-Jan23-09:47:32_FCN
 	- 64:		distil-bert-CoLA-Jan23-09:46:50_FCN
 	- 128:		distil-bert-CoLA-Jan23-09:48:13_FCN
 	- 512:		distil-bert-CoLA-Jan23-09:49:54_FCN
 #### Embedding type
-	- word: 				distil-bert-CoLA-Jan24-10:07:32
-	- word (multichannel): 	distil-bert-CoLA-Jan24-10:07:52
+	- word: 					distil-bert-CoLA-Jan24-10:07:32_FCN
+	- word (multichannel): 		distil-bert-CoLA-Jan24-10:07:52_FCN
+	- wordpiece (multichannel): distil-bert-CoLA-Jan25-09:42:35
+#### Model size
+- inflating: width up to 4x, depth up to 3x
+- W=1, D=1 (L=5 H=204 A=3 I=750):		not running								2.4  (1x128)
+- W=2, D=1 (L=5 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:02:01_ 		9.6  (1x128)
+- W=3, D=1 (L=5 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:12:42_		21.7 (2x64)
+- W=4, D=1 (L=5 H=816 A=12 I=3000):		distil-bert-CoLA-Jan25-11:42:48_		38.5 (4x32)
 
+- W=1, D=2 (L=10 H=204 A=3 I=750):		distil-bert-CoLA-Jan25-10:50:54_ 		4.8	 (2x64)
+- W=2, D=2 (L=10 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:18:53_		19.1 (2x64)
+- W=3, D=2 (L=10 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:45:05_ 		43   (4x32)
+- W=4, D=2 (L=10 H=816 A=12 I=3000):	distil-bert-CoLA-Jan25-11:10:16_		76.4 (4x32)
+
+- W=1, D=3 (L=15 H=204 A=3 I=750):		distil-bert-CoLA-Jan25-10:35:13_		7.2	 (2x64)
+- W=2, D=3 (L=15 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:41:45_		28.6 (2x64)
+- W=3, D=3 (L=15 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:47:07_ 		64.3 (4x32)
+- W=4, D=3 (L=15 H=816 A=12 I=3000):	distil-bert-CoLA-Jan25-15:54:15			114.2(8x16)	
+
+distil-bert-CoLA-Jan24-10:10:39
+distil-bert-CoLA-Jan25-09:40:23
 Letha
 1:....
 2:...
@@ -346,7 +374,7 @@ Damnii
 11:....
 
 ```bash 
-dirs="distil-bert-CoLA-Jan23-09:55:20 distil-bert-CoLA-Jan23-09:46:50 distil-bert-CoLA-Jan23-09:48:13 distil-bert-CoLA-Jan23-09:49:54 distil-bert-CoLA-Jan22-20:46:57 distil-bert-CoLA-Jan22-20:47:02 distil-bert-CoLA-Jan22-20:47:09 distil-bert-CoLA-Jan22-09:43:53 distil-bert-CoLA-Jan22-09:43:55 distil-bert-CoLA-Jan22-09:43:59 distil-bert-CoLA-Jan22-20:49:39 distil-bert-CoLA-Jan22-20:49:47 distil-bert-CoLA-Jan22-20:49:50 distil-bert-CoLA-Jan22-20:51:12 distil-bert-CoLA-Jan22-20:51:17 distil-bert-CoLA-Jan22-20:51:25 distil-bert-CoLA-Jan22-23:38:50 distil-bert-CoLA-Jan22-23:40:55"
+dirs="distil-bert-CoLA-Jan22-23:39:06 distil-bert-CoLA-Jan23-09:47:32 distil-bert-CoLA-Jan24-10:07:32 distil-bert-CoLA-Jan24-10:07:52"
 for d in $dirs; do
   echo $d
   pushd $d
@@ -358,16 +386,7 @@ for d in $dirs; do
 done
 ```
 
-### Student sizes
-BERT
-large: L=24 H=1024 A=16 I=4096
-/12:   L=2  H=85   A=1  I=341  (183K)
-/6:    L=4  H=171  A=3  I=683  (1.44M)
-/5:    L=5  H=204  A=3  I=819  (2.56M) [with I=750 is 2.42M]
-BiLSTM
-Tang: H=300 FC=400 (2.41M)
-
-
+# Trash
 BERT
 	<B=256,w=0.1>
 	<B=256,w=0>
@@ -386,20 +405,13 @@ BiLSTM
 	<B=50, w=0.333, lr=5e-4>
 	<B=64, w=0, lr=5e-4>
 
-
-Iteration:   0%|          | 34/16172 [00:01<13:45, 19.56it/s]Traceback (most recent call last):
-  File "distil_from_finetuned.py", line 739, in <module>
-    main()
-  File "distil_from_finetuned.py", line 735, in main
-    distiller.train()
-  File "/mnt/glusterfs/teaching-home/s1513472/minfp2/pytorch-transformers/examples/distillation/distiller_from_finetuned.py", line 168, in train
-    self.step(batch)
-  File "/mnt/glusterfs/teaching-home/s1513472/minfp2/pytorch-transformers/examples/distillation/distiller_from_finetuned.py", line 239, in step
-    self.optimize(loss)
-  File "/mnt/glusterfs/teaching-home/s1513472/minfp2/pytorch-transformers/examples/distillation/distiller_from_finetuned.py", line 256, in optimize
-    loss.backward()
-  File "/mnt/glusterfs/teaching-home/s1513472/.miniconda/envs/minfp2/lib/python3.7/site-packages/torch/tensor.py", line 118, in backward
-    torch.autograd.backward(self, gradient, retain_graph, create_graph)
-  File "/mnt/glusterfs/teaching-home/s1513472/.miniconda/envs/minfp2/lib/python3.7/site-packages/torch/autograd/__init__.py", line 93, in backward
-    allow_unreachable=True)  # allow_unreachable flag
-RuntimeError: merge_sort: failed to synchronize: an illegal memory access was encountered
+## Old sizes
+BERT (small):
+	trainable parameters (all): 32771074 (32.7M)
+	trainable parameters (embeddings): 31650560 (31.6M)
+	non-embedding prameters: 1120514 (1.1M)
+BiLSTM
+	trainable parameters (all): 75354902 (75M)
+	trainable parameters (embeddings): 72948900 (73M)
+	all parameters: 148303802 (148M)
+	non-embedding prameters: 2406002 (2.4M)
