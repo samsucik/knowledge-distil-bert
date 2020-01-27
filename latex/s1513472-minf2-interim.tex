@@ -99,7 +99,7 @@
 
 \chapter{Background}{
   % NLP (sentence classification), transformers, knowledge distillation, model understanding (probing)
-  \section{Brief history of pre-Transformer sequence encoders}{
+  \section{Pre-Transformer sequence encoders}{
     NLP is all about sequences of variable lengths: sentences, sentence pairs, documents, speech segments...
 
     NLP tasks are typically about making simple predictions about sequences: classifying sentences based on their intent or language, scoring a document's level of formality, predicting whether two sentences form a coherent question-answer pair or not, predicting the next word of a sentence...
@@ -112,14 +112,35 @@
 
     \citet{Bahdanau_2014} improved things by introducing attention, enabling the recurrent encoders to learn to selectively attend or ignore parts of the input sequence.
   }
-  \section{Transformer models}{
-    \citet{Vaswani_2017} introduced Transformer.
-    \citet{Radford_2018} introduced the idea of generative pre-training and fine-tuning.
-    \citet{Devlin_2018} introduced BERT (i.e. bi-directionality and 2 simultaneous pre-training tasks -- MLM and NSP).
-    further huge models include: GPT-2 \citep{Radford_2019}, XLM \citep{Lample_2019} (introduced cross-lingual pre-training).
+
+  \section{Transformer models and BERT}{
+    \citet{Vaswani_2017} introduced Transformer. Main idea: process tokens in parallel, not sequentially, with sequentiality represented by positional markers (embeddings). Self-attention is used to pool from the context of the entire sequence, leading to evolving rich contextualised representations of each token in the higher layers.
+    
+    \citet{Radford_2018} introduced the idea of generative LM pre-training and fine-tuning. This concept helps train much better models even for low-resource tasks with small datasets, by leveraging general language knowledge acquired by the model in the pre-training phase. Publishing pre-trained model instances makes the power of NLP much more accessible to anyone and has become a popular thing to do.
+    
+    \citet{Devlin_2018} made improved the concept by pre-training the model bi-directionally (leading to language modelling based on left \textit{and} right context). They also changed the pre-training to 2 tasks trained at the same time: masked language modelling to learn to understand words, and next sentence prediction to learn to reason about entire sentences (as the actual NLP tasks often require such reasoning). This is is how BERT was born, which then became extremely popular in the community, attracting a lot of work on improving it, analysing its capabilities, extending it to other languages, and even applying it to multi-modal tasks such as video captioning.
+    
+    Following the success of BERT, further and often bigger Transformer models started emerging:
+    \begin{itemize}
+      \item GPT-2 \citep{Radford_2019}, a bigger and improved version of GPT
+      \item XLM \citep{Lample_2019} with added introduced cross-lingual pre-training
+      \item Transformer XL \citep{Dai_2019} with better handling of much longer contexts
+      \item and many others
+    \end{itemize}
+
+    Although the open-sourced powerful pre-trained models were a huge step towards more accessible NLP, the model size meant they couldn't be applied easily outside of research: They were memory-hungry and slow. This inspired another wave of research: compressing the huge, well-performing Transformers (very often BERT) to make them faster and resource-efficient. I will focus on the compression method so far looks the most effective: knowledge transfer from huge models into smaller ones using teacher-student knowledge distillation.
   }
-  \section{Knowledge distillation}{}
-  \section{Understanding the models}{}
+
+  \section{Knowledge distillation}{
+    brief history of KD in general
+    different objectives: logits, hard labels, mimicking internal representations...
+    KD in NLP: sequence-level KD \citep{Kim_2016}, then basically straight to distilling from BERT?
+    data augmentation as a way to bring small datasets back into the game (after the concept of 2-stage training did this and then KD undid it)
+  }
+  
+  \section{Understanding the models}{
+
+  }
 }
 
 \chapter{Datasets}{
@@ -128,6 +149,8 @@
 
 \chapter{Implementation}{
   % pytorch-transformers, d-bert, SentEval, Rasa. own pieces. architecture. choices made. initial hparams.
+  % hparams: use T=3 (default from Tang, also confirmed to work better than 1 and 2 by \citet{Tsai_2019})
+  % cross-entropy loss with temperature and logits shown in \citet[p.3]{Tsai_2019}
 }
 
 \chapter{Student tuning}{
