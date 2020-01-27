@@ -10,6 +10,7 @@ experiments/**/
 !experiments/teacher-configs/
 !experiments/analysis/
 !experiments/analysis/logs
+!experiments/analysis/probing
 *.log
 *.out
 nohup.out
