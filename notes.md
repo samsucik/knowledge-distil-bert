@@ -338,7 +338,7 @@ Tang: H=300 FC=400 (2.41M)
 	- inflating: width up to 4x, depth up to 3x
 	- W=1, D=1 (L=5 H=204 A=3 I=750):		not running								2.4  (1x128)
 	- W=2, D=1 (L=5 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:02:01_F 		9.6  (1x128)
-	- W=3, D=1 (L=5 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:12:42_		21.7 (2x64)  55
+	- W=3, D=1 (L=5 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:12:42_F		21.7 (2x64)
 	- W=4, D=1 (L=5 H=816 A=12 I=3000):		distil-bert-CoLA-Jan25-11:42:48_		38.5 (4x32)  43
 
 	- W=1, D=2 (L=10 H=204 A=3 I=750):		distil-bert-CoLA-Jan25-10:50:54_FCN		4.8	 (2x64)
@@ -382,7 +382,7 @@ for d in $dirs; do
 done
 ```
 
-## Probing
+## Probing: COULD FIX reg=1e-5
 ### CoLA
 	avg: 			probe-CoLA-Jan26-09:55:22_F...
 	max: 			probe-CoLA-Jan26-09:54:19_F...
@@ -390,6 +390,7 @@ done
 	max+search:		probe-CoLA-Jan26-17:58:15_FC
 	single+search:	probe-CoLA-Jan26-15:10:51_FC
 	avg+search_L=11 probe-CoLA-Jan27-09:22:06
+	avg+search_L=0 	probe-CoLA-Jan27-13:34:50
 ### SST-2
 	single+search:  probe-SST-2-Jan26-16:17:27_FC
 	avg+search:		probe-SST-2-Jan27-09:16:19
