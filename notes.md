@@ -1,17 +1,10 @@
 # Random notes
 
-## TO DO
-	# longer training
-	# teach student directly on hard labels
-	# use student that is pre-trained BERT
-	# use student that is full-size re-initialised BERT
-	# scan through Sara data and note everything that needs to be removed
-
 ## GPU DICEs
-- kirby
-- mario
-- luigi
-- zelda
+	- kirby
+	- mario
+	- luigi
+	- zelda
 
 ## Setting up environment in the cluster (or elsewhere)
 ```bash
@@ -36,16 +29,15 @@ Add `alias minfp='cd ~/minfp2; source activate minfp2; source path.sh'` to .bash
 landonia[02,19], letha03, has /disk/scratch
 
 ### GPU mem
-- damnii[01,12]: 12GB
-- damnii[02-11]: ????
-- letha05: NO GPU
-- letha[03,06]: 12GB
-- letha[01,02,04]: ????
-- landonia[01,03,25]: 6.4GB
-- landonia[04-10,12-17,19-20,22-24]: ???? (doesn't permit interactive jobs)
-- landonia[02,18]: ???? (doesn't permit interactive jobs)
-- landonia[11,21]: ???? (doesn't permit interactive jobs)
-
+	- damnii[01,12]: 12GB
+	- damnii[02-11]: ????
+	- letha05: NO GPU
+	- letha[03,06]: 12GB
+	- letha[01,02,04]: ????
+	- landonia[01,03,25]: 6.4GB
+	- landonia[04-10,12-17,19-20,22-24]: ???? (doesn't permit interactive jobs)
+	- landonia[02,18]: ???? (doesn't permit interactive jobs)
+	- landonia[11,21]: ???? (doesn't permit interactive jobs)
 
 ## Interactive jobs in the cluster
 ```bash
@@ -71,8 +63,8 @@ correct_bias (in AdamW): False
 Parallelised sampling of 800K sents (MSL=128) from GPT-2 medium on CoLA with 4 GPUs (each with 6GB of memory) and 20GB RAM took 16:39h.
 Parallelised generating logits with large BERT for 800K sents (MSL=128, in batches of 2048) on 4 GPUs (12GB memory each) took 1:10h.
 
-### Student sizes
-#### BERT
+## Student sizes
+### BERT
 theory
 - large: L=24 H=1024 A=16 I=4096
 - /12:   L=2  H=85   A=1  I=341  (183K)
@@ -83,9 +75,8 @@ practice
 - 2.42M: L=5 H=204 A=3 I=750
 - inflating: width up to 4x, depth up to 3x
 
-#### BiLSTM
+### BiLSTM
 Tang: H=300 FC=400 (2.41M)
-
 
 ## Hparam search
 ### BiLSTM
@@ -176,31 +167,31 @@ Tang: H=300 FC=400 (2.41M)
 
 	- wp=10, decay #1:		distil-bert-CoLA-Jan18-12:28:34_FCN
 	- wp=10, decay #2:		distil-bert-CoLA-Jan18-12:28:54_FCN
-	- wp=10, decay #3:		distil-bert-CoLA-Jan18-17:39:44_FC
+	- wp=10, decay #3:		distil-bert-CoLA-Jan18-17:39:44_FCN
 
-	- wp=10, no decay #1:	distil-bert-CoLA-Jan18-17:40:29_FC
-	- wp=10, no decay #2:	distil-bert-CoLA-Jan18-17:40:44_FC
-	- wp=10, no decay #3:	distil-bert-CoLA-Jan18-17:41:16_FC
+	- wp=10, no decay #1:	distil-bert-CoLA-Jan18-17:40:29_FCN
+	- wp=10, no decay #2:	distil-bert-CoLA-Jan18-17:40:44_FCN
+	- wp=10, no decay #3:	distil-bert-CoLA-Jan18-17:41:16_FCN
 
-	- wp=15, decay #1:		distil-bert-CoLA-Jan18-17:42:14_FC
-	- wp=15, decay #2:		distil-bert-CoLA-Jan18-17:42:42_FC
-	- wp=15, decay #3:		distil-bert-CoLA-Jan18-17:45:26_FC
+	- wp=15, decay #1:		distil-bert-CoLA-Jan18-17:42:14_FCN
+	- wp=15, decay #2:		distil-bert-CoLA-Jan18-17:42:42_FCN
+	- wp=15, decay #3:		distil-bert-CoLA-Jan18-17:45:26_FCN
 
-	- wp=15, no decay #1:	distil-bert-CoLA-Jan18-17:45:54_FC
-	- wp=15, no decay #2:	distil-bert-CoLA-Jan18-18:06:13_FC
-	- wp=15, no decay #3:	distil-bert-CoLA-Jan18-18:09:09_FC
+	- wp=15, no decay #1:	distil-bert-CoLA-Jan18-17:45:54_FCN
+	- wp=15, no decay #2:	distil-bert-CoLA-Jan18-18:06:13_FCN
+	- wp=15, no decay #3:	distil-bert-CoLA-Jan18-18:09:09_FCN
 #### Embedding type
-	- wordpiece #1:				distil-bert-CoLA-Jan19-00:12:33_FC
-	- wordpiece #2:				distil-bert-CoLA-Jan19-00:26:47_FC
-	- wordpiece #3:				distil-bert-CoLA-Jan19-00:27:35_FC
+	- wordpiece #1:				distil-bert-CoLA-Jan19-00:12:33_FCN
+	- wordpiece #2:				distil-bert-CoLA-Jan19-00:26:47_FCN
+	- wordpiece #3:				distil-bert-CoLA-Jan19-00:27:35_FCN
 
-	- wordpiece non-static #1:	distil-bert-CoLA-Jan19-00:25:02_FC
-	- wordpiece non-static #2:	distil-bert-CoLA-Jan19-00:25:12_FC
-	- wordpiece non-static #3:	distil-bert-CoLA-Jan19-00:25:57_FC
+	- wordpiece non-static #1:	distil-bert-CoLA-Jan19-00:25:02_FCN
+	- wordpiece non-static #2:	distil-bert-CoLA-Jan19-00:25:12_FCN
+	- wordpiece non-static #3:	distil-bert-CoLA-Jan19-00:25:57_FCN
 
-	- word non-static #1:		distil-bert-CoLA-Jan25-09:40:14
-	- word non-static #2:		distil-bert-CoLA-Jan25-09:40:18
-	- word non-static #3:		distil-bert-CoLA-Jan25-09:40:23
+	- word non-static #1:		distil-bert-CoLA-Jan25-09:40:14_FCN
+	- word non-static #2:		distil-bert-CoLA-Jan25-09:40:18_FCN
+	- word non-static #3:		distil-bert-CoLA-Jan25-09:40:23_FCN
 #### Model size
 	- LSTM=600, FC=800 #1:			distil-bert-CoLA-Jan20-15:27:08_FCN
 	- LSTM=600, FC=800 #2:			distil-bert-CoLA-Jan20-15:27:12_FCN
@@ -253,6 +244,10 @@ Tang: H=300 FC=400 (2.41M)
 	- LSTM=1200, FC=1600, L=3 #1:	distil-bert-CoLA-Jan22-20:46:57_FCN
 	- LSTM=1200, FC=1600, L=3 #2:	distil-bert-CoLA-Jan22-20:47:02_FCN
 	- LSTM=1200, FC=1600, L=3 #3:	distil-bert-CoLA-Jan22-20:47:09_FCN
+	
+	- LSTM=1500, FC=2000, L=3 #1:	distil-bert-CoLA-Jan26-15:52:16
+	- LSTM=1500, FC=2000, L=3 #2:	distil-bert-CoLA-Jan26-15:52:46
+	- LSTM=1500, FC=2000, L=3 #3:	distil-bert-CoLA-Jan26-15:53:13
 
 	- LSTM=300, FC=400, L=4 #1:		distil-bert-CoLA-Jan22-09:42:07_FCN
 	- LSTM=300, FC=400, L=4 #2:		distil-bert-CoLA-Jan22-09:42:15_FCN
@@ -266,9 +261,13 @@ Tang: H=300 FC=400 (2.41M)
 	- LSTM=900, FC=1200, L=4 #2:	distil-bert-CoLA-Jan22-20:49:47_FCN
 	- LSTM=900, FC=1200, L=4 #3:	distil-bert-CoLA-Jan22-20:49:50_FCN
 
-	- LSTM=1200, FC=1600, L=4 #1:	distil-bert-CoLA-Jan24-10:10:34
-	- LSTM=1200, FC=1600, L=4 #2:	distil-bert-CoLA-Jan24-10:10:36
-	- LSTM=1200, FC=1600, L=4 #3:	distil-bert-CoLA-Jan24-10:10:39
+	- LSTM=1200, FC=1600, L=4 #1:	distil-bert-CoLA-Jan24-10:10:34_FCN
+	- LSTM=1200, FC=1600, L=4 #2:	distil-bert-CoLA-Jan24-10:10:36_FCN
+	- LSTM=1200, FC=1600, L=4 #3:	distil-bert-CoLA-Jan24-10:10:39_FCN
+
+	- LSTM=1500, FC=2000, L=4 #1:	distil-bert-CoLA-Jan26-15:54:02
+	- LSTM=1500, FC=2000, L=4 #2:	distil-bert-CoLA-Jan26-15:53:52
+	- LSTM=1500, FC=2000, L=4 #3:	distil-bert-CoLA-Jan26-15:53:57
 
 	- LSTM=300, FC=400, L=5 #1:		distil-bert-CoLA-Jan22-09:51:35_FCN
 	- LSTM=300, FC=400, L=5 #2:		distil-bert-CoLA-Jan22-09:51:40_FCN
@@ -282,9 +281,9 @@ Tang: H=300 FC=400 (2.41M)
 	- LSTM=900, FC=1200, L=5 #2:	distil-bert-CoLA-Jan22-23:39:06_FCN
 	- LSTM=900, FC=1200, L=5 #3:	distil-bert-CoLA-Jan22-23:40:55_FCN
 
-	- LSTM=1200, FC=1600, L=5 #1:	distil-bert-CoLA-Jan24-10:11:12
-	- LSTM=1200, FC=1600, L=5 #2:	distil-bert-CoLA-Jan24-10:11:14
-	- LSTM=1200, FC=1600, L=5 #3:	distil-bert-CoLA-Jan24-10:11:16
+	- LSTM=1200, FC=1600, L=5 #1:	distil-bert-CoLA-Jan24-10:11:12_FCN
+	- LSTM=1200, FC=1600, L=5 #2:	distil-bert-CoLA-Jan24-10:11:14_F
+	- LSTM=1200, FC=1600, L=5 #3:	distil-bert-CoLA-Jan24-10:11:16_FCN
 
 ### BERT
 #### Learning rate
@@ -334,57 +333,71 @@ Tang: H=300 FC=400 (2.41M)
 #### Embedding type
 	- word: 					distil-bert-CoLA-Jan24-10:07:32_FCN
 	- word (multichannel): 		distil-bert-CoLA-Jan24-10:07:52_FCN
-	- wordpiece (multichannel): distil-bert-CoLA-Jan25-09:42:35
+	- wordpiece (multichannel): distil-bert-CoLA-Jan25-09:42:35_FCN
 #### Model size
-- inflating: width up to 4x, depth up to 3x
-- W=1, D=1 (L=5 H=204 A=3 I=750):		not running								2.4  (1x128)
-- W=2, D=1 (L=5 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:02:01_ 		9.6  (1x128)
-- W=3, D=1 (L=5 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:12:42_		21.7 (2x64)
-- W=4, D=1 (L=5 H=816 A=12 I=3000):		distil-bert-CoLA-Jan25-11:42:48_		38.5 (4x32)
+	- inflating: width up to 4x, depth up to 3x
+	- W=1, D=1 (L=5 H=204 A=3 I=750):		not running								2.4  (1x128)
+	- W=2, D=1 (L=5 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:02:01_F 		9.6  (1x128)
+	- W=3, D=1 (L=5 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:12:42_		21.7 (2x64)  55
+	- W=4, D=1 (L=5 H=816 A=12 I=3000):		distil-bert-CoLA-Jan25-11:42:48_		38.5 (4x32)  43
 
-- W=1, D=2 (L=10 H=204 A=3 I=750):		distil-bert-CoLA-Jan25-10:50:54_ 		4.8	 (2x64)
-- W=2, D=2 (L=10 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:18:53_		19.1 (2x64)
-- W=3, D=2 (L=10 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:45:05_ 		43   (4x32)
-- W=4, D=2 (L=10 H=816 A=12 I=3000):	distil-bert-CoLA-Jan25-11:10:16_		76.4 (4x32)
+	- W=1, D=2 (L=10 H=204 A=3 I=750):		distil-bert-CoLA-Jan25-10:50:54_FCN		4.8	 (2x64)
+	- W=2, D=2 (L=10 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:18:53_		19.1 (2x64)  48
+	- W=3, D=2 (L=10 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:45:05_ 		43   (4x32)  35
+	- W=4, D=2 (L=10 H=816 A=12 I=3000):	distil-bert-CoLA-Jan25-11:10:16_		76.4 (4x32)  22
 
-- W=1, D=3 (L=15 H=204 A=3 I=750):		distil-bert-CoLA-Jan25-10:35:13_		7.2	 (2x64)
-- W=2, D=3 (L=15 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:41:45_		28.6 (2x64)
-- W=3, D=3 (L=15 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:47:07_ 		64.3 (4x32)
-- W=4, D=3 (L=15 H=816 A=12 I=3000):	distil-bert-CoLA-Jan25-15:54:15			114.2(8x16)	
+	- W=1, D=3 (L=15 H=204 A=3 I=750):		distil-bert-CoLA-Jan25-10:35:13_		7.2	 (2x64)  46
+	- W=2, D=3 (L=15 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:41:45_		28.6 (2x64)  20
+	- W=3, D=3 (L=15 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:47:07_ 		64.3 (4x32)  23
+	- W=4, D=3 (L=15 H=816 A=12 I=3000):	distil-bert-CoLA-Jan25-15:54:15_		114.2(8x16)	 11    distil-bert-CoLA-Jan26-11:11:01.out (gradient norm check) 3
 
-distil-bert-CoLA-Jan24-10:10:39
-distil-bert-CoLA-Jan25-09:40:23
 Letha
-1:....
-2:...
-3:..
-4:...
-5:..
-6:..
+	1:....
+	2:...
+	3:..
+	4:...
+	5:..
+	6:..
 Damnii
-1:
-2:..
-3:.. NO SPACE
-4:....
-5:.
-6:..
-7:..
-8:..
-10:.
-11:....
+	1:
+	2:..
+	3:.. NO SPACE
+	4:....
+	5:.
+	6:..
+	7:..
+	8:..
+	10:.
+	11:....
 
-```bash 
-dirs="distil-bert-CoLA-Jan22-23:39:06 distil-bert-CoLA-Jan23-09:47:32 distil-bert-CoLA-Jan24-10:07:32 distil-bert-CoLA-Jan24-10:07:52"
+```bash
+dirs=""
 for d in $dirs; do
   echo $d
   pushd $d
   rm ./pytorch_*
-  rm training_args.bin
   popd
   cp -r $d $DICE/minfp2.bak
   rm ${d}.out
 done
 ```
+
+## Probing
+### CoLA
+	avg: 			probe-CoLA-Jan26-09:55:22_F...
+	max: 			probe-CoLA-Jan26-09:54:19_F...
+	avg+search:		probe-CoLA-Jan26-17:56:54_FC
+	max+search:		probe-CoLA-Jan26-17:58:15_FC
+	single+search:	probe-CoLA-Jan26-15:10:51_FC
+	avg+search_L=11 probe-CoLA-Jan27-09:22:06
+### SST-2
+	single+search:  probe-SST-2-Jan26-16:17:27_FC
+	avg+search:		probe-SST-2-Jan27-09:16:19
+	max+search:		probe-SST-2-Jan27-09:18:31
+### Sara
+	single+search:	probe-Sara-Jan27-09:06:41
+	avg+search:
+	max+search:
 
 # Trash
 BERT
