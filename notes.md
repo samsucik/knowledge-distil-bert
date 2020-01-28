@@ -245,9 +245,9 @@ Tang: H=300 FC=400 (2.41M)
 	- LSTM=1200, FC=1600, L=3 #2:	distil-bert-CoLA-Jan22-20:47:02_FCN
 	- LSTM=1200, FC=1600, L=3 #3:	distil-bert-CoLA-Jan22-20:47:09_FCN
 	
-	- LSTM=1500, FC=2000, L=3 #1:	distil-bert-CoLA-Jan26-15:52:16
-	- LSTM=1500, FC=2000, L=3 #2:	distil-bert-CoLA-Jan26-15:52:46
-	- LSTM=1500, FC=2000, L=3 #3:	distil-bert-CoLA-Jan26-15:53:13
+	- LSTM=1500, FC=2000, L=3 #1:	distil-bert-CoLA-Jan26-15:52:16_FCN
+	- LSTM=1500, FC=2000, L=3 #2:	distil-bert-CoLA-Jan26-15:52:46_FCN
+	- LSTM=1500, FC=2000, L=3 #3:	distil-bert-CoLA-Jan26-15:53:13_FCN
 
 	- LSTM=300, FC=400, L=4 #1:		distil-bert-CoLA-Jan22-09:42:07_FCN
 	- LSTM=300, FC=400, L=4 #2:		distil-bert-CoLA-Jan22-09:42:15_FCN
@@ -267,7 +267,7 @@ Tang: H=300 FC=400 (2.41M)
 
 	- LSTM=1500, FC=2000, L=4 #1:	distil-bert-CoLA-Jan26-15:54:02
 	- LSTM=1500, FC=2000, L=4 #2:	distil-bert-CoLA-Jan26-15:53:52
-	- LSTM=1500, FC=2000, L=4 #3:	distil-bert-CoLA-Jan26-15:53:57
+	- LSTM=1500, FC=2000, L=4 #3:	distil-bert-CoLA-Jan26-15:53:57_FCN
 
 	- LSTM=300, FC=400, L=5 #1:		distil-bert-CoLA-Jan22-09:51:35_FCN
 	- LSTM=300, FC=400, L=5 #2:		distil-bert-CoLA-Jan22-09:51:40_FCN
@@ -282,9 +282,12 @@ Tang: H=300 FC=400 (2.41M)
 	- LSTM=900, FC=1200, L=5 #3:	distil-bert-CoLA-Jan22-23:40:55_FCN
 
 	- LSTM=1200, FC=1600, L=5 #1:	distil-bert-CoLA-Jan24-10:11:12_FCN
-	- LSTM=1200, FC=1600, L=5 #2:	distil-bert-CoLA-Jan24-10:11:14_F
+	- LSTM=1200, FC=1600, L=5 #2:	distil-bert-CoLA-Jan24-10:11:14_FCN
 	- LSTM=1200, FC=1600, L=5 #3:	distil-bert-CoLA-Jan24-10:11:16_FCN
 
+	- LSTM=1500, FC=2000, L=5 #1:	distil-bert-CoLA-Jan28-18:34:00
+	- LSTM=1500, FC=2000, L=5 #2:	distil-bert-CoLA-Jan28-18:34:08
+	- LSTM=1500, FC=2000, L=5 #3:	distil-bert-CoLA-Jan28-18:35:07
 ### BERT
 #### Learning rate
 	<!-- - 5e-3 #1:		distil-bert-CoLA-Jan17-16:10:06_FCN -->
@@ -337,19 +340,19 @@ Tang: H=300 FC=400 (2.41M)
 #### Model size
 	- inflating: width up to 4x, depth up to 3x
 	- W=1, D=1 (L=5 H=204 A=3 I=750):		not running								2.4  (1x128)
-	- W=2, D=1 (L=5 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:02:01_F 		9.6  (1x128)
-	- W=3, D=1 (L=5 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:12:42_F		21.7 (2x64)
-	- W=4, D=1 (L=5 H=816 A=12 I=3000):		distil-bert-CoLA-Jan25-11:42:48_		38.5 (4x32)  43
+	- W=2, D=1 (L=5 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:02:01_FCNX    9.6  (1x128) distil-bert-CoLA-Jan28-09:23:07
+	- W=3, D=1 (L=5 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:12:42_FCNX	21.7 (2x64)  distil-bert-CoLA-Jan28-09:20:16
+	- W=4, D=1 (L=5 H=816 A=12 I=3000):		distil-bert-CoLA-Jan25-11:42:48_X		38.5 (4x32)  distil-bert-CoLA-Jan28-12:39:33
 
 	- W=1, D=2 (L=10 H=204 A=3 I=750):		distil-bert-CoLA-Jan25-10:50:54_FCN		4.8	 (2x64)
-	- W=2, D=2 (L=10 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:18:53_		19.1 (2x64)  48
-	- W=3, D=2 (L=10 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:45:05_ 		43   (4x32)  35
-	- W=4, D=2 (L=10 H=816 A=12 I=3000):	distil-bert-CoLA-Jan25-11:10:16_		76.4 (4x32)  22
+	- W=2, D=2 (L=10 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:18:53_FCNX	19.1 (2x64)  distil-bert-CoLA-Jan28-09:18:28
+	- W=3, D=2 (L=10 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:45:05_X 		43   (4x32)  distil-bert-CoLA-Jan28-11:57:35
+	- W=4, D=2 (L=10 H=816 A=12 I=3000):	distil-bert-CoLA-Jan25-11:10:16_X		76.4 (4x32)  distil-bert-CoLA-Jan28-12:22:22
 
-	- W=1, D=3 (L=15 H=204 A=3 I=750):		distil-bert-CoLA-Jan25-10:35:13_		7.2	 (2x64)  46
-	- W=2, D=3 (L=15 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:41:45_		28.6 (2x64)  20
-	- W=3, D=3 (L=15 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:47:07_ 		64.3 (4x32)  23
-	- W=4, D=3 (L=15 H=816 A=12 I=3000):	distil-bert-CoLA-Jan25-15:54:15_		114.2(8x16)	 11    distil-bert-CoLA-Jan26-11:11:01.out (gradient norm check) 3
+	- W=1, D=3 (L=15 H=204 A=3 I=750):		distil-bert-CoLA-Jan25-10:35:13_FCN		7.2	 (2x64)  
+	- W=2, D=3 (L=15 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:41:45_X		28.6 (2x64)  distil-bert-CoLA-Jan28-12:46:49_?
+	- W=3, D=3 (L=15 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:47:07_X		64.3 (4x32)  distil-bert-CoLA-Jan28-18:22:38
+	- W=4, D=3 (L=15 H=816 A=12 I=3000):	distil-bert-CoLA-Jan25-15:54:15_X		114.2(8x16)	 distil-bert-CoLA-Jan28-18:24:05
 
 Letha
 	1:....
@@ -365,13 +368,13 @@ Damnii
 	4:....
 	5:.
 	6:..
-	7:..
+	7: two jobs failed: `self._writer.flush() OSError: [Errno 30] Read-only file system`. coincidence?
 	8:..
 	10:.
 	11:....
 
 ```bash
-dirs=""
+dirs="distil-bert-CoLA-Jan26-15:53:13 distil-bert-CoLA-Jan26-15:53:57"
 for d in $dirs; do
   echo $d
   pushd $d
@@ -384,21 +387,26 @@ done
 
 ## Probing: COULD FIX reg=1e-5
 ### CoLA
-	avg: 			probe-CoLA-Jan26-09:55:22_F...
-	max: 			probe-CoLA-Jan26-09:54:19_F...
-	avg+search:		probe-CoLA-Jan26-17:56:54_FC
-	max+search:		probe-CoLA-Jan26-17:58:15_FC
-	single+search:	probe-CoLA-Jan26-15:10:51_FC
-	avg+search_L=11 probe-CoLA-Jan27-09:22:06
-	avg+search_L=0 	probe-CoLA-Jan27-13:34:50
+	avg+search:		   probe-CoLA-Jan26-17:56:54_FC
+	max+search:		   probe-CoLA-Jan26-17:58:15_FC
+	single+search:	   probe-CoLA-Jan26-15:10:51_FC
+	avg+search_L=11    probe-CoLA-Jan27-09:22:06_FC
+	single+search_L=11 probe-CoLA-Jan28-09:29:52
+	max+search_L=11    probe-CoLA-Jan28-09:31:40
+	avg+search_L=0 	   probe-CoLA-Jan27-13:34:50_FC
+	single+search_L=0  probe-CoLA-Jan28-12:53:24
+	max+search_L=0     probe-CoLA-Jan28-12:54:55
 ### SST-2
-	single+search:  probe-SST-2-Jan26-16:17:27_FC
-	avg+search:		probe-SST-2-Jan27-09:16:19
-	max+search:		probe-SST-2-Jan27-09:18:31
+	single+search:     probe-SST-2-Jan26-16:17:27_FC
+	avg+search:		   probe-SST-2-Jan27-09:16:19_FC
+	max+search:		   probe-SST-2-Jan27-09:18:31_FC
+	avg+search_L=11    probe-SST-2-Jan27-23:07:32_FC
+	avg+search_L=0     probe-SST-2-Jan27-23:44:08_FC
 ### Sara
-	single+search:	probe-Sara-Jan27-09:06:41
-	avg+search:
-	max+search:
+	single+search:	   probe-Sara-Jan27-09:06:41_FC
+	avg+search:		   probe-Sara-Jan28-12:51:15
+	avg+search_L=11    probe-Sara-Jan27-23:59:21_FC
+	avg+search_L=0     probe-Sara-Jan28-00:00:16_FC
 
 # Trash
 BERT
