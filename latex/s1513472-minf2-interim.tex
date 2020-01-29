@@ -128,14 +128,44 @@
       \item and many others
     \end{itemize}
 
-    Although the open-sourced powerful pre-trained models were a huge step towards more accessible NLP, the model size meant they couldn't be applied easily outside of research: They were memory-hungry and slow. This inspired another wave of research: compressing the huge, well-performing Transformers (very often BERT) to make them faster and resource-efficient. I will focus on the compression method so far looks the most effective: knowledge transfer from huge models into smaller ones using teacher-student knowledge distillation.
+    Although the open-sourced powerful pre-trained models were a huge step towards more accessible NLP, the model size meant they couldn't be applied easily outside of research: They were memory-hungry and slow. 
+    This inspired another wave of research: compressing the huge, well-performing Transformers (very often BERT) to make them faster and resource-efficient. 
+    I will focus on the compression method that so far looks the most effective: knowledge transfer from huge models into smaller ones using teacher-student knowledge distillation.
   }
 
-  \section{Knowledge distillation}{
-    brief history of KD in general
-    different objectives: logits, hard labels, mimicking internal representations...
-    KD in NLP: sequence-level KD \citep{Kim_2016}, then basically straight to distilling from BERT?
-    data augmentation as a way to bring small datasets back into the game (after the concept of 2-stage training did this and then KD undid it)
+  \section{Teacher-student knowledge distillation}{
+    % brief history of KD in general
+    % different objectives: logits, hard labels, mimicking internal representations...
+    \subsection{Brief history of knowledge distillation}{
+      The concept of knowledge distillation was introduced by \citep{Bucila_2006} as a way of knowledge transfer from huge models (or ensembles of models) into small ones, with the aim of having smaller (and hence faster) yet well-performing models.
+      The main idea is to train a big neural classifier model also called the \textit{teacher} and then let a smaller neural classifier model (called the \textit{student}) learn from it -- by learning to mimic the teacher's behaviour. Hence also the term \textit{teacher-student knowledge distillation}.
+      The mimicking was originally realised by labelling a dataset with the trained teacher model and training the student model on these labels (retrospectively referred to as \textit{hard labels}).
+
+      Later, \citet{Ba_2013} introduced the idea of learning from the \textit{soft labels}, i.e. learning to predict the teacher's logits. The idea is that the teacher's knowledge can be transferred to the student in a richer way if the entire logit distribution is utilised (compare with hard labels, when only the information about the maximum element of the logit distribution is utilised). When first proposed, the student's loss function was then mean squared distance between the student's outputs and teacher's logits.
+
+      \citet{Hinton_2015} proposed a more general approach, addressing the issue of overconfident teachers with very sharp logit distributions, and formulated a new loss for student models: the cross-entropy loss with temperature. The temperature softens the teacher's sharp distribution, allowing the student to learn more rich information from it. This approach is what is today typically referred to as knowledge distillation.
+
+      Since 2015, further variants have been proposed, enhancing knowledge distillation in different ways, for example:
+      \begin{itemize}
+        \item \citet[p. 13]{Papamakarios_2015} points out that mimicking teacher outputs (e.g. with cross-entropy loss) can be extended to mimicking the derivatives of the loss w.r.t. inputs (i.e. including in the loss function also this term: $\frac{\partial \mathbf{o}_{student}}{\partial \mathbf{x}} - \frac{\partial \mathbf{o}_{teacher}}{\partial \mathbf{x}}$). %, the additional loss term being calculated using the R technique (Pearlmutter, 1994).
+        \item \citet{Romero_2015} introduced the idea of learning to match not just the teacher's outputs, but also its intermediate input representations. \citet{Huang_2017} achieved this by learning to align the distributions of neuron selectivity patterns between the teacher's and student's hidden layers. Unlike standard knowledge distillation, this approach no longer works just for classifier models with a softmax output layer (see the standard loss proposed by \citet{Hinton_2015}).
+        \item \citet{Sau_2016} show that learning can be more effective when noise is added to the teacher logits.
+        \item \citet{Mirzadeh_2019} show that a knowledge distillation performs poorly from large teachers into very small students and alleviate this limitation by multi-stage distillation: first distilling knowledge into an intermediate-size ``teacher assistant'' and learning the student from the assistant model.
+      \end{itemize}
+    }
+
+    \subsection{Knowledge distillation in NLP}{
+      % \citet{Kim_2016} observe that KD and weight pruning are orthogonal (can be used together), and that mimicking top-most hidden layer outputs (instead of outputs themselves) doesn't provide improvements previously reported.
+      Practically all the so far mentioned research in knowledge distillation was done in the domain of image processing. This comes as no surprise: It was image processing that was benefitting the most from the resurgence of deep learning. Ever since the AlexNet \citep{Krizhevsky_2012}, bigger and bigger models were proposed, simultaneously driving the research in model compression so as to make the models usable in practice.
+
+      % KD in NLP: sequence-level KD \citep{Kim_2016}, then basically straight to distilling from BERT?
+        % In the NLP literature, it has previously been used in neural machine translation (Kim and Rush, 2016) and language modeling (Yu et al., 2018).
+      In natural language processing, research on knowledge distillation was rare for a long time. One notable work was the adaptation of distillation for sequence-to-sequence machine translation models -- whose outputs are no longer simple classification scores -- by \citet{Kim_2016}. Another pioneering study compressed a recurrent neural language model for use on mobile devices \citep{Yu_2018}.
+
+      However, the real need for model compression started very recently when huge Transformer models were introduced. This follows on from the main limitation of the otherwise very accessible pre-trained models: being huge and slow.
+
+      % data augmentation as a way to bring small datasets back into the game (after the concept of 2-stage training did this and then KD undid it)
+    }
   }
   
   \section{Understanding the models}{
@@ -167,20 +197,8 @@
 \chapter{Future work}{}
 
 \chapter{Notes}{
-  \section{Distillation techniques}{
-    \citet[p. 13]{Papamakarios-2015} point out that mimicking teacher outputs (e.g. with cross-entropy loss) can be taken to next level by mimicking the derivatives of the loss w.r.t. inputs (i.e. including in the KD loss function also this term: $\frac{\partial \mathbf{o}_{student}}{\partial \mathbf{x}} - \frac{\partial \mathbf{o}_{teacher}}{\partial \mathbf{x}}$), the additional loss term being calculated using the R technique (Pearlmutter, 1994).
-
-    \citet{Sau-Balasubramanian-2016} show that learning from noisy logits helps (adding the noise is very simple).
-
-    \citet{Kim-Rush-2016} observe that KD and weight pruning are orthogonal (can be used together), and that mimicking top-most hidden layer outputs (instead of outputs themselves) doesn't provide improvements previously reported.
-
-    \citet{Huang-Wang-2017} propose method for matching neuron activation distributions of teacher and student (only suitable for same teacher/student architecture?). \citet{Heo-et-al-2018} do a similar thing but try to match the activation boundaries of neurons.
-  }
-
   \section{Knowledge distillation -- assorted}{
     \citet{Zharov-et-al-2018} use KD of DNNs into decision forests for interpretability.
-
-    \citet{Mirzadeh-et-al-2019} show that a large teacher cannot teach too small students, and that adding intermediate "teacher assistants" helps.
   }
 
   \section{Datasets}{
