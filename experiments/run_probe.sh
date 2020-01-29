@@ -8,7 +8,7 @@ model_type=LSTM
 model_dir=$(pwd)/good-student-lstm-new
 is_student=true
 
-model_type=BERT
+model_type=pretrained
 model_dir=$(pwd)/teacher-CoLA
 is_student=false
 
