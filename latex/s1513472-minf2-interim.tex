@@ -242,14 +242,40 @@
   }
 
   \section{Probing tasks}{
+    For exploring the linguistic knowledge in the different teacher and student models, I use the probing task collection curated by \citet{Conneau_2018}.
+    The datasets, along with tools for applying probing to neural models, are publicly available as part of the SentEval toolkit \citet{SentEval-paper} for evaluating sentence representations.
+    The collection contains 10 tasks, each having 100k training, 10k evaluation and 10k testing sentences. These are used for training the probing classifier, choosing its hyperparameters, and computing the task-specific score, respectively.
 
+    Each of the 10 probing tasks -- grouped into three broad categories -- focuses on a different linguistic capability (for more details, see the original paper of \citet{Conneau_2018}):
+    
+    Surface information:
+    \begin{itemize}
+      \item \textbf{Length} is about recovering the length of the sentence. The actual sentence lengths are grouped into 6 equal-width bins, making this task a 6-way classification.
+      \item \textbf{WordContent} is about identifying which words are present in the sentence. A collection of 1000 mid-frequency words was created, and sentences were sampled such that each contains exactly one of these words. The task is therefore 1000-way classification.
+    \end{itemize}
+    Syntactic information:
+    \begin{itemize}
+      \item \textbf{Depth} is about classifying sentences by their syntactic parse tree depth, with depths ranging from 5 to 12 (hence 8-way classification).
+      \item \textbf{BigramShift} is about recognising sentences in which the order of two randomly chosen adjacent words has been swapped (binary classification).
+      \item \textbf{TopConstituents} is about recognising the top syntactic constituents -- the nodes found in the syntactic parse tree just below the S (sentence) node. This is framed as 20-way classification, choosing from 19 most common top-constituent sequences and the ``other'' option.
+    \end{itemize}
+    Semantic information:
+    \begin{itemize}
+      \item \textbf{Tense} is binary classification, identifying the tense (present/past) of the main verb of the sentence (the verb in the main clause).
+      \item \textbf{SubjNumber} is about determining the number (singular/plural) of the sentence's subject, framed as binary classification.
+      \item \textbf{ObjNumber} is the same as SubjNumber, applied to the direct object of a sentence.
+      \item \textbf{OddManOut} is binary classification, detecting whether a random word (verb or noun) in a sentence was replaced with a different one (verb or noun) or not. To make this task more difficult, the replacement word is chosen such that the frequency of the bigrams in the sentence stays roughly the same.
+      \item \textbf{CoordinationInversion} works with sentences that contain two coordinate clauses whose order may have been artificially swapped. The binary classification is then about detecting which sentences are intact.
+    \end{itemize}
+
+    Considering the findings of \citet{Tenney_2019b} about the NLP pipeline steps being implicitly captured inside BERT, choosing their approach to probing (together with the collection of tasks they curated) was an attractive option. However, the approach explores single-word representations, focuses primarily on more complex probing tasks (e.g. entity recognition, natural language inference, semantic roles) and the tasks are not open-sourced. In this sense, the SentEval toolkit is preferred as it was built for analysing sentence representations, the simpler surface and syntactic tasks have a better coverage, and the datasets are publicly available. In the future, however, the two collections of probing tasks could be used in combination.
   }
 
   To stay consistent with the GLUE datasets for which test-set labels are not publicly available, I work with all three datasets (CoLA, SST-2 and Sara) in the following way:
   \begin{enumerate}
     \item I use the training portion to fine-tune the teacher and the GPT-2 model.
     \item I use the training portion augmented with sampled sentences as the transfer set for knowledge distillation.
-    \item I use the evaluation portion to tune the student model hyperparameters.
+    \item I use the evaluation portion to tune the student model hyperparameters and choose a well-performing student for each downstream task.
     \item I use the evaluation portion to analyse mistakes made by models and the confidence in predictions.
   \end{enumerate}
 }
@@ -274,51 +300,51 @@
 
 \chapter{Future work}{}
 
-\chapter{Notes}{
-  \section{Knowledge distillation -- assorted}{
-    \citet{Zharov-et-al-2018} use KD of DNNs into decision forests for interpretability.
-  }
+% \chapter{Notes}{
+%   \section{Knowledge distillation -- assorted}{
+%     \citet{Zharov-et-al-2018} use KD of DNNs into decision forests for interpretability.
+%   }
 
-  \section{Datasets}{
-    Unsuitable:
-    \begin{enumerate}
-      \item \href{https://github.com/microsoft/CNTK/tree/master/Examples/LanguageUnderstanding/ATIS}{ATIS}: too easy (see \href{https://github.com/nghuyong/rasa-nlu-benchmark#result}{here}). Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
-      \item \href{https://github.com/sebischair/NLU-Evaluation-Corpora}{AskUbuntu, Chatbot and Web Applications (all from TU Munich): too small (max. 206 datapoints)}. Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
-      \item \href{https://github.com/snipsco/nlu-benchmark/tree/master/2016-12-built-in-intents}{SNIPS}: too easy (see \href{https://github.com/nghuyong/rasa-nlu-benchmark#result}{here}). Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
-    \end{enumerate}
+%   \section{Datasets}{
+%     Unsuitable:
+%     \begin{enumerate}
+%       \item \href{https://github.com/microsoft/CNTK/tree/master/Examples/LanguageUnderstanding/ATIS}{ATIS}: too easy (see \href{https://github.com/nghuyong/rasa-nlu-benchmark#result}{here}). Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
+%       \item \href{https://github.com/sebischair/NLU-Evaluation-Corpora}{AskUbuntu, Chatbot and Web Applications (all from TU Munich): too small (max. 206 datapoints)}. Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
+%       \item \href{https://github.com/snipsco/nlu-benchmark/tree/master/2016-12-built-in-intents}{SNIPS}: too easy (see \href{https://github.com/nghuyong/rasa-nlu-benchmark#result}{here}). Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
+%     \end{enumerate}
 
-    Suitable:
-    \begin{enumerate}
-      \item \href{https://fb.me/multilingual_task_oriented_data}{FB's Multilingual Task Oriented Dataset}: F1 0.99 by supervised embeddings (very easy, but perhaps usable). Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
-      \item \href{https://nyu-mll.github.io/CoLA/}{CoLA} \citep{CoLA-paper}, needs processing into Rasa format.
-      \item \href{https://nlp.stanford.edu/sentiment/index.html}{SST} \citep{SST-paper}, needs processing into Rasa format. 5-way classification may be too hard (accuracy \texttildelow{}50\%), 2-way much easier.
-      \item \href{https://cogcomp.seas.upenn.edu/Data/QA/QC/}{TREC question-type classification} \citep{TREC-paper}, needs processing into Rasa format. 6-way classification (abbreviation, entity, description, human, location, numeric), also has another (more fine-grained) level of categories.
-    \end{enumerate}
+%     Suitable:
+%     \begin{enumerate}
+%       \item \href{https://fb.me/multilingual_task_oriented_data}{FB's Multilingual Task Oriented Dataset}: F1 0.99 by supervised embeddings (very easy, but perhaps usable). Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
+%       \item \href{https://nyu-mll.github.io/CoLA/}{CoLA} \citep{CoLA-paper}, needs processing into Rasa format.
+%       \item \href{https://nlp.stanford.edu/sentiment/index.html}{SST} \citep{SST-paper}, needs processing into Rasa format. 5-way classification may be too hard (accuracy \texttildelow{}50\%), 2-way much easier.
+%       \item \href{https://cogcomp.seas.upenn.edu/Data/QA/QC/}{TREC question-type classification} \citep{TREC-paper}, needs processing into Rasa format. 6-way classification (abbreviation, entity, description, human, location, numeric), also has another (more fine-grained) level of categories.
+%     \end{enumerate}
 
-    Maybe suitable:
-    \begin{enumerate}
-      \item \href{https://github.com/xiul-msr/e2e_dialog_challenge}{Microsoft Dialogue Challenge} \citep{MDC-paper} needs processing into Rasa format. Also, no results using Rasa.
-      \item \href{http://fb.me/semanticparsingdialog}{TOP} \citep{TOP-paper} needs processing into Rasa format. Also, no results using Rasa. Intents are hierarchical, would need to take only the top-most intent.
-      \item \href{https://github.com/allenai/scicite}{SciCite} \citep{SciCite-paper} needs processing into Rasa format. Also, no results using Rasa.
-    \end{enumerate}
+%     Maybe suitable:
+%     \begin{enumerate}
+%       \item \href{https://github.com/xiul-msr/e2e_dialog_challenge}{Microsoft Dialogue Challenge} \citep{MDC-paper} needs processing into Rasa format. Also, no results using Rasa.
+%       \item \href{http://fb.me/semanticparsingdialog}{TOP} \citep{TOP-paper} needs processing into Rasa format. Also, no results using Rasa. Intents are hierarchical, would need to take only the top-most intent.
+%       \item \href{https://github.com/allenai/scicite}{SciCite} \citep{SciCite-paper} needs processing into Rasa format. Also, no results using Rasa.
+%     \end{enumerate}
 
-    Probing/evaluation:
-    Started by Shi et al. (2016) and Adi et al. (2017)?
-    \begin{enumerate}
-      \item \href{https://github.com/nyu-mll/jiant/tree/master/probing/data}{Google's edge probing} \citep{Tenney-et-al-2019-1} for evaluating span representations on 9 tasks closely following classical NLP pipeline (data not freely accessible!)
-      \item \href{https://github.com/facebookresearch/SentEval/tree/master/data/probing}{FB's probing} \citep{Conneau-et-al-2018} used to evaluate entire sentence embeddings (10 tasks from sentence length to semantics)
-      \item \href{https://github.com/facebookresearch/SentEval}{FB's SentEval} \citep{SentEval-paper} is meant for evaluating trained sentence encoders (i.e. not meant as downstream tasks that encoders should be fitted to), but it curates interesting existing datasets.
-    \end{enumerate}
-  }
+%     Probing/evaluation:
+%     Started by Shi et al. (2016) and Adi et al. (2017)?
+%     \begin{enumerate}
+%       \item \href{https://github.com/nyu-mll/jiant/tree/master/probing/data}{Google's edge probing} \citep{Tenney-et-al-2019-1} for evaluating span representations on 9 tasks closely following classical NLP pipeline (data not freely accessible!)
+%       \item \href{https://github.com/facebookresearch/SentEval/tree/master/data/probing}{FB's probing} \citep{Conneau-et-al-2018} used to evaluate entire sentence embeddings (10 tasks from sentence length to semantics)
+%       \item \href{https://github.com/facebookresearch/SentEval}{FB's SentEval} \citep{SentEval-paper} is meant for evaluating trained sentence encoders (i.e. not meant as downstream tasks that encoders should be fitted to), but it curates interesting existing datasets.
+%     \end{enumerate}
+%   }
 
-  \section{Plans for MVP}{
-    Let's distill BERT into a smaller BERT.
+%   \section{Plans for MVP}{
+%     Let's distill BERT into a smaller BERT.
 
-    Code: pytorch-transformers (re-using code for DistilBERT), no Rasa for now.
+%     Code: pytorch-transformers (re-using code for DistilBERT), no Rasa for now.
 
-    Dataset: CoLA (because pytorch-transformers offers easy feeding of GLUE datasets).
-  }
-}
+%     Dataset: CoLA (because pytorch-transformers offers easy feeding of GLUE datasets).
+%   }
+% }
 
 \bibliographystyle{apalike}
 \bibliography{s1513472-minf2}
