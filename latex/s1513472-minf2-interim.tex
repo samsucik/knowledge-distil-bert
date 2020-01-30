@@ -227,6 +227,8 @@
     As the third task, I use an intent classification dataset collected by Rasa, a company building open-source tools for conversational AI\footnote{For transparency: I did a 3-month internship as Machine Learning researcher with Rasa in the summer of 2019.}. The dataset is named Sara, after the company's own chatbot\footnote{Demonstrated at \url{https://github.com/RasaHQ/rasa-demo}} which provides various information about Rasa and its products to the visitors of the company's website\footnote{\url{https://rasa.com/}}. The dataset comprises 4.8k examples overall, split between 1k testing portion and 3.8k training portion. Each example is a human-generated utterance and has been manually labelled with one of 57 intents, helping the Sara chatbot learn to detect what a human is talking to it about. Originally, the dataset was initialised by Rasa employees talking to Sara. Later, many more examples were collected by deploying the chatbot and letting site visitors talk to it. The 57 intent types were designed by Rasa, starting with a smaller number of broader intents and refining the set after observing real questions humans were asking the chatbot. \textbf{TO-DO: verify this is true; my knowledge of the history of Sara is limited.} The main scoring metric is the multi-class micro-averaged F1 score.
 
     I modified the Sara dataset by splitting the training portion into 2.8k training and 1k evaluation sentences (while keeping both sets class-balanced). I also anonymised the dataset by replacing all sensitive information with generic tokens. Namely, I replaced people's names and surnames with a single token \verb|__PERSON_NAME__| and e-mail addresses with \verb|__EMAIL_ADDRESS__|.
+
+    To stay consistent with the GLUE datasets for which test-set labels are not publicly available, I do not use the test portion of any of them when analysing the mistakes made by different models. Instead, I analyse the predictions on the evaluation set. This can be viewed as sheding light on the kind of model qualities that are actually optimised when choosing model parameters on this set.
   }
 
   \section{Data augmentation for generating large transfer sets}{
@@ -270,19 +272,27 @@
 
     Considering the findings of \citet{Tenney_2019b} about the NLP pipeline steps being implicitly captured inside BERT, choosing their approach to probing (together with the collection of tasks they curated) was an attractive option. However, the approach explores single-word representations, focuses primarily on more complex probing tasks (e.g. entity recognition, natural language inference, semantic roles) and the tasks are not open-sourced. In this sense, the SentEval toolkit is preferred as it was built for analysing sentence representations, the simpler surface and syntactic tasks have a better coverage, and the datasets are publicly available. In the future, however, the two collections of probing tasks could be used in combination.
   }
-
-  To stay consistent with the GLUE datasets for which test-set labels are not publicly available, I work with all three datasets (CoLA, SST-2 and Sara) in the following way:
-  \begin{enumerate}
-    \item I use the training portion to fine-tune the teacher and the GPT-2 model.
-    \item I use the training portion augmented with sampled sentences as the transfer set for knowledge distillation.
-    \item I use the evaluation portion to tune the student model hyperparameters and choose a well-performing student for each downstream task.
-    \item I use the evaluation portion to analyse mistakes made by models and the confidence in predictions.
-  \end{enumerate}
 }
 
 \chapter{Implementation}{
   \label{chap:implementation}
   % pytorch-transformers, d-bert, SentEval, Rasa. own pieces. architecture. choices made. initial hparams.
+  \section{Existing implementations used}{
+    For finetuning BERT, I used \verb|transformers| \citep{Wolf_2019}\footnote{\url{https://github.com/huggingface/transformers}, accessed January 30, 2019} -- a popular open-source PyTorch library curating and presenting many successful Transformer-based models in a unified way.
+    My implementation of the distillation process is heavily based on the implementation accompanying DistilBERT \citep{Sanh_2019}, which is today part of \verb|transformers|\footnote{\url{https://github.com/huggingface/transformers/tree/master/examples/distillation}, accessed January 30, 2019}.
+
+    The implementation of the BiLSTM student is based on the codebase accompanying the work of \citet{Tang_2019b}\footnote{\url{https://github.com/castorini/d-bert}, accessed January 30, 2019} (which was originally built using an early version of the \verb|transformers| library). The same codebase was used without many changes for fine-tuning the GPT-model and creating the augmentation sentences.
+
+    Finally, for probing, I adapted the SentEval toolkit \citep{SentEval-paper} to suit my needs.
+
+    In terms of implementation, the most of my own work is in having integrated the different tools. In particular, I have combined the codebases of \citet{Sanh_2019} and \citet{Tang_2019b} and adapted the combination to offer richer options (e.g. initialising the student's embedding layers with trained word or wordpiece embeddings), to work with both BERT and BiLSTM students and to be more easily extendable to other architectures.
+  }
+  \section{Overview of the system}{
+    some grand visualisation of all the components and how they interact
+  }
+  \section{Design decisions and default parameters}{
+
+  }
   % hparams: use T=3 (default from Tang, also confirmed to work better than 1 and 2 by \citet{Tsai_2019})
   % cross-entropy loss with temperature and logits shown in \citet[p.3]{Tsai_2019}
 }
