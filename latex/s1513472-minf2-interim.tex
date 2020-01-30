@@ -85,9 +85,9 @@
   % what I tried to address, 
   \section{Aims}{
     \begin{itemize}
-      \item Explore the effectiveness of knowledge distillation in very different NLP tasks. To cover a broad variety of tasks, I use datasets ranging from binary sentiment classification to 57-way intent classification to linguistic acceptability.
+      \item Explore the effectiveness of knowledge distillation in very different NLP tasks. To cover a broad variety of tasks, I use sentence classification datasets ranging from binary sentiment classification to 57-way intent classification to linguistic acceptability.
       \item Explore how distilling knowledge from a Transformer varies with different student architectures. I limit myself to using the extremely popular BERT model \citep{Devlin_2018} as the teacher architecture. As students, I use two different architectures: a BiLSTM, building on the successful work of Ralph Tang \citep{Tang_2019a,Tang_2019b}, and a down-scaled BERT architecture.
-      \item Explore how successfully can different types of NLP knowledge and capabilities be distilled. Since NLP tasks are often possible for humans to reason about, I analyse the models' behaviour (e.g. the mistakes they make) to learn more about knowledge distillation. I also probe the models for different linguistical capabilities, building on previous succesful probing studies \citep{Conneau_2018,Tenney_2019b}.
+      \item Explore how successfully can different types of NLP knowledge and capabilities be distilled. Since NLP tasks are often possible for humans to reason about, I analyse the models' behaviour (e.g. the mistakes they make) to learn more about knowledge distillation. I also probe the models for different linguistical capabilities, inspired by previous successful probing studies \citep{Conneau_2018,Tenney_2019b}.
     \end{itemize}
   }
   
@@ -116,9 +116,9 @@
   \section{Transformer models and BERT}{
     \citet{Vaswani_2017} introduced Transformer. Main idea: process tokens in parallel, not sequentially, with sequentiality represented by positional markers (embeddings). Self-attention is used to pool from the context of the entire sequence, leading to evolving rich contextualised representations of each token in the higher layers.
     
-    \citet{Radford_2018} introduced the idea of generative LM pre-training and fine-tuning. This concept helps train much better models even for low-resource tasks with small datasets, by leveraging general language knowledge acquired by the model in the pre-training phase. Publishing pre-trained model instances makes the power of NLP much more accessible to anyone and has become a popular thing to do.
+    \citet{Radford_2018} introduced the idea of generative LM pre-training and fine-tuning. This concept helps train much better models even for low-resource tasks with small datasets, by leveraging general language knowledge acquired by the model in the pre-training phase. Publishing pre-trained model instances makes the power of NLP much more accessible to anyone and has become a popular thing to do. (Also mention that subword tokens were used instead of words.)
     
-    \citet{Devlin_2018} made improved the concept by pre-training the model bi-directionally (leading to language modelling based on left \textit{and} right context). They also changed the pre-training to 2 tasks trained at the same time: masked language modelling to learn to understand words, and next sentence prediction to learn to reason about entire sentences (as the actual NLP tasks often require such reasoning). This is is how BERT was born, which then became extremely popular in the community, attracting a lot of work on improving it, analysing its capabilities, extending it to other languages, and even applying it to multi-modal tasks such as video captioning.
+    \citet{Devlin_2018} improved the concept by pre-training the model bi-directionally (leading to language modelling based on left \textit{and} right context). They also changed the pre-training to 2 tasks trained at the same time: masked language modelling to learn to understand words, and next sentence prediction to learn to reason about entire sentences (as the actual NLP tasks often require such reasoning). This is is how BERT was born, which then became extremely popular in the community, attracting a lot of work on improving it, analysing its capabilities, extending it to other languages, and even applying it to multi-modal tasks such as video captioning. TO-DO: elaborate more on BERT, also with a schematic picture.
     
     Following the success of BERT, further and often bigger Transformer models started emerging:
     \begin{itemize}
@@ -182,17 +182,76 @@
       %   cons: have to train big teacher for each downstream task, likely to take long. may need more transfer data than small downstream dataset.
       %   Tang: distilled into much smaller student. didn't address issue of having to train teacher repeatedly. addressed issue of little data quite successfully.
 
-      In this work, I adopt the approach of \citet{Tang_2019b}. However, while they use only bidirectional LSTM students, I also experiment with a smaller version of BERT, similarly to \citet{Jiao_2019}. For detailed description of the system see \autoref{chap:implementation}.
+      In this work, I adopt the approach of \citet{Tang_2019b} as I view it as the most promising one so far. However, while they use only bidirectional LSTM students, I also experiment with a smaller version of BERT, similarly to \citet{Jiao_2019}. For detailed description of the system see \autoref{chap:implementation}.
     }
   }
   
-  \section{Understanding the models}{
+  \section{Analysing and understanding NLP models}{
+    NNs are black boxes and (not) understanding the models is a serious issue.
+    performance is typically more important than transparence, but recently the demand for explainable AI (XAI) has been increasing. additionally, understanding is opportunity for further improvements of the mdels and techniques.
 
+    in image processing, interpretability is easy thanks to visualising things. (somewhat similarly music.) notable works: maximising activation, visualising neurons' output for given input, maximum activation samples.
+    in NLP, interpreting is more difficult, and also comes with a delay after image processing -- same with the big model hype and compression hype.
+    % hard to do maximising activation or visualising single units. BUT types of information preserved in internal input representations can be well explored: probing!
+    \citet{Belinkov_2018} give nice overview of work done up until 2018. they point out that many methods for analysing and interpreting models are adapted from image processing, especially visualising activations of single neurons on specific input examples. in attentional seq2seq models, the attention maps can be visualised to show soft alignments between input and output sequences. however, these methods taken from image processing are mostly qualitative, not suited for comparing models.
+    
+    more quantitative and NLP-specific are the approaches that look at kinds of linguistic knowledge present in a model's internal representations of input. most often, this means extracting activations for a set of inputs and trying to predict properties of the input from the activations by using a simple predictor model. if the prediction works well, then the activations must've contained linguistic knowledge relevant for the predicted property. since first proposed by \citet{Shi_2016}, this approach has been used repeatedly to explore various forms of representations. the first work was looking at how well NMT systems capture syntactic properties of input. later, \citet{Adi_2017} used simpler artificial prediction tasks (sentence length, word content and word order) to better understand sentence embeddings produced by recurrent encoders. more recently, \citet{Conneau_2018} curated a set of 10 probing tasks ranging from surface properties through syntactic to semantic ones, and compared different recurrent and convolutional sentence encoders (and many useful baseline models) in terms of the linguistic knowledge in their sentence representations.
+    focusing specifically on Transformer models, \citet{Tenney_2019a} propose a set of \textit{edge probing} tasks which examine how much contextual knowledge about the entire sentence is captured within the representation of a single word. the tasks mimic the typical steps of a standard NLP pipeline -- from POS tagging to identifying dependencies and entities to semantic role labelling. \citet{Tenney_2019b} were able to localise the layers of BERT that are the most important for each of the tasks, showing that the different linguistic capabilities are ordered within the model in the typical NLP pipeline order: from simple POS tagging in the earlier layers to the most complex semantic tasks in the last layers.
+
+    while the abovementioned methods for analysing models provide valuable insights, they are incomplete. for one, they merely help us describe in intuitive terms the kinds of internal knowledge/specialisation observed in the models. in their overview of interpretability of machine learning, \citet{Gilpin_2018} call this level of model understanding \textit{interpretability} -- comprehending what a model does. however, what we should strive to achieve, is \textit{explainability}: the ability to ``summarize the reasons for neural network behavior, gain the trust of users, or produce insights about the causes of their decisions''. In this sense, today's methods for analysing neural NLP models achieve only interpretability because they enable us to describe but not explain (especially in terms of causality) the internals and decisions of the models.
+    
+    In this work, I also attempt to mainly \textit{interpret} the student and teacher models. I adopt two approaches:
+    \begin{enumerate}
+      \item analysing the mistakes the models make on the downstream task they were trained to do, including how confident the correct and incorrect predictions are
+      \item probing the models using the probing tasks curated by \citet{Conneau_2018}
+    \end{enumerate}
+    By comparing the findings between models trained on different downstream tasks or with different architectures, I try to characterise each task in terms of the linguistic capabilities it utilises. 
+    Further, I describe how different student model architectures influence how linguistic knowledge is distilled from a teacher and stored in the student, and what the effect on the student's confidence is. 
+    Finally, I try to relate the observed effects to the method of knowledge distillation itself.
   }
 }
 
 \chapter{Datasets}{
   % GLUE: CoLA, SST-2; Sara (anonymised!), probing tasks. Other alternatives considered.
+  \section{Downstream tasks}{
+    Since the BERT model I use as teacher is already pre-trained on large unlabelled corpora (for details see the original work by \citet{Devlin_2018}), it can be fine-tuned well even on small downstream datasets.
+
+    Today, perhaps the most popular collection of challenging NLP tasks (challenging by the nature of the tasks and by the relatively small dataset size) is the GLUE benchmark \citep{Wang_2018}. This collection comprises 11 tasks from semantic analysis to detecting textual similarity to natural language inference, framed as single sentence or sentence pair classification. Each task features a specific scoring metric (such as accuracy or F1), publicly available labelled training and development datasets, and a testing dataset whose labels have not been released. The test-set score accumulated over all tasks forms the basis for the popular GLUE leaderboard\footnote{\url{https://gluebenchmark.com/leaderboard}}.
+    
+    For simplicity, I use only the single-sentence classification tasks of the collection -- the Corpus of Linguistic Acceptability (CoLA) and the Stanford Sentiment Treebank in its two-way classification format (SST-2).
+    \begin{itemize}
+      \item The CoLA task features 8.5k training sentences, 1k evaluation and 1k testing sentences. The (hand-crafted) sentences are collected from various linguistic literature and represent examples of acceptable and unacceptable English, making the task a binary classification. The scoring metric is Matthew's Correlation Coefficient (MCC, introduced by \citet{Matthews_1975}). This task is rather challenging since a given sentence can be perfectly grammatical and still not be acceptable English. As a non-native speaker, I myself struggle with some of the examples.
+      \item The SST-2 task has considerably more data as it is easier to collect: 67k training, 9k evaluation and 18k testing sentences, extracted from movie reviews and labelled as positive or negative sentiment. The scoring metric is accuracy. The task is easier than CoLA and best models in the GLUE leaderboard achieve over 97\% test-set score.
+    \end{itemize}
+
+    As the third task, I use an intent classification dataset collected by Rasa, a company building open-source tools for conversational AI\footnote{For transparency: I did a 3-month internship as Machine Learning researcher with Rasa in the summer of 2019.}. The dataset is named Sara, after the company's own chatbot\footnote{Demonstrated at \url{https://github.com/RasaHQ/rasa-demo}} which provides various information about Rasa and its products to the visitors of the company's website\footnote{\url{https://rasa.com/}}. The dataset comprises 4.8k examples overall, split between 1k testing portion and 3.8k training portion. Each example is a human-generated utterance and has been manually labelled with one of 57 intents, helping the Sara chatbot learn to detect what a human is talking to it about. Originally, the dataset was initialised by Rasa employees talking to Sara. Later, many more examples were collected by deploying the chatbot and letting site visitors talk to it. The 57 intent types were designed by Rasa, starting with a smaller number of broader intents and refining the set after observing real questions humans were asking the chatbot. \textbf{TO-DO: verify this is true; my knowledge of the history of Sara is limited.} The main scoring metric is the multi-class micro-averaged F1 score.
+
+    I modified the Sara dataset by splitting the training portion into 2.8k training and 1k evaluation sentences (while keeping both sets class-balanced). I also anonymised the dataset by replacing all sensitive information with generic tokens. Namely, I replaced people's names and surnames with a single token \verb|__PERSON_NAME__| and e-mail addresses with \verb|__EMAIL_ADDRESS__|.
+  }
+
+  \section{Data augmentation for generating large transfer sets}{
+    As \citet{Tang_2019a} demonstrate, taking just the training sentences of a downstream task as the transfer set for knowledge distillation is not enough; especially for challenging tasks like CoLA where the training set comprises only several thousands of sentences (for results, see Table 1 in \citet{Tang_2019b}). I adopt the approach that they found to work the best: Augmenting the training portion with additional sentences generated by a GPT-2 model \citep{Radford_2019}. The concrete steps for this augmentation are:
+    \begin{enumerate}
+      \item Fine-tune the pre-trained GPT-2 model (the 345M-parameter version) on the training sentences for 1 epoch with the language-modelling objective, i.e. learning to predict the next subword token of a sentence given the true sequence of tokens so far.
+      \item Sample a large number of prefixes (subword tokens) from the observed distribution of sentence-initial subword tokens in the training sentences.
+      \item For each sampled prefix, generate a sentence starting with it: by sampling from the predicted next-token distribution of the GPT-2 model, starting with just the prefix and stopping when the special end-of-sentence token is generated or the desired maximum sequence length is reached (in this case 128 tokens).
+      \item Add the generated sentences to the original training sentences and use as the transfer set, i.e. append with teacher-generated logits and use to train the students.
+    \end{enumerate}
+
+    For consistency, I used the same number of augmentation sentences as \citet{Tang_2019a}: 800k for each downstream task. Hence, the transfer set comprises 808.5k sentences for CoLA, 867k sentences for SST-2, and 802.8k sentences for Sara.
+  }
+
+  \section{Probing tasks}{
+
+  }
+
+  To stay consistent with the GLUE datasets for which test-set labels are not publicly available, I work with all three datasets (CoLA, SST-2 and Sara) in the following way:
+  \begin{enumerate}
+    \item I use the training portion to fine-tune the teacher and the GPT-2 model.
+    \item I use the training portion augmented with sampled sentences as the transfer set for knowledge distillation.
+    \item I use the evaluation portion to tune the student model hyperparameters.
+    \item I use the evaluation portion to analyse mistakes made by models and the confidence in predictions.
+  \end{enumerate}
 }
 
 \chapter{Implementation}{
