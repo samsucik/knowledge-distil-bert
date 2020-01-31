@@ -42,8 +42,14 @@ out_dir=$stage-$task-$dt
 interactive=false
 
 if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
-  nodelist=damnii09
-  partition=PGR-Standard #General_Usage # Teach-LongJobs
+  #nodelist=damnii03
+  #partition=PGR-Standard
+  #timelimit="7-0"
+  
+  nodelist=letha04
+  partition=General_Usage
+  timelimit="3-8"
+
   source $PROJECT_DIR/path.sh "$nodelist"
   echo "Project directory in cluster node ${nodelist}: ${PROJECT_DIR}"
   sbatch \
@@ -54,7 +60,7 @@ if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
     --no-requeue \
     --output=${out_dir}.out \
     --open-mode=truncate \
-    --time=3-8 \
+    --time=$timelimit \
     --mem=30G \
     run_in_cluster.sh "${stage}" "${task}" "${config}" "${out_dir}" "${teacher_dir}" "${interactive}"
 else
