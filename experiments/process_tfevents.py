@@ -21,22 +21,25 @@ for log_dir in existing_log_dirs:
     stats = []
     rows = ["step", "mcc"]
     times = []
-    for e in tf.compat.v1.train.summary_iterator(log_file):
-        times.append(e.wall_time)
-        for v in e.summary.value:
-            if v.tag == "eval_mcc":
-                stats.append([e.step, v.simple_value])
-            if v.tag == "config/text_summary":
-                config = str(v.tensor.string_val[0])[12:-2].split(", ")
-                [print(l) for l in config]
-    start_time = np.min(times)
-    end_time = np.max(times)
-    runtime = (end_time - start_time)/3600
-    print("Runtime: {:.2f}h.".format(runtime))
+    try:
+        for e in tf.compat.v1.train.summary_iterator(log_file):
+            times.append(e.wall_time)
+            for v in e.summary.value:
+                if v.tag == "eval_mcc":
+                    stats.append([e.step, v.simple_value])
+                if v.tag == "config/text_summary":
+                    config = str(v.tensor.string_val[0])[12:-2].split(", ")
+                    [print(l) for l in config]
+        start_time = np.min(times)
+        end_time = np.max(times)
+        runtime = (end_time - start_time)/3600
+        print("Runtime: {:.2f}h.".format(runtime))
 
-    out_file = os.path.join(args.out_dir, log_dir + ".csv")
-    with open(out_file, "w", newline="") as f:
-        f.write("{}\n".format(runtime))
-        f.write("{}\n".format(",".join(rows)))
-        writer = csv.writer(f)
-        writer.writerows(stats)
+        out_file = os.path.join(args.out_dir, log_dir + ".csv")
+        with open(out_file, "w", newline="") as f:
+            f.write("{}\n".format(runtime))
+            f.write("{}\n".format(",".join(rows)))
+            writer = csv.writer(f)
+            writer.writerows(stats)
+    except Exception as e:
+        print("Failed: {}".format(e.message))
