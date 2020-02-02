@@ -180,7 +180,7 @@ Tang: H=300 FC=400 (2.41M)
 	- wp=15, no decay #1:	distil-bert-CoLA-Jan18-17:45:54_FCN
 	- wp=15, no decay #2:	distil-bert-CoLA-Jan18-18:06:13_FCN
 	- wp=15, no decay #3:	distil-bert-CoLA-Jan18-18:09:09_FCN
-#### Embedding type
+#### Embedding type (CoLA)
 	- wordpiece #1:				distil-bert-CoLA-Jan19-00:12:33_FCN
 	- wordpiece #2:				distil-bert-CoLA-Jan19-00:26:47_FCN
 	- wordpiece #3:				distil-bert-CoLA-Jan19-00:27:35_FCN
@@ -192,7 +192,21 @@ Tang: H=300 FC=400 (2.41M)
 	- word non-static #1:		distil-bert-CoLA-Jan25-09:40:14_FCN
 	- word non-static #2:		distil-bert-CoLA-Jan25-09:40:18_FCN
 	- word non-static #3:		distil-bert-CoLA-Jan25-09:40:23_FCN
-#### Model size
+#### Embedding type (Sara): wordpiece multichannel
+	- wordpiece multichannel #1:	distil-bert-Sara-Jan31-19:24:12_FCN
+	- wordpiece multichannel #2:				
+	- wordpiece multichannel #3:				
+	- word multichannel #1:			distil-bert-Sara-Jan31-10:07:57_FCN
+	- word multichannel #2:			distil-bert-Sara-Jan31-19:00:40_FCN
+	- word multichannel #3:			distil-bert-Sara-Jan31-19:48:53_FCN
+#### Embedding type (SST-2): word multichannel
+	- wordpiece multichannel #1:	distil-bert-SST-2-Feb01-19:40:33_FCN
+	- wordpiece multichannel #2:				
+	- wordpiece multichannel #3:				
+	- word multichannel #1:			distil-bert-SST-2-Feb01-23:41:34_FCN
+	- word multichannel #2:			distil-bert-SST-2-Feb01-21:32:49_FCN
+	- word multichannel #3:			distil-bert-SST-2-Feb01-19:42:24_FCN
+#### Model size (CoLA)
 	- LSTM=600, FC=800 #1:			distil-bert-CoLA-Jan20-15:27:08_FCN
 	- LSTM=600, FC=800 #2:			distil-bert-CoLA-Jan20-15:27:12_FCN
 	- LSTM=600, FC=800 #3:			distil-bert-CoLA-Jan20-15:27:17_FCN
@@ -285,9 +299,18 @@ Tang: H=300 FC=400 (2.41M)
 	- LSTM=1200, FC=1600, L=5 #2:	distil-bert-CoLA-Jan24-10:11:14_FCN
 	- LSTM=1200, FC=1600, L=5 #3:	distil-bert-CoLA-Jan24-10:11:16_FCN
 
-	- LSTM=1500, FC=2000, L=5 #1:	distil-bert-CoLA-Jan28-18:34:00
-	- LSTM=1500, FC=2000, L=5 #2:	distil-bert-CoLA-Jan28-18:34:08
-	- LSTM=1500, FC=2000, L=5 #3:	distil-bert-CoLA-Jan28-18:54:54
+	- LSTM=1500, FC=2000, L=5 #1:	distil-bert-CoLA-Jan28-18:34:00_FCN
+	- LSTM=1500, FC=2000, L=5 #2:	distil-bert-CoLA-Jan28-18:34:08_FCN
+	- LSTM=1500, FC=2000, L=5 #3:	distil-bert-CoLA-Jan28-18:54:54_FCN
+#### Model size (Sara) teacher=0.8753
+	- LSTM=300, FC=400:			done		
+	- LSTM=150, FC=200:			distil-bert-Sara-Feb01-10:23:06_FCN
+	- LSTM=75, FC=100:			distil-bert-Sara-Feb01-10:24:16_FCN
+	- LSTM=37, FC=50:			distil-bert-Sara-Feb01-10:25:21_FCN
+#### Model size (SST-2) teacher=0.9151
+	- LSTM=300, FC=400 #1:			
+	- LSTM=300, FC=400 #2:			
+	- LSTM=300, FC=400 #3:			
 
 ### BERT
 #### Learning rate
@@ -334,27 +357,52 @@ Tang: H=300 FC=400 (2.41M)
 	- 64:		distil-bert-CoLA-Jan23-09:46:50_FCN
 	- 128:		distil-bert-CoLA-Jan23-09:48:13_FCN
 	- 512:		distil-bert-CoLA-Jan23-09:49:54_FCN
-#### Embedding type
+#### Embedding type (CoLA)
 	- word: 					distil-bert-CoLA-Jan24-10:07:32_FCN
 	- word (multichannel): 		distil-bert-CoLA-Jan24-10:07:52_FCN
 	- wordpiece (multichannel): distil-bert-CoLA-Jan25-09:42:35_FCN
-#### Model size
+#### Embedding type (Sara): wordpiece non-static
+	- word (multichannel):		distil-bert-Sara-Jan31-09:34:12_FCN 		
+	- wordpiece: 				distil-bert-Sara-Feb01-09:38:47_FCN
+#### Embedding type (SST-2):
+	- word (multichannel):		distil-bert-SST-2-Feb01-19:47:00
+	- wordpiece: 				distil-bert-SST-2-Feb01-19:44:54
+#### Model size (CoLA)
 	- inflating: width up to 4x, depth up to 3x
 	- W=1, D=1 (L=5 H=204 A=3 I=750):		not running								2.4  (1x128)                                      optimal_lr=5e-4
-	- W=2, D=1 (L=5 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:02:01_FCNX    9.6  (1x128) distil-bert-CoLA-Jan28-09:23:07_X    optimal_lr=1e-4  distil-bert-CoLA-Jan29-11:08:03
-	- W=3, D=1 (L=5 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:12:42_FCNX	21.7 (2x64)  distil-bert-CoLA-Jan28-09:20:16_X    optimal_lr=8e-5  distil-bert-CoLA-Jan29-11:17:12
-	- W=4, D=1 (L=5 H=816 A=12 I=3000):		distil-bert-CoLA-Jan25-11:42:48_X		38.5 (4x32)  distil-bert-CoLA-Jan28-12:39:33_X    optimal_lr=7e-5  distil-bert-CoLA-Jan29-11:25:47
+	- W=2, D=1 (L=5 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:02:01_FCNX    9.6  (1x128) distil-bert-CoLA-Jan28-09:23:07_X    optimal_lr=1e-4  distil-bert-CoLA-Jan29-11:08:03_FCN
+	- W=3, D=1 (L=5 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:12:42_FCNX	21.7 (2x64)  distil-bert-CoLA-Jan28-09:20:16_X    optimal_lr=8e-5  distil-bert-CoLA-Jan29-11:17:12_FCN
+	- W=4, D=1 (L=5 H=816 A=12 I=3000):		distil-bert-CoLA-Jan25-11:42:48_X		38.5 (4x32)  distil-bert-CoLA-Jan28-12:39:33_X    optimal_lr=7e-5  distil-bert-CoLA-Jan29-11:25:47_FCN
+	- W=5, D=1 (L=5 H=1020 A=15 I=3750):	distil-bert-CoLA-Feb01-21:22:43         60.2 (4x32)                                       optimal_lr=4e-5  distil-bert-CoLA-Feb02-10:42:58
 
-	- W=1, D=2 (L=10 H=204 A=3 I=750):		distil-bert-CoLA-Jan25-10:50:54_FCN		4.8	 (2x64)
-	- W=2, D=2 (L=10 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:18:53_FCNX	19.1 (2x64)  distil-bert-CoLA-Jan28-09:18:28_X    optimal_lr=8e-5  distil-bert-CoLA-Jan29-11:09:47
-	- W=3, D=2 (L=10 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:45:05_X 		43   (4x32)  distil-bert-CoLA-Jan28-11:57:35_X    optimal_lr=5e-5  distil-bert-CoLA-Jan29-11:18:20
-	- W=4, D=2 (L=10 H=816 A=12 I=3000):	distil-bert-CoLA-Jan25-11:10:16_X		76.4 (4x32)  distil-bert-CoLA-Jan28-12:22:22_X    optimal_lr=4e-5  distil-bert-CoLA-Jan29-11:38:07
-
-	- W=1, D=3 (L=15 H=204 A=3 I=750):		distil-bert-CoLA-Jan25-10:35:13_FCN		7.2	 (2x64)                                       optimal_lr=1e-4? distil-bert-CoLA-Jan29-13:58:24
-	- W=2, D=3 (L=15 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:41:45_X		28.6 (4x32)  distil-bert-CoLA-Jan29-00:18:17_X    optimal_lr=7e-5? distil-bert-CoLA-Jan29-14:42:48
-	- W=3, D=3 (L=15 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:47:07_X		64.3 (4x32)  distil-bert-CoLA-Jan28-18:22:38_X    optimal_lr=5e-5  distil-bert-CoLA-Jan29-11:23:24
-	- W=4, D=3 (L=15 H=816 A=12 I=3000):	distil-bert-CoLA-Jan25-15:54:15_X		114.2(8x16)	 distil-bert-CoLA-Jan28-18:24:05_X    optimal_lr=4e-5  distil-bert-CoLA-Jan29-11:38:51
-
+	- W=1, D=2 (L=10 H=204 A=3 I=750):		distil-bert-CoLA-Jan25-10:50:54_FCN		4.8	 (2x64)                                       optimal_lr=5e-4?
+	- W=2, D=2 (L=10 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:18:53_FCNX	19.1 (2x64)  distil-bert-CoLA-Jan28-09:18:28_X    optimal_lr=8e-5  distil-bert-CoLA-Jan29-11:09:47_FCN
+	- W=3, D=2 (L=10 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:45:05_X 		43   (4x32)  distil-bert-CoLA-Jan28-11:57:35_X    optimal_lr=5e-5  distil-bert-CoLA-Jan29-11:18:20_FCN
+	- W=4, D=2 (L=10 H=816 A=12 I=3000):	distil-bert-CoLA-Jan25-11:10:16_X		76.4 (4x32)  distil-bert-CoLA-Jan28-12:22:22_X    optimal_lr=4e-5  distil-bert-CoLA-Jan29-11:38:07  39
+	- W=5, D=1 (L=10 H=1020 A=15 I=3750):	distil-bert-CoLA-Feb01-21:51:43         119.3(8x16)                                       optimal_lr=4e-5  distil-bert-CoLA-Feb02-11:02:51
+	
+	- W=1, D=3 (L=15 H=204 A=3 I=750):		distil-bert-CoLA-Jan25-10:35:13_FCN		7.2	 (2x64)                                       optimal_lr=1e-4? distil-bert-CoLA-Jan29-13:58:24_FCN
+	- W=2, D=3 (L=15 H=408 A=6 I=1500):		distil-bert-CoLA-Jan25-10:41:45_X		28.6 (4x32)  distil-bert-CoLA-Jan29-00:18:17_X    optimal_lr=7e-5? distil-bert-CoLA-Jan29-14:42:48_FCN
+	- W=3, D=3 (L=15 H=612 A=9 I=2250):		distil-bert-CoLA-Jan25-10:47:07_X		64.3 (4x32)  distil-bert-CoLA-Jan28-18:22:38_X    optimal_lr=5e-5  distil-bert-CoLA-Jan29-11:23:24  41
+	- W=4, D=3 (L=15 H=816 A=12 I=3000):	distil-bert-CoLA-Jan25-15:54:15_X		114.2(8x16)	 distil-bert-CoLA-Jan28-18:24:05_X    optimal_lr=4e-5  distil-bert-CoLA-Jan29-11:38:51  23
+#### Model size (SST-2) FIRST TRY EMBEDDING TYPE!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	- W=1, D=1 (L=5 H=204 A=3 I=750):		
+	- W=2, D=1 (L=5 H=408 A=6 I=1500):		
+	- W=1, D=2 (L=10 H=204 A=3 I=750):		
+	- W=1, D=3 (L=15 H=204 A=3 I=750):		
+#### Model size (Sara)
+	- W=1, D=1 (L=5 H=204 A=3 I=750):		tried already
+	- W=1, D=/2 (L=3 H=204 A=3 I=750):		distil-bert-Sara-Feb02-11:31:12
+	- W=1, D=/3 (L=2 H=204 A=3 I=750):		distil-bert-Sara-Feb02-11:31:48
+	
+	- W=/2, D=1 (L=5 H=102 A=2 I=375):		distil-bert-Sara-Feb02-11:32:57
+	- W=/2, D=/2 (L=3 H=102 A=2 I=375):	    distil-bert-Sara-Feb02-11:33:27
+	- W=/2, D=/3 (L=2 H=102 A=2 I=375):		distil-bert-Sara-Feb02-11:34:20
+	
+	- W=/3, D=1 (L=5 H=68 A=1 I=250):		distil-bert-Sara-Feb02-11:36:05
+	- W=/3, D=/2 (L=3 H=68 A=1 I=250):		distil-bert-Sara-Feb02-11:36:39
+	- W=/3, D=/3 (L=2 H=68 A=1 I=250):		distil-bert-Sara-Feb02-11:37:33
+	
 Letha
 	1:....
 	2:...
@@ -369,13 +417,14 @@ Damnii
 	4:....
 	5:.
 	6:..
-	7: two jobs failed: `self._writer.flush() OSError: [Errno 30] Read-only file system`. coincidence?
+	7:
 	8:..
 	10:.
 	11:....
 
+
 ```bash
-dirs="distil-bert-CoLA-Jan26-15:54:02 distil-bert-CoLA-Jan26-15:53:52"
+dirs="distil-bert-SST-2-Feb01-19:40:33 distil-bert-SST-2-Feb01-23:41:34 distil-bert-SST-2-Feb01-21:32:49 distil-bert-SST-2-Feb01-19:42:24 distil-bert-Sara-Feb01-09:38:47 distil-bert-CoLA-Jan29-11:18:20"
 for d in $dirs; do
   echo $d
   pushd $d
@@ -386,38 +435,50 @@ for d in $dirs; do
 done
 ```
 
-## Probing: COULD FIX reg=1e-5
-0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23
-__             __                __                __                __
+## Probing
+	0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23
+	__             __                __                __                __
 ### Pretrained
-	avg+search:		   probe-CoLA-Jan29-11:12:46
-	avg+search_L=11    probe-CoLA-Jan29-11:31:13
-	avg+search_L=0     probe-CoLA-Jan29-12:15:07
+	avg+search:		   probe-CoLA-Jan29-11:12:46_FC
+	avg+search_L=17    probe-CoLA-Jan30-09:12:26_FC
+	avg+search_L=11    probe-CoLA-Jan29-11:31:13_FC
+	avg+search_L=5     probe-CoLA-Jan30-09:16:05_FC
+	avg+search_L=0     probe-CoLA-Jan29-12:15:07_FC
 ### CoLA
 	avg+search:		   probe-CoLA-Jan26-17:56:54_FC
 	max+search:		   probe-CoLA-Jan26-17:58:15_FC
 	single+search:	   probe-CoLA-Jan26-15:10:51_FC
-	avg+search_L=17    probe-CoLA-Jan29-14:37:41
+	avg+search_L=17    probe-CoLA-Jan29-14:37:41_FC
 	avg+search_L=11    probe-CoLA-Jan27-09:22:06_FC
 	single+search_L=11 probe-CoLA-Jan28-09:29:52_FC
 	max+search_L=11    probe-CoLA-Jan28-09:31:40_FC
-	avg+search_L=5     probe-CoLA-Jan29-14:39:58
+	avg+search_L=5     probe-CoLA-Jan29-14:39:58_FC
 	avg+search_L=0 	   probe-CoLA-Jan27-13:34:50_FC
 	single+search_L=0  probe-CoLA-Jan28-12:53:24_FC
 	max+search_L=0     probe-CoLA-Jan28-12:54:55_FC
 ### SST-2
 	single+search:     probe-SST-2-Jan26-16:17:27_FC
-	avg+search:		   probe-SST-2-Jan27-09:16:19_FC
 	max+search:		   probe-SST-2-Jan27-09:18:31_FC
-	avg+search_L=17    probe-SST-2-Jan29-14:56:56
+	avg+search:		   probe-SST-2-Jan27-09:16:19_FC
+	avg+search_L=17    probe-SST-2-Jan29-14:56:56_FC
 	avg+search_L=11    probe-SST-2-Jan27-23:07:32_FC
-	avg+search_L=5     probe-SST-2-Jan29-14:58:56
+	avg+search_L=5     probe-SST-2-Jan29-14:58:56_FC
 	avg+search_L=0     probe-SST-2-Jan27-23:44:08_FC
 ### Sara
 	single+search:	   probe-Sara-Jan27-09:06:41_FC
 	avg+search:		   probe-Sara-Jan28-12:51:15_FC
+	avg+search_L=17    probe-Sara-Jan30-09:10:25_FC 
 	avg+search_L=11    probe-Sara-Jan27-23:59:21_FC
+	avg+search_L=5     probe-Sara-Jan30-09:10:53_FC
 	avg+search_L=0     probe-Sara-Jan28-00:00:16_FC
+```bash
+dirs="probe-CoLA-Jan30-09:12:26 probe-CoLA-Jan30-09:16:05"
+for d in $dirs; do
+  echo $d
+  rm -rf $d
+  mv ${d}.out $DICE/minfp2.bak/probing-logs
+done
+```
 
 # Trash
 BERT
