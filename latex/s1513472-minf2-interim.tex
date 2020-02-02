@@ -287,28 +287,162 @@
 
     In terms of implementation, the most of my own work is in having integrated the different tools. In particular, I have combined the codebases of \citet{Sanh_2019} and \citet{Tang_2019b} and adapted the combination to offer richer options (e.g. initialising the student's embedding layers with trained word or wordpiece embeddings), to work with both BERT and BiLSTM students and to be more easily extendable to other architectures.
   }
-  \section{Overview of the system}{
-    some grand visualisation of all the components and how they interact
-  }
-  \section{Design decisions and default parameters}{
+  \section{System overview}{    
+    Following \citet{Tang_2019b}, I used the large, case-insensitive (uncased) pre-trained BERT (340M params) as the teacher and finetuned it for 3 epochs using Adam optimizer with $\eta=5e-5$ with linear warm-up over the first 10\% of training steps, followed by linear decay, and with batch size $B=36$. I will refer to this model as $BERT_T$. Somewhat surprisingly, while the teacher converged within 3 epochs for CoLA and SST-2 (in terms of the dev-set score), for Sara, it converged much more slowly. I empirically chose 10 epochs as the smallest number after which $BERT_T$ would sufficiently converge on the Sara dataset.
 
+    As students, I used:
+    \begin{itemize}
+      \item a bi-directional LSTM same as the one used by \citet{Tang_2019b}: with one LSTM layer with 300 units, followed by a linear layer with 400 units and ReLU activation function, with a softmax classifier on top, with 2.41M non-embedding trainable parameters. I will refer to this model as $LSTM_S$.
+      \item a smaller version of the teacher BERT model, with all dimensions down-scaled 5x to roughly match the number of trainable non-embedding parameters: with 5 transformer layers, hidden dimension of 204, intermediate layers of size 750, and 3 attentional heads (amounting to 2.42M parameters). I will refer to this model as $BERT_S$.
+    \end{itemize}
+
+    $LSTM_S$ was trained to minimise the mean squared loss (MSE) between the teacher-generated logits and student's logits. While the cross-entropy loss with configurable temperature is more popular and in essence a generalisation of the MSE loss (see \citet{Hinton_2015}), \citet{Tang_2019b} report that the MSE loss led to slightly better performance in their experiments. For $BERT_S$, I use the traditional cross-entropy loss with temeperature set to $T=3$ following the findings of \citet{Tsai_2019} who experimented with different temperatures (note that $T=3$ was used as the default also in the experiments of \citet{Tang_2019b}).
+
+    Following preliminary experiments, I limited the number of training epochs to 30 for $LSTM_S$ (same budget was used by \citet{Tang_2019b}) and to 60 for $BERT_S$ as it was converging much slower than the recurrent student. I stick to this training budget throughout my experiments.
+
+    some overall visualisation of all the components and how they interact
   }
-  % hparams: use T=3 (default from Tang, also confirmed to work better than 1 and 2 by \citet{Tsai_2019})
-  % cross-entropy loss with temperature and logits shown in \citet[p.3]{Tsai_2019}
 }
 
 \chapter{Student tuning}{
-  % hparam tuning, size tuning
-  % results: best config, student size differences between datasets
+  Importantly, extensive tuning of the students' hyperparameters is certainly not the main objective of this work. However, my aim is to carry out an analysis of the teacher and student models and the distillation process. For such analysis to be of some value, it should be done using well-performing models which themselves are of practical value.
+
+  I tune a number of hyperparameters for the 2.4M-parameter students using the CoLA task. Afterwards, I tune a smaller number of parameters -- which are the most likely to be task-dependent -- separately for each downstream task, trying to obtain $LSTM_S$ and $BERT_S$ that would achieve 90\% of the teacher's performance while being as small as possible. These student are then used for further analysis.
+
+  For both students, I first tune the following, in this order (for more details, see the next sections):
+  \begin{enumerate}
+    \item learning rate $\eta$
+    \item learning rate scheduling, more concretely the warm-up and decay of $\eta$
+    \item batch size $B$
+    \item embedding type (wordpiece vs word) and mode
+  \end{enumerate}
+
+  Afterwards, I tune on each task separately the embedding type and the student size.
+
+  The starting configuration (which I change as I tune the different parameters) is:
+  \begin{itemize}
+    \item $BERT_S$: Adam with $\eta=5e-5$, $B=256$, learning rate warm-up over the first 10 epochs, followed by linear decay, and wordpiece embedding layer
+    \item $LSTM_S$: Adadelta with $\eta=1.0$, $B=50$, no learning rate annealing, and word embedding layer in the multichannel mode, using word2vec
+  \end{itemize}
+  Initially, $LSTM_S$ had its embedding layer initialised with word2vec embeddings, but $BERT_S$ was initialised entirely from scratch. Naturally, this was posing a disadvantage for $BERT_S$ as it was starting with no knowledge. Hence, I added the option to initialise the embedding layer with wordpiece embeddings from the corresponding finetuned $BERT_T$. I report results of parameter tuning for both of these variants of $BERT_S$.
+  
+  \section{Choosing $\eta$}{
+    Because \citet{Tang_2019b} report not tuning their hyperparameters, I acknowledge their parameter choices but challenge many of them. In particular, they use Adadelta with $\eta=1.0$ and $\rho=0.95$ as the learning algorithm. I attempt to use the Adam algorithm as it is a generalised, improved version of Adadelta.
+    Hence, for both students, I compare values of $\eta$ from [5e-3, 1.5e-3, 5e-4, 1.5e-4, 5e-5, 1.5e-5, 5e-6] for the Adam optimizer, with betas fixed to 0.9 and 0.98.
+    
+    TO-DO: add graphs
+
+    The best value was found to be $\eta=5e-4$ for $LSTM_S$ and bth variants of $BERT_S$. For $BLSTM_S$, I abandoned the Adadelta optimizer as it performed worse than Adam.
+  }
+
+  \section{Choosing learning rate annealing}{
+    I tried linear warm-up of $\eta$ (starting from 0) over [0, 5, 10, 15, 20] epochs $E_{WP}$ for $BERT_S$ and over [0, 5, 10, 15] epochs for $LSTM_S$.
+
+    TO-DO: add graphs
+
+    For $BERT_S$ initialised from scratch, $E_{WP}=20$ and no decay worked the best. For the other students, decay was improving the performance slightly, with the best $E_{WP}$ being 0 for $LSTM_S$ and 15 for $BERT_S$
+  }
+
+  \section{Choosing batch size}{
+    Note that for $LSTM_S$ this was done prior to exploring the learnign rate annealing, as my aim was to merely verify that $B=50$ reported by \citet{Tang_2019b} was the best value. For $BERT_S$, I had much less intuition about suitable batch sizes. The explored values were [32, 64, 128, 256, 512] for $BERT_S$ and [32, 50, 128, 256, 512] for $LSTM_S$.
+
+    TO-DO: add graphs
+
+    Interestingly, while $LSTM_S$ preferred the smalles batch size $B=32$, $BERT_S$ preferred much bigger batches: 256 when initialised from scratch and 128 with wordpiece embeddings initialised from $BERT_T$.
+  }
+
+  \section{Choosing embedding type and mode}{
+    After observing that the best $LSTM_S$ consistently outperforms its counterpart $BERT_S$, I turned to exploring the effect of pre-trained knowledge present in the student before distillation.
+    In $LSTM_S$, this lies in the word2vec embeddings. Additionally, the embedding layer is used in the \textit{multichannel mode}: two parallel embedding layers are initialised from word2vec, with one being frozen during distillation and the other one allowed to be finetuned. In $BERT_S$, there is no pre-trained knowledge or there is the knowledge from the teacher's wordpiece embeddings (dimensionality reduced by a trainable linear layer to match the smaller hidden size of $BERT_S$.
+
+    I was interested to see whether the effect of different type of embeddings -- word2vec pre-trained on general language modelling vs wordpiece pretrained on language modelling and finetuned on the particular downstream task -- could explain some of the performance gap between $BERT_S$ and $LSTM_S$.
+    Hence, I tried each of the 2 students with each of the 2 embedding types, combined with each of the following 2 modes: the multichannel mode described above, and the simple (\textit{non-static}) mode where only one embedding instance is created, which is unfrozen and allowed to further train during distillation.
+
+    TO-DO: add graphs
+
+    Turns out $LSTM_S$ strongly prefers word embeddings in the multichannel mode, while $BERT_S$ is less decisive, with only slight preference for word embeddings and the multichannel mode. This also shows that the different embedding properties don't explain the worse performance of $BERT_S$.
+  }
+
+  \section{Choosing task-specific parameters}{
+    For each dataset, I first tried different embedding types and modes, and then for the best-performing combination I tried up-scaling the students to get as close to 90\% of $BERT_T$'s performance as possible, while keeping the size of each student reasonably smaller than the teacher.
+
+    \subsection{CoLA}{
+      Here I had the optimal embedding type/mode already.
+
+      I tried expanding $LSTM_S$ by increasing the number of LSTM layers from 1 to [2, 3, 4, 5] and the width of the LSTM and fully-connected layers from the original 300 and 400 by 2x, 3x, 4x and 5x.
+      In case of $BERT_S$, I tried increasing the number of layers from the original 5 to 10 and 15, and the other parameters (\# of attentional heads, hidden and intermediate size) by 2x, 3x and 4x.
+      
+      TO-DO: add graphs
+
+      For $LSTM_S$, the results are indecisive, without clear correlation between student size and performance. The best student was 2x deeper and 2x wider than the initial configuration.
+
+      For $BERT_S$, I soon observed that bigger models started dying after the first few epochs. TO-DO: add diagnostic graphs. This dying surfaced as the dev-set score flattening out and then decreasing towards 0, at which point the gradients in the model would explode. I identified the cause of this to be too big learning rate (thanks to the warm-up, the model was experiencing $\eta$ starting from 0 and increasing towards the target value). Hence, by comparing the graphs for the linearly increasing $\eta$ and the dev-set performance, I tried to manually identify $\eta$ values as big as possible that were still enabling the model to improve fast (without making it plateau or die). These values were in the range from the originally chosen 5e-4 down to 8e-5 (generally lower $\eta$ for bigger models). After this modification, all students trained normally, without dying. TO-DO: add graphs and conclusions once all of these have finished training.
+    }
+    \subsection{SST-2}{
+      TO-DO: run experiments and report
+    }
+    \subsection{Sara}{
+      TO-DO: run experiments and report
+    }
+  }
 }
 
-\chapter{Analysing the students}{
+\chapter{Analysing the models}{
   % analysing mistakes, probing
+  \section{Analysing the models' predictions}{
+    This will involve for each downstream task:
+    \begin{enumerate}
+      \item gathering dev-set predictions made by the two best students and the teacher
+      \item looking at the mistakes made by each model (most confident mistakes and least confident mistakes first, maybe taking first 10-20 mistakes from each end), trying to describe then in intuitive terms if possible
+      \item comparing the mistakes made by different models, again trying to describe what I observe
+      \item looking at how confident the predictions were in general for each model (maybe the distribution of confidences?) and if possible, comparing this across models
+    \end{enumerate}
+
+    My aim is to make at least some observations describable in human-understandable terms about how the models compare: how the 2 architecturally different students compare, and how their predicting behaviour compares to that of their teacher.
+    Ideally, I will be also able to form some (even if weak) hypotheses that are further testable using probing tasks.
+  }
+
+  \section{Probing the models for linguistic knowledge}{
+    Here, I will for each downstream task:
+    \begin{itemize}
+      \item probe each of the 3 models in different layers (e.g. the 24-layer $BERT_T$ in layers 1, 6, 12, 18, 24) to see how much linguistic knowledge and where is present in each model
+      \item probe also the pretrained BERT (not finetund on any downstream task) and look at how knowledge is preserved/thrown away when the teacher gets finetuned vs when students with little prior knowledge are trained during distillation
+      \item compare how knowledge is present in the two architecturally different students, try to relate this to other differences noticed when analysing the students' predictions
+    \end{itemize}
+
+    For now, I have one graph summarising the results of probing just the teacher models, see \autoref{fig:probing-master}.
+    \begin{figure}[h!t]
+      \centering
+      \includegraphics[width=12.5cm]{graphics/probing_master.png}
+      \caption{Probing the 3 finetuned teachers and the pretrained one. The dotted line shows baseline accuracy levels achieved by majority-class guessing, the dashed line shows human performance.}
+      \label{fig:probing-master}
+    \end{figure}
+  }
 }
 
 \chapter{Overall discussion and conclusions}{}
 
 \chapter{Future work}{}
+
+\chapter{Plan for the rest of the semester}{
+  Work finished:
+  \begin{itemize}
+    \item implementing everything related to distillation (incl. teacher finetuning and generating augmentation data with GPT-2)
+    \item creating augmented transfer sets and finetuning the BERT teacher for each task
+    \item exploring the model parameters shared across tasks (i.e. doesn't include embedding type and student size)
+    \item implementing everything needed for probing
+    \item implementing everything needed for gathering predictions for mistake/confidence analysis
+  \end{itemize}
+
+  Work to be done:
+  \begin{itemize}
+    \item now-Feb 10: finishing size exploration for SST-2 and Sara (ending up with best students for each downstream task)
+    \item Feb 11-23: analysing the predictions of all models (includes Inovative Learning Week Feb 17-21 when I won't get terribly much done)
+    \item Feb 11-16: probing the best students
+    \item Feb 24-Mar 1: putting together overall analysis and conclusions
+    \item Mar 2-Apr 2: buffer time and writing the report (a lot of coursework in this period as well)
+  \end{itemize}
+}
 
 % \chapter{Notes}{
 %   \section{Knowledge distillation -- assorted}{
