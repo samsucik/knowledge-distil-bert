@@ -8,7 +8,7 @@ model_type=LSTM
 model_dir=$(pwd)/good-student-lstm-new
 is_student=true
 
-model_type=pretrained
+model_type=embedding_wordpiece
 model_dir=$(pwd)/teacher-$task
 is_student=false
 
