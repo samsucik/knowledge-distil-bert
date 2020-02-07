@@ -444,22 +444,28 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 #### LSTM: word multichannel (44.8)
 	- W=2, D=2, LSTM=600, FC=800, L=2 #1:	distil-bert-CoLA-Feb05-16:49:47_F 44.2
 	- W=2, D=2, LSTM=600, FC=800, L=2 #2:	distil-bert-CoLA-Feb05-16:50:12_F 43.5
-	- W=2, D=2, LSTM=600, FC=800, L=2 #3:	distil-bert-CoLA-Feb06-09:56:35
-	- W=2, D=2, LSTM=600, FC=800, L=2 #4:	distil-bert-CoLA-Feb06-09:56:39
-	- W=2, D=2, LSTM=600, FC=800, L=2 #5:	distil-bert-CoLA-Feb06-09:57:38
+	- W=2, D=2, LSTM=600, FC=800, L=2 #3:	distil-bert-CoLA-Feb06-09:56:35_F 43.5
+	- W=2, D=2, LSTM=600, FC=800, L=2 #4:	distil-bert-CoLA-Feb06-09:56:39_F 43.5
+	- W=2, D=2, LSTM=600, FC=800, L=2 #5:	distil-bert-CoLA-Feb06-09:57:38_F 44.2
+	- W=2, D=2, LSTM=600, FC=800, L=2 #6:	distil-bert-CoLA-Feb06-22:22:07_F 43.5
+	- W=2, D=2, LSTM=600, FC=800, L=2 #7:	distil-bert-CoLA-Feb06-22:22:12
+	- W=2, D=2, LSTM=600, FC=800, L=2 #8:	distil-bert-CoLA-Feb06-22:22:17_F 44.2
 ### SST-2
 #### BERT: word multichannel (89.2)
-	- default #1:	distil-bert-SST-2-Feb05-17:35:22
-	- default #2:	distil-bert-SST-2-Feb05-17:35:27
+	- default #1:	distil-bert-SST-2-Feb05-17:35:22_F 89.3
+	- default #2:	distil-bert-SST-2-Feb05-17:35:27_F 89.3
 #### LSTM: word multichannel (91.9)
 	- default #1:	distil-bert-SST-2-Feb05-17:02:41_F 91.2
 	- default #2:	distil-bert-SST-2-Feb05-17:03:29_F 91.2
-	- default #3:	distil-bert-SST-2-Feb06-09:52:45
-	- default #4:	distil-bert-SST-2-Feb06-09:52:49
-	- default #5:	distil-bert-SST-2-Feb06-09:54:19
+	- default #3:	distil-bert-SST-2-Feb07-09:53:26
+	- default #4:	distil-bert-SST-2-Feb07-09:53:29
+	- default #5:	distil-bert-SST-2-Feb07-09:53:33
 ### Sara
 #### BERT: wordpiece non-static (87.1)
-	- default #1:	distil-bert-Sara-Feb05-16:59:56
+	- default #1:	distil-bert-Sara-Feb05-16:59:56_F 86.3
+	- default #2:	distil-bert-Sara-Feb06-22:24:58
+	- default #3:	distil-bert-Sara-Feb06-22:26:22
+	- default #4:	distil-bert-Sara-Feb06-22:26:26
 #### LSTM: wordpiece multichannel (86.5)
 	- default #1:	distil-bert-Sara-Feb05-17:04:42_F 86.5
 
@@ -509,6 +515,8 @@ done
 	avg+search_L=11    probe-CoLA-Jan29-11:31:13_FC
 	avg+search_L=5     probe-CoLA-Jan30-09:16:05_FC
 	avg+search_L=0     probe-CoLA-Jan29-12:15:07_FC
+	embed_wordpiece:   probe-pretrained-Feb06-11:03:42_FC
+	embed_word:        probe-pretrained-Feb06-22:30:01_FC
 ### CoLA
 	avg+search:		   probe-CoLA-Jan26-17:56:54_FC
 	max+search:		   probe-CoLA-Jan26-17:58:15_FC
@@ -544,7 +552,7 @@ done
 	embed_word         probe-Sara-Feb05-16:05:55_FC
 
 ```bash
-dirs=""
+dirs="probe-pretrained-Feb06-11:03:42 probe-pretrained-Feb06-22:30:01"
 for d in $dirs; do
   echo $d
   rm -rf $d
