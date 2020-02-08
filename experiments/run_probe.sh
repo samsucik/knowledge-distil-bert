@@ -8,7 +8,7 @@ model_type=LSTM
 model_dir=$(pwd)/good-student-lstm-new
 is_student=true
 
-model_type=embedding_wordpiece
+model_type=embedding_word
 model_dir=$(pwd)/teacher-$task
 is_student=false
 
@@ -17,6 +17,7 @@ glue_data_dir=$GLUE_DIR/$task
 
 pushd $TRANSFORMERS/examples > /dev/null
 python probe_model.py \
+	--use_word_vectors=true \
     --embed_strategy=avg \
     --layer_to_probe=5 \
     --out_dir=$out_dir \
