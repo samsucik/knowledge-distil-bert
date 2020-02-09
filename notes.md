@@ -522,6 +522,7 @@ done
 	avg+search_L=11    probe-CoLA-Jan29-11:31:13_FC
 	avg+search_L=5     probe-CoLA-Jan30-09:16:05_FC
 	avg+search_L=0     probe-CoLA-Jan29-12:15:07_FC
+	avg+search_L=E     probe-CoLA-Feb09-13:21:42
 	embed_wordpiece:   probe-pretrained-Feb08-23:36:19_FC
 	embed_word:        probe-pretrained-Feb08-00:20:49_FC
 ### CoLA
@@ -534,6 +535,7 @@ done
 	max+search_L=11    probe-CoLA-Jan28-09:31:40_FC
 	avg+search_L=5     probe-CoLA-Jan29-14:39:58_FC
 	avg+search_L=0 	   probe-CoLA-Jan27-13:34:50_FC
+	avg+search_L=E 	   probe-CoLA-Feb09-13:16:42
 	single+search_L=0  probe-CoLA-Jan28-12:53:24_FC
 	max+search_L=0     probe-CoLA-Jan28-12:54:55_FC
 	embed_wordpiece    probe-CoLA-Feb08-23:36:58_FC
@@ -547,6 +549,7 @@ done
 	avg+search_L=11    probe-SST-2-Jan27-23:07:32_FC
 	avg+search_L=5     probe-SST-2-Jan29-14:58:56_FC
 	avg+search_L=0     probe-SST-2-Jan27-23:44:08_FC
+	avg+search_L=E     probe-SST-2-Feb09-13:17:18
 	embed_wordpiece    probe-SST-2-Feb08-23:37:10_FC
 	embed_word         probe-SST-2-Feb08-00:37:28_FC
 	student-BERT_L4	   probe-SST-2-Feb08-01:01:40_FC
@@ -554,6 +557,7 @@ done
 	student-BERT_L2	   probe-SST-2-Feb08-01:03:42_FC
 	student-BERT_L1	   probe-SST-2-Feb09-12:53:04
 	student-BERT_L0	   probe-SST-2-Feb08-01:04:12_FC
+	student-BERT_LE    probe-SST-2-Feb09-13:05:50
 	student-LSTM       probe-SST-2-Feb08-23:25:47_FC
 ### Sara
 	single+search:	   probe-Sara-Jan27-09:06:41_FC
@@ -562,6 +566,7 @@ done
 	avg+search_L=11    probe-Sara-Jan27-23:59:21_FC
 	avg+search_L=5     probe-Sara-Jan30-09:10:53_FC
 	avg+search_L=0     probe-Sara-Jan28-00:00:16_FC
+	avg+search_L=E     probe-Sara-Feb09-13:19:54
 	embed_wordpiece    probe-Sara-Feb08-23:37:14_FC
 	embed_word         probe-Sara-Feb08-00:37:34_FC
 	student-BERT_L4	   probe-Sara-Feb08-00:54:22_FC
@@ -569,6 +574,7 @@ done
 	student-BERT_L2	   probe-Sara-Feb08-00:57:37_FC
 	student-BERT_L1	   probe-Sara-Feb09-12:55:10
 	student-BERT_L0	   probe-Sara-Feb08-00:59:38_FC
+	student-BERT_LE	   probe-Sara-Feb09-13:04:50
 	student-LSTM	   probe-Sara-Feb08-23:15:54_FC
 
 ```bash
