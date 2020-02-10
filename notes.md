@@ -439,12 +439,12 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 #### BERT:  word multichannel (41.9, 45.0)
 	- W=2, D=2 (L=10 H=408 A=6 I=1500), 19.1M, B=2x64, lr=8e-5 #1:	distil-bert-CoLA-Feb05-16:41:03_F 42.9
 	- W=2, D=2 (L=10 H=408 A=6 I=1500), 19.1M, B=2x64, lr=8e-5 #2:	distil-bert-CoLA-Feb05-16:42:01_FT 43.6
-	- W=2, D=2 (L=10 H=408 A=6 I=1500), 19.1M, B=2x64, lr=8e-5 #3:	distil-bert-CoLA-Feb08-23:53:40 49
-	- W=2, D=2 (L=10 H=408 A=6 I=1500), 19.1M, B=2x64, lr=8e-5 #4:	distil-bert-CoLA-Feb08-23:53:48 28
+	- W=2, D=2 (L=10 H=408 A=6 I=1500), 19.1M, B=2x64, lr=8e-5 #3:	distil-bert-CoLA-Feb08-23:53:40_F 41.9 <<
+	- W=2, D=2 (L=10 H=408 A=6 I=1500), 19.1M, B=2x64, lr=8e-5 #4:	distil-bert-CoLA-Feb08-23:53:48_F 41.9
 
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #1:	distil-bert-CoLA-Feb05-16:46:03_FT 41.6
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #2:	distil-bert-CoLA-Feb05-16:46:28_FT 41.4
-	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #3:	distil-bert-CoLA-Feb09-00:12:44 32
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #3:	distil-bert-CoLA-Feb09-00:12:44 41
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #4:	distil-bert-CoLA-Feb09-00:12:53 32
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #5:	distil-bert-CoLA-Feb09-00:24:58 33
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #6:	distil-bert-CoLA-Feb09-00:25:16 32
@@ -502,7 +502,7 @@ Damnii
 	11:....
 
 ```bash
-dirs="distil-bert-Sara-Feb06-22:26:22"
+dirs=""
 for d in $dirs; do
   echo $d
   pushd $d
@@ -514,15 +514,13 @@ done
 ```
 
 ## Probing
-	0  1  2  3  4  5  6  7  8  9  10 11 12 13 14 15 16 17 18 19 20 21 22 23
-	__             __                __                __                __
 ### Pretrained
 	avg+search:		   probe-CoLA-Jan29-11:12:46_FC
 	avg+search_L=17    probe-CoLA-Jan30-09:12:26_FC
 	avg+search_L=11    probe-CoLA-Jan29-11:31:13_FC
 	avg+search_L=5     probe-CoLA-Jan30-09:16:05_FC
 	avg+search_L=0     probe-CoLA-Jan29-12:15:07_FC
-	avg+search_L=E     probe-CoLA-Feb09-13:21:42
+	avg+search_L=E     probe-CoLA-Feb09-13:21:42_FC
 	embed_wordpiece:   probe-pretrained-Feb08-23:36:19_FC
 	embed_word:        probe-pretrained-Feb08-00:20:49_FC
 ### CoLA
@@ -540,6 +538,17 @@ done
 	max+search_L=0     probe-CoLA-Jan28-12:54:55_FC
 	embed_wordpiece    probe-CoLA-Feb08-23:36:58_FC
 	embed_word         probe-CoLA-Feb08-00:37:24_FC
+	student-BERT_L9	   probe-CoLA-Feb10-23:46:23
+	student-BERT_L8	   probe-CoLA-Feb10-23:45:40
+	student-BERT_L7	   probe-CoLA-Feb10-23:45:12
+	student-BERT_L6	   probe-CoLA-Feb10-23:44:48
+	student-BERT_L5	   probe-CoLA-Feb10-23:44:18
+	student-BERT_L4	   probe-CoLA-Feb10-23:43:02
+	student-BERT_L3	   probe-CoLA-Feb10-23:42:20
+	student-BERT_L2	   probe-CoLA-Feb10-23:41:55
+	student-BERT_L1	   probe-CoLA-Feb10-23:41:25
+	student-BERT_L0	   probe-CoLA-Feb10-23:40:58
+	student-BERT_LE    probe-CoLA-Feb10-23:39:27
 	student-LSTM       probe-CoLA-Feb08-23:25:58_FC
 ### SST-2
 	single+search:     probe-SST-2-Jan26-16:17:27_FC
@@ -578,7 +587,7 @@ done
 	student-LSTM	   probe-Sara-Feb08-23:15:54_FC
 
 ```bash
-dirs="probe-CoLA-Feb09-13:16:42 probe-SST-2-Feb09-13:17:18 probe-SST-2-Feb09-12:53:24 probe-SST-2-Feb09-12:53:04 probe-SST-2-Feb09-13:05:50 probe-Sara-Feb09-13:19:54 probe-Sara-Feb09-12:55:26 probe-Sara-Feb09-12:55:10 probe-Sara-Feb09-13:04:50"
+dirs="probe-CoLA-Feb09-13:21:42"
 for d in $dirs; do
   echo $d
   rm -rf $d
