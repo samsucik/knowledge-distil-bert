@@ -439,15 +439,15 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 #### BERT:  word multichannel (41.9, 45.0)
 	- W=2, D=2 (L=10 H=408 A=6 I=1500), 19.1M, B=2x64, lr=8e-5 #1:	distil-bert-CoLA-Feb05-16:41:03_F 42.9
 	- W=2, D=2 (L=10 H=408 A=6 I=1500), 19.1M, B=2x64, lr=8e-5 #2:	distil-bert-CoLA-Feb05-16:42:01_FT 43.6
-	- W=2, D=2 (L=10 H=408 A=6 I=1500), 19.1M, B=2x64, lr=8e-5 #3:	distil-bert-CoLA-Feb08-23:53:40
-	- W=2, D=2 (L=10 H=408 A=6 I=1500), 19.1M, B=2x64, lr=8e-5 #4:	distil-bert-CoLA-Feb08-23:53:48
+	- W=2, D=2 (L=10 H=408 A=6 I=1500), 19.1M, B=2x64, lr=8e-5 #3:	distil-bert-CoLA-Feb08-23:53:40 49
+	- W=2, D=2 (L=10 H=408 A=6 I=1500), 19.1M, B=2x64, lr=8e-5 #4:	distil-bert-CoLA-Feb08-23:53:48 28
 
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #1:	distil-bert-CoLA-Feb05-16:46:03_FT 41.6
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #2:	distil-bert-CoLA-Feb05-16:46:28_FT 41.4
-	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #3:	distil-bert-CoLA-Feb09-00:12:44
-	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #4:	distil-bert-CoLA-Feb09-00:12:53
-	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #5:	distil-bert-CoLA-Feb09-00:24:58
-	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #6:	distil-bert-CoLA-Feb09-00:25:16
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #3:	distil-bert-CoLA-Feb09-00:12:44 32
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #4:	distil-bert-CoLA-Feb09-00:12:53 32
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #5:	distil-bert-CoLA-Feb09-00:24:58 33
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #6:	distil-bert-CoLA-Feb09-00:25:16 32
 #### LSTM: word multichannel (44.8)
 	- W=2, D=2, LSTM=600, FC=800, L=2 #1:	distil-bert-CoLA-Feb05-16:49:47_F 44.2 <<
 	- W=2, D=2, LSTM=600, FC=800, L=2 #2:	distil-bert-CoLA-Feb05-16:50:12_FC 43.5
@@ -535,12 +535,12 @@ done
 	max+search_L=11    probe-CoLA-Jan28-09:31:40_FC
 	avg+search_L=5     probe-CoLA-Jan29-14:39:58_FC
 	avg+search_L=0 	   probe-CoLA-Jan27-13:34:50_FC
-	avg+search_L=E 	   probe-CoLA-Feb09-13:16:42
+	avg+search_L=E 	   probe-CoLA-Feb09-13:16:42_FC
 	single+search_L=0  probe-CoLA-Jan28-12:53:24_FC
 	max+search_L=0     probe-CoLA-Jan28-12:54:55_FC
 	embed_wordpiece    probe-CoLA-Feb08-23:36:58_FC
 	embed_word         probe-CoLA-Feb08-00:37:24_FC
-	student-LSTM       probe-CoLA-Feb08-23:25:58_F
+	student-LSTM       probe-CoLA-Feb08-23:25:58_FC
 ### SST-2
 	single+search:     probe-SST-2-Jan26-16:17:27_FC
 	max+search:		   probe-SST-2-Jan27-09:18:31_FC
@@ -549,15 +549,15 @@ done
 	avg+search_L=11    probe-SST-2-Jan27-23:07:32_FC
 	avg+search_L=5     probe-SST-2-Jan29-14:58:56_FC
 	avg+search_L=0     probe-SST-2-Jan27-23:44:08_FC
-	avg+search_L=E     probe-SST-2-Feb09-13:17:18
+	avg+search_L=E     probe-SST-2-Feb09-13:17:18_FC
 	embed_wordpiece    probe-SST-2-Feb08-23:37:10_FC
 	embed_word         probe-SST-2-Feb08-00:37:28_FC
 	student-BERT_L4	   probe-SST-2-Feb08-01:01:40_FC
-	student-BERT_L3	   probe-SST-2-Feb09-12:53:24
+	student-BERT_L3	   probe-SST-2-Feb09-12:53:24_FC
 	student-BERT_L2	   probe-SST-2-Feb08-01:03:42_FC
-	student-BERT_L1	   probe-SST-2-Feb09-12:53:04
+	student-BERT_L1	   probe-SST-2-Feb09-12:53:04_FC
 	student-BERT_L0	   probe-SST-2-Feb08-01:04:12_FC
-	student-BERT_LE    probe-SST-2-Feb09-13:05:50
+	student-BERT_LE    probe-SST-2-Feb09-13:05:50_FC
 	student-LSTM       probe-SST-2-Feb08-23:25:47_FC
 ### Sara
 	single+search:	   probe-Sara-Jan27-09:06:41_FC
@@ -566,19 +566,19 @@ done
 	avg+search_L=11    probe-Sara-Jan27-23:59:21_FC
 	avg+search_L=5     probe-Sara-Jan30-09:10:53_FC
 	avg+search_L=0     probe-Sara-Jan28-00:00:16_FC
-	avg+search_L=E     probe-Sara-Feb09-13:19:54
+	avg+search_L=E     probe-Sara-Feb09-13:19:54_FC
 	embed_wordpiece    probe-Sara-Feb08-23:37:14_FC
 	embed_word         probe-Sara-Feb08-00:37:34_FC
 	student-BERT_L4	   probe-Sara-Feb08-00:54:22_FC
-	student-BERT_L3	   probe-Sara-Feb09-12:55:26
+	student-BERT_L3	   probe-Sara-Feb09-12:55:26_FC
 	student-BERT_L2	   probe-Sara-Feb08-00:57:37_FC
-	student-BERT_L1	   probe-Sara-Feb09-12:55:10
+	student-BERT_L1	   probe-Sara-Feb09-12:55:10_FC
 	student-BERT_L0	   probe-Sara-Feb08-00:59:38_FC
-	student-BERT_LE	   probe-Sara-Feb09-13:04:50
+	student-BERT_LE	   probe-Sara-Feb09-13:04:50_FC
 	student-LSTM	   probe-Sara-Feb08-23:15:54_FC
 
 ```bash
-dirs=""
+dirs="probe-CoLA-Feb09-13:16:42 probe-SST-2-Feb09-13:17:18 probe-SST-2-Feb09-12:53:24 probe-SST-2-Feb09-12:53:04 probe-SST-2-Feb09-13:05:50 probe-Sara-Feb09-13:19:54 probe-Sara-Feb09-12:55:26 probe-Sara-Feb09-12:55:10 probe-Sara-Feb09-13:04:50"
 for d in $dirs; do
   echo $d
   rm -rf $d
