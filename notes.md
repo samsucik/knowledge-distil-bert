@@ -550,12 +550,12 @@ done
 	student-BERT_L0	   probe-CoLA-Feb10-23:40:58_FC
 	student-BERT_LE    probe-CoLA-Feb10-23:39:27_FC
 
-	student-BERT-L_L4  probe-CoLA-Feb11-21:50:47
-	student-BERT-L_L3  probe-CoLA-Feb11-21:50:19
-	student-BERT-L_L2  probe-CoLA-Feb11-21:49:50
-	student-BERT-L_L1  probe-CoLA-Feb11-21:49:16
-	student-BERT-L_L0  probe-CoLA-Feb11-21:48:49 
-	student-BERT-L_LE  probe-CoLA-Feb11-21:47:40
+	student-BERT-L_L4  probe-CoLA-Feb11-21:50:47_FC
+	student-BERT-L_L3  probe-CoLA-Feb11-21:50:19_FC
+	student-BERT-L_L2  probe-CoLA-Feb11-21:49:50_FC
+	student-BERT-L_L1  probe-CoLA-Feb11-21:49:16_FC
+	student-BERT-L_L0  probe-CoLA-Feb11-21:48:49_FC
+	student-BERT-L_LE  probe-CoLA-Feb11-21:47:40_FC
 	student-LSTM       probe-CoLA-Feb08-23:25:58_FC
 ### SST-2
 	single+search:     probe-SST-2-Jan26-16:17:27_FC
@@ -594,7 +594,7 @@ done
 	student-LSTM	   probe-Sara-Feb08-23:15:54_FC
 
 ```bash
-dirs=""
+dirs="probe-CoLA-Feb11-21:48:49 probe-CoLA-Feb11-21:47:40 probe-CoLA-Feb11-21:49:16 probe-CoLA-Feb11-21:49:50 probe-CoLA-Feb11-21:50:19 probe-CoLA-Feb11-21:50:47"
 for d in $dirs; do
   echo $d
   rm -rf $d
