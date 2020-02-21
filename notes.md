@@ -448,6 +448,9 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #4:	distil-bert-CoLA-Feb09-00:12:53_F 45.0
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #5:	distil-bert-CoLA-Feb09-00:24:58_F 45.0
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #6:	distil-bert-CoLA-Feb09-00:25:16_F 45.0
+##### No pretrained embeddings, multichannel
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #1:	distil-bert-CoLA-Feb17-11:43:28_F 33.9 distil-bert-CoLA-Feb20-12:09:30
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #2:	distil-bert-CoLA-Feb17-11:43:31_F 33.9 distil-bert-CoLA-Feb20-12:09:32
 #### LSTM: word multichannel (44.8)
 	- W=2, D=2, LSTM=600, FC=800, L=2 #1:	distil-bert-CoLA-Feb05-16:49:47_F 44.2 <<
 	- W=2, D=2, LSTM=600, FC=800, L=2 #2:	distil-bert-CoLA-Feb05-16:50:12_FC 43.5
@@ -457,30 +460,49 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 	- W=2, D=2, LSTM=600, FC=800, L=2 #6:	distil-bert-CoLA-Feb06-22:22:07_FC 43.5
 	- W=2, D=2, LSTM=600, FC=800, L=2 #7:	distil-bert-CoLA-Feb06-22:22:12_FC 43.5
 	- W=2, D=2, LSTM=600, FC=800, L=2 #8:	distil-bert-CoLA-Feb06-22:22:17_FC 44.2
+##### No pretrained embeddings, multichannel
+	- W=2, D=2, LSTM=600, FC=800, L=2 #1:	distil-bert-CoLA-Feb17-08:51:09_F 36.4 << distil-bert-CoLA-Feb20-11:35:53_F 37.5 <<
+	- W=2, D=2, LSTM=600, FC=800, L=2 #2:	distil-bert-CoLA-Feb17-08:51:17_F 36.4    distil-bert-CoLA-Feb20-11:35:55_F 37.5
 ### SST-2
 #### BERT: word multichannel (89.2)
 	- default #1:	distil-bert-SST-2-Feb05-17:35:22_F 89.3 <<
 	- default #2:	distil-bert-SST-2-Feb05-17:35:27_FC 89.3
+##### No pretrained embeddings, multichannel
+	- default #1:	distil-bert-SST-2-Feb17-08:54:56_F 89.8 << distil-bert-SST-2-Feb20-12:07:05
+	- default #2:	distil-bert-SST-2-Feb17-08:55:00_F 89.8    distil-bert-SST-2-Feb20-12:07:06
 #### LSTM: word multichannel (91.9)
 	- default #1:	distil-bert-SST-2-Feb05-17:02:41_F 91.2 <<
 	- default #2:	distil-bert-SST-2-Feb05-17:03:29_FC 91.2
 	- default #3:	distil-bert-SST-2-Feb07-09:53:26_FC 91.2
 	- default #4:	distil-bert-SST-2-Feb07-09:53:29_FC 91.2
 	- default #5:	distil-bert-SST-2-Feb07-09:53:33_FC 91.2
+##### No pretrained embeddings, multichannel
+	- default #1:	distil-bert-SST-2-Feb17-08:57:37_F 90.8 << distil-bert-SST-2-Feb20-11:37:33_F 90.8 <<
+	- default #2:	distil-bert-SST-2-Feb17-08:57:46_F 90.8    distil-bert-SST-2-Feb20-11:37:52_F 90.5
 ### Sara
 #### BERT: wordpiece non-static (87.1)
 	- default #1:	distil-bert-Sara-Feb05-16:59:56_FC 86.3
 	- default #2:	distil-bert-Sara-Feb06-22:24:58_F 87.1 <<
 	- default #3:	distil-bert-Sara-Feb06-22:26:22_FC 87.1
 	- default #4:	distil-bert-Sara-Feb06-22:26:26_FC 87.1
+##### No pretrained embeddings, non-static
+	- default #1:	distil-bert-Sara-Feb17-09:01:25_F 86.0 <<
+	- default #2:	distil-bert-Sara-Feb17-09:00:39_F 86.0
 #### LSTM: wordpiece multichannel (86.5)
 	- default #1:	distil-bert-Sara-Feb05-17:04:42_F 86.5 <<
+	...
+##### No pretrained embeddings, multichannel
+	- default #1:	distil-bert-Sara-Feb17-09:04:57_F 85.6
+	- default #2:	distil-bert-Sara-Feb17-09:05:01_F 85.6
 
 ## TO-DO
 	- probe word embeddings
 	- probe wordpiece embeddings
 	- do 3-way analysis on CoLA: small (w=2, d=2, 15.4M) BiLSTM vs small BERT (w=2, d=2, 19.1M) vs big BERT (w=4, d=1, 38.5M). hypothesis: size-comparable models absorb the same amount of probing knowledge, mcc-comparable models comparable in terms of their mistakes.
 	- compare only 2.4M models on SST-2 and Sara
+	- compare probing knowledge in students trained with pretrained embeddings vs students trained from scratch
+	- compare probing knowledge in students trained on binarised soft labels
+	- compare probing knowledge in students trained on original data only (with learned embeddings, possibly also without)
 
 Letha
 	1:....
@@ -557,6 +579,13 @@ done
 	student-BERT-L_L0  probe-CoLA-Feb11-21:48:49_FC
 	student-BERT-L_LE  probe-CoLA-Feb11-21:47:40_FC
 	student-LSTM       probe-CoLA-Feb08-23:25:58_FC
+	student-LSTM-scratch 
+	student-BERT-scratch_LE  
+	student-BERT-scratch_L0  
+	student-BERT-scratch_L1  
+	student-BERT-scratch_L2  
+	student-BERT-scratch_L3  
+	student-BERT-scratch_L4  
 ### SST-2
 	single+search:     probe-SST-2-Jan26-16:17:27_FC
 	max+search:		   probe-SST-2-Jan27-09:18:31_FC
@@ -575,6 +604,13 @@ done
 	student-BERT_L0	   probe-SST-2-Feb08-01:04:12_FC
 	student-BERT_LE    probe-SST-2-Feb09-13:05:50_FC
 	student-LSTM       probe-SST-2-Feb08-23:25:47_FC
+	student-LSTM-scratch     probe-SST-2-Feb21-06:04:59
+	student-BERT-scratch_LE  
+	student-BERT-scratch_L0  
+	student-BERT-scratch_L1  
+	student-BERT-scratch_L2  
+	student-BERT-scratch_L3  
+	student-BERT-scratch_L4  
 ### Sara
 	single+search:	   probe-Sara-Jan27-09:06:41_FC
 	avg+search:		   probe-Sara-Jan28-12:51:15_FC
@@ -592,9 +628,16 @@ done
 	student-BERT_L0	   probe-Sara-Feb08-00:59:38_FC
 	student-BERT_LE	   probe-Sara-Feb09-13:04:50_FC
 	student-LSTM	   probe-Sara-Feb08-23:15:54_FC
+	student-LSTM-scratch     probe-Sara-Feb18-20:58:27_FC
+	student-BERT-scratch_LE  probe-Sara-Feb18-20:55:22_FC
+	student-BERT-scratch_L0  probe-Sara-Feb18-20:55:33_FC
+	student-BERT-scratch_L1  probe-Sara-Feb18-20:55:41_FC
+	student-BERT-scratch_L2  probe-Sara-Feb18-20:55:48_FC
+	student-BERT-scratch_L3  probe-Sara-Feb18-20:56:06_FC
+	student-BERT-scratch_L4  probe-Sara-Feb18-20:56:14_FC
 
 ```bash
-dirs="probe-CoLA-Feb11-21:48:49 probe-CoLA-Feb11-21:47:40 probe-CoLA-Feb11-21:49:16 probe-CoLA-Feb11-21:49:50 probe-CoLA-Feb11-21:50:19 probe-CoLA-Feb11-21:50:47"
+dirs=""
 for d in $dirs; do
   echo $d
   rm -rf $d
