@@ -61,6 +61,7 @@ token_embeddings_from_teacher=false
 token_type_embedding_dimensionality=$hidden_dim
 token_embedding_dimensionality=$hidden_dim
 use_word_vectors=false
+load_token_embeddings=true
 source $cfg
 
 echo "###########################################"
@@ -98,6 +99,7 @@ echo "token_embeddings_from_teacher: $token_embeddings_from_teacher"
 echo "token_type_embedding_dimensionality: $token_type_embedding_dimensionality"
 echo "token_embedding_dimensionality: $token_embedding_dimensionality"
 echo "use_word_vectors: $use_word_vectors"
+echo "load_token_embeddings: $load_token_embeddings"
 echo "###########################################"
 
 echo "DISTILLATION STARTING"
@@ -154,6 +156,7 @@ python distil_from_finetuned.py \
   --token_embeddings_from_teacher $token_embeddings_from_teacher \
   --token_type_embedding_dimensionality $token_type_embedding_dimensionality \
   --token_embedding_dimensionality $token_embedding_dimensionality \
+  --load_token_embeddings $load_token_embeddings \
   --max_steps $max_steps
   # --toy_mode \
 
