@@ -42,6 +42,7 @@ hidden_size=300
 n_layers_lstm=1
 
 use_hard_labels=false
+use_hard_logits=false
 batch_size=32
 gradient_accumulation_steps=2
 max_grad_norm=30000.0 # previously 5.0 but that never got used
@@ -80,6 +81,7 @@ echo "fc_size: $fc_size"
 echo "hidden_size: $hidden_size"
 echo "n_layers_lstm: $n_layers_lstm"
 echo "use_hard_labels: $use_hard_labels"
+echo "use_hard_logits: $use_hard_logits"
 echo "batch_size: $batch_size"
 echo "gradient_accumulation_steps: $gradient_accumulation_steps"
 echo "max_grad_norm: $max_grad_norm"
@@ -128,6 +130,7 @@ python distil_from_finetuned.py \
   --attention_dropout $attention_dropout \
   --teacher_name $TEACHER_DIR \
   --use_hard_labels $use_hard_labels \
+  --use_hard_logits $use_hard_logits \
   --temperature $temperature \
   --alpha_mse $alpha_mse \
   --alpha_ce $alpha_ce \
