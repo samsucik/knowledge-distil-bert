@@ -578,25 +578,24 @@ done
 	max+search_L=0     probe-CoLA-Jan28-12:54:55_FC
 	embed_wordpiece    probe-CoLA-Feb08-23:36:58_FC
 	embed_word         probe-CoLA-Feb08-00:37:24_FC
-	student-BERT_L9	   probe-CoLA-Feb10-23:46:23_FC
-	student-BERT_L8	   probe-CoLA-Feb10-23:45:40_FC
-	student-BERT_L7	   probe-CoLA-Feb10-23:45:12_FC
-	student-BERT_L6	   probe-CoLA-Feb10-23:44:48_FC
-	student-BERT_L5	   probe-CoLA-Feb10-23:44:18_FC
-	student-BERT_L4	   probe-CoLA-Feb10-23:43:02_FC
-	student-BERT_L3	   probe-CoLA-Feb10-23:42:20_FC
-	student-BERT_L2	   probe-CoLA-Feb10-23:41:55_FC
-	student-BERT_L1	   probe-CoLA-Feb10-23:41:25_FC
-	student-BERT_L0	   probe-CoLA-Feb10-23:40:58_FC
-	student-BERT_LE    probe-CoLA-Feb10-23:39:27_FC
-
-	student-BERT-L_L4  probe-CoLA-Feb11-21:50:47_FC
-	student-BERT-L_L3  probe-CoLA-Feb11-21:50:19_FC
-	student-BERT-L_L2  probe-CoLA-Feb11-21:49:50_FC
-	student-BERT-L_L1  probe-CoLA-Feb11-21:49:16_FC
-	student-BERT-L_L0  probe-CoLA-Feb11-21:48:49_FC
-	student-BERT-L_LE  probe-CoLA-Feb11-21:47:40_FC
-	student-LSTM       probe-CoLA-Feb08-23:25:58_FC
+	student-BERT-s_L9  probe-CoLA-Feb10-23:46:23_FC
+	student-BERT-s_L8  probe-CoLA-Feb10-23:45:40_FC
+	student-BERT-s_L7  probe-CoLA-Feb10-23:45:12_FC
+	student-BERT-s_L6  probe-CoLA-Feb10-23:44:48_FC
+	student-BERT-s_L5  probe-CoLA-Feb10-23:44:18_FC
+	student-BERT-s_L4  probe-CoLA-Feb10-23:43:02_FC
+	student-BERT-s_L3  probe-CoLA-Feb10-23:42:20_FC
+	student-BERT-s_L2  probe-CoLA-Feb10-23:41:55_FC
+	student-BERT-s_L1  probe-CoLA-Feb10-23:41:25_FC
+	student-BERT-s_L0  probe-CoLA-Feb10-23:40:58_FC
+	student-BERT-s_LE  probe-CoLA-Feb10-23:39:27_FC
+	student-BERT_L4    probe-CoLA-Feb11-21:50:47_FC
+	student-BERT_L3    probe-CoLA-Feb11-21:50:19_FC
+	student-BERT_L2    probe-CoLA-Feb11-21:49:50_FC
+	student-BERT_L1    probe-CoLA-Feb11-21:49:16_FC
+	student-BERT_L0    probe-CoLA-Feb11-21:48:49_FC
+	student-BERT_LE    probe-CoLA-Feb11-21:47:40_FC
+	student-LSTM             probe-CoLA-Feb08-23:25:58_FC
 	student-LSTM-scratch     probe-CoLA-Feb21-06:07:00_FC
 	student-BERT-scratch_LE  
 	student-BERT-scratch_L0  
@@ -630,19 +629,19 @@ done
 	student-BERT_LE    probe-SST-2-Feb09-13:05:50_FC
 	student-LSTM       probe-SST-2-Feb08-23:25:47_FC
 	student-LSTM-scratch     probe-SST-2-Feb21-06:04:59_FC
-	student-BERT-scratch_LE  probe-SST-2-Feb22-00:06:50
-	student-BERT-scratch_L0  probe-SST-2-Feb22-00:07:09
-	student-BERT-scratch_L1  probe-SST-2-Feb22-00:07:24
-	student-BERT-scratch_L2  probe-SST-2-Feb22-00:08:05
-	student-BERT-scratch_L3  probe-SST-2-Feb22-00:08:24
-	student-BERT-scratch_L4  probe-SST-2-Feb22-00:08:36
+	student-BERT-scratch_LE  probe-SST-2-Feb22-00:06:50_F
+	student-BERT-scratch_L0  probe-SST-2-Feb22-00:07:09_F
+	student-BERT-scratch_L1  probe-SST-2-Feb22-00:07:24_F
+	student-BERT-scratch_L2  probe-SST-2-Feb22-00:08:05_F
+	student-BERT-scratch_L3  probe-SST-2-Feb22-00:08:24_F
+	student-BERT-scratch_L4  probe-SST-2-Feb22-00:08:36_F
 	student-LSTM-hard-logits    probe-SST-2-Feb22-00:10:43_FC
-	student-BERT-hard-logits_LE 
-	student-BERT-hard-logits_L0 
-	student-BERT-hard-logits_L1 
-	student-BERT-hard-logits_L2 
-	student-BERT-hard-logits_L3 
-	student-BERT-hard-logits_L4 
+	student-BERT-hard-logits_LE probe-SST-2-Feb22-12:13:26
+	student-BERT-hard-logits_L0 probe-SST-2-Feb22-12:13:44
+	student-BERT-hard-logits_L1 probe-SST-2-Feb22-12:13:56
+	student-BERT-hard-logits_L2 probe-SST-2-Feb22-12:14:07
+	student-BERT-hard-logits_L3 probe-SST-2-Feb22-12:14:39
+	student-BERT-hard-logits_L4 probe-SST-2-Feb22-12:14:50
 ### Sara
 	single+search:	   probe-Sara-Jan27-09:06:41_FC
 	avg+search:		   probe-Sara-Jan28-12:51:15_FC
