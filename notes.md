@@ -451,6 +451,9 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 ##### No pretrained embeddings, multichannel
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #1:	distil-bert-CoLA-Feb17-11:43:28_F 33.9 distil-bert-CoLA-Feb20-12:09:30
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #2:	distil-bert-CoLA-Feb17-11:43:31_F 33.9 distil-bert-CoLA-Feb20-12:09:32
+##### Hard logits, multichannel
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #1:	distil-bert-CoLA-Feb21-10:52:25..
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #2:	distil-bert-CoLA-Feb21-10:52:28..
 #### LSTM: word multichannel (44.8)
 	- W=2, D=2, LSTM=600, FC=800, L=2 #1:	distil-bert-CoLA-Feb05-16:49:47_F 44.2 <<
 	- W=2, D=2, LSTM=600, FC=800, L=2 #2:	distil-bert-CoLA-Feb05-16:50:12_FC 43.5
@@ -463,13 +466,19 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 ##### No pretrained embeddings, multichannel
 	- W=2, D=2, LSTM=600, FC=800, L=2 #1:	distil-bert-CoLA-Feb17-08:51:09_F 36.4 << distil-bert-CoLA-Feb20-11:35:53_F 37.5 <<
 	- W=2, D=2, LSTM=600, FC=800, L=2 #2:	distil-bert-CoLA-Feb17-08:51:17_F 36.4    distil-bert-CoLA-Feb20-11:35:55_F 37.5
+##### Hard logits, multichannel
+	- W=2, D=2, LSTM=600, FC=800, L=2 #1:	distil-bert-CoLA-Feb21-10:59:07_F 38.4 <<
+	- W=2, D=2, LSTM=600, FC=800, L=2 #2:	distil-bert-CoLA-Feb21-11:00:50_F 38.4
 ### SST-2
 #### BERT: word multichannel (89.2)
 	- default #1:	distil-bert-SST-2-Feb05-17:35:22_F 89.3 <<
 	- default #2:	distil-bert-SST-2-Feb05-17:35:27_FC 89.3
 ##### No pretrained embeddings, multichannel
-	- default #1:	distil-bert-SST-2-Feb17-08:54:56_F 89.8 << distil-bert-SST-2-Feb20-12:07:05
-	- default #2:	distil-bert-SST-2-Feb17-08:55:00_F 89.8    distil-bert-SST-2-Feb20-12:07:06
+	- default #1:	distil-bert-SST-2-Feb17-08:54:56_F 89.8 << distil-bert-SST-2-Feb20-12:07:05_F 87.4 <<
+	- default #2:	distil-bert-SST-2-Feb17-08:55:00_F 89.8    distil-bert-SST-2-Feb20-12:07:06_F 87.4
+##### Hard logits, multichannel
+	- default #1:	distil-bert-SST-2-Feb21-10:48:43_F 86.7 <<
+	- default #2:	distil-bert-SST-2-Feb21-10:49:01_F 86.7
 #### LSTM: word multichannel (91.9)
 	- default #1:	distil-bert-SST-2-Feb05-17:02:41_F 91.2 <<
 	- default #2:	distil-bert-SST-2-Feb05-17:03:29_FC 91.2
@@ -479,6 +488,9 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 ##### No pretrained embeddings, multichannel
 	- default #1:	distil-bert-SST-2-Feb17-08:57:37_F 90.8 << distil-bert-SST-2-Feb20-11:37:33_F 90.8 <<
 	- default #2:	distil-bert-SST-2-Feb17-08:57:46_F 90.8    distil-bert-SST-2-Feb20-11:37:52_F 90.5
+##### Hard logits, multichannel
+	- default #1:	distil-bert-SST-2-Feb21-10:57:18_F 90.6 <<
+	- default #2:	distil-bert-SST-2-Feb21-10:57:46_F 90.6
 ### Sara
 #### BERT: wordpiece non-static (87.1)
 	- default #1:	distil-bert-Sara-Feb05-16:59:56_FC 86.3
@@ -488,12 +500,18 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 ##### No pretrained embeddings, non-static
 	- default #1:	distil-bert-Sara-Feb17-09:01:25_F 86.0 <<
 	- default #2:	distil-bert-Sara-Feb17-09:00:39_F 86.0
+##### Hard logits, non-static
+	- default #1:	distil-bert-Sara-Feb21-08:57:01_F 84.1 <<
+	- default #2:	distil-bert-Sara-Feb21-09:08:22_F 83.9
 #### LSTM: wordpiece multichannel (86.5)
 	- default #1:	distil-bert-Sara-Feb05-17:04:42_F 86.5 <<
-	...
+	-
 ##### No pretrained embeddings, multichannel
-	- default #1:	distil-bert-Sara-Feb17-09:04:57_F 85.6
+	- default #1:	distil-bert-Sara-Feb17-09:04:57_F 85.6 <<
 	- default #2:	distil-bert-Sara-Feb17-09:05:01_F 85.6
+##### Hard logits, multichannel
+	- default #1:	distil-bert-Sara-Feb21-10:46:28_F 84.9 <<
+	- default #2:	distil-bert-Sara-Feb21-10:55:57_F 84.9
 
 ## TO-DO
 	- probe word embeddings
@@ -579,13 +597,20 @@ done
 	student-BERT-L_L0  probe-CoLA-Feb11-21:48:49_FC
 	student-BERT-L_LE  probe-CoLA-Feb11-21:47:40_FC
 	student-LSTM       probe-CoLA-Feb08-23:25:58_FC
-	student-LSTM-scratch 
+	student-LSTM-scratch     probe-CoLA-Feb21-06:07:00_FC
 	student-BERT-scratch_LE  
 	student-BERT-scratch_L0  
 	student-BERT-scratch_L1  
 	student-BERT-scratch_L2  
 	student-BERT-scratch_L3  
 	student-BERT-scratch_L4  
+	student-LSTM-hard-logits    probe-CoLA-Feb22-00:22:32_FC
+	student-BERT-hard-logits_LE 
+	student-BERT-hard-logits_L0 
+	student-BERT-hard-logits_L1 
+	student-BERT-hard-logits_L2 
+	student-BERT-hard-logits_L3 
+	student-BERT-hard-logits_L4 
 ### SST-2
 	single+search:     probe-SST-2-Jan26-16:17:27_FC
 	max+search:		   probe-SST-2-Jan27-09:18:31_FC
@@ -604,13 +629,20 @@ done
 	student-BERT_L0	   probe-SST-2-Feb08-01:04:12_FC
 	student-BERT_LE    probe-SST-2-Feb09-13:05:50_FC
 	student-LSTM       probe-SST-2-Feb08-23:25:47_FC
-	student-LSTM-scratch     probe-SST-2-Feb21-06:04:59
-	student-BERT-scratch_LE  
-	student-BERT-scratch_L0  
-	student-BERT-scratch_L1  
-	student-BERT-scratch_L2  
-	student-BERT-scratch_L3  
-	student-BERT-scratch_L4  
+	student-LSTM-scratch     probe-SST-2-Feb21-06:04:59_FC
+	student-BERT-scratch_LE  probe-SST-2-Feb22-00:06:50
+	student-BERT-scratch_L0  probe-SST-2-Feb22-00:07:09
+	student-BERT-scratch_L1  probe-SST-2-Feb22-00:07:24
+	student-BERT-scratch_L2  probe-SST-2-Feb22-00:08:05
+	student-BERT-scratch_L3  probe-SST-2-Feb22-00:08:24
+	student-BERT-scratch_L4  probe-SST-2-Feb22-00:08:36
+	student-LSTM-hard-logits    probe-SST-2-Feb22-00:10:43_FC
+	student-BERT-hard-logits_LE 
+	student-BERT-hard-logits_L0 
+	student-BERT-hard-logits_L1 
+	student-BERT-hard-logits_L2 
+	student-BERT-hard-logits_L3 
+	student-BERT-hard-logits_L4 
 ### Sara
 	single+search:	   probe-Sara-Jan27-09:06:41_FC
 	avg+search:		   probe-Sara-Jan28-12:51:15_FC
@@ -635,9 +667,16 @@ done
 	student-BERT-scratch_L2  probe-Sara-Feb18-20:55:48_FC
 	student-BERT-scratch_L3  probe-Sara-Feb18-20:56:06_FC
 	student-BERT-scratch_L4  probe-Sara-Feb18-20:56:14_FC
+	student-LSTM-hard-logits    probe-Sara-Feb22-00:23:41_F
+	student-BERT-hard-logits_LE probe-Sara-Feb22-09:55:46
+	student-BERT-hard-logits_L0 probe-Sara-Feb22-09:55:59
+	student-BERT-hard-logits_L1 probe-Sara-Feb22-09:56:09
+	student-BERT-hard-logits_L2 probe-Sara-Feb22-09:56:22
+	student-BERT-hard-logits_L3 probe-Sara-Feb22-09:56:34
+	student-BERT-hard-logits_L4 probe-Sara-Feb22-09:56:43
 
 ```bash
-dirs=""
+dirs="probe-CoLA-Feb22-00:22:32 probe-SST-2-Feb22-00:10:43 probe-Sara-Feb22-00:23:41"
 for d in $dirs; do
   echo $d
   rm -rf $d
