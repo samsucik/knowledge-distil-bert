@@ -629,12 +629,12 @@ done
 	student-BERT_LE    probe-SST-2-Feb09-13:05:50_FC
 	student-LSTM       probe-SST-2-Feb08-23:25:47_FC
 	student-LSTM-scratch     probe-SST-2-Feb21-06:04:59_FC
-	student-BERT-scratch_LE  probe-SST-2-Feb22-00:06:50_F
-	student-BERT-scratch_L0  probe-SST-2-Feb22-00:07:09_F
-	student-BERT-scratch_L1  probe-SST-2-Feb22-00:07:24_F
-	student-BERT-scratch_L2  probe-SST-2-Feb22-00:08:05_F
-	student-BERT-scratch_L3  probe-SST-2-Feb22-00:08:24_F
-	student-BERT-scratch_L4  probe-SST-2-Feb22-00:08:36_F
+	student-BERT-scratch_LE  probe-SST-2-Feb22-00:06:50_FC
+	student-BERT-scratch_L0  probe-SST-2-Feb22-00:07:09_FC
+	student-BERT-scratch_L1  probe-SST-2-Feb22-00:07:24_FC
+	student-BERT-scratch_L2  probe-SST-2-Feb22-00:08:05_FC
+	student-BERT-scratch_L3  probe-SST-2-Feb22-00:08:24_FC
+	student-BERT-scratch_L4  probe-SST-2-Feb22-00:08:36_FC
 	student-LSTM-hard-logits    probe-SST-2-Feb22-00:10:43_FC
 	student-BERT-hard-logits_LE probe-SST-2-Feb22-12:13:26
 	student-BERT-hard-logits_L0 probe-SST-2-Feb22-12:13:44
@@ -666,16 +666,16 @@ done
 	student-BERT-scratch_L2  probe-Sara-Feb18-20:55:48_FC
 	student-BERT-scratch_L3  probe-Sara-Feb18-20:56:06_FC
 	student-BERT-scratch_L4  probe-Sara-Feb18-20:56:14_FC
-	student-LSTM-hard-logits    probe-Sara-Feb22-00:23:41_F
-	student-BERT-hard-logits_LE probe-Sara-Feb22-09:55:46
-	student-BERT-hard-logits_L0 probe-Sara-Feb22-09:55:59
-	student-BERT-hard-logits_L1 probe-Sara-Feb22-09:56:09
-	student-BERT-hard-logits_L2 probe-Sara-Feb22-09:56:22
-	student-BERT-hard-logits_L3 probe-Sara-Feb22-09:56:34
-	student-BERT-hard-logits_L4 probe-Sara-Feb22-09:56:43
+	student-LSTM-hard-logits    probe-Sara-Feb22-00:23:41_FC
+	student-BERT-hard-logits_LE probe-Sara-Feb22-09:55:46_FC
+	student-BERT-hard-logits_L0 probe-Sara-Feb22-09:55:59_FC
+	student-BERT-hard-logits_L1 probe-Sara-Feb22-09:56:09_FC
+	student-BERT-hard-logits_L2 probe-Sara-Feb22-09:56:22_FC
+	student-BERT-hard-logits_L3 probe-Sara-Feb22-09:56:34_FC
+	student-BERT-hard-logits_L4 probe-Sara-Feb22-09:56:43_FC
 
 ```bash
-dirs="probe-CoLA-Feb22-00:22:32 probe-SST-2-Feb22-00:10:43 probe-Sara-Feb22-00:23:41"
+dirs="probe-Sara-Feb22-09:56:43"
 for d in $dirs; do
   echo $d
   rm -rf $d
