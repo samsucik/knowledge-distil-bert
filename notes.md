@@ -636,12 +636,12 @@ done
 	student-BERT-scratch_L3  probe-SST-2-Feb22-00:08:24_FC
 	student-BERT-scratch_L4  probe-SST-2-Feb22-00:08:36_FC
 	student-LSTM-hard-logits    probe-SST-2-Feb22-00:10:43_FC
-	student-BERT-hard-logits_LE probe-SST-2-Feb22-12:13:26
-	student-BERT-hard-logits_L0 probe-SST-2-Feb22-12:13:44
-	student-BERT-hard-logits_L1 probe-SST-2-Feb22-12:13:56
-	student-BERT-hard-logits_L2 probe-SST-2-Feb22-12:14:07
-	student-BERT-hard-logits_L3 probe-SST-2-Feb22-12:14:39
-	student-BERT-hard-logits_L4 probe-SST-2-Feb22-12:14:50
+	student-BERT-hard-logits_LE probe-SST-2-Feb22-12:13:26_FC
+	student-BERT-hard-logits_L0 probe-SST-2-Feb22-12:13:44_FC
+	student-BERT-hard-logits_L1 probe-SST-2-Feb22-12:13:56_FC
+	student-BERT-hard-logits_L2 probe-SST-2-Feb22-12:14:07_FC
+	student-BERT-hard-logits_L3 probe-SST-2-Feb22-12:14:39_FC
+	student-BERT-hard-logits_L4 probe-SST-2-Feb22-12:14:50_FC
 ### Sara
 	single+search:	   probe-Sara-Jan27-09:06:41_FC
 	avg+search:		   probe-Sara-Jan28-12:51:15_FC
@@ -675,7 +675,7 @@ done
 	student-BERT-hard-logits_L4 probe-Sara-Feb22-09:56:43_FC
 
 ```bash
-dirs="probe-Sara-Feb22-09:56:43"
+dirs="probe-SST-2-Feb22-12:13:26 probe-SST-2-Feb22-12:13:44 probe-SST-2-Feb22-12:13:56 probe-SST-2-Feb22-12:14:07 probe-SST-2-Feb22-12:14:39 probe-SST-2-Feb22-12:14:50"
 for d in $dirs; do
   echo $d
   rm -rf $d
