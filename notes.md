@@ -449,11 +449,11 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #5:	distil-bert-CoLA-Feb09-00:24:58_F 45.0
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #6:	distil-bert-CoLA-Feb09-00:25:16_F 45.0
 ##### No pretrained embeddings, multichannel
-	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #1:	distil-bert-CoLA-Feb17-11:43:28_F 33.9 distil-bert-CoLA-Feb20-12:09:30
-	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #2:	distil-bert-CoLA-Feb17-11:43:31_F 33.9 distil-bert-CoLA-Feb20-12:09:32
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #1:	distil-bert-CoLA-Feb20-12:09:30_F 35.2 >>
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #2:	distil-bert-CoLA-Feb20-12:09:32_F 35.2
 ##### Hard logits, multichannel
-	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #1:	distil-bert-CoLA-Feb21-10:52:25..
-	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #2:	distil-bert-CoLA-Feb21-10:52:28..
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #1:	distil-bert-CoLA-Feb21-10:52:25_F 37.3 >>
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #2:	distil-bert-CoLA-Feb21-10:52:28_F 37.3
 #### LSTM: word multichannel (44.8)
 	- W=2, D=2, LSTM=600, FC=800, L=2 #1:	distil-bert-CoLA-Feb05-16:49:47_F 44.2 <<
 	- W=2, D=2, LSTM=600, FC=800, L=2 #2:	distil-bert-CoLA-Feb05-16:50:12_FC 43.5
@@ -597,19 +597,19 @@ done
 	student-BERT_LE    probe-CoLA-Feb11-21:47:40_FC
 	student-LSTM             probe-CoLA-Feb08-23:25:58_FC
 	student-LSTM-scratch     probe-CoLA-Feb21-06:07:00_FC
-	student-BERT-scratch_LE  
-	student-BERT-scratch_L0  
-	student-BERT-scratch_L1  
-	student-BERT-scratch_L2  
-	student-BERT-scratch_L3  
-	student-BERT-scratch_L4  
+	student-BERT-scratch_LE  probe-CoLA-Feb23-09:28:08_FC
+	student-BERT-scratch_L0  probe-CoLA-Feb23-09:28:49_FC
+	student-BERT-scratch_L1  probe-CoLA-Feb23-09:33:40_FC
+	student-BERT-scratch_L2  probe-CoLA-Feb23-09:29:14_FC
+	student-BERT-scratch_L3  probe-CoLA-Feb23-09:30:29_FC
+	student-BERT-scratch_L4  probe-CoLA-Feb23-09:30:45_FC
 	student-LSTM-hard-logits    probe-CoLA-Feb22-00:22:32_FC
-	student-BERT-hard-logits_LE 
-	student-BERT-hard-logits_L0 
-	student-BERT-hard-logits_L1 
-	student-BERT-hard-logits_L2 
-	student-BERT-hard-logits_L3 
-	student-BERT-hard-logits_L4 
+	student-BERT-hard-logits_LE probe-CoLA-Feb24-11:24:09
+	student-BERT-hard-logits_L0 probe-CoLA-Feb24-11:24:27
+	student-BERT-hard-logits_L1 probe-CoLA-Feb24-11:24:37
+	student-BERT-hard-logits_L2 probe-CoLA-Feb24-11:24:49
+	student-BERT-hard-logits_L3 probe-CoLA-Feb24-11:26:13
+	student-BERT-hard-logits_L4 probe-CoLA-Feb24-11:26:35
 ### SST-2
 	single+search:     probe-SST-2-Jan26-16:17:27_FC
 	max+search:		   probe-SST-2-Jan27-09:18:31_FC
@@ -675,7 +675,7 @@ done
 	student-BERT-hard-logits_L4 probe-Sara-Feb22-09:56:43_FC
 
 ```bash
-dirs="probe-SST-2-Feb22-12:13:26 probe-SST-2-Feb22-12:13:44 probe-SST-2-Feb22-12:13:56 probe-SST-2-Feb22-12:14:07 probe-SST-2-Feb22-12:14:39 probe-SST-2-Feb22-12:14:50"
+dirs=""
 for d in $dirs; do
   echo $d
   rm -rf $d
