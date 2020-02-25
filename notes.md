@@ -521,6 +521,7 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 	- compare probing knowledge in students trained with pretrained embeddings vs students trained from scratch
 	- compare probing knowledge in students trained on binarised soft labels
 	- compare probing knowledge in students trained on original data only (with learned embeddings, possibly also without)
+	- see embedding-layer probing performance in from-scratch models: embeddings in LSTM and only token embeddings in BERT
 
 Letha
 	1:....
@@ -564,9 +565,9 @@ done
 	embed_wordpiece:   probe-pretrained-Feb08-23:36:19_FC
 	embed_word:        probe-pretrained-Feb08-00:20:49_FC
 ### CoLA
-	avg+search:		   probe-CoLA-Jan26-17:56:54_FC
-	max+search:		   probe-CoLA-Jan26-17:58:15_FC
-	single+search:	   probe-CoLA-Jan26-15:10:51_FC
+	avg+search:		   probe-CoLA-Jan26-17:56:54_FC <<
+	max+search:		   probe-CoLA-Jan26-17:58:15_FC <<
+	single+search:	   probe-CoLA-Jan26-15:10:51_FC <<
 	avg+search_L=17    probe-CoLA-Jan29-14:37:41_FC
 	avg+search_L=11    probe-CoLA-Jan27-09:22:06_FC
 	single+search_L=11 probe-CoLA-Jan28-09:29:52_FC
@@ -604,12 +605,12 @@ done
 	student-BERT-scratch_L3  probe-CoLA-Feb23-09:30:29_FC
 	student-BERT-scratch_L4  probe-CoLA-Feb23-09:30:45_FC
 	student-LSTM-hard-logits    probe-CoLA-Feb22-00:22:32_FC
-	student-BERT-hard-logits_LE probe-CoLA-Feb24-11:24:09
-	student-BERT-hard-logits_L0 probe-CoLA-Feb24-11:24:27
-	student-BERT-hard-logits_L1 probe-CoLA-Feb24-11:24:37
-	student-BERT-hard-logits_L2 probe-CoLA-Feb24-11:24:49
-	student-BERT-hard-logits_L3 probe-CoLA-Feb24-11:26:13
-	student-BERT-hard-logits_L4 probe-CoLA-Feb24-11:26:35
+	student-BERT-hard-logits_LE probe-CoLA-Feb24-11:24:09_FC  <<  probe-CoLA-Feb25-00:45:14_FC
+	student-BERT-hard-logits_L0 probe-CoLA-Feb24-11:24:27_FC  <<  probe-CoLA-Feb25-00:45:32_FC
+	student-BERT-hard-logits_L1 probe-CoLA-Feb24-11:24:37_FC  <<  probe-CoLA-Feb25-00:45:45_FC
+	student-BERT-hard-logits_L2 probe-CoLA-Feb24-11:24:49_FC  <<  probe-CoLA-Feb25-00:45:54_FC
+	student-BERT-hard-logits_L3 probe-CoLA-Feb24-11:26:13_FC  <<  probe-CoLA-Feb25-00:46:04_FC
+	student-BERT-hard-logits_L4 probe-CoLA-Feb24-11:26:35_FC  <<  probe-CoLA-Feb25-00:46:17_FC
 ### SST-2
 	single+search:     probe-SST-2-Jan26-16:17:27_FC
 	max+search:		   probe-SST-2-Jan27-09:18:31_FC
@@ -635,7 +636,7 @@ done
 	student-BERT-scratch_L2  probe-SST-2-Feb22-00:08:05_FC
 	student-BERT-scratch_L3  probe-SST-2-Feb22-00:08:24_FC
 	student-BERT-scratch_L4  probe-SST-2-Feb22-00:08:36_FC
-	student-LSTM-hard-logits    probe-SST-2-Feb22-00:10:43_FC
+	student-LSTM-hard-logits    probe-SST-2-Feb22-00:10:43_FC << probe-SST-2-Feb25-00:58:21_FC
 	student-BERT-hard-logits_LE probe-SST-2-Feb22-12:13:26_FC
 	student-BERT-hard-logits_L0 probe-SST-2-Feb22-12:13:44_FC
 	student-BERT-hard-logits_L1 probe-SST-2-Feb22-12:13:56_FC
