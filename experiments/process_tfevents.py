@@ -34,7 +34,11 @@ for log_dir in existing_log_dirs:
     metric_name_long = "eval_" + metric_name
     print("TASK_NAME: <{}>".format(task_name))
 
-    log_file = list(glob.iglob(args.in_dir + "/" + log_dir + '/**/events.out.*', recursive=True))[0]
+    log_files = list(glob.iglob(args.in_dir + "/" + log_dir + '/**/events.out.*', recursive=True))
+    if len(log_files) == 0:
+        print("Skiping {}: no tfevents file found.".format(log_dir))
+        continue
+    log_file = log_files[0]
     stats = []
     rows = ["step", metric_name]
     times = []
@@ -60,4 +64,4 @@ for log_dir in existing_log_dirs:
             writer = csv.writer(f)
             writer.writerows(stats)
     except Exception as e:
-        print("Failed: {}".format(e.message))
+        print("Failed: {}".format(e))
