@@ -1,0 +1,48 @@
+confidence	true	predicted	sentence
+CONFIDENT MISTAKES	 	 	 
+0.999	bye	enter_data	ciao
+0.998	out_of_scope	enter_data	i am an opioid addict
+0.998	deny	enter_data	i'm not sure
+0.997	thank	enter_data	thx
+0.997	switch	enter_data	wit
+0.997	switch	enter_data	chatfuel
+0.996	affirm	how_to_get_started	ok let's start
+0.995	ask_howold	out_of_scope	how many candles were on your last birthday cake?
+0.995	ask_whatisrasa	how_to_get_started	i want to learn something about rasa
+0.994	how_to_get_started	enter_data	compnnent of rasa
+
+UNCONFIDENT MISTAKES	 	 	 
+0.194	out_of_scope	ask_wherefrom	i want to know current situtation in pakistan
+0.227	ask_faq_what_is_forum	signup_newsletter	i would just like to have the link for the community
+0.253	greet	ask_whatspossible	hey, let's talk
+0.268	out_of_scope	nlu_info	what is evolution ?
+0.296	ask_how_contribute	how_to_get_started	what should i work on?
+0.298	enter_data	out_of_scope	places
+0.313	ask_howdoing	out_of_scope	come stai?
+0.321	ask_whoisit	out_of_scope	what is your job?
+0.334	out_of_scope	canthelp	oh my god, not again!
+0.336	nlu_generation_tool_recommendation	technical_question	recommend me some nlu tools
+
+CONFIDENT HITS	 	 	 
+0.999	enter_data	enter_data	software engineer
+0.999	enter_data	enter_data	software developer
+0.999	enter_data	enter_data	it’s trained in portuguese
+0.999	enter_data	enter_data	my emayl is __email_address__
+0.999	enter_data	enter_data	so far it only speaks chinese
+0.999	enter_data	enter_data	__email_address__
+0.999	enter_data	enter_data	__email_address__
+0.999	enter_data	enter_data	__email_address__
+0.999	enter_data	enter_data	__email_address__
+0.999	enter_data	enter_data	i work at the nyt
+
+UNCONFIDENT HITS	 	 	 
+0.217	signup_newsletter	signup_newsletter	get the latest news from rasa
+0.261	ask_whatisrasa	ask_whatisrasa	what do you do as a company?
+0.262	technical_question	technical_question	what is the last version of rasa core?
+0.289	out_of_scope	out_of_scope	what is todays date
+0.351	out_of_scope	out_of_scope	some thing else
+0.396	ask_whoisit	ask_whoisit	u are?
+0.405	contact_sales	contact_sales	please provide information on your enterprise package
+0.429	ask_how_contribute	ask_how_contribute	i want to put some of my effort in.
+0.442	out_of_scope	out_of_scope	what's your wife doing this weekend
+0.452	ask_whatspossible	ask_whatspossible	talk to me!

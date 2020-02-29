@@ -1,0 +1,48 @@
+confidence	true	predicted	sentence
+CONFIDENT MISTAKES	 	 	 
+0.999	out_of_scope	enter_data	i am an opioid addict
+0.998	switch	enter_data	chatfuel
+0.998	out_of_scope	enter_data	i am qq
+0.997	bye	greet	toodle-oo
+0.996	ask_howold	out_of_scope	how many candles were on your last birthday cake?
+0.995	out_of_scope	how_to_get_started	how do you learn
+0.993	switch	enter_data	wit
+0.992	how_to_get_started	out_of_scope	i want to know how can buld my own bot
+0.991	out_of_scope	ask_faq_languages	how many languages does spacy support?
+0.990	affirm	how_to_get_started	ok let's start
+
+UNCONFIDENT MISTAKES	 	 	 
+0.118	ask_howbuilt	ask_whatisrasa	you originated through what means?
+0.136	ask_faq_what_is_forum	signup_newsletter	i would just like to have the link for the community
+0.153	ask_whatspossible	out_of_scope	tell me what's your skill
+0.174	human_handoff	out_of_scope	are there also humans working for your company?
+0.216	ask_whoisit	ask_builder	what is your job?
+0.236	out_of_scope	deny	that doesn't sound like a joke
+0.278	enter_data	ask_restaurant	places
+0.278	technical_question	ask_whatisrasa	what is the last version of rasa core?
+0.285	out_of_scope	technical_question	what is evolution ?
+0.311	install_rasa	ask_faq_python_version	how can i install python
+
+CONFIDENT HITS	 	 	 
+1.000	enter_data	enter_data	language = german
+1.000	enter_data	enter_data	language: english
+1.000	enter_data	enter_data	language = french
+1.000	greet	greet	rasa hello
+1.000	enter_data	enter_data	it’s only in english but i plan to train it in other languages
+1.000	enter_data	enter_data	it’s only in mandarin but i plan to train it in other languages
+1.000	enter_data	enter_data	i want to build a health insurance bot
+1.000	enter_data	enter_data	the bot speaks spanish
+1.000	enter_data	enter_data	i work for stanford university
+1.000	enter_data	enter_data	a wolf bot
+
+UNCONFIDENT HITS	 	 	 
+0.134	out_of_scope	out_of_scope	i want to know current situtation in pakistan
+0.220	ask_how_contribute	ask_how_contribute	i want to put some of my effort in.
+0.227	out_of_scope	out_of_scope	some thing else
+0.233	signup_newsletter	signup_newsletter	get the latest news from rasa
+0.269	ask_why_contribute	ask_why_contribute	why help rasa's organization?
+0.303	out_of_scope	out_of_scope	that link doesn't work!
+0.309	enter_data	enter_data	my budget is oov
+0.340	pipeline_recommendation	pipeline_recommendation	what i a good pipeline to start with?
+0.340	deny	deny	i decline
+0.361	enter_data	enter_data	able to integrate with paypal, wordpress, facebook andd twilio

@@ -1,0 +1,28 @@
+confidence	true	predicted	sentence
+confident mistakes
+0.981	unacc.	acc.	chris was handed sandy a note.
+0.981	unacc.	acc.	it is the problem that he is here.
+0.981	unacc.	acc.	we gave us presents.
+0.980	unacc.	acc.	everyone hopes everyone to sleep.
+0.980	unacc.	acc.	mary beautifully plays the violin.
+
+unconfident mistakes
+0.501	acc.	unacc.	max seemed to be trying to force ted to leave the room, and walt, ira.
+0.504	unacc.	acc.	john decided for bill to get the prize.
+0.510	unacc.	acc.	blue leather shows herself that betsy is pretty.
+0.522	unacc.	acc.	dana walking and leslie ran.
+0.535	acc.	unacc.	they were interested in his.
+
+confident hits
+0.981	acc.	acc.	some people yell at dogs.
+0.981	acc.	acc.	i know you eat asparagus.
+0.981	acc.	acc.	penny skated around the rink.
+0.981	acc.	acc.	everyone hoped that she would sing.
+0.981	acc.	acc.	john tries to leave the country.
+
+unconfident hits
+0.506	unacc.	unacc.	paperback books lift onto the table easily.
+0.507	acc.	acc.	i sensed his eagerness.
+0.519	unacc.	unacc.	i gave pete the book to impress.
+0.519	acc.	acc.	books were taken from no student and given to mary.
+0.522	unacc.	unacc.	there is believed to be sheep in the park.

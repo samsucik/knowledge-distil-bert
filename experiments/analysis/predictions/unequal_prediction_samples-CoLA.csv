@@ -1,0 +1,248 @@
+sentence,label,pred_teacher,confidence_teacher,pred_BERT,confidence_BERT,pred_LSTM,confidence_LSTM
+"the more does bill smoke, the more susan hates him.",0,1,0.96,0,0.83,0,0.9
+mickey looked up it.,0,1,0.66,0,0.93,1,0.75
+the box contained the ball from the tree.,0,1,0.97,0,0.63,0,0.83
+the tube was escaped by gas.,0,0,0.85,1,0.95,1,0.97
+the tub leaked water.,1,1,0.98,1,0.83,0,0.86
+what the water did to the bottle was fill it.,0,1,0.97,1,0.97,0,0.59
+what the water did to the whole bottle was fill it.,0,1,0.89,1,0.97,0,0.79
+"most people probably consider, even though the courts didn't actually find, klaus guilty of murder.",1,1,0.97,0,0.69,1,0.61
+"clearly, john probably will immediately learn french perfectly.",1,1,0.97,1,0.71,0,0.5
+"we wanted to invite someone, but we couldn't decide who to.",0,0,0.86,1,0.95,0,0.55
+mary came to be introduced by the bartender and i also came to be.,0,0,0.92,1,0.62,0,0.8
+"this is the book which bob reviewed, and this is the one which fred won't do it.",0,0,0.81,1,0.69,1,0.96
+"i know which book mag read, and which book bob said that you hadn't.",1,1,0.95,0,0.89,0,0.89
+which report that john was incompetent did he submit?,0,1,0.79,0,0.81,0,0.8
+he attributed to a short circuit which was caused by an overloaded transducer the fire which destroyed most of my factory.,1,1,0.84,1,0.69,0,0.75
+the mayor regarded as being absurd the proposal to build a sidewalk from dartmouth to smith.,0,1,0.96,0,0.56,1,0.91
+i want that bill left to remain a secret.,0,0,0.86,1,0.98,0,0.84
+the proof this set is recursive is difficult.,0,0,0.85,1,0.97,0,0.89
+which hat did mike quip that she never wore?,0,1,0.94,1,0.97,0,0.74
+do you believe the claim that somebody was looking for something?,1,0,0.72,1,0.97,0,0.91
+here's a knife with which for you to cut up the onions.,0,1,0.69,0,0.91,0,0.82
+"the younger woman might have been tall and, and the older one definitely was, blond.",0,1,0.97,1,0.97,0,0.84
+"sally is tall, and may be blond, and sheila is short, and definitely is, blond.",1,0,0.86,1,0.71,1,0.6
+everybody around here who ever buys anything on credit talks in his sleep.,1,1,0.97,1,0.76,0,0.52
+sam offered the ball out of the basket.,0,0,0.91,0,0.87,1,0.68
+no one can forgive that comment to you.,0,0,0.84,1,0.98,1,0.98
+the farmer dumped the cart with apples.,0,0,0.76,1,0.97,1,0.93
+martha carved the baby a toy out of wood.,1,1,0.98,1,0.94,0,0.89
+we pulled free.,1,1,0.98,1,0.98,0,0.59
+brian threw the fence with the stick.,0,0,0.93,1,0.56,1,0.97
+they praised the dedication in the volunteers.,0,0,0.92,1,0.67,0,0.71
+paperback books lift onto the table easily.,0,1,0.82,0,0.51,0,0.91
+the books lifted onto the table.,0,1,0.85,0,0.65,0,0.92
+the chair pushed.,0,0,0.94,1,0.85,0,0.86
+we offered a job to her.,1,0,0.89,1,0.97,1,0.97
+this flyer and that flyer differ apart.,0,0,0.84,1,0.88,1,0.83
+the gardener grew that acorn into an oak tree.,1,1,0.87,0,0.63,0,0.9
+i shaped a loaf.,0,0,0.83,1,0.92,0,0.89
+my heart is pounding me.,0,0,0.89,1,0.88,1,0.96
+a grandfather clock ticked in the hallway.,1,1,0.98,1,0.86,0,0.85
+i squeaked the door.,0,1,0.88,0,0.91,1,0.97
+the fort fluttered with many flags.,0,0,0.71,0,0.67,1,0.84
+there presented itself a wonderful opportunity yesterday.,0,0,0.86,0,0.9,1,0.52
+out of the box jumped a little white rabbit.,1,1,0.97,0,0.57,0,0.82
+we recommend to eat less cake and pastry.,1,0,0.62,1,0.58,1,0.61
+it was the policeman met that several young students in the park last night.,0,0,0.88,1,0.96,0,0.83
+the monkeys proud of their leader.,0,1,0.77,0,0.92,0,0.88
+that fred was unpopular nominated bill.,0,0,0.95,1,0.96,0,0.88
+john paid me against the book.,0,0,0.83,1,0.98,1,0.98
+students studying english reads conrad's heart of darkness while at university.,0,0,0.82,1,0.78,1,0.92
+most of the fruit is rotten.,1,1,0.98,0,0.59,1,0.95
+neither of students failed.,0,0,0.5,1,0.97,1,0.82
+i drank some of water.,0,0,0.78,1,0.96,0,0.82
+"that dog is so ferocious, it even tried to bite itself.",1,1,0.68,0,0.9,0,0.63
+we believed john to be a fountain in the park.,0,0,0.92,1,0.98,1,0.97
+there is believed to be sheep in the park.,0,0,0.78,0,0.52,1,0.88
+john can kick the ball.,1,0,0.88,1,0.97,1,0.97
+"mary likes to tour art galleries, but bill hates to.",1,0,0.83,1,0.94,1,0.93
+"as a statesman, scarcely could he do anything worth mentioning.",1,1,0.94,0,0.9,1,0.87
+the bed was slept in.,1,1,0.98,1,0.94,0,0.81
+a pound was weighed by the book.,0,0,0.86,1,0.97,0,0.84
+fed knows which politician her to vote for.,0,0,0.94,1,0.92,0,0.89
+jack is the person with whom jenny fell in love with.,0,1,0.98,1,0.98,0,0.71
+that kind of person is hard to find anyone to look after.,1,0,0.85,1,0.7,1,0.74
+it's not because i have any sympathy for urban guerillas that i helped him.,1,1,0.96,0,0.7,1,0.9
+it isn't because sue said anything bad about me that i'm angry.,1,0,0.92,1,0.91,0,0.82
+1 gave mary after the party a book.,0,0,0.88,1,0.74,0,0.87
+"because she's so pleasant, as for mary i really like her.",0,0,0.85,1,0.91,0,0.53
+with no job would john be happy.,1,1,0.89,0,0.57,0,0.75
+i have much of the manuscript left to type.,1,1,0.68,1,0.73,0,0.88
+sally kissed himself.,0,0,0.82,1,0.97,1,0.97
+"hopefully, we'll make it through the winter without snow.",1,1,0.98,1,0.96,0,0.76
+blue leather shows herself that betsy is pretty.,0,0,0.77,1,0.51,1,0.8
+they chased the man with the car.,1,1,0.98,0,0.56,1,0.97
+the man i saw get into the cab robbed the bank.,1,1,0.98,1,0.93,0,0.74
+heidi thinks that andy to eat salmon flavored candy bars.,0,0,0.95,1,0.87,0,0.89
+did calvin his homework?,0,0,0.9,0,0.91,1,0.61
+john thinks that mary loves himself.,0,0,0.89,0,0.8,1,0.96
+she asked was alison coming to the party.,1,1,0.97,0,0.94,0,0.93
+they realised that never had sir thomas been so offended.,1,1,0.68,0,0.76,0,0.86
+"knowing the country well, he took a short cut.",1,1,0.98,0,0.9,0,0.83
+he left the train with somebody else's wallet in his pocket.,1,1,0.98,1,0.86,0,0.87
+who did john send the book?,1,1,0.94,0,0.93,0,0.93
+the idea dismayed the prime minister that the dome was dull.,1,0,0.84,1,0.97,1,0.84
+came right in he did without so much as a knock.,1,1,0.68,0,0.91,0,0.91
+i am both expecting to get the job and of the opinion that it is a desirable one.,1,0,0.52,1,0.95,1,0.61
+kim alienated cats and beating his dog.,0,0,0.88,0,0.64,1,0.92
+which article did terry file papers without reading?,0,0,0.92,1,0.93,1,0.94
+kim gave a dollar to bobbie and a dime to jean.,1,1,0.96,0,0.9,0,0.74
+i saw even the student.,1,0,0.84,1,0.95,0,0.94
+john whispered mary left.,0,0,0.86,1,0.95,1,0.54
+sophie will theater.,0,0,0.9,1,0.98,1,0.98
+john's mother likes himself.,0,0,0.9,1,0.98,1,0.92
+mary revealed himself to john.,0,0,0.92,0,0.74,1,0.92
+mary believes that bill saw himself.,1,1,0.98,0,0.72,1,0.96
+john heard that they criticized themselves.,0,0,0.92,0,0.86,1,0.55
+you should sit before there.,0,0,0.91,1,0.98,0,0.67
+everyone hopes everyone to sleep.,0,0,0.95,1,0.98,0,0.73
+the bears sniffed,1,1,0.97,0,0.93,0,0.94
+you kicked yourselves,1,1,0.68,0,0.86,1,0.53
+the government's imposition of a fine.,1,1,0.8,0,0.92,0,0.89
+medea denied poisoning the phoenix.,1,1,0.98,1,0.98,0,0.55
+"extremely frantically, anson danced at trade",1,1,0.96,1,0.94,0,0.54
+will he can do it?,1,1,0.96,0,0.84,1,0.88
+gilgamesh is having fought the dragon.,0,0,0.94,1,0.95,0,0.79
+i thought he liked myself,0,0,0.96,1,0.9,0,0.7
+what did you ask who saw?,0,0,0.94,0,0.84,1,0.93
+how fierce the battle?,0,1,0.92,0,0.91,0,0.91
+which king did you ask which city invaded?,0,0,0.85,1,0.86,0,0.76
+that banana is eating the monkey.,1,0,0.84,1,0.64,1,0.6
+i inquired when could we leave.,0,1,0.97,0,0.88,0,0.89
+the bookcase ran,0,1,0.68,0,0.91,0,0.93
+i shaved myself.,1,0,0.78,1,0.64,1,0.63
+anson became a muscle bound.,1,0,0.84,1,0.63,0,0.92
+somebody just left - guess who.,1,1,0.98,0,0.83,0,0.72
+"they're going to serve the guests something, but it's unclear what.",1,1,0.98,1,0.97,0,0.78
+i served leek soup to my guests.,1,1,0.98,0,0.73,1,0.82
+"she was bathing, but i couldn't make out who.",0,1,0.98,0,0.72,1,0.83
+"john was tall, but i don't know on what occasions.",0,1,0.97,0,0.56,1,0.77
+joan ate dinner with someone but i don't know who with.,1,0,0.86,1,0.92,0,0.86
+"she said she had spoken to everybody, but he wasn't sure who.",0,1,0.97,0,0.84,1,0.55
+"the newspaper has reported that they are about to appoint someone, but i can't remember who the newspaper has reported that they are about to appoint.",1,1,0.98,0,0.58,1,0.92
+"most columnists claim that a senior white house official has been briefing them, and the newspaper today reveals which one.",1,1,0.97,0,0.54,0,0.76
+his or her least known work.,1,1,0.95,0,0.92,0,0.87
+"they were going to meet sometime on sunday, but the faculty didn't know when.",1,1,0.98,0,0.87,1,0.76
+"john likes some students, but i don't know who john likes some students.",0,1,0.62,1,0.97,0,0.63
+"she was dancing with somebody, but i don't know who with.",1,0,0.87,1,0.9,0,0.81
+"the ta's have been arguing about whether some student or other should pass, but i can't now remember which one.",1,1,0.97,1,0.72,0,0.61
+it has been determined that somebody will be appointed; it's just not clear yet who.,0,1,0.98,1,0.96,0,0.85
+"the ta's have been arguing about whether some student or other should pass, but i can't now remember which one.",0,1,0.97,1,0.72,0,0.61
+"clinton is anxious to find out which budget dilemmas panetta would be willing to tackle in a certain way, but he won't say in which.",1,1,0.97,1,0.59,0,0.8
+in which way is clinton anxious to find out which budget dilemmas panetta would be willing to solve?,0,1,0.97,0,0.78,0,0.5
+what did you leave before they did?,0,0,0.85,1,0.97,1,0.96
+the administration has issued a statement that it is willing to meet a student group.,1,1,0.98,1,0.97,0,0.67
+"the administration has issued a statement that it is willing to meet a student group, but i'm not sure which one.",1,1,0.97,1,0.62,0,0.86
+"i think agnes said that bill would speak, but i don't remember what about.",1,0,0.84,1,0.98,1,0.85
+the argument was summed by the coach up.,0,0,0.92,1,0.97,0,0.88
+the paper was written by john up.,0,1,0.89,1,0.79,0,0.85
+john was spoken to by mary.,1,1,0.98,0,0.62,1,0.62
+john was seen the book.,0,0,0.95,1,0.98,1,0.64
+the table was wiped by john clean.,0,0,0.72,1,0.96,1,0.5
+mary was given by john the book.,0,0,0.95,1,0.93,0,0.86
+the magazines were sent to herself by mary.,0,0,0.74,1,0.68,1,0.84
+the magazines were sent by mary to herself.,1,0,0.76,1,0.78,0,0.64
+books were taken from no student and given to mary by any professor.,0,0,0.84,1,0.68,1,0.85
+either sam plays the bassoon or jekyll the oboe.,1,1,0.98,1,0.94,0,0.67
+"bill ate the peaches, but harry the grapes.",0,1,0.96,1,0.98,0,0.8
+i no more could have stolen that steak than jack the diamonds.,1,1,0.77,0,0.9,0,0.87
+"if the ants were called elephants and elephants ants, i'd be able to squash an elephant.",1,1,0.87,0,0.62,0,0.72
+"bob tried to wash himself, and mary to read the funnies.",1,0,0.84,0,0.67,1,0.74
+"harry told sue that albania is a lovely place for a vacation, and tom.",1,0,0.79,1,0.98,1,0.98
+"max seemed to be trying to force ted to leave the room, and walt, ira.",1,1,0.53,0,0.5,1,0.55
+"max seemed to be trying to force ted to leave the room, and walt to stay a little longer.",0,1,0.97,0,0.61,1,0.9
+"arizona elected goldwater senator, and massachusetts, mccormack.",0,1,0.79,0,0.83,0,0.88
+bill's story about sue and max's about kathy both amazed me.,1,1,0.96,1,0.57,0,0.52
+bill's funny story about sue and max's boring one about kathy both amazed me.,1,1,0.95,1,0.73,0,0.7
+bill's wine from france and ted's from california cannot be compared.,1,1,0.96,0,0.8,0,0.75
+"as a teacher, you have to deal simultaneously with the administration's pressure on you to succeed, and the children's to be a nice guy.",0,0,0.85,1,0.97,1,0.84
+neither von karajan's recording of beethoven's 6th on columbia nor klemperer's on angel has the right tempo.,1,1,0.82,0,0.86,0,0.94
+gould's performance of bach on the piano doesn't please me anywhere as much as ross's on the harpsichord.,0,1,0.96,0,0.94,0,0.52
+tom's dog with one eye attacked frank's with three legs.,0,1,0.92,0,0.53,1,0.81
+"because steve's of a spider's eye had been stolen, i borrowed fred's diagram of a snake's fang.",0,0,0.85,1,0.73,0,0.85
+neither von karajan's recording of beethoven's 6th on columbia nor klemperer's has the right tempo.,1,1,0.95,0,0.86,0,0.94
+the book what inspired them was very long.,0,0,0.77,1,0.89,0,0.8
+i wonder to whom they dedicated the building.,1,1,0.97,1,0.85,0,0.69
+this is the senator to whose mother's friend's sister's i sent the letter.,1,0,0.85,1,0.95,0,0.88
+i wonder what to be a clown on the cover of.,0,0,0.84,1,0.7,0,0.56
+bother you that kim left!,0,1,0.72,0,0.9,1,0.87
+i wonder in whom to place my trust.,1,1,0.68,1,0.72,0,0.89
+we tried to amuse them that kim was singing.,0,0,0.86,1,0.98,1,0.98
+"mary asked me if, in st. louis, john could rent a house cheap.",1,1,0.61,1,0.7,0,0.87
+i wonder whom us to trust.,0,0,0.88,1,0.98,0,0.93
+i wonder who to place my trust in.,1,1,0.96,1,0.96,0,0.93
+i dislike the people in who we placed our trust.,0,0,0.83,1,0.66,0,0.88
+i dislike the company in which we placed our trust.,1,1,0.98,1,0.68,0,0.85
+"jones, that we were talking to last night, always watches football games alone.",0,1,0.96,1,0.71,0,0.52
+a letter was received that jones would be upset by.,1,1,0.96,0,0.89,0,0.91
+the only person whose kids dana is willing to put up with was written by john.,0,1,0.77,0,0.81,1,0.96
+the only person whose kids dana is willing to put up with is pat.,1,1,0.96,0,0.91,1,0.89
+"which book's, author did you meet?",1,0,0.87,1,0.97,0,0.94
+"which boy's, mother, did you meet who you liked?",0,0,0.94,1,0.74,0,0.88
+"which book's, author did you meet who you liked?",0,0,0.86,1,0.76,0,0.93
+"which boy's, mother, did you meet?",1,0,0.88,1,0.97,0,0.86
+we gave presents to ourselves.,1,1,0.98,1,0.95,0,0.62
+we gave us to the cause.,0,0,0.75,1,0.96,1,0.69
+leslie told us about us.,0,0,0.94,1,0.97,1,0.94
+list all experts for the defendant who represented himself.,1,1,0.89,1,0.8,0,0.9
+they lost themselves' books.,0,0,0.84,1,0.97,1,0.93
+sentences some go on and on and on and on.,0,0,0.75,1,0.67,0,0.66
+terry delighted in my pain.,1,1,0.97,1,0.92,0,0.88
+terry delighted.,0,1,0.69,0,0.92,0,0.86
+terry delighted my pain.,0,0,0.93,1,0.97,1,0.96
+i was already aware of fact.,0,0,0.94,1,0.98,1,0.98
+the defendant deny the allegation.,0,1,0.79,0,0.78,1,0.9
+the defendants denies the allegation.,0,1,0.98,0,0.9,0,0.73
+the children are happy of ice cream.,0,0,0.95,1,0.98,1,0.98
+the children are fond with the ice cream.,0,0,0.82,1,0.98,1,0.98
+the children are fond that they have ice cream.,0,0,0.77,1,0.98,1,0.98
+the report that crime was declining surprised many people.,1,1,0.98,0,0.9,1,0.93
+the book that crime was declining surprised many people.,0,0,0.91,0,0.87,1,0.94
+the storm arrived while the picnic.,0,0,0.94,1,0.97,0,0.57
+"with my parents as supportive as they are, i'll be in fine shape.",1,1,0.98,1,0.79,0,0.82
+i walk and dana runs.,1,1,0.98,1,0.68,0,0.75
+us like them.,0,1,0.94,0,0.9,0,0.52
+the cat slept soundly and furry.,0,0,0.83,1,0.96,1,0.57
+i enjoy yourself.,0,1,0.58,0,0.86,1,0.95
+dana walking and leslie ran.,0,0,0.92,1,0.52,0,0.93
+dana walking and leslie running.,0,1,0.95,0,0.85,0,0.92
+the horse raced past the barn fell.,1,0,0.93,1,0.97,1,0.91
+lou hoped the umbrella in the closet.,0,0,0.96,0,0.89,1,0.61
+chris was handed sandy a note by pat.,0,1,0.94,1,0.98,0,0.93
+chris was handed sandy a note.,0,0,0.83,1,0.98,0,0.93
+dumb ideas are put notions in children's heads by tv.,0,0,0.84,1,0.94,1,0.94
+tv puts dumb ideas.,0,0,0.89,1,0.94,1,0.66
+the cat were bitten by the dog.,0,1,0.98,1,0.62,0,0.5
+there is a seat available.,1,1,0.97,1,0.96,0,0.68
+we talked to them about there.,0,0,0.94,0,0.53,1,0.68
+it mattered that the giants had lost.,1,0,0.8,1,0.87,1,0.77
+the bucket was kicked by pat.,1,1,0.97,1,0.75,0,0.55
+john loaded the wagon with hay green.,0,0,0.71,1,0.91,0,0.63
+how mad was bill made?,1,0,0.92,1,0.67,1,0.9
+john gave bill the dog dead.,1,0,0.96,1,0.54,1,0.89
+bill was struck by john as stupid.,0,0,0.94,1,0.64,0,0.89
+john was struck as sick.,0,0,0.83,1,0.57,1,0.62
+on whom are you counting to incriminate himself?,1,0,0.79,1,0.76,1,0.86
+john counted on bill to get there on time.,1,1,0.98,0,0.71,0,0.9
+i bought bill a book to read.,1,1,0.97,1,0.93,0,0.85
+the election of john president surprised me.,0,0,0.82,1,0.92,1,0.92
+john left orders to follow pete.,1,1,0.95,0,0.71,0,0.91
+john left us orders to follow pete.,1,0,0.86,1,0.96,0,0.89
+john left orders not to be disturbed.,1,1,0.98,0,0.9,0,0.91
+it is a problem that he is here.,1,0,0.92,1,0.98,1,0.96
+john regretted it that bill had a good time.,1,0,0.85,1,0.97,0,0.6
+john believes it that bill is here.,0,0,0.94,1,0.92,0,0.9
+john believes it sincerely that bill is here.,0,1,0.98,0,0.78,1,0.89
+john is aware of it that bill is here.,0,0,0.94,1,0.98,1,0.97
+john felt it that bill was tardy.,0,0,0.92,1,0.82,0,0.86
+that john is reluctant seems.,0,0,0.94,1,0.94,0,0.86
+it is the problem that he is here.,0,0,0.94,1,0.98,1,0.97
+it is to give up to leave.,0,0,0.93,1,0.97,1,0.98
+it was to john that i gave the book.,1,1,0.98,1,0.98,0,0.78
+i bought it to give to pete.,1,1,0.97,0,0.93,0,0.66
+i gave pete the book to impress.,0,0,0.82,0,0.52,1,0.92
+i presented it to bill to read.,1,1,0.97,1,0.97,0,0.78
+john thinks it would upset himself to die.,1,1,0.97,1,0.96,0,0.69
+the correspondence school sent bill a good typist.,1,1,0.94,0,0.65,1,0.5
+john talked to bill about himself.,1,0,0.82,1,0.94,0,0.8

@@ -1,0 +1,88 @@
+sentence,label,pred_teacher,confidence_teacher,pred_BERT,confidence_BERT,pred_LSTM,confidence_LSTM
+"pumpkin takes an admirable look at the hypocrisy of political correctness , but it does so with such an uneven tone that you never know when humor ends and tragedy begins . ",0,1,0.97,0,0.86,0,0.97
+holden caulfield did it better . ,0,0,0.78,1,0.72,1,0.69
+"if the movie succeeds in instilling a wary sense of ` there but for the grace of god , ' it is far too self-conscious to draw you deeply into its world . ",0,0,0.98,1,0.5,0,0.9
+manages to be both repulsively sadistic and mundane . ,0,0,0.99,1,0.77,0,0.84
+"it 's just disappointingly superficial -- a movie that has all the elements necessary to be a fascinating , involving character study , but never does more than scratch the surface . ",0,0,0.99,1,0.69,0,0.98
+the primitive force of this film seems to bubble up from the vast collective memory of the combatants . ,1,1,0.92,1,0.74,0,0.86
+"for all its impressive craftsmanship , and despite an overbearing series of third-act crescendos , lily chou-chou never really builds up a head of emotional steam . ",0,0,0.99,1,0.84,0,0.97
+"does paint some memorable images ... , but makhmalbaf keeps her distance from the characters ",1,0,0.82,1,0.97,1,0.79
+"it 's one of those baseball pictures where the hero is stoic , the wife is patient , the kids are as cute as all get-out and the odds against success are long enough to intimidate , but short enough to make a dream seem possible . ",1,0,0.54,1,0.98,0,0.74
+"combining quick-cut editing and a blaring heavy metal much of the time , beck seems to be under the illusion that he 's shooting the latest system of a down video . ",0,0,0.99,1,0.6,0,0.96
+hilariously inept and ridiculous . ,1,1,0.92,1,0.51,0,0.98
+turns potentially forgettable formula into something strangely diverting . ,1,0,0.97,0,0.98,1,0.76
+"the tale of tok ( andy lau ) , a sleek sociopath on the trail of o ( takashi sorimachi ) , the most legendary of asian hitmen , is too scattershot to take hold . ",0,0,0.87,1,0.9,0,0.99
+what better message than ` love thyself ' could young women of any size receive ? ,1,1,0.94,1,0.87,0,0.67
+the talented and clever robert rodriguez perhaps put a little too much heart into his first film and did n't reserve enough for his second . ,0,0,0.86,1,0.64,0,0.95
+"by getting myself wrapped up in the visuals and eccentricities of many of the characters , i found myself confused when it came time to get to the heart of the movie . ",0,0,0.79,1,0.64,0,0.65
+"determined to be fun , and bouncy , with energetic musicals , the humor did n't quite engage this adult . ",0,0,0.89,0,0.85,1,0.62
+"the lower your expectations , the more you 'll enjoy it . ",0,1,0.99,0,0.64,1,0.98
+"at the very least , if you do n't know anything about derrida when you walk into the theater , you wo n't know much more when you leave . ",0,0,0.98,1,0.92,0,0.98
+to say this was done better in wilder 's some like it hot is like saying the sun rises in the east . ,0,0,0.75,1,0.62,0,0.96
+"all that 's missing is the spontaneity , originality and delight . ",0,1,0.97,0,0.88,1,0.99
+reign of fire looks as if it was made without much thought -- and is best watched that way . ,1,0,0.96,1,0.86,1,0.95
+"stealing harvard is evidence that the farrelly bros. -- peter and bobby -- and their brand of screen comedy are wheezing to an end , along with green 's half-hearted movie career . ",0,0,0.99,1,0.89,0,0.94
+"a full world has been presented onscreen , not some series of carefully structured plot points building to a pat resolution . ",1,1,0.8,0,0.98,0,0.6
+huston nails both the glad-handing and the choking sense of hollow despair . ,1,0,0.58,1,0.66,0,0.51
+"paid in full is so stale , in fact , that its most vibrant scene is one that uses clips from brian de palma 's scarface . ",0,0,0.99,1,0.76,0,0.98
+"it 's hard to like a film about a guy who is utterly unlikeable , and shiner , starring michael caine as an aging british boxing promoter desperate for a taste of fame and fortune , is certainly that . ",0,0,0.84,1,0.68,0,0.52
+"for this reason and this reason only -- the power of its own steadfast , hoity-toity convictions -- chelsea walls deserves a medal . ",1,1,0.98,0,0.76,1,0.64
+the story and the friendship proceeds in such a way that you 're watching a soap opera rather than a chronicle of the ups and downs that accompany lifelong friendships . ,0,0,0.86,1,0.96,0,0.62
+"the x potion gives the quickly named blossom , bubbles and buttercup supernatural powers that include extraordinary strength and laser-beam eyes , which unfortunately do n't enable them to discern flimsy screenplays . ",0,0,0.94,1,0.96,0,0.75
+i 'll bet the video game is a lot more fun than the film . ,0,0,0.76,1,0.94,1,0.94
+that 's pure pr hype . ,0,0,0.97,1,0.6,1,0.84
+an unwise amalgam of broadcast news and vibes . ,0,0,0.95,1,0.73,0,0.66
+a great ensemble cast ca n't lift this heartfelt enterprise out of the familiar . ,0,1,0.65,0,0.54,0,0.7
+"if director michael dowse only superficially understands his characters , he does n't hold them in contempt . ",0,1,0.99,0,0.95,0,0.63
+"however it may please those who love movies that blare with pop songs , young science fiction fans will stomp away in disgust . ",0,0,0.85,1,0.76,0,0.85
+"i do n't mind having my heartstrings pulled , but do n't treat me like a fool . ",0,1,0.99,0,0.96,0,0.96
+"it moves quickly , adroitly , and without fuss ; it does n't give you time to reflect on the inanity -- and the cold war datedness -- of its premise . ",1,1,0.99,0,0.53,1,0.9
+"the lion king was a roaring success when it was released eight years ago , but on imax it seems better , not just bigger . ",1,0,0.71,1,0.56,1,0.74
+"generally , clockstoppers will fulfill your wildest fantasies about being a different kind of time traveler , while happily killing 94 minutes . ",1,0,0.9,0,0.94,1,0.9
+"something akin to a japanese alice through the looking glass , except that it seems to take itself far more seriously . ",1,1,0.64,1,0.9,0,0.95
+a tv style murder mystery with a few big screen moments ( including one that seems to be made for a different film altogether ) . ,0,1,0.92,1,0.81,0,0.83
+funny but perilously slight . ,1,0,0.65,1,0.77,1,0.54
+"it showcases carvey 's talent for voices , but not nearly enough and not without taxing every drop of one 's patience to get to the good stuff . ",0,1,0.91,0,0.56,1,0.7
+light years / several warp speeds / levels and levels of dilithium crystals better than the pitiful insurrection . ,1,1,0.66,0,0.98,0,0.62
+a movie that successfully crushes a best selling novel into a timeframe that mandates that you avoid the godzilla sized soda . ,1,0,0.8,1,0.91,1,0.7
+"not far beneath the surface , this reconfigured tale asks disturbing questions about those things we expect from military epics . ",1,0,0.79,0,0.97,1,0.73
+it has all the excitement of eating oatmeal . ,0,0,0.83,1,0.98,1,0.84
+"for anyone unfamiliar with pentacostal practices in general and theatrical phenomenon of hell houses in particular , it 's an eye-opener . ",1,1,0.95,0,0.84,1,0.57
+"the film is based on truth and yet there is something about it that feels incomplete , as if the real story starts just around the corner . ",0,0,0.85,0,0.96,1,0.74
+"although german cooking does not come readily to mind when considering the world 's best cuisine , mostly martha could make deutchland a popular destination for hungry tourists . ",1,1,0.98,1,0.95,0,0.58
+"every dance becomes about seduction , where backstabbing and betrayals are celebrated , and sex is currency . ",0,1,0.96,0,0.57,1,0.97
+"it takes a certain kind of horror movie to qualify as ` worse than expected , ' but ghost ship somehow manages to do exactly that . ",0,0,0.91,1,0.82,1,0.8
+vera 's technical prowess ends up selling his film short ; he smoothes over hard truths even as he uncovers them . ,0,1,0.98,0,0.74,0,0.7
+"without non-stop techno or the existential overtones of a kieslowski morality tale , maelström is just another winter sleepers . ",0,0,0.87,1,0.97,0,0.6
+"so much facile technique , such cute ideas , so little movie . ",1,0,0.88,1,0.97,0,0.94
+chabrol has taken promising material for a black comedy and turned it instead into a somber chamber drama . ,0,0,0.83,1,0.94,0,0.65
+verbinski implements every hack-artist trick to give us the ooky-spookies . ,0,1,0.91,0,0.89,1,0.55
+"in all , this is a watchable movie that 's not quite the memorable experience it might have been . ",0,0,0.57,0,0.68,1,0.95
+"if you 've ever entertained the notion of doing what the title of this film implies , what sex with strangers actually shows may put you off the idea forever . ",0,0,0.99,0,0.7,1,0.58
+"sustains its dreamlike glide through a succession of cheesy coincidences and voluptuous cheap effects , not the least of which is rebecca romijn-stamos . ",0,0,0.84,1,0.8,1,0.62
+"... routine , harmless diversion and little else . ",1,0,0.96,1,0.57,0,0.98
+"even the finest chef ca n't make a hotdog into anything more than a hotdog , and robert de niro ca n't make this movie anything more than a trashy cop buddy comedy . ",0,0,0.98,1,0.58,0,0.98
+"whaley 's determination to immerse you in sheer , unrelenting wretchedness is exhausting . ",0,0,0.99,1,0.8,0,0.67
+it 's everything you do n't go to the movies for . ,0,1,0.86,0,0.94,0,0.77
+"velocity represents everything wrong with '' independent film '' as a commodified , sold-out concept on the american filmmaking scene . ",0,1,0.93,0,0.95,0,0.97
+"the man from elysian fields is a cold , bliss-less work that groans along thinking itself some important comment on how life throws us some beguiling curves . ",0,0,0.97,1,0.96,0,0.85
+"and when you 're talking about a slapstick comedy , that 's a pretty big problem . ",0,0,0.99,0,0.98,1,0.74
+a working class `` us vs. them '' opera that leaves no heartstring untugged and no liberal cause unplundered . ,1,1,0.99,0,0.95,0,0.92
+there 's enough melodrama in this magnolia primavera to make pta proud yet director muccino 's characters are less worthy of puccini than they are of daytime television . ,0,1,0.9,0,0.92,0,0.98
+not an objectionable or dull film ; it merely lacks everything except good intentions . ,0,0,0.99,1,0.82,0,0.98
+i do n't think i laughed out loud once . ,0,1,0.86,0,0.96,1,0.62
+"very special effects , brilliantly bold colors and heightened reality ca n't hide the giant achilles ' heel in `` stuart little 2 `` : there 's just no story , folks . ",0,0,0.69,1,0.98,1,0.97
+"... an otherwise intense , twist-and-turn thriller that certainly should n't hurt talented young gaghan 's resume . ",1,1,0.99,0,0.71,1,0.99
+"but the power of these ( subjects ) is obscured by the majority of the film that shows a stationary camera on a subject that could be mistaken for giving a public oration , rather than contributing to a film 's narrative . ",0,0,0.99,1,0.76,0,0.98
+"irwin is a man with enough charisma and audacity to carry a dozen films , but this particular result is ultimately held back from being something greater . ",0,0,0.82,1,0.99,1,0.94
+the only excitement comes when the credits finally roll and you get to leave the theater . ,0,0,0.99,1,0.63,0,0.96
+it wants to tweak them with a taste of tangy new humor . ,1,1,0.87,1,0.92,0,0.77
+manages to show life in all of its banality when the intention is quite the opposite . ,0,0,0.8,0,0.53,1,0.71
+collateral damage finally delivers the goods for schwarzenegger fans . ,1,1,0.58,0,0.54,1,0.76
+"despite the evocative aesthetics evincing the hollow state of modern love life , the film never percolates beyond a monotonous whine . ",0,0,0.99,1,0.98,0,0.89
+"an absurdist comedy about alienation , separation and loss . ",0,1,0.97,1,0.89,0,0.86
+"... mafia , rap stars and hood rats butt their ugly heads in a regurgitation of cinematic violence that gives brutal birth to an unlikely , but likable , hero . ' ",1,0,0.93,0,0.82,1,0.84
+"in a way , the film feels like a breath of fresh air , but only to those that allow it in . ",1,1,0.63,1,0.72,0,0.59
+"it 's inoffensive , cheerful , built to inspire the young people , set to an unending soundtrack of beach party pop numbers and aside from its remarkable camerawork and awesome scenery , it 's about as exciting as a sunburn . ",0,1,0.92,1,0.99,0,0.59
+has all the depth of a wading pool . ,0,0,0.95,1,0.94,0,0.93
+a subject like this should inspire reaction in its audience ; the pianist does not . ,0,1,0.77,0,0.98,0,0.88

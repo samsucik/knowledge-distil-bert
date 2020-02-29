@@ -1,0 +1,48 @@
+confidence	true	predicted	sentence
+CONFIDENT MISTAKES	 	 	 
+0.992	unacc.	acc.	protect you!
+0.989	unacc.	acc.	chocolate eggs were hidden from each other by the children.
+0.985	unacc.	acc.	wash you!
+0.983	unacc.	acc.	the children are fond that they have ice cream.
+0.981	unacc.	acc.	mary wonders that bill will come.
+0.980	unacc.	acc.	bill must quickly eat the peaches, and harry must slowly.
+0.980	unacc.	acc.	the jeweller scribbled the contract with his name.
+0.979	unacc.	acc.	no one can forgive that comment to you.
+0.978	unacc.	acc.	sophie will theater.
+0.978	unacc.	acc.	kick you!
+
+UNCONFIDENT MISTAKES	 	 	 
+0.503	acc.	unacc.	clearly, john probably will immediately learn french perfectly.
+0.503	unacc.	acc.	the table was wiped by john clean.
+0.505	unacc.	acc.	the soundly and furry cat slept.
+0.522	acc.	unacc.	everybody around here who ever buys anything on credit talks in his sleep.
+0.523	unacc.	acc.	there presented itself a wonderful opportunity yesterday.
+0.525	acc.	unacc.	bill's story about sue and max's about kathy both amazed me.
+0.538	acc.	unacc.	extremely frantically, anson danced at trade
+0.542	unacc.	acc.	john whispered mary left.
+0.546	acc.	unacc.	the bucket was kicked by pat.
+0.546	unacc.	acc.	john heard that they criticized themselves.
+
+CONFIDENT HITS	 	 	 
+0.989	acc.	acc.	phillip gave the medal to the soldier.
+0.989	acc.	acc.	he was arrested by the police.
+0.989	acc.	acc.	you will believe bob.
+0.989	acc.	acc.	john told mary that it was important to fred to leave early.
+0.989	acc.	acc.	john told mary that it would be important to leave early.
+0.989	acc.	acc.	smith loaned a valuable collection of manuscripts to the library.
+0.988	acc.	acc.	those pictures of us offended us.
+0.988	acc.	acc.	visiting relatives can be boring.
+0.988	acc.	acc.	nora sent peter the book.
+0.988	acc.	acc.	susan told her a story.
+
+UNCONFIDENT HITS	 	 	 
+0.500	unacc.	unacc.	in which way is clinton anxious to find out which budget dilemmas panetta would be willing to solve?
+0.501	acc.	acc.	the correspondence school sent bill a good typist.
+0.503	unacc.	unacc.	the cat were bitten by the dog.
+0.509	acc.	acc.	the committee knows whose efforts to achieve peace the world should honor.
+0.511	acc.	acc.	a magazine about crime appeared on the newsstands.
+0.513	unacc.	unacc.	wind was gotten of a plot to negotiate an honorable end to the war in vietnam.
+0.515	unacc.	unacc.	us like them.
+0.516	unacc.	unacc.	gould's performance of bach on the piano doesn't please me anywhere as much as ross's on the harpsichord.
+0.518	acc.	acc.	i like bill's yellow shirt, but not max's.
+0.520	unacc.	unacc.	jones, that we were talking to last night, always watches football games alone.

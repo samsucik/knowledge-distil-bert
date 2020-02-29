@@ -1,0 +1,28 @@
+confidence	true	predicted	sentence
+confident mistakes
+0.995	neg.	pos.	although huppert 's intensity and focus has a raw exhilaration about it , the piano teacher is anything but fun . 
+0.994	neg.	pos.	it 's somewhat clumsy and too lethargically paced -- but its story about a mysterious creature with psychic abilities offers a solid build-up , a terrific climax , and some nice chills along the way . 
+0.993	neg.	pos.	this riveting world war ii moral suspense story deals with the shadow side of american culture : racial prejudice in its ugly and diverse forms . 
+0.993	pos.	neg.	as unseemly as its title suggests . 
+0.991	neg.	pos.	all that 's missing is the spontaneity , originality and delight . 
+
+unconfident mistakes
+0.512	pos.	neg.	huston nails both the glad-handing and the choking sense of hollow despair . 
+0.550	neg.	pos.	verbinski implements every hack-artist trick to give us the ooky-spookies . 
+0.580	neg.	pos.	if you 've ever entertained the notion of doing what the title of this film implies , what sex with strangers actually shows may put you off the idea forever . 
+0.584	pos.	neg.	although german cooking does not come readily to mind when considering the world 's best cuisine , mostly martha could make deutchland a popular destination for hungry tourists . 
+0.586	pos.	neg.	in a way , the film feels like a breath of fresh air , but only to those that allow it in . 
+
+confident hits
+0.998	pos.	pos.	the story and structure are well-honed . 
+0.997	pos.	pos.	an exquisitely crafted and acted tale . 
+0.997	pos.	pos.	a gorgeous , witty , seductive movie . 
+0.997	pos.	pos.	uses sharp humor and insight into human nature to examine class conflict , adolescent yearning , the roots of friendship and sexual identity . 
+0.997	pos.	pos.	a very well-made , funny and entertaining picture . 
+
+unconfident hits
+0.519	neg.	neg.	it 's hard to like a film about a guy who is utterly unlikeable , and shiner , starring michael caine as an aging british boxing promoter desperate for a taste of fame and fortune , is certainly that . 
+0.536	pos.	pos.	funny but perilously slight . 
+0.538	neg.	neg.	the iditarod lasts for days - this just felt like it did . 
+0.566	pos.	pos.	for anyone unfamiliar with pentacostal practices in general and theatrical phenomenon of hell houses in particular , it 's an eye-opener . 
+0.570	pos.	pos.	if you 're hard up for raunchy college humor , this is your ticket right here . 

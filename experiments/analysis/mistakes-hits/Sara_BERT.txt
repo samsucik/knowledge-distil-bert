@@ -1,0 +1,28 @@
+confidence	true	predicted	sentence
+confident mistakes
+0.999	out_of_scope	enter_data	i am an opioid addict
+0.998	switch	enter_data	wit
+0.996	affirm	how_to_get_started	ok let's start
+0.995	ask_howold	out_of_scope	how many candles were on your last birthday cake?
+0.995	enter_data	contact_sales	sales bot
+
+unconfident mistakes
+0.163	ask_builder	technical_question	who went through the trouble of setting you up?
+0.182	ask_wherefrom	nlu_info	what citizenship do you lay claim to?
+0.214	ask_whoisit	ask_builder	what is your job?
+0.242	ask_how_contribute	out_of_scope	i want to put some of my effort in.
+0.268	deny	out_of_scope	i decline
+
+confident hits
+0.999	enter_data	enter_data	the assistant speaks italian
+0.999	enter_data	enter_data	__email_address__
+0.999	enter_data	enter_data	it’s trained only in spanish
+0.999	enter_data	enter_data	__email_address__
+0.999	enter_data	enter_data	the assistant speaks english
+
+unconfident hits
+0.210	ask_whatisrasa	ask_whatisrasa	what are the componensts of rasa
+0.288	technical_question	technical_question	what does on-premise mean?
+0.300	install_rasa	install_rasa	i have chosen rasa stack
+0.309	handleinsult	handleinsult	that wasn't very funny
+0.312	enter_data	enter_data	i am responsible for our innovation department

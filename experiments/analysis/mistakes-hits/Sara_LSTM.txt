@@ -1,0 +1,28 @@
+confidence	true	predicted	sentence
+confident mistakes
+0.999	out_of_scope	enter_data	i am an opioid addict
+0.998	switch	enter_data	chatfuel
+0.998	out_of_scope	enter_data	i am qq
+0.997	bye	greet	toodle-oo
+0.996	ask_howold	out_of_scope	how many candles were on your last birthday cake?
+
+unconfident mistakes
+0.118	ask_howbuilt	ask_whatisrasa	you originated through what means?
+0.136	ask_faq_what_is_forum	signup_newsletter	i would just like to have the link for the community
+0.153	ask_whatspossible	out_of_scope	tell me what's your skill
+0.174	human_handoff	out_of_scope	are there also humans working for your company?
+0.216	ask_whoisit	ask_builder	what is your job?
+
+confident hits
+1.000	enter_data	enter_data	language = german
+1.000	enter_data	enter_data	language: english
+1.000	enter_data	enter_data	language = french
+1.000	greet	greet	rasa hello
+1.000	enter_data	enter_data	it’s only in english but i plan to train it in other languages
+
+unconfident hits
+0.134	out_of_scope	out_of_scope	i want to know current situtation in pakistan
+0.220	ask_how_contribute	ask_how_contribute	i want to put some of my effort in.
+0.227	out_of_scope	out_of_scope	some thing else
+0.233	signup_newsletter	signup_newsletter	get the latest news from rasa
+0.269	ask_why_contribute	ask_why_contribute	why help rasa's organization?

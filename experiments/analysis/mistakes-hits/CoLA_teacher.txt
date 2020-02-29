@@ -1,0 +1,28 @@
+confidence	true	predicted	sentence
+confident mistakes
+0.982	unacc.	acc.	mary beautifully plays the violin.
+0.982	unacc.	acc.	which house does your friend live?
+0.981	unacc.	acc.	jack is the person with whom jenny fell in love with.
+0.980	unacc.	acc.	it has been determined that somebody will be appointed; it's just not clear yet who.
+0.979	unacc.	acc.	mary intended john to go abroad.
+
+unconfident mistakes
+0.519	acc.	unacc.	i am both expecting to get the job and of the opinion that it is a desirable one.
+0.549	acc.	unacc.	john, told mary that it would be appropriate to leave together.
+0.578	unacc.	acc.	i enjoy yourself.
+0.616	acc.	unacc.	we recommend to eat less cake and pastry.
+0.624	unacc.	acc.	john likes some students, but i don't know who john likes some students.
+
+confident hits
+0.985	acc.	acc.	that is the reason why he resigned.
+0.985	acc.	acc.	i believe there to be no way out.
+0.985	acc.	acc.	some people consider the dogs dangerous.
+0.984	acc.	acc.	the witch poisoned the children.
+0.984	acc.	acc.	fortunately hermione passed biology
+
+unconfident hits
+0.503	unacc.	unacc.	neither of students failed.
+0.526	acc.	acc.	max seemed to be trying to force ted to leave the room, and walt, ira.
+0.532	unacc.	unacc.	the book was by john written.
+0.536	unacc.	unacc.	ourselves like ourselves.
+0.554	acc.	acc.	who who you like does sandy also like?

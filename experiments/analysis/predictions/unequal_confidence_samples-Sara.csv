@@ -1,0 +1,971 @@
+sentence,label,pred_teacher,confidence_teacher,pred_BERT,confidence_BERT,pred_LSTM,confidence_LSTM,confidence_diff
+yep that's fine,0,0,1.0,0,1.0,0,0.99,0.010000000000000009
+yes i have built a bot before,0,46,0.7,46,0.35,46,0.34,0.009999999999999953
+i get it,0,0,0.94,0,0.97,0,0.55,0.41999999999999993
+"yes, give me information, please",0,0,0.99,0,0.96,0,0.97,-0.010000000000000009
+i'm sure i will!,0,0,1.0,0,1.0,0,0.99,0.010000000000000009
+accept,0,0,1.0,0,1.0,0,0.99,0.010000000000000009
+oh good !!,0,0,0.99,0,0.99,0,0.96,0.030000000000000027
+"ok, i behave now",0,0,0.99,0,0.98,0,0.99,-0.010000000000000009
+that ok,0,0,1.0,0,1.0,0,1.0,0.0
+#yes,0,0,1.0,0,1.0,0,1.0,0.0
+"ok, i understood",0,0,0.99,0,1.0,0,0.99,0.010000000000000009
+yes it was okay,0,0,1.0,0,1.0,0,0.98,0.020000000000000018
+oh super,0,0,0.98,0,0.97,0,0.91,0.05999999999999994
+yes go ahead,0,0,1.0,0,1.0,0,1.0,0.0
+cool,0,0,1.0,0,1.0,0,1.0,0.0
+not bad,0,35,0.65,35,0.99,35,0.96,0.030000000000000027
+yesyestyes,0,0,1.0,0,1.0,0,1.0,0.0
+i will,0,0,1.0,0,1.0,0,1.0,0.0
+ofcourse,0,0,1.0,0,1.0,0,0.99,0.010000000000000009
+amayzing,0,37,0.99,37,0.64,37,0.69,-0.04999999999999993
+yes,0,0,1.0,0,1.0,0,1.0,0.0
+"yes, cool",0,0,1.0,0,1.0,0,0.99,0.010000000000000009
+"yes, i'd love to",0,0,1.0,0,0.99,0,0.98,0.010000000000000009
+hell yeah,0,0,1.0,0,1.0,0,1.0,0.0
+yup,0,0,1.0,0,1.0,0,1.0,0.0
+thats good,0,0,1.0,0,1.0,0,1.0,0.0
+fcourse,0,51,0.47,36,0.99,36,0.88,0.10999999999999999
+"oh, ok",0,0,1.0,0,1.0,0,1.0,0.0
+okay..,0,0,1.0,0,1.0,0,0.99,0.010000000000000009
+yeah'=,0,0,1.0,0,1.0,0,1.0,0.0
+yes pleae,0,0,1.0,0,1.0,0,1.0,0.0
+ok,0,0,1.0,0,1.0,0,1.0,0.0
+i agree,0,0,1.0,0,1.0,0,0.99,0.010000000000000009
+yep thats cool,0,0,1.0,0,1.0,0,0.99,0.010000000000000009
+yeah,0,0,1.0,0,1.0,0,1.0,0.0
+sure,0,0,1.0,0,1.0,0,1.0,0.0
+yep. :/,0,0,0.99,0,1.0,0,0.99,0.010000000000000009
+definitely yes without a doubt,0,0,1.0,0,0.49,0,0.6,-0.10999999999999999
+yes i have!,0,0,1.0,0,1.0,0,1.0,0.0
+ok let's start,0,39,1.0,39,1.0,39,0.99,0.010000000000000009
+please,0,0,0.56,0,0.6,0,0.59,0.010000000000000009
+accept,0,0,1.0,0,1.0,0,0.99,0.010000000000000009
+sure,0,0,1.0,0,1.0,0,1.0,0.0
+awesome!,0,0,1.0,0,1.0,0,0.99,0.010000000000000009
+sure thing,0,0,1.0,0,1.0,0,1.0,0.0
+ye,0,0,1.0,0,1.0,0,0.99,0.010000000000000009
+fuck yeah!,0,0,0.99,38,0.96,38,0.81,0.1499999999999999
+yesyesyes,0,0,1.0,0,1.0,0,1.0,0.0
+who developed you?,1,1,0.99,1,0.99,1,1.0,-0.010000000000000009
+who were you created by?,1,1,0.99,1,0.99,1,0.97,0.020000000000000018
+who's your builder?,1,1,0.99,1,0.99,1,0.99,0.0
+by whom were you built?,1,1,0.67,1,0.59,14,0.62,-0.030000000000000027
+who had the idea to build you?,1,1,0.99,1,0.99,1,0.99,0.0
+who build yoi,1,1,0.99,1,0.99,1,0.98,0.010000000000000009
+who is your daddy,1,1,0.99,1,0.98,1,0.94,0.040000000000000036
+tell me more about you,1,30,0.98,30,0.98,30,0.98,0.0
+who went through the trouble of setting you up?,1,1,0.99,54,0.16,1,0.97,-0.8099999999999999
+can i ask the name of the people who designed you?,1,1,0.99,1,0.99,1,0.97,0.020000000000000018
+who produced you?,1,1,0.99,1,0.99,1,0.99,0.0
+who generated you?,1,1,0.99,1,0.99,1,0.99,0.0
+who is your creator?,1,1,0.99,1,0.99,1,0.99,0.0
+who is your boss?,1,1,0.99,1,0.99,1,0.98,0.010000000000000009
+who made you,1,1,0.99,1,0.99,1,0.99,0.0
+who invent you,1,1,0.99,1,0.99,1,0.96,0.030000000000000027
+who is your author,1,1,0.99,1,0.99,1,0.99,0.0
+who is the builder of you?,1,1,0.99,1,0.99,1,0.98,0.010000000000000009
+who are created you,1,1,0.98,1,0.99,1,0.99,0.0
+you are made by who?,1,1,0.89,1,0.99,1,0.9,0.08999999999999997
+who was the person that created you?,1,1,0.99,1,0.99,1,0.99,0.0
+do you know which messaging channels rasa supports?,2,2,0.98,2,0.97,2,0.98,-0.010000000000000009
+which ui channel is used by rasa ?,2,2,0.97,2,0.97,2,0.95,0.020000000000000018
+what channels for messaging does rasa support?,2,2,0.98,2,0.97,2,0.97,0.0
+which messaging channels are compatible with rasa?,2,2,0.98,2,0.97,2,0.98,-0.010000000000000009
+does rasa support the whats app?,2,54,0.86,54,0.82,54,0.83,-0.010000000000000009
+"rasa supports some messaging channels, what are those?",2,2,0.98,2,0.96,2,0.98,-0.020000000000000018
+does rasa support messenger?,2,2,0.97,2,0.92,2,0.75,0.17000000000000004
+rasa is good for messaging chanels,2,36,0.34,36,0.91,36,0.56,0.35
+how many people are here?,3,3,0.96,3,0.94,3,0.82,0.12
+did you know the size of rasa community?,3,3,0.98,3,0.94,3,0.88,0.05999999999999994
+how small is the community?,3,3,0.98,3,0.94,3,0.82,0.12
+do you have a large community,3,3,0.93,3,0.91,3,0.78,0.13
+how big is the rasa community?,3,3,0.98,3,0.94,3,0.89,0.04999999999999993
+is the rasa community small?,3,3,0.98,3,0.94,3,0.8,0.1399999999999999
+how large is the rasa community?,3,3,0.98,3,0.94,3,0.88,0.05999999999999994
+how massive is the rasa community?,3,3,0.98,3,0.93,3,0.66,0.27
+what is the difference between rasa nlu and rasa core?,4,4,0.99,4,0.98,4,0.95,0.030000000000000027
+what are the difference between nlu and core?,4,4,0.99,4,0.98,4,0.95,0.030000000000000027
+what makes core and nlu unique from each other?,4,4,0.99,4,0.97,4,0.66,0.30999999999999994
+what are the differences?,4,4,0.99,4,0.98,4,0.95,0.030000000000000027
+whats the difference between core and nlp,4,4,0.98,4,0.98,4,0.94,0.040000000000000036
+what's the difference?,4,4,0.99,4,0.98,4,0.98,0.0
+what makes core different from nlu?,4,4,0.99,4,0.98,4,0.91,0.06999999999999995
+what is the main difference between core and nlu?,4,4,0.99,4,0.98,4,0.96,0.020000000000000018
+what facts diverge core from nlu?,4,4,0.99,4,0.96,4,0.44,0.52
+what differences exist between core and nlu?,4,4,0.99,4,0.98,4,0.96,0.020000000000000018
+how does core compare to nlu?,4,4,0.98,4,0.92,4,0.46,0.46
+what's the difference between nlu and core?,4,4,0.99,4,0.98,4,0.94,0.040000000000000036
+which specific languages does rasa support?,5,5,0.99,5,0.99,5,0.99,0.0
+which language can i use with rasa?,5,5,0.99,5,0.99,5,0.99,0.0
+what language list can i find for rasa,5,5,0.99,5,0.99,5,0.99,0.0
+what about languages supported in rasa?,5,5,0.99,5,0.99,5,0.99,0.0
+how can i change the language,5,5,0.96,5,0.97,5,0.97,0.0
+what are the languages that is supported by rasa?,5,5,0.99,5,0.99,5,0.99,0.0
+hich languages supports rasa,5,5,0.99,5,0.99,5,0.99,0.0
+is rasa available for node?,5,54,0.64,54,0.52,54,0.49,0.030000000000000027
+what all languages does rasa support for us?,5,5,0.99,5,0.99,5,0.99,0.0
+languages supported,5,5,0.99,5,0.99,5,0.99,0.0
+can i use rasa with thai language,5,5,0.98,5,0.99,5,0.98,0.010000000000000009
+language,5,5,0.58,5,0.56,5,0.6,-0.039999999999999925
+which languages can you do?,5,5,0.99,5,0.98,5,0.95,0.030000000000000027
+languages,5,5,0.88,5,0.73,5,0.84,-0.10999999999999999
+how can i add new language to rasa core,5,5,0.99,5,0.99,5,0.99,0.0
+what language supported by rasa ?,5,5,0.99,5,0.99,5,0.99,0.0
+available for german?,5,5,0.99,5,0.99,5,0.97,0.020000000000000018
+can you use other language than english?,5,18,0.98,18,0.84,5,0.86,-0.020000000000000018
+your nlu understand spanish?,5,18,0.84,18,0.97,18,0.88,0.08999999999999997
+which languages do you support,5,5,0.99,5,0.99,5,0.99,0.0
+is rasa is open source?,6,6,0.98,6,0.98,6,0.97,0.010000000000000009
+is the software rasa open source?,6,6,0.98,6,0.98,6,0.97,0.010000000000000009
+are you open-source?,6,6,0.98,6,0.98,6,0.98,0.0
+is rasa considered open source software?,6,6,0.98,6,0.98,6,0.96,0.020000000000000018
+how do i find out if rasa is open source?,6,6,0.98,6,0.98,6,0.95,0.030000000000000027
+is rasa open source?,6,6,0.98,6,0.98,6,0.98,0.0
+is it a open source or any premium offer is available,6,6,0.98,6,0.95,6,0.87,0.07999999999999996
+is rasa software that is classified as open source?,6,6,0.98,6,0.97,6,0.96,0.010000000000000009
+is rasa open source>,6,6,0.98,6,0.98,6,0.98,0.0
+is rasa like an open source software,6,6,0.98,6,0.98,6,0.96,0.020000000000000018
+what is the platform?,7,7,0.96,7,0.95,7,0.86,0.08999999999999997
+tell me about your platform,7,7,0.96,7,0.95,7,0.88,0.06999999999999995
+what is the rasa platform,7,7,0.96,7,0.95,7,0.89,0.05999999999999994
+i want to learn more about rasa platform,7,7,0.96,7,0.95,7,0.87,0.07999999999999996
+which python version should i install to run rasa example?,8,8,0.81,8,0.64,8,0.45,0.19
+which version of python do i need,8,8,0.9,8,0.77,8,0.53,0.24
+what is python version required?,8,8,0.9,8,0.76,8,0.5,0.26
+what are slots,9,9,0.99,9,0.99,9,0.99,0.0
+talk slots over with me.,9,9,0.98,9,0.73,9,0.89,-0.16000000000000003
+where slots getting values,9,9,0.97,9,0.98,9,0.98,0.0
+how to keep button system for slot selection,9,9,0.97,9,0.91,9,0.72,0.19000000000000006
+i need a expert opinion on slots.,9,9,0.98,9,0.72,9,0.69,0.030000000000000027
+what is a slot?,9,9,0.99,9,0.99,9,0.99,0.0
+where can i find the definition of slots?,9,9,0.99,9,0.99,9,0.99,0.0
+help me understand what slots are.,9,9,0.99,9,0.99,9,0.99,0.0
+what are slots used for?,9,9,0.99,9,0.99,9,0.99,0.0
+what about slots,9,9,0.99,9,0.99,9,0.99,0.0
+i bet you can tell me all about slots.,9,9,0.99,9,0.99,9,0.99,0.0
+give me a description of slots.,9,9,0.99,9,0.99,9,1.0,-0.010000000000000009
+slots are what ?,9,9,0.99,9,0.99,9,1.0,-0.010000000000000009
+tutorials,10,10,0.98,10,0.98,10,0.96,0.020000000000000018
+can you pint me to a good how-to online about rasa,10,39,0.97,39,0.85,39,0.94,-0.08999999999999997
+rasa core tutorial,10,10,0.98,10,0.98,10,0.95,0.030000000000000027
+are there tutorials about rasa?,10,10,0.98,10,0.98,10,0.96,0.020000000000000018
+tutorials for learning rasa ?,10,10,0.98,10,0.98,10,0.95,0.030000000000000027
+where can i fid tutorials for rasa,10,10,0.98,10,0.98,10,0.96,0.020000000000000018
+tutorial !!!!!!!!!!,10,10,0.92,10,0.98,10,0.94,0.040000000000000036
+rasa tutorial,10,10,0.98,10,0.98,10,0.95,0.030000000000000027
+voice bot,11,11,0.98,11,0.98,11,0.98,0.0
+i could build a voice bot with rasa?,11,11,0.99,11,0.99,11,0.98,0.010000000000000009
+is rasa suitable to build voice bots?,11,11,0.99,11,0.98,11,0.98,0.0
+what can i do to build a voice bot with rasa?,11,11,0.99,11,0.99,11,0.97,0.020000000000000018
+with rasa can i make a voice bot?,11,11,0.99,11,0.99,11,0.98,0.010000000000000009
+when is the best time to build a voice bot with rasa?,11,11,0.99,11,0.98,11,0.87,0.10999999999999999
+with rasa can i invent a voice bot?,11,11,0.99,11,0.99,11,0.98,0.010000000000000009
+how to build a voice bot using rasa?,11,11,0.99,11,0.99,11,0.97,0.020000000000000018
+can i use my voice to speak to these bots?,11,11,0.92,11,0.95,11,0.58,0.37
+can i create a voice bot with rasa?,11,11,0.99,11,0.99,11,0.99,0.0
+"i can build a voice bot with rasa, right?",11,11,0.99,11,0.99,11,0.98,0.010000000000000009
+rasa voice bot building.,11,11,0.98,11,0.98,11,0.93,0.04999999999999993
+can i build a voice bot with rasa?,11,11,0.99,11,0.99,11,0.99,0.0
+i'd like to build a voice bot with rasa.,11,11,0.99,11,0.98,11,0.95,0.030000000000000027
+what do people do in the forum,12,12,0.98,12,0.98,12,0.98,0.0
+what exactly is the forum?,12,12,0.98,12,0.98,12,0.98,0.0
+i would just like to have the link for the community,12,51,0.23,51,0.34,51,0.14,0.2
+so what exactly is the rasa forum?,12,12,0.98,12,0.98,12,0.98,0.0
+what can be performed in the forum?,12,12,0.98,12,0.97,12,0.98,-0.010000000000000009
+what is the forum used for?,12,12,0.98,12,0.98,12,0.97,0.010000000000000009
+what is a rasa forum for?,12,12,0.98,12,0.98,12,0.98,0.0
+so what is this forum for?,12,12,0.98,12,0.98,12,0.97,0.010000000000000009
+what is the forum,12,12,0.98,12,0.98,12,0.98,0.0
+could you please explain the rasa forum to me?,12,12,0.98,12,0.95,12,0.96,-0.010000000000000009
+in what ways can i help?,13,13,0.98,13,0.96,13,0.96,0.0
+is there a way i can assist?,13,13,0.97,13,0.97,13,0.98,-0.010000000000000009
+how can i contribute?,13,13,0.97,13,0.97,13,0.96,0.010000000000000009
+how do i contribute?,13,13,0.97,13,0.97,13,0.96,0.010000000000000009
+what should i work on?,13,39,0.3,54,0.38,54,0.38,0.0
+i want to put some of my effort in.,13,13,0.43,46,0.24,13,0.22,0.01999999999999999
+what ways are there to contribute?,13,13,0.98,13,0.97,13,0.95,0.020000000000000018
+can i help improve your code at all?,13,13,0.96,13,0.77,13,0.64,0.13
+how can i be helpful?,13,13,0.97,13,0.97,13,0.97,0.0
+how can i help with the code?,13,31,0.57,52,0.4,52,0.73,-0.32999999999999996
+how can i help?,13,13,0.95,13,0.96,13,0.94,0.020000000000000018
+you originated through what means?,14,14,0.89,46,0.67,24,0.12,0.55
+how exactly were you devised?,14,14,0.98,14,0.97,14,0.98,-0.010000000000000009
+how were you made?,14,14,0.98,14,0.97,14,0.98,-0.010000000000000009
+in what way were you shaped?,14,14,0.98,14,0.93,14,0.54,0.39
+do you know how you were made?,14,14,0.98,14,0.97,14,0.94,0.030000000000000027
+in which manner were you devised?,14,14,0.98,14,0.89,14,0.82,0.07000000000000006
+can you explain how you were created?,14,14,0.98,14,0.97,14,0.98,-0.010000000000000009
+in what manner were you formed?,14,14,0.98,14,0.97,14,0.95,0.020000000000000018
+i'd like to know how you were put together?,14,14,0.96,14,0.94,14,0.42,0.52
+how ?,15,25,0.46,25,0.5,46,0.51,-0.010000000000000009
+is everything okay,15,15,0.99,15,0.99,15,0.98,0.010000000000000009
+how've you been?,15,15,0.99,15,0.99,15,1.0,-0.010000000000000009
+howareyou,15,15,0.99,15,0.99,15,0.74,0.25
+come stai?,15,46,0.31,46,0.57,46,0.62,-0.050000000000000044
+how are you doing today?,15,15,0.99,15,0.99,15,1.0,-0.010000000000000009
+how are you doing,15,15,0.99,15,0.99,15,0.98,0.010000000000000009
+how are you?,15,15,0.99,15,0.99,15,0.98,0.010000000000000009
+how are xou,15,15,0.94,15,0.89,15,0.65,0.24
+como estas,15,15,0.96,36,0.87,46,0.88,-0.010000000000000009
+how you doing?,15,15,0.99,15,0.99,15,1.0,-0.010000000000000009
+how's your day going,15,15,0.99,15,0.99,15,0.99,0.0
+wassup>,15,37,0.99,37,0.96,37,0.52,0.43999999999999995
+how are you,15,15,0.99,15,0.99,15,0.98,0.010000000000000009
+what's up?,15,15,0.99,15,0.99,15,0.98,0.010000000000000009
+whatchcha doing,15,25,0.94,15,0.42,46,0.31,0.10999999999999999
+how are u,15,15,0.99,15,0.99,15,0.99,0.0
+how are you,15,15,0.99,15,0.99,15,0.98,0.010000000000000009
+hi how are you?,15,15,0.99,15,0.99,15,0.98,0.010000000000000009
+when you were bon,16,46,0.97,46,0.96,46,0.94,0.020000000000000018
+how many years old are you?,16,16,0.99,16,0.99,16,0.99,0.0
+whats your birth year?,16,16,0.99,16,0.99,16,0.98,0.010000000000000009
+tell me how old you are?,16,16,0.99,16,0.99,16,0.99,0.0
+how many candles were on your last birthday cake?,16,46,1.0,46,1.0,46,1.0,0.0
+how many years have you lived?,16,16,0.99,16,0.93,16,0.98,-0.04999999999999993
+how old?,16,16,0.99,16,0.99,16,0.98,0.010000000000000009
+how old were you on your last birthday?,16,16,0.99,16,0.99,16,0.99,0.0
+what is your age?,16,16,0.99,16,0.99,16,0.98,0.010000000000000009
+what is your birthday?,16,16,0.99,16,0.99,16,0.97,0.020000000000000018
+when do you celebrate your day of birth?,16,16,0.98,16,0.92,16,0.38,0.54
+you're a bot,17,17,0.98,17,0.98,17,0.97,0.010000000000000009
+ar you a bot ?,17,17,0.98,17,0.98,17,0.98,0.0
+i guess you are a chatbot,17,17,0.95,17,0.97,17,0.95,0.020000000000000018
+are you a rasa bot?,17,17,0.98,17,0.98,17,0.98,0.0
+"hi there, are you the bot?",17,17,0.95,17,0.96,17,0.88,0.07999999999999996
+oh are you chatbot?,17,17,0.97,17,0.96,17,0.92,0.039999999999999925
+are you a chat bot?,17,17,0.97,17,0.98,17,0.97,0.010000000000000009
+what else do you know besides english?,18,18,0.98,18,0.99,18,0.98,0.010000000000000009
+what languages are you good at speaking?,18,18,0.99,18,0.99,18,0.99,0.0
+speak any other languages?,18,18,0.98,18,0.98,18,0.98,0.0
+are you bilingual?,18,18,0.98,46,0.34,18,0.59,-0.24999999999999994
+tell me some languages you know?,18,18,0.99,18,0.99,18,0.98,0.010000000000000009
+what are all of the different languages you can speak?,18,18,0.99,18,0.99,18,0.99,0.0
+what do you speak?,18,30,0.86,30,0.85,30,0.83,0.020000000000000018
+can you speak in italian?,18,18,0.98,18,0.99,18,0.98,0.010000000000000009
+what languages do you know how to use?,18,18,0.99,18,0.99,18,0.96,0.030000000000000027
+what languages can you use?,18,18,0.96,18,0.96,18,0.86,0.09999999999999998
+how many languages do you know?,18,18,0.99,18,0.99,18,0.99,0.0
+where is the forum,19,12,0.95,12,0.96,12,0.97,-0.010000000000000009
+i want to ask a question in the forum,19,19,0.97,19,0.96,19,0.98,-0.020000000000000018
+where do i post my question?,19,19,0.93,19,0.84,19,0.44,0.39999999999999997
+where can i find the forum,19,19,0.91,19,0.93,19,0.9,0.030000000000000027
+how do i write a forum question?,19,19,0.97,19,0.94,19,0.86,0.07999999999999996
+how do i create a thread on the forum?,19,12,0.54,12,0.52,12,0.86,-0.33999999999999997
+i need to get information from the forum,19,19,0.97,19,0.95,19,0.94,0.010000000000000009
+how do i find the forum?,19,19,0.96,19,0.94,19,0.8,0.1399999999999999
+help me to find the forum.,19,19,0.96,19,0.95,19,0.93,0.019999999999999907
+suggest me a good restaurant around,20,20,0.99,20,0.99,20,0.99,0.0
+would you find any restaurant?,20,20,0.99,20,0.99,20,0.98,0.010000000000000009
+can you find me a restaurant?,20,20,0.99,20,0.99,20,0.99,0.0
+"hey, can you help me with locating this restaurant.",20,20,0.98,20,0.98,20,0.93,0.04999999999999993
+where should i go for dinner?,20,46,0.93,46,0.81,46,0.96,-0.1499999999999999
+can you recommend a restaurant open right now,20,20,0.99,20,0.98,20,0.98,0.0
+find me a fast food restaurant.,20,20,0.99,20,0.98,20,0.99,-0.010000000000000009
+where is the restaurant,20,20,0.98,20,0.98,20,0.99,-0.010000000000000009
+help me with finding this restaurant,20,20,0.99,20,0.98,20,0.98,0.0
+will you find me a restaurant?,20,20,0.99,20,0.99,20,0.98,0.010000000000000009
+what restaurant would you recommend for dinner?,20,20,0.98,20,0.98,20,0.98,0.0
+what is the time in sydney?,21,21,0.98,21,0.98,21,0.95,0.030000000000000027
+would you tell me what time it is?,21,21,0.99,21,0.98,21,0.97,0.010000000000000009
+do you have the time?,21,21,0.98,21,0.98,21,0.99,-0.010000000000000009
+tell me the time.,21,21,0.99,21,0.98,21,0.99,-0.010000000000000009
+what's the time right now?,21,21,0.98,21,0.98,21,0.98,0.0
+can you give me the time?,21,21,0.99,21,0.98,21,0.98,0.0
+that's true. do you know what time it is?,21,21,0.98,21,0.98,21,0.97,0.010000000000000009
+do you know the time?,21,21,0.98,21,0.98,21,0.99,-0.010000000000000009
+what is the time ?,21,21,0.99,21,0.98,21,0.98,0.0
+what is time is usa ?,21,21,0.98,21,0.98,21,0.95,0.030000000000000027
+is the sun out where zou are?,22,22,0.98,22,0.98,22,0.97,0.010000000000000009
+what is the wather,22,24,0.78,24,0.87,46,0.39,0.48
+what is the weather in newyork?,22,22,0.99,22,0.99,22,0.99,0.0
+what is the weather,22,22,0.99,22,0.99,22,0.97,0.020000000000000018
+what is the temperature,22,22,0.99,22,0.99,22,0.98,0.010000000000000009
+what is the weather like where you are?,22,22,0.99,22,0.99,22,0.98,0.010000000000000009
+is it raining,22,22,0.99,22,0.99,22,0.93,0.05999999999999994
+"beautiful day, isn't it?",22,22,0.98,22,0.71,46,0.77,-0.06000000000000005
+weather,22,22,0.99,22,0.99,22,0.97,0.020000000000000018
+how's the weather ?,22,22,0.99,22,0.99,22,0.96,0.030000000000000027
+what is the weather in zurich?,22,22,0.99,22,0.99,22,0.96,0.030000000000000027
+temperature?,22,22,0.99,22,0.99,22,0.98,0.010000000000000009
+what is the weather in berlin,22,22,0.99,22,0.99,22,0.96,0.030000000000000027
+whats the temperature in delhi?,22,22,0.99,22,0.99,22,0.98,0.010000000000000009
+weatger,22,50,0.56,36,0.99,36,0.69,0.30000000000000004
+do you know what my name is?,23,23,0.98,23,0.98,23,0.97,0.010000000000000009
+what am i called?,23,23,0.96,23,0.97,23,0.46,0.51
+tell me my name,23,23,0.97,23,0.98,23,0.98,0.0
+please let me know what my name is,23,23,0.97,23,0.98,23,0.98,0.0
+what would be the name on my tombstone?,23,46,0.92,23,0.6,46,0.82,-0.21999999999999997
+what is the name i was given?,23,23,0.97,23,0.96,23,0.93,0.029999999999999916
+i'd like to know what my name is,23,23,0.98,23,0.98,23,0.98,0.0
+what does rasa do?,24,24,0.98,24,0.99,24,0.99,0.0
+what is it for?,24,25,0.92,25,0.95,25,0.9,0.04999999999999993
+could you tell me more about rasa?,24,24,0.98,24,0.99,24,0.98,0.010000000000000009
+explain me what rasa is,24,24,0.98,24,0.99,24,0.99,0.0
+what are the componensts of rasa,24,12,0.45,24,0.21,46,0.37,-0.16
+rasa?,24,24,0.96,24,0.98,24,0.85,0.13
+i want to know what rasa does,24,24,0.99,24,0.99,24,0.99,0.0
+what is in rasa,24,24,0.97,24,0.98,24,0.94,0.040000000000000036
+what can i do with rasa,24,25,0.51,25,0.52,25,0.67,-0.15000000000000002
+what is rasa core?,24,24,0.96,24,0.97,24,0.93,0.039999999999999925
+i want to learn something about rasa,24,39,1.0,39,0.99,39,0.97,0.020000000000000018
+what does rasa do,24,24,0.98,24,0.99,24,0.98,0.010000000000000009
+what does rasa do ?,24,24,0.98,24,0.99,24,0.99,0.0
+i dont get what rasa is,24,24,0.98,24,0.97,24,0.97,0.0
+what do you do as a company?,24,24,0.26,46,0.28,46,0.34,-0.06
+what else can i do here?,25,25,0.99,25,0.98,25,0.98,0.0
+what can i do?,25,25,0.97,25,0.97,25,0.96,0.010000000000000009
+what i have to do,25,25,0.98,25,0.98,25,0.98,0.0
+talk to me!,25,25,0.45,40,0.42,40,0.65,-0.23000000000000004
+what else can i do,25,25,0.98,25,0.98,25,0.97,0.010000000000000009
+i need help,25,25,0.99,25,0.98,25,0.97,0.010000000000000009
+what else can i do?,25,25,0.98,25,0.98,25,0.97,0.010000000000000009
+what you doing?,25,25,0.97,25,0.98,25,0.98,0.0
+what u can do,25,25,0.99,25,0.99,25,0.99,0.0
+what you can do for me?,25,25,0.99,25,0.99,25,0.98,0.010000000000000009
+what can you tell me,25,25,0.99,25,0.99,25,0.97,0.020000000000000018
+show me the menu,25,46,0.91,20,0.7,46,0.32,0.37999999999999995
+what are you able to do?,25,25,0.99,25,0.99,25,0.99,0.0
+what can you do,25,25,0.99,25,0.99,25,0.99,0.0
+what can you answer,25,25,0.98,25,0.98,25,0.96,0.020000000000000018
+what are my options,25,25,0.97,25,0.97,25,0.92,0.04999999999999993
+um what now,25,25,0.98,25,0.96,25,0.96,0.0
+tell me what's your skill,25,46,0.52,46,0.37,46,0.15,0.22
+what do you do,25,25,0.99,25,0.99,25,0.98,0.010000000000000009
+what can you tell me?,25,25,0.99,25,0.99,25,0.98,0.010000000000000009
+when is the next event in berlin,26,26,0.98,26,0.95,26,0.92,0.029999999999999916
+is next community event held in 2019?,26,26,0.98,26,0.94,26,0.88,0.05999999999999994
+what's the next community event,26,26,0.98,26,0.94,26,0.68,0.2599999999999999
+on what day is the next event scheduled?,26,26,0.98,26,0.95,26,0.9,0.04999999999999993
+tell me when the next community event is happening;,26,26,0.98,26,0.95,26,0.88,0.06999999999999995
+by chance do you know the date of next community event?,26,26,0.98,26,0.94,26,0.9,0.039999999999999925
+when is the next community event gonna be?,26,26,0.99,26,0.95,26,0.94,0.010000000000000009
+when is the event within the community gonna happen?,26,26,0.98,26,0.92,26,0.85,0.07000000000000006
+what citizenship do you lay claim to?,27,18,0.55,45,0.18,18,0.33,-0.15000000000000002
+what is your origin?,27,27,0.97,27,0.86,27,0.94,-0.07999999999999996
+where are your origins?,27,27,0.98,27,0.98,27,0.96,0.020000000000000018
+what is your birthplace?,27,27,0.98,27,0.98,27,0.95,0.030000000000000027
+are you from around here?,27,27,0.98,27,0.98,27,0.95,0.030000000000000027
+where did you grow up?,27,27,0.98,27,0.68,27,0.48,0.20000000000000007
+are you from around here?,27,27,0.98,27,0.98,27,0.95,0.030000000000000027
+where might you be from?,27,27,0.99,27,0.98,27,0.98,0.0
+you live around here?,27,27,0.97,27,0.32,27,0.46,-0.14
+what is your original location?,27,27,0.98,27,0.95,27,0.9,0.04999999999999993
+will there be an event in my city?,28,26,0.97,26,0.89,26,0.66,0.22999999999999998
+what are the names of all the events?,28,28,0.98,28,0.98,28,0.98,0.0
+what events are scheduled for today?,28,28,0.97,28,0.96,28,0.98,-0.020000000000000018
+what are all of the events you have?,28,28,0.98,28,0.98,28,0.96,0.020000000000000018
+where can i meet rasas,28,28,0.91,28,0.92,28,0.89,0.030000000000000027
+how can i meet eh community?,28,28,0.89,28,0.92,28,0.8,0.12
+is there any rasa meetups?,28,28,0.97,28,0.97,28,0.93,0.039999999999999925
+what are the events available?,28,28,0.98,28,0.98,28,0.97,0.010000000000000009
+does the community have meet ups?,28,28,0.97,28,0.55,28,0.69,-0.1399999999999999
+can you tell me who am i?,29,29,0.96,29,0.96,29,0.93,0.029999999999999916
+how can i determine who i am?,29,29,0.96,29,0.96,29,0.95,0.010000000000000009
+who am i,29,29,0.96,29,0.96,29,0.97,-0.010000000000000009
+can you tell me who i am?,29,29,0.96,29,0.96,29,0.92,0.039999999999999925
+how do i discover who i am?,29,29,0.94,29,0.92,29,0.95,-0.029999999999999916
+what is your job?,30,46,0.32,1,0.21,1,0.22,-0.010000000000000009
+who r u,30,30,0.99,30,0.99,30,0.97,0.020000000000000018
+who is this,30,30,0.99,30,0.99,30,0.99,0.0
+como te llamas,30,46,0.99,46,0.63,46,0.98,-0.35
+u are?,30,30,0.4,30,0.7,30,0.44,0.25999999999999995
+who r you,30,30,0.99,30,0.99,30,0.98,0.010000000000000009
+what is your name,30,30,0.99,30,0.99,30,0.98,0.010000000000000009
+what's your name?,30,30,0.99,30,0.99,30,0.98,0.010000000000000009
+whom i talking to,30,30,0.65,40,0.55,40,0.9,-0.35
+who are you,30,30,0.99,30,0.99,30,0.98,0.010000000000000009
+whats ur name,30,30,0.99,30,0.99,30,0.98,0.010000000000000009
+what is sara?,30,24,0.94,24,0.97,24,0.94,0.030000000000000027
+why help out?,31,31,0.87,31,0.7,31,0.44,0.25999999999999995
+why help rasa's organization?,31,31,0.82,31,0.45,31,0.27,0.18
+why should i contribute,31,31,0.89,31,0.71,31,0.59,0.12
+what is the benefit of contributing to your code,31,31,0.87,31,0.66,31,0.65,0.010000000000000009
+why should i help?,31,31,0.88,31,0.69,31,0.55,0.1399999999999999
+k byyye #slay,32,37,0.88,37,0.95,37,0.95,0.0
+ciao,32,36,1.0,37,0.85,36,0.69,0.16000000000000003
+tlak to you later,32,32,0.93,32,0.47,50,0.35,0.12
+ok bye,32,32,0.98,32,0.98,32,0.97,0.010000000000000009
+toodle-oo,32,37,0.98,37,0.98,37,1.0,-0.020000000000000018
+see you . bye,32,32,0.98,32,0.98,32,0.99,-0.010000000000000009
+bye bye bot,32,32,0.98,32,0.98,32,0.97,0.010000000000000009
+cya,32,36,0.98,36,0.99,36,0.98,0.010000000000000009
+do you get anything?,33,46,0.99,46,0.95,25,0.53,0.41999999999999993
+and you call yourself bot company? pff,33,46,0.76,46,0.99,46,0.99,0.0
+and that's it?,33,46,0.91,46,0.53,46,0.64,-0.10999999999999999
+this conversation is not really helpful,33,33,0.9,33,0.7,46,0.71,-0.010000000000000009
+you cannot help me with what i want,33,33,0.81,25,0.93,25,0.82,0.1100000000000001
+contact any sales person,34,34,1.0,34,1.0,34,1.0,0.0
+i choose the call,34,34,0.99,34,0.99,34,0.99,0.0
+i want to get in touch with your sales guys,34,34,1.0,34,1.0,34,0.99,0.010000000000000009
+i would like to book a sales call,34,34,1.0,34,1.0,34,1.0,0.0
+can i speak to the sales team,34,34,1.0,34,1.0,34,0.99,0.010000000000000009
+i want a sales call,34,34,1.0,34,1.0,34,1.0,0.0
+can i have a call tomorrow at 3pm?,34,34,0.98,34,0.99,34,0.99,0.0
+i need the call request,34,34,0.99,34,0.99,34,1.0,-0.010000000000000009
+let me talk sales,34,34,1.0,34,1.0,34,1.0,0.0
+i want to bookk a sales call,34,34,1.0,34,1.0,34,1.0,0.0
+i want an offer for your platform,34,34,0.96,34,0.97,34,0.64,0.32999999999999996
+request a call,34,34,1.0,34,1.0,34,0.99,0.010000000000000009
+booking a sales call,34,34,1.0,34,1.0,34,1.0,0.0
+obviously talk to your awesome sales team,34,34,1.0,34,1.0,34,1.0,0.0
+please provide information on your enterprise package,34,34,0.4,34,0.82,34,0.62,0.19999999999999996
+contact to sales,34,34,1.0,34,1.0,34,1.0,0.0
+i need a call from sales,34,34,1.0,34,1.0,34,0.99,0.010000000000000009
+but i wanted a sales call,34,34,1.0,34,1.0,34,1.0,0.0
+i would like a call with mr __person_name__,34,34,0.99,34,0.99,34,1.0,-0.010000000000000009
+please can you book call for me,34,34,1.0,34,0.99,34,0.98,0.010000000000000009
+book,34,36,0.98,36,0.98,36,0.98,0.0
+can someone call me please?,34,34,0.46,46,0.68,34,0.66,0.020000000000000018
+but i want a sales call,34,34,1.0,34,1.0,34,1.0,0.0
+contact sales for me,34,34,1.0,34,1.0,34,1.0,0.0
+i also want to book a sales call,34,34,1.0,34,1.0,34,1.0,0.0
+contact sales,34,34,1.0,34,1.0,34,1.0,0.0
+i want to book a appointment,34,34,1.0,34,1.0,34,0.98,0.020000000000000018
+i would like to talk to sales please,34,34,1.0,34,1.0,34,0.99,0.010000000000000009
+i want to book a sales call,34,34,1.0,34,1.0,34,1.0,0.0
+get me the sales team,34,34,1.0,34,1.0,34,1.0,0.0
+let me talk to your sales people,34,34,1.0,34,1.0,34,1.0,0.0
+never mind,35,35,0.98,35,0.98,35,0.89,0.08999999999999997
+no ma'am,35,35,0.99,35,0.99,35,0.93,0.05999999999999994
+i decline,35,35,0.98,46,0.27,35,0.34,-0.07
+nop,35,35,0.92,35,0.97,35,0.71,0.26
+nö,35,35,0.99,35,0.99,35,0.98,0.010000000000000009
+not going well at all,35,35,0.96,35,0.99,35,0.96,0.030000000000000027
+no i dont want to accept :p lol,35,35,0.99,35,0.99,35,0.99,0.0
+no i haven't decided yet if i want to sign up,35,35,0.73,35,0.98,35,0.52,0.45999999999999996
+not really,35,35,0.99,35,0.99,35,0.96,0.030000000000000027
+"no, thank you",35,35,0.99,35,0.99,35,0.99,0.0
+i dont want to tell,35,35,0.99,35,0.97,35,0.94,0.030000000000000027
+nah,35,35,0.99,35,0.99,35,0.99,0.0
+nopes,35,35,0.99,35,0.99,35,1.0,-0.010000000000000009
+no thanks,35,35,0.99,35,0.99,35,0.99,0.0
+no :(,35,35,0.99,35,0.99,35,0.99,0.0
+noooooooooooooooooooooooooooooooooooooooo,35,37,0.46,37,0.96,37,0.66,0.29999999999999993
+i'm not sure,35,36,1.0,36,0.94,35,0.61,0.32999999999999996
+absolutely not,35,35,0.99,35,0.98,35,0.98,0.0
+__person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+driver,36,36,1.0,36,1.0,36,0.98,0.020000000000000018
+20k,36,36,1.0,36,1.0,36,1.0,0.0
+it is __email_address____email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+user can communicate with the bot in dutch,36,36,1.0,36,1.0,36,1.0,0.0
+no job,36,36,1.0,36,1.0,36,1.0,0.0
+i'd like to build a transformer,36,39,0.92,39,0.91,36,0.48,0.43000000000000005
+my name is __person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+my email is __email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+acme brands,36,36,1.0,36,0.98,36,0.67,0.30999999999999994
+__person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+i work in biz dev,36,36,1.0,36,1.0,36,1.0,0.0
+the people speak italian,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+i'm a machine learning engineer,36,36,1.0,36,1.0,36,1.0,0.0
+"25,000",36,36,1.0,36,0.99,36,1.0,-0.010000000000000009
+100,36,36,1.0,36,1.0,36,1.0,0.0
+its an french bot,36,36,1.0,36,1.0,36,1.0,0.0
+i book a bus ticket,36,46,0.94,46,0.92,36,0.45,0.47000000000000003
+i’ve trained it in dutch,36,36,1.0,36,1.0,36,1.0,0.0
+it’s trained in german,36,36,1.0,36,1.0,36,1.0,0.0
+chief nerd at rasa technologies,36,36,1.0,36,0.9,36,0.81,0.08999999999999997
+__person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+my name is __person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+none?,36,36,0.88,36,0.92,36,0.83,0.09000000000000008
+please give me instructions for pip,36,54,0.57,54,0.62,54,0.59,0.030000000000000027
+__email_address____email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+"able to integrate with paypal, wordpress, facebook andd twilio",36,36,0.98,54,0.44,36,0.36,0.08000000000000002
+its an dutch bot,36,36,1.0,36,1.0,36,1.0,0.0
+software engineer,36,36,1.0,36,1.0,36,1.0,0.0
+italian is the only language but i want to add more,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+chinese is the language of my bot,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+my name is __person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+it’s only in german but i plan to train it in other languages,36,36,1.0,36,1.0,36,1.0,0.0
+1 million,36,36,1.0,36,1.0,36,1.0,0.0
+the assistant speaks italian,36,36,1.0,36,1.0,36,1.0,0.0
+im __person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+i'm in marketing,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+my name is __person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+i'm in business ,36,36,1.0,36,1.0,36,0.99,0.010000000000000009
+it’s in portuguese,36,36,1.0,36,1.0,36,1.0,0.0
+"i work for the ai research group of the turing centre of the ubc, vancouver, canada",36,36,1.0,36,1.0,36,1.0,0.0
+acme bank,36,36,1.0,36,0.99,36,0.72,0.27
+manager,36,36,1.0,36,1.0,36,1.0,0.0
+200k,36,36,1.0,36,1.0,36,1.0,0.0
+language = german,36,36,1.0,36,1.0,36,1.0,0.0
+120000,36,36,1.0,36,1.0,36,1.0,0.0
+wurst co kg,36,36,1.0,36,0.95,36,0.99,-0.040000000000000036
+it’s only in mandarin but i plan to train it in other languages,36,36,1.0,36,1.0,36,1.0,0.0
+the language is mandarin,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+i want to build a kick ass bot,36,36,1.0,36,0.98,36,0.98,0.0
+so far it only speaks spanish,36,36,1.0,36,1.0,36,1.0,0.0
+software developer,36,36,1.0,36,1.0,36,1.0,0.0
+it speaks french,36,36,1.0,36,1.0,36,1.0,0.0
+the language of the ai assistant is english,36,36,1.0,36,1.0,36,1.0,0.0
+i want to build a health insurance bot,36,36,1.0,36,1.0,36,1.0,0.0
+i'm __person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+i'm the lead engineer,36,36,1.0,36,1.0,36,1.0,0.0
+it’s available in spanish,36,36,1.0,36,1.0,36,1.0,0.0
+the assistant is in mandarin,36,36,1.0,36,1.0,36,1.0,0.0
+a wolf bot,36,36,1.0,36,1.0,36,1.0,0.0
+__person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+until now it’s only in spanish,36,36,1.0,36,1.0,36,1.0,0.0
+i work at axa insurance group as head of innovation,36,36,1.0,36,0.99,36,1.0,-0.010000000000000009
+the language of the ai assistant is portuguese,36,36,1.0,36,1.0,36,1.0,0.0
+it’s trained in english,36,36,1.0,36,1.0,36,1.0,0.0
+$0.00,36,36,1.0,36,1.0,36,1.0,0.0
+1 euro,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+all the training data was in portuguese,36,36,1.0,36,1.0,36,1.0,0.0
+i work at the nyt,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+i'm the developer,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+places,36,46,0.3,36,0.86,20,0.28,0.58
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+so far it only speaks chinese,36,36,1.0,36,1.0,36,1.0,0.0
+eisenkleber limited co kg,36,36,1.0,36,1.0,36,1.0,0.0
+my emayl is __email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+it’s trained in portuguese,36,36,1.0,36,1.0,36,1.0,0.0
+i have none,36,36,1.0,36,1.0,36,1.0,0.0
+until now it’s only in mandarin,36,36,1.0,36,1.0,36,1.0,0.0
+it speaks mandarin,36,36,1.0,36,1.0,36,1.0,0.0
+enginer,36,36,1.0,36,1.0,36,1.0,0.0
+i want to build an insurance bot,36,36,1.0,36,1.0,36,1.0,0.0
+the assistant speaks english,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+i use anaconda,36,36,0.8,36,0.82,36,0.49,0.32999999999999996
+it’s trained only in spanish,36,36,1.0,36,1.0,36,1.0,0.0
+my name is __person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+the bot speaks english,36,36,1.0,36,1.0,36,1.0,0.0
+user can talk to my bot in dutch,36,36,1.0,36,1.0,36,1.0,0.0
+language: english,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+customer service automation bot,36,36,1.0,36,1.0,36,1.0,0.0
+it’s available in german,36,36,1.0,36,1.0,36,1.0,0.0
+unemployed,36,36,1.0,36,0.99,36,0.99,0.0
+0,36,36,0.76,36,0.99,36,0.96,0.030000000000000027
+i wrote it in chinese,36,36,1.0,36,1.0,36,1.0,0.0
+data analyst,36,36,1.0,36,0.93,36,0.98,-0.04999999999999993
+__person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+it’s an chinese bot,36,36,1.0,36,1.0,36,1.0,0.0
+100000,36,36,1.0,36,1.0,36,1.0,0.0
+i want to build a bot about me,36,39,0.92,39,0.97,39,0.76,0.20999999999999996
+i work for stanford university,36,36,1.0,36,1.0,36,1.0,0.0
+the bot speaks spanish,36,36,1.0,36,1.0,36,1.0,0.0
+it’s in spanish,36,36,1.0,36,1.0,36,1.0,0.0
+i’ve trained it in spanish,36,36,1.0,36,1.0,36,1.0,0.0
+2 million,36,36,1.0,36,1.0,36,1.0,0.0
+it’s only in spanish but i plan to train it in other languages,36,36,1.0,36,1.0,36,1.0,0.0
+sales bot,36,34,0.99,34,1.0,34,0.91,0.08999999999999997
+language = french,36,36,1.0,36,1.0,36,1.0,0.0
+how much money,36,48,0.91,48,0.66,48,0.92,-0.26
+it speaks italian,36,36,1.0,36,1.0,36,1.0,0.0
+it is in portuguese,36,36,1.0,36,1.0,36,1.0,0.0
+my budget is oov,36,36,1.0,36,1.0,36,0.31,0.69
+botium,36,36,1.0,36,0.9,36,0.98,-0.07999999999999996
+idk,36,36,1.0,36,0.57,36,0.97,-0.4
+it’s only in english but i plan to train it in other languages,36,36,1.0,36,1.0,36,1.0,0.0
+n2626,36,36,0.99,36,0.93,36,0.99,-0.05999999999999994
+dutch is the only language but i want to add more,36,36,1.0,36,1.0,36,1.0,0.0
+it's __person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+$1000,36,36,1.0,36,1.0,36,1.0,0.0
+i am responsible for our innovation department,36,36,1.0,36,0.31,36,0.96,-0.6499999999999999
+"it's a tech company, apple",36,36,1.0,36,1.0,36,1.0,0.0
+1231,36,36,1.0,36,0.99,36,0.98,0.010000000000000009
+tech,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+developer advocate,36,36,1.0,36,1.0,36,1.0,0.0
+the language is chinese,36,36,1.0,36,1.0,36,1.0,0.0
+all the training data was in spanish,36,36,1.0,36,1.0,36,1.0,0.0
+__person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+the assistant speaks spanish,36,36,1.0,36,1.0,36,1.0,0.0
+mi name is __person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+language: chinese,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address____email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+my name is __person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+the language is french,36,36,1.0,36,1.0,36,1.0,0.0
+maybe then instead __email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+__person_name__ ist cool ag,36,36,1.0,36,1.0,36,1.0,0.0
+__person_name__'s company,36,36,1.0,36,1.0,36,1.0,0.0
+__person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+__person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+__person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+__person_name__'s company,36,36,1.0,36,1.0,36,1.0,0.0
+until now it’s only in english,36,36,1.0,36,1.0,36,1.0,0.0
+my bot is in spanish,36,36,1.0,36,1.0,36,1.0,0.0
+all the training data was in chinese,36,36,1.0,36,1.0,36,1.0,0.0
+__person_name____person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+the people speak dutch,36,36,1.0,36,1.0,36,1.0,0.0
+around one millon euros,36,36,1.0,36,1.0,36,1.0,0.0
+a health bot,36,36,1.0,36,1.0,36,1.0,0.0
+a great one,36,36,0.92,36,0.88,36,0.43,0.45
+the name of the company is oov,36,36,1.0,46,0.96,46,0.87,0.08999999999999997
+10k,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+20000,36,36,1.0,36,1.0,36,1.0,0.0
+the people speak portuguese,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+engineer,36,36,1.0,36,1.0,36,1.0,0.0
+assistant to the ceo,36,36,1.0,36,1.0,36,1.0,0.0
+an ice cream bot,36,36,1.0,36,1.0,36,1.0,0.0
+__email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+my email is __email_address__,36,36,1.0,36,1.0,36,1.0,0.0
+my name is __person_name__,36,36,1.0,36,1.0,36,1.0,0.0
+i'm head of sales,36,36,0.99,34,0.95,36,0.98,-0.030000000000000027
+the ice cream factory is the company,36,36,0.95,36,0.99,36,1.0,-0.010000000000000009
+sup,37,36,0.66,36,0.51,36,0.88,-0.37
+hey bot,37,37,0.99,37,1.0,37,0.99,0.010000000000000009
+hii,37,37,0.99,37,1.0,37,1.0,0.0
+"hi, bot",37,37,0.99,37,1.0,37,0.99,0.010000000000000009
+hello sweet boy,37,37,0.99,37,1.0,37,1.0,0.0
+hey hey,37,37,0.99,37,1.0,37,1.0,0.0
+hey,37,37,0.99,37,1.0,37,0.99,0.010000000000000009
+hey ther,37,37,0.99,37,1.0,37,1.0,0.0
+greet,37,37,0.99,37,0.94,37,0.88,0.05999999999999994
+hello sara,37,37,0.99,37,1.0,37,1.0,0.0
+heeey,37,37,0.99,37,0.99,37,1.0,-0.010000000000000009
+hola,37,37,0.99,37,0.99,37,0.98,0.010000000000000009
+hi hi,37,37,0.99,37,1.0,37,1.0,0.0
+hello friend,37,37,0.99,37,1.0,37,1.0,0.0
+hey,37,37,0.99,37,1.0,37,0.99,0.010000000000000009
+hey sara,37,37,0.99,37,1.0,37,0.99,0.010000000000000009
+hello sara,37,37,0.99,37,1.0,37,1.0,0.0
+salut,37,36,0.56,36,0.8,36,0.68,0.12
+hello,37,37,0.99,37,1.0,37,1.0,0.0
+hi!,37,37,0.99,37,1.0,37,1.0,0.0
+"hi,",37,37,0.99,37,1.0,37,0.99,0.010000000000000009
+"hey, let's talk",37,25,0.25,37,0.34,37,0.78,-0.44
+whats up my bot,37,37,0.99,37,0.99,37,0.78,0.20999999999999996
+halo,37,37,0.99,37,0.62,37,0.36,0.26
+hello?,37,37,0.99,37,1.0,37,1.0,0.0
+guten morgen,37,46,0.89,36,0.42,46,0.98,-0.56
+what up,37,37,0.99,37,0.98,37,0.98,0.0
+rasa hello,37,37,0.99,37,1.0,37,1.0,0.0
+helo,37,37,0.98,37,0.99,37,1.0,-0.010000000000000009
+fuck rasa,38,38,0.99,38,0.99,38,0.99,0.0
+you're the most moronic person i know,38,38,0.99,46,0.47,46,0.57,-0.09999999999999998
+you brain is dull.,38,38,0.99,38,0.56,38,0.85,-0.2899999999999999
+that wasn't very funny,38,46,0.4,38,0.31,50,0.56,-0.25000000000000006
+u r a piece of junk,38,38,0.99,50,0.38,36,0.88,-0.5
+fuck off,38,38,0.99,38,0.99,38,0.99,0.0
+a baby knows more than you,38,46,0.99,46,0.78,46,0.99,-0.20999999999999996
+you are a fool.,38,38,0.99,38,0.99,38,1.0,-0.010000000000000009
+you're dumb,38,38,0.99,38,0.99,38,1.0,-0.010000000000000009
+fuck off,38,38,0.99,38,0.99,38,0.99,0.0
+you are shortsighted.,38,38,0.99,46,0.96,46,0.55,0.4099999999999999
+but you are idiot,38,38,0.99,38,0.99,38,0.96,0.030000000000000027
+you lack understanding.,38,38,0.98,38,0.61,38,0.45,0.15999999999999998
+sucker,38,38,0.98,38,0.99,38,0.5,0.49
+i hate you,38,38,0.99,38,0.99,38,0.97,0.020000000000000018
+shit,38,38,0.98,38,0.99,38,0.98,0.010000000000000009
+you're an idiot,38,38,0.99,38,0.99,38,0.99,0.0
+fuck you,38,38,0.99,38,0.99,38,0.99,0.0
+you are idiotic,38,38,0.99,38,0.99,38,0.99,0.0
+you're an idiot.,38,38,0.99,38,0.99,38,1.0,-0.010000000000000009
+how to get start,39,39,1.0,39,1.0,39,0.99,0.010000000000000009
+how do i get rasa core,39,39,0.99,39,1.0,39,1.0,0.0
+can you help me with the rasa core stack?,39,39,0.94,39,0.97,39,0.96,0.010000000000000009
+tell me about rasa core,39,39,0.99,39,0.99,39,0.96,0.030000000000000027
+get started,39,39,1.0,39,1.0,39,1.0,0.0
+hilf mir beim start,39,39,0.99,39,0.74,39,0.97,-0.22999999999999998
+how can i build a chatbot,39,39,1.0,39,1.0,39,1.0,0.0
+how do i download rasa ?,39,41,0.98,39,0.67,41,0.5,0.17000000000000004
+i want to get started with rasa,39,39,1.0,39,1.0,39,1.0,0.0
+i want to know how can buld my own bot,39,46,0.99,46,0.98,46,0.99,-0.010000000000000009
+how to get started?,39,39,1.0,39,1.0,39,1.0,0.0
+how cna i get started with rasa,39,39,1.0,39,1.0,39,1.0,0.0
+can you explain how can i make chatbot like you,39,39,0.99,39,0.84,39,0.66,0.17999999999999994
+lets get started,39,39,1.0,39,1.0,39,1.0,0.0
+where to start?,39,39,1.0,39,1.0,39,1.0,0.0
+full,39,39,0.99,39,0.99,39,0.98,0.010000000000000009
+tell me about core,39,39,0.92,39,0.92,39,0.92,0.0
+how can i launch a bot?,39,39,0.89,39,0.98,39,0.99,-0.010000000000000009
+how can i start with rasa core?,39,39,1.0,39,1.0,39,1.0,0.0
+can you explain rasa core,39,39,0.99,39,0.99,39,0.95,0.040000000000000036
+tell me something about core,39,39,0.96,39,0.94,24,0.84,0.09999999999999998
+both,39,36,0.97,36,0.96,36,0.97,-0.010000000000000009
+tell me about rasa nlu,39,39,1.0,39,1.0,39,1.0,0.0
+what are the components of rasa?,39,39,0.99,39,0.99,39,1.0,-0.010000000000000009
+how can i get started with rasa,39,39,1.0,39,1.0,39,1.0,0.0
+full stack,39,39,0.99,39,1.0,39,1.0,0.0
+components of rasa,39,39,0.99,39,0.99,39,0.99,0.0
+do you know how to set up a chatbot?,39,39,0.9,39,0.95,39,0.72,0.22999999999999998
+how to start with rasa?,39,39,1.0,39,1.0,39,1.0,0.0
+stack,39,39,0.74,39,0.78,39,0.81,-0.030000000000000027
+how can i get started with rasa?,39,39,1.0,39,1.0,39,1.0,0.0
+pls explain how to get started,39,39,1.0,39,1.0,39,1.0,0.0
+i am a new user,39,39,0.95,39,0.94,39,0.56,0.3799999999999999
+please tell me how to get started with rasa,39,39,1.0,39,1.0,39,1.0,0.0
+how do i set up a chatbot?,39,39,1.0,39,0.99,39,0.99,0.0
+i need more info for rasa core,39,39,0.99,39,0.99,39,0.97,0.020000000000000018
+i wanna try rasa nlu,39,39,1.0,39,1.0,39,0.99,0.010000000000000009
+different parts of rasa,39,39,0.99,39,0.64,39,0.97,-0.32999999999999996
+i like to build a bot,39,39,0.99,39,0.99,39,0.92,0.06999999999999995
+how do i get started with nlu,39,39,1.0,39,1.0,39,1.0,0.0
+how do i download rasa,39,41,0.9,39,0.86,39,0.9,-0.040000000000000036
+just nlu,39,39,1.0,39,1.0,39,0.99,0.010000000000000009
+just rasa nlu,39,39,1.0,39,1.0,39,0.99,0.010000000000000009
+i'm new to rasa,39,39,1.0,39,1.0,39,0.99,0.010000000000000009
+can you tell me more about nlu?,39,39,1.0,39,1.0,39,0.99,0.010000000000000009
+how to start,39,39,1.0,39,1.0,39,1.0,0.0
+get started,39,39,1.0,39,1.0,39,1.0,0.0
+how do i get started with rasa,39,39,1.0,39,1.0,39,1.0,0.0
+how can i try out rasa?,39,39,0.5,39,0.68,39,0.76,-0.07999999999999996
+i want to use nlu,39,39,0.93,39,0.96,39,0.86,0.09999999999999998
+tell me how to get started,39,39,1.0,39,1.0,39,1.0,0.0
+what are rasa's components?,39,39,0.99,39,0.98,39,0.96,0.020000000000000018
+help me build a bot,39,39,0.9,39,0.77,39,0.65,0.12
+rasa nlu,39,39,1.0,39,1.0,39,0.99,0.010000000000000009
+get started with rasa,39,39,1.0,39,1.0,39,1.0,0.0
+how to build chatbot using rasa,39,39,0.99,39,1.0,39,0.99,0.010000000000000009
+compnnent of rasa,39,36,0.99,36,0.97,36,0.58,0.39
+whar are the components of rasa?,39,39,0.99,39,0.98,39,0.98,0.0
+can i just test features without having to deal with your predefined conversation,39,46,0.83,54,0.74,54,0.42,0.32
+how do i start,39,39,1.0,39,1.0,39,1.0,0.0
+how do i get started?,39,39,1.0,39,1.0,39,1.0,0.0
+full framework,39,54,0.62,54,0.71,39,0.47,0.24
+i want to talk to a human,40,40,0.98,40,0.98,40,0.96,0.020000000000000018
+i don't wanna talk to a bot,40,40,0.97,40,0.96,40,0.92,0.039999999999999925
+that's annoying i'd like to speak to someone real,40,40,0.98,40,0.95,40,0.97,-0.020000000000000018
+i want to speak to a manager,40,40,0.96,40,0.94,40,0.78,0.15999999999999992
+can you please connect me to a real rasa employee?,40,40,0.96,40,0.88,40,0.74,0.14
+"thats not helping, can i talk to human?",40,40,0.98,40,0.97,40,0.9,0.06999999999999995
+are there also humans working for your company?,40,1,0.4,46,0.42,46,0.17,0.24999999999999997
+i want to talk to human,40,40,0.98,40,0.98,40,0.95,0.030000000000000027
+how do i install rasa,41,41,0.99,41,0.99,41,0.98,0.010000000000000009
+can you help me with installation,41,41,0.99,41,0.8,41,0.46,0.34
+how do i run rasa on windows,41,39,0.96,39,0.94,39,0.92,0.019999999999999907
+"dude, i want install rasa",41,41,0.99,41,0.99,41,0.98,0.010000000000000009
+i want info on installing rasa,41,41,0.99,41,0.99,41,0.98,0.010000000000000009
+i want to use rasa stack,41,41,0.95,41,0.69,41,0.51,0.17999999999999994
+i need to install rasa core.,41,41,0.99,41,0.99,41,0.98,0.010000000000000009
+i have chosen rasa stack,41,41,0.98,41,0.3,41,0.68,-0.38000000000000006
+having some problems with installation,41,39,0.84,54,0.88,39,0.56,0.31999999999999995
+rasa stack is what i will be installing,41,41,0.99,41,0.99,41,0.98,0.010000000000000009
+i'd like to perform an installation of rasa stack,41,41,0.99,41,0.98,41,0.98,0.0
+how can i install rasa,41,41,0.99,41,0.99,41,0.98,0.010000000000000009
+how can i install python,41,8,0.72,8,0.64,8,0.31,0.33
+how to install rasa?,41,41,0.99,41,0.99,41,0.99,0.0
+i need assistance in getting rasa stack.,41,41,0.96,41,0.88,41,0.81,0.06999999999999995
+how do i install rasa in windows,41,41,0.99,41,0.99,41,0.93,0.05999999999999994
+help me get rasa core.,41,41,0.98,41,0.97,39,0.53,0.43999999999999995
+i'm going to install rasa stack,41,41,0.99,41,0.99,41,0.98,0.010000000000000009
+what sould i do to install rasa,41,41,0.99,41,0.99,41,0.96,0.030000000000000027
+i want to go to the next step,42,42,0.93,42,0.83,42,0.6,0.22999999999999998
+"ok, next step",42,42,0.92,42,0.89,42,0.8,0.08999999999999997
+i have to go to the next step,42,42,0.92,42,0.81,42,0.66,0.15000000000000002
+it's wonderful to meet you!,43,43,0.99,43,0.97,43,0.95,0.020000000000000018
+great to meet you.,43,43,0.99,43,0.97,43,0.93,0.039999999999999925
+"hi, glad to meet you.",43,43,0.99,43,0.96,43,0.96,0.0
+great to meet you!,43,43,0.99,43,0.97,43,0.94,0.030000000000000027
+pleased to meet you!,43,43,0.99,43,0.97,43,0.95,0.020000000000000018
+thank you for this meeting. it was great to see you.,43,43,0.98,43,0.89,43,0.6,0.29000000000000004
+happy to get to see you.,43,43,0.99,43,0.97,43,0.92,0.04999999999999993
+it's nice to finally meet you.,43,43,0.99,43,0.97,43,0.94,0.030000000000000027
+it is indeed a pleasure to be able to meet you.,43,43,0.99,43,0.97,43,0.95,0.020000000000000018
+it's a pleasure to make your acquaintance!,43,43,0.99,43,0.97,43,0.93,0.039999999999999925
+i require more nlu data,44,44,0.87,44,0.52,44,0.37,0.15000000000000002
+recommend me some nlu tools,44,54,0.34,39,0.89,39,0.71,0.18000000000000005
+i want to know if rasa works with duckling,45,45,0.97,45,0.96,45,0.5,0.45999999999999996
+what are intents?,45,45,0.98,45,0.98,45,0.96,0.020000000000000018
+it would be helpful to learn more about intent classification,45,45,0.98,45,0.98,45,0.97,0.010000000000000009
+entity recognition - what is that?,45,45,0.98,45,0.97,45,0.9,0.06999999999999995
+i don’t understand how you handle intent classification at rasa,45,45,0.98,45,0.98,45,0.97,0.010000000000000009
+where to intents?,45,45,0.98,45,0.98,45,0.96,0.020000000000000018
+entity recognition,45,45,0.98,45,0.97,45,0.98,-0.010000000000000009
+duckling,45,36,0.99,45,0.97,36,0.97,0.0
+i don’t understand intent classification,45,45,0.98,45,0.98,45,0.98,0.0
+how does entity recognition work?,45,45,0.98,45,0.98,45,0.96,0.020000000000000018
+recognition,45,50,0.6,45,0.92,45,0.54,0.38
+what is duckling?,45,45,0.98,45,0.98,45,0.87,0.10999999999999999
+some thing else,46,46,0.35,46,0.36,46,0.23,0.12999999999999998
+call me father,46,46,0.78,46,0.85,46,0.85,0.0
+你好,46,46,1.0,46,1.0,46,1.0,0.0
+and make chicken noises into the phone,46,46,0.77,46,0.92,46,0.88,0.040000000000000036
+do you liek cheese?,46,46,1.0,46,1.0,46,0.98,0.020000000000000018
+i want to fly,46,46,0.55,46,0.76,46,0.84,-0.07999999999999996
+can you make sandwiches?,46,46,1.0,46,1.0,46,1.0,0.0
+what is your address?,46,27,0.93,27,0.92,27,0.71,0.21000000000000008
+i am qq,46,36,0.97,36,0.98,36,1.0,-0.020000000000000018
+you have job opening,46,46,0.99,46,0.78,46,0.94,-0.15999999999999992
+de donde eres,46,46,0.96,46,0.89,46,0.85,0.040000000000000036
+i want to book a hotel,46,20,0.96,20,0.98,20,0.93,0.04999999999999993
+did i break you,46,46,0.99,46,0.99,46,0.99,0.0
+how long have you been online?,46,16,0.82,16,0.91,16,0.55,0.36
+i wan to buy a plane,46,46,1.0,46,1.0,46,1.0,0.0
+but i just told you that :(,46,46,0.95,46,0.97,46,0.95,0.020000000000000018
+i want pizza,46,46,1.0,46,1.0,46,0.99,0.010000000000000009
+chgfhgh,46,37,0.52,36,0.8,36,0.58,0.22000000000000008
+i want more of you in my life!,46,46,0.97,46,0.93,46,0.75,0.18000000000000005
+what else?,46,25,0.96,25,0.97,25,0.95,0.020000000000000018
+"alexa, order 5 tons of natrium chloride",46,46,1.0,11,0.73,46,0.4,0.32999999999999996
+give me a girl friend,46,46,0.99,46,0.98,46,0.99,-0.010000000000000009
+what are your uses for universities,46,46,0.97,46,0.95,46,0.82,0.13
+bots are bad,46,49,0.84,46,0.4,49,0.85,-0.44999999999999996
+what is evolution ?,46,45,0.27,54,0.38,54,0.28,0.09999999999999998
+i dont like bots,46,35,0.85,35,0.55,36,0.67,-0.12
+you will know it from the single red rose it carries between its teeth,46,46,0.63,46,0.98,46,0.99,-0.010000000000000009
+what is todays date,46,46,0.29,22,0.27,22,0.93,-0.66
+que puedes hacer?,46,15,0.96,46,0.83,46,0.98,-0.15000000000000002
+search wikipedia,46,46,1.0,46,0.71,46,0.99,-0.28
+which city are you talking about?,46,27,0.93,27,0.94,27,0.87,0.06999999999999995
+how many languages does spacy support?,46,5,0.99,5,0.99,5,0.99,0.0
+whats the sign,46,46,0.88,46,0.91,46,0.89,0.020000000000000018
+the one that is better than you,46,46,0.96,46,0.98,46,0.88,0.09999999999999998
+what do you think of alexa,46,11,0.52,11,0.95,11,0.71,0.24
+are the newsletter worth the subscription?,46,51,0.55,51,0.89,51,0.77,0.12
+i want to grab lunch,46,46,1.0,46,1.0,46,1.0,0.0
+recharge,46,46,1.0,36,0.45,36,0.76,-0.31
+nlw,46,36,0.91,36,0.98,36,0.99,-0.010000000000000009
+what is significance of domain.yml file,46,54,0.76,54,0.68,54,0.71,-0.029999999999999916
+are you ready?,46,15,0.42,46,0.44,15,0.38,0.06
+example of a chatbot,46,36,0.54,39,0.84,39,0.88,-0.040000000000000036
+but you're an english site :(,46,46,0.84,46,0.89,46,0.95,-0.05999999999999994
+what's your wife doing this weekend,46,46,0.44,46,0.89,46,0.96,-0.06999999999999995
+what the latest news ?,46,15,0.99,15,0.99,15,0.98,0.010000000000000009
+who ?,46,30,0.77,30,0.8,30,0.73,0.07000000000000006
+can you help me with your docs,46,46,1.0,46,1.0,46,1.0,0.0
+can you please send me an uber,46,46,0.98,46,0.99,46,0.92,0.06999999999999995
+lunch,46,46,1.0,46,1.0,46,1.0,0.0
+lunch??,46,46,1.0,46,1.0,46,0.99,0.010000000000000009
+help with __person_name__,46,46,1.0,46,1.0,46,1.0,0.0
+where am i?,46,29,0.44,29,0.55,29,0.43,0.12000000000000005
+what i do after cd starter-pack-rasa-stack?,46,46,0.89,46,0.58,39,0.57,0.010000000000000009
+i am an opioid addict,46,36,1.0,36,1.0,36,1.0,0.0
+who will anser my email?,46,46,0.99,46,0.99,46,0.99,0.0
+how can i test this,46,39,0.66,39,0.71,39,0.81,-0.10000000000000009
+what do oyu think about siri?,46,46,0.97,46,0.98,46,0.86,0.12
+"oh my god, not again!",46,33,0.33,35,0.73,46,0.45,0.27999999999999997
+get me a club mate,46,46,0.78,40,0.31,46,0.9,-0.5900000000000001
+umm,46,0,0.96,0,0.89,0,0.96,-0.06999999999999995
+personal or work?,46,46,0.82,46,0.79,46,0.64,0.15000000000000002
+pizza,46,46,1.0,46,1.0,46,1.0,0.0
+book a ticket,46,34,0.81,46,0.79,46,0.47,0.32000000000000006
+that doesn't sound like a joke,46,33,0.69,46,0.46,35,0.24,0.22000000000000003
+"i am hungry, what should i do?",46,46,0.99,46,0.99,46,0.46,0.53
+do you believe in god?,46,46,0.99,46,0.99,46,0.99,0.0
+how do you learn,46,39,0.99,39,0.99,39,1.0,-0.010000000000000009
+really? you're so touchy?,46,46,0.98,46,0.97,46,0.94,0.030000000000000027
+i ned a gp in 94301,46,46,0.99,46,0.99,36,0.58,0.41000000000000003
+sel me something,46,25,0.91,25,0.93,46,0.49,0.44000000000000006
+do you have a phone number?,46,46,0.88,46,0.97,46,0.88,0.08999999999999997
+what are you doing now?,46,25,0.95,25,0.97,25,0.96,0.010000000000000009
+i'd like to buy oneone __person_name__ please,46,46,1.0,46,1.0,46,1.0,0.0
+"__person_name__, i want to marry you",46,46,1.0,46,0.99,46,1.0,-0.010000000000000009
+what's do youtube do,46,46,1.0,46,1.0,46,1.0,0.0
+that link doesn't work!,46,46,0.46,46,0.61,46,0.3,0.31
+who is the president of india ?,46,46,0.64,1,0.58,1,0.63,-0.050000000000000044
+what are contextual ai assistants and how different are they from chatbots?,46,54,0.81,54,0.47,54,0.43,0.03999999999999998
+i want to know current situtation in pakistan,46,27,0.19,54,0.38,46,0.13,0.25
+what pipeline is better for what i want?,47,47,0.76,47,0.7,47,0.42,0.27999999999999997
+what i a good pipeline to start with?,47,47,0.8,47,0.62,47,0.34,0.27999999999999997
+recommend pipeline,47,47,0.74,47,0.69,47,0.44,0.24999999999999994
+i would like to know the cost first.,48,48,0.98,48,0.98,48,0.92,0.05999999999999994
+are you really free,48,48,0.98,48,0.98,48,0.84,0.14
+how much does it cost?,48,48,0.98,48,0.99,48,0.99,0.0
+how much do you cost,48,48,0.98,48,0.99,48,0.99,0.0
+your cost?,48,48,0.98,48,0.98,48,0.98,0.0
+what is the price of rasa,48,48,0.98,48,0.99,48,0.98,0.010000000000000009
+this is free?,48,48,0.98,48,0.98,48,0.95,0.030000000000000027
+what is the price?,48,48,0.98,48,0.99,48,0.98,0.010000000000000009
+is it free,48,48,0.98,48,0.98,48,0.97,0.010000000000000009
+how much is it,48,48,0.77,48,0.88,46,0.54,0.33999999999999997
+super sad,49,49,0.97,49,0.97,49,0.92,0.04999999999999993
+you are bad,49,49,0.97,49,0.97,49,0.96,0.010000000000000009
+you are bad bot,49,49,0.95,49,0.94,49,0.82,0.12
+i am super sad,49,49,0.97,49,0.97,49,0.97,0.0
+i'm sad,49,49,0.97,49,0.97,49,0.98,-0.010000000000000009
+i feel sad,49,49,0.97,49,0.97,49,0.97,0.0
+i am feeling happy,50,50,0.97,50,0.89,50,0.82,0.07000000000000006
+that was a great interaction,50,43,0.49,50,0.55,50,0.46,0.09000000000000002
+you are awesome,50,50,0.97,50,0.97,50,0.98,-0.010000000000000009
+you're nice.,50,50,0.97,50,0.97,50,0.85,0.12
+haha,50,50,0.97,50,0.97,50,0.98,-0.010000000000000009
+wow,50,50,0.98,50,0.98,50,0.98,0.0
+rasa is awesome,50,36,0.45,50,0.5,0,0.82,-0.31999999999999995
+i am happy,50,50,0.97,50,0.97,50,0.97,0.0
+"okay rasabot, you're cool",50,0,0.99,50,0.6,0,0.94,-0.33999999999999997
+please subscribe me to your newsletter,51,51,0.99,51,1.0,51,0.99,0.010000000000000009
+i want to receive the newsletter emails,51,51,1.0,51,1.0,51,0.99,0.010000000000000009
+i would love to get the newsletter,51,51,1.0,51,1.0,51,0.99,0.010000000000000009
+i need to be on the newsletter list,51,51,0.99,51,1.0,51,0.99,0.010000000000000009
+i want on this dope newsletter - my email is __email_address__,51,51,0.99,51,0.99,51,0.99,0.0
+i also want to subscribe,51,51,0.99,51,1.0,51,1.0,0.0
+newsletter pls,51,51,0.99,51,1.0,51,0.99,0.010000000000000009
+get the newsletter,51,51,1.0,51,1.0,51,1.0,0.0
+"newsletter, here is my email: __email_address__",51,51,0.99,51,0.99,51,0.98,0.010000000000000009
+i want to join the newsletter mails,51,51,1.0,51,1.0,51,0.99,0.010000000000000009
+add me to the subscription list,51,51,0.99,51,0.98,51,0.96,0.020000000000000018
+newsletter,51,51,0.99,51,1.0,51,0.99,0.010000000000000009
+i want to be part of the newsletter,51,51,0.99,51,1.0,51,0.99,0.010000000000000009
+please send newsletter to __email_address__,51,51,0.99,51,1.0,51,0.99,0.010000000000000009
+can i sign up to the newsletter too?,51,51,0.99,51,1.0,51,0.99,0.010000000000000009
+get the latest news from rasa,51,51,0.22,51,0.78,51,0.23,0.55
+i want to sign up for the newsletter.,51,51,1.0,51,1.0,51,0.99,0.010000000000000009
+but please sign me up for the newsletter!,51,51,0.99,51,1.0,51,0.99,0.010000000000000009
+i prefer to get the newsletter,51,51,1.0,51,1.0,51,0.99,0.010000000000000009
+i want to subscribing to the rasa newsletter,51,51,0.99,51,1.0,51,0.99,0.010000000000000009
+"hello sara, can you subscribe me to the newsletter?",51,51,0.99,51,1.0,51,0.99,0.010000000000000009
+i go for the newsletter,51,51,1.0,51,1.0,51,0.99,0.010000000000000009
+i'm craving the newsletter,51,51,1.0,51,0.71,51,0.98,-0.27
+get newsletter,51,51,1.0,51,1.0,51,1.0,0.0
+first lets sign up for the newsletter,51,51,1.0,51,1.0,51,0.98,0.020000000000000018
+subcribe,51,51,0.99,51,0.99,36,0.7,0.29000000000000004
+i'd like your newspaper please,51,46,0.97,51,0.95,46,0.88,0.06999999999999995
+subscribe newsletter,51,51,1.0,51,1.0,51,0.99,0.010000000000000009
+i want the newsletter,51,51,1.0,51,1.0,51,0.99,0.010000000000000009
+can i know your source code ?,52,52,0.95,52,0.95,52,0.96,-0.010000000000000009
+how can i get the code for the demo bot?,52,52,0.68,52,0.74,52,0.72,0.020000000000000018
+your code,52,52,0.94,52,0.94,52,0.96,-0.020000000000000018
+i want to use your source code,52,52,0.94,52,0.94,52,0.92,0.019999999999999907
+is your code available?,52,52,0.94,52,0.94,52,0.95,-0.010000000000000009
+i need source code,52,52,0.94,52,0.95,52,0.94,0.010000000000000009
+switching,53,53,0.75,53,0.78,53,0.68,0.09999999999999998
+i want to convert my dialog flow bot to rasa,53,53,0.93,53,0.93,53,0.89,0.040000000000000036
+how to export dialogflow data to rasa,53,53,0.51,53,0.4,53,0.46,-0.06
+how do you switch from dialogflow,53,53,0.97,53,0.86,53,0.76,0.09999999999999998
+wit,53,36,1.0,36,1.0,36,0.99,0.010000000000000009
+chatfuel,53,36,1.0,36,0.99,36,1.0,-0.010000000000000009
+migration from luis,53,53,0.82,53,0.93,53,0.75,0.18000000000000005
+i am using dialogflow - how can i migrate,53,53,0.97,53,0.94,53,0.87,0.06999999999999995
+bot framework,53,54,0.86,54,0.85,54,0.86,-0.010000000000000009
+can you help with some documentation,54,54,0.58,54,0.84,54,0.66,0.17999999999999994
+what does on-premise mean?,54,45,0.4,54,0.29,54,0.36,-0.07
+what are the features does rasa have?,54,24,0.95,24,0.8,24,0.69,0.1100000000000001
+what is the last version of rasa core?,54,54,0.26,24,0.44,24,0.28,0.15999999999999998
+interactive learning?,54,54,0.96,54,0.6,54,0.86,-0.26
+how to use rasa caht in react application,54,54,0.95,54,0.93,54,0.91,0.020000000000000018
+your specifications,54,52,0.54,46,0.91,46,0.37,0.54
+what infrastructure is required to run a bot?,54,54,0.51,54,0.67,54,0.53,0.14
+ok quick question here do i download this api,54,54,0.7,54,0.4,54,0.4,0.0
+i have a problem,54,54,0.88,54,0.86,54,0.82,0.040000000000000036
+how can i deploy my server on production?,54,54,0.92,54,0.88,54,0.7,0.18000000000000005
+which  other tools can be used to  create chatbots?,54,54,0.95,54,0.92,54,0.66,0.26
+which language is rasa programmed in,54,5,0.99,5,0.99,5,0.98,0.010000000000000009
+can you tell me a joke.,55,55,0.97,55,0.97,55,0.96,0.010000000000000009
+could you tell me a joke.,55,55,0.97,55,0.97,55,0.96,0.010000000000000009
+share a joke with me!,55,55,0.97,55,0.97,55,0.96,0.010000000000000009
+i need a good joke.,55,55,0.97,55,0.96,55,0.95,0.010000000000000009
+you can say a jok,55,37,0.63,46,0.83,46,0.96,-0.13
+tell me a short joke,55,55,0.97,55,0.97,55,0.96,0.010000000000000009
+tell me something humorous!,55,55,0.97,55,0.92,55,0.68,0.24
+tell me something that you think will make me laugh.,55,55,0.95,55,0.92,55,0.44,0.48000000000000004
+thank u,56,56,0.98,56,0.98,56,0.97,0.010000000000000009
+cheers bro,56,56,0.98,56,0.98,56,0.98,0.0
+cool thanks,56,56,0.98,56,0.98,56,0.89,0.08999999999999997
+thx,56,36,1.0,36,0.89,36,0.91,-0.020000000000000018
+thanks a lot,56,56,0.98,56,0.98,56,0.98,0.0
+thanks a bunch for everything,56,56,0.98,56,0.98,56,0.92,0.05999999999999994
+thanks!,56,56,0.98,56,0.98,56,0.96,0.020000000000000018
+thanks for that,56,56,0.98,56,0.98,56,0.96,0.020000000000000018

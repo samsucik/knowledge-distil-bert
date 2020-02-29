@@ -1,0 +1,48 @@
+confidence	true	predicted	sentence
+CONFIDENT MISTAKES	 	 	 
+0.994	neg.	pos.	this riveting world war ii moral suspense story deals with the shadow side of american culture : racial prejudice in its ugly and diverse forms . 
+0.993	pos.	neg.	though it 's become almost redundant to say so , major kudos go to leigh for actually casting people who look working-class . 
+0.993	neg.	pos.	moretti 's compelling anatomy of grief and the difficult process of adapting to loss . 
+0.992	neg.	pos.	it 's somewhat clumsy and too lethargically paced -- but its story about a mysterious creature with psychic abilities offers a solid build-up , a terrific climax , and some nice chills along the way . 
+0.991	pos.	neg.	as unseemly as its title suggests . 
+0.990	neg.	pos.	american chai encourages rueful laughter at stereotypes only an indian-american would recognize . 
+0.989	pos.	neg.	while there 's something intrinsically funny about sir anthony hopkins saying ` get in the car , bitch , ' this jerry bruckheimer production has little else to offer 
+0.989	neg.	pos.	although huppert 's intensity and focus has a raw exhilaration about it , the piano teacher is anything but fun . 
+0.988	neg.	pos.	you wo n't like roger , but you will quickly recognize him . 
+0.988	neg.	pos.	the longer the movie goes , the worse it gets , but it 's actually pretty good in the first few minutes . 
+
+UNCONFIDENT MISTAKES	 	 	 
+0.536	pos.	neg.	it 's one of those baseball pictures where the hero is stoic , the wife is patient , the kids are as cute as all get-out and the odds against success are long enough to intimidate , but short enough to make a dream seem possible . 
+0.584	pos.	neg.	huston nails both the glad-handing and the choking sense of hollow despair . 
+0.648	pos.	neg.	funny but perilously slight . 
+0.650	neg.	pos.	sam mendes has become valedictorian at the school for soft landings and easy ways out . 
+0.651	neg.	pos.	a great ensemble cast ca n't lift this heartfelt enterprise out of the familiar . 
+0.664	pos.	neg.	we root for ( clara and paul ) , even like them , though perhaps it 's an emotion closer to pity . 
+0.676	pos.	neg.	mcconaughey 's fun to watch , the dragons are okay , not much fire in the script . 
+0.683	pos.	neg.	the jabs it employs are short , carefully placed and dead-center . 
+0.714	pos.	neg.	the lion king was a roaring success when it was released eight years ago , but on imax it seems better , not just bigger . 
+0.749	pos.	neg.	good film , but very glum . 
+
+CONFIDENT HITS	 	 	 
+0.997	pos.	pos.	a fast , funny , highly enjoyable movie . 
+0.997	pos.	pos.	a delightful coming-of-age story . 
+0.997	pos.	pos.	an entertaining , colorful , action-filled crime story with an intimate heart . 
+0.997	pos.	pos.	a very well-made , funny and entertaining picture . 
+0.997	pos.	pos.	entertains by providing good , lively company . 
+0.997	pos.	pos.	a tender , witty , captivating film about friendship , love , memory , trust and loyalty . 
+0.997	pos.	pos.	a tender , heartfelt family drama . 
+0.997	pos.	pos.	it 's a lovely film with lovely performances by buy and accorsi . 
+0.997	pos.	pos.	a gorgeous , high-spirited musical from india that exquisitely blends music , dance , song , and high drama . 
+0.997	pos.	pos.	a strangely compelling and brilliantly acted psychological drama . 
+
+UNCONFIDENT HITS	 	 	 
+0.560	pos.	pos.	the socio-histo-political treatise is told in earnest strides ... ( and ) personal illusion is deconstructed with poignancy . 
+0.572	neg.	neg.	in all , this is a watchable movie that 's not quite the memorable experience it might have been . 
+0.583	pos.	pos.	collateral damage finally delivers the goods for schwarzenegger fans . 
+0.594	neg.	neg.	this time mr. burns is trying something in the martin scorsese street-realist mode , but his self-regarding sentimentality trips him up again . 
+0.631	pos.	pos.	in a way , the film feels like a breath of fresh air , but only to those that allow it in . 
+0.644	pos.	pos.	something akin to a japanese alice through the looking glass , except that it seems to take itself far more seriously . 
+0.657	pos.	pos.	light years / several warp speeds / levels and levels of dilithium crystals better than the pitiful insurrection . 
+0.686	neg.	neg.	very special effects , brilliantly bold colors and heightened reality ca n't hide the giant achilles ' heel in `` stuart little 2 `` : there 's just no story , folks . 
+0.721	pos.	pos.	the best revenge may just be living well because this film , unlike other dumas adaptations , is far more likened to a treasure than a lengthy jail sentence . 
+0.753	neg.	neg.	to say this was done better in wilder 's some like it hot is like saying the sun rises in the east . 

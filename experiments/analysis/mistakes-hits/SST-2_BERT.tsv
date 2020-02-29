@@ -1,0 +1,48 @@
+confidence	true	predicted	sentence
+CONFIDENT MISTAKES	 	 	 
+0.996	neg.	pos.	it 's somewhat clumsy and too lethargically paced -- but its story about a mysterious creature with psychic abilities offers a solid build-up , a terrific climax , and some nice chills along the way . 
+0.995	neg.	pos.	outer-space buffs might love this film , but others will find its pleasures intermittent . 
+0.995	neg.	pos.	although huppert 's intensity and focus has a raw exhilaration about it , the piano teacher is anything but fun . 
+0.994	neg.	pos.	you wo n't like roger , but you will quickly recognize him . 
+0.993	neg.	pos.	irwin is a man with enough charisma and audacity to carry a dozen films , but this particular result is ultimately held back from being something greater . 
+0.992	pos.	neg.	as unseemly as its title suggests . 
+0.992	neg.	pos.	it 's inoffensive , cheerful , built to inspire the young people , set to an unending soundtrack of beach party pop numbers and aside from its remarkable camerawork and awesome scenery , it 's about as exciting as a sunburn . 
+0.991	neg.	pos.	you really have to wonder how on earth anyone , anywhere could have thought they 'd make audiences guffaw with a script as utterly diabolical as this . 
+0.990	neg.	pos.	this riveting world war ii moral suspense story deals with the shadow side of american culture : racial prejudice in its ugly and diverse forms . 
+0.988	pos.	neg.	harrison 's flowers puts its heart in the right place , but its brains are in no particular place at all . 
+
+UNCONFIDENT MISTAKES	 	 	 
+0.502	neg.	pos.	if the movie succeeds in instilling a wary sense of ` there but for the grace of god , ' it is far too self-conscious to draw you deeply into its world . 
+0.512	pos.	neg.	mcconaughey 's fun to watch , the dragons are okay , not much fire in the script . 
+0.534	pos.	neg.	it moves quickly , adroitly , and without fuss ; it does n't give you time to reflect on the inanity -- and the cold war datedness -- of its premise . 
+0.539	pos.	neg.	collateral damage finally delivers the goods for schwarzenegger fans . 
+0.579	neg.	pos.	even the finest chef ca n't make a hotdog into anything more than a hotdog , and robert de niro ca n't make this movie anything more than a trashy cop buddy comedy . 
+0.599	neg.	pos.	that 's pure pr hype . 
+0.603	neg.	pos.	combining quick-cut editing and a blaring heavy metal much of the time , beck seems to be under the illusion that he 's shooting the latest system of a down video . 
+0.605	pos.	neg.	( d ) oes n't bother being as cloying or preachy as equivalent evangelical christian movies -- maybe the filmmakers know that the likely audience will already be among the faithful . 
+0.623	neg.	pos.	to say this was done better in wilder 's some like it hot is like saying the sun rises in the east . 
+0.634	neg.	pos.	the only excitement comes when the credits finally roll and you get to leave the theater . 
+
+CONFIDENT HITS	 	 	 
+0.996	pos.	pos.	it 's a charming and often affecting journey . 
+0.996	pos.	pos.	immersing us in the endlessly inventive , fiercely competitive world of hip-hop djs , the project is sensational and revelatory , even if scratching makes you itch . 
+0.996	pos.	pos.	altogether , this is successful as a film , while at the same time being a most touching reconsideration of the familiar masterpiece . 
+0.996	pos.	pos.	there has always been something likable about the marquis de sade . 
+0.996	pos.	pos.	a warm but realistic meditation on friendship , family and affection . 
+0.996	pos.	pos.	it 's a remarkably solid and subtly satirical tour de force . 
+0.996	pos.	pos.	director andrew niccol ... demonstrates a wry understanding of the quirks of fame . 
+0.996	pos.	pos.	it all adds up to good fun . 
+0.996	pos.	pos.	a very well-made , funny and entertaining picture . 
+0.996	pos.	pos.	it 's worth seeing just on the basis of the wisdom , and at times , the startling optimism , of the children . 
+
+UNCONFIDENT HITS	 	 	 
+0.511	pos.	pos.	you will emerge with a clearer view of how the gears of justice grind on and the death report comes to share airtime alongside the farm report . 
+0.512	pos.	pos.	hilariously inept and ridiculous . 
+0.519	pos.	pos.	the movie is n't just hilarious : it 's witty and inventive , too , and in hindsight , it is n't even all that dumb . 
+0.524	pos.	pos.	ramsay , as in ratcatcher , remains a filmmaker with an acid viewpoint and a real gift for teasing chilly poetry out of lives and settings that might otherwise seem drab and sordid . 
+0.532	neg.	neg.	manages to show life in all of its banality when the intention is quite the opposite . 
+0.540	neg.	neg.	a great ensemble cast ca n't lift this heartfelt enterprise out of the familiar . 
+0.540	neg.	neg.	with its dogged hollywood naturalism and the inexorable passage of its characters toward sainthood , windtalkers is nothing but a sticky-sweet soap . 
+0.561	pos.	pos.	bogdanovich tantalizes by offering a peep show into the lives of the era 's creme de la celluloid . 
+0.561	neg.	neg.	the film contains no good jokes , no good scenes , barely a moment when carvey 's saturday night live-honed mimicry rises above the level of embarrassment . 
+0.561	neg.	neg.	it showcases carvey 's talent for voices , but not nearly enough and not without taxing every drop of one 's patience to get to the good stuff . 

@@ -1,0 +1,48 @@
+confidence	true	predicted	sentence
+CONFIDENT MISTAKES	 	 	 
+0.982	unacc.	acc.	mary beautifully plays the violin.
+0.982	unacc.	acc.	which house does your friend live?
+0.981	unacc.	acc.	jack is the person with whom jenny fell in love with.
+0.980	unacc.	acc.	it has been determined that somebody will be appointed; it's just not clear yet who.
+0.979	unacc.	acc.	mary intended john to go abroad.
+0.978	unacc.	acc.	sandy was trying to work out which students would be able to solve a certain problem, but she wouldn't tell us which one.
+0.978	unacc.	acc.	she was bathing, but i couldn't make out who.
+0.978	unacc.	acc.	that the cops spoke to the janitor about it yesterday is terrible, that robbery.
+0.977	unacc.	acc.	john believes it sincerely that bill is here.
+0.977	unacc.	acc.	sally asked if somebody was going to fail math class, but i can't remember who.
+
+UNCONFIDENT MISTAKES	 	 	 
+0.519	acc.	unacc.	i am both expecting to get the job and of the opinion that it is a desirable one.
+0.549	acc.	unacc.	john, told mary that it would be appropriate to leave together.
+0.578	unacc.	acc.	i enjoy yourself.
+0.616	acc.	unacc.	we recommend to eat less cake and pastry.
+0.624	unacc.	acc.	john likes some students, but i don't know who john likes some students.
+0.632	unacc.	acc.	which topic did you get bored because mary talked about?
+0.665	unacc.	acc.	mickey looked up it.
+0.677	unacc.	acc.	the bookcase ran
+0.680	unacc.	acc.	we appeared to them to vote for themselves.
+0.687	unacc.	acc.	the book of poems and from blackwell takes a very long time to read.
+
+CONFIDENT HITS	 	 	 
+0.985	acc.	acc.	that is the reason why he resigned.
+0.985	acc.	acc.	i believe there to be no way out.
+0.985	acc.	acc.	some people consider the dogs dangerous.
+0.984	acc.	acc.	the witch poisoned the children.
+0.984	acc.	acc.	fortunately hermione passed biology
+0.984	acc.	acc.	captain wentworth wrote a letter to anne elliott.
+0.984	acc.	acc.	the defendant denied the accusation.
+0.984	acc.	acc.	i would prefer for john to leave.
+0.984	acc.	acc.	the visitor rang the bell.
+0.984	acc.	acc.	chris was handed a note.
+
+UNCONFIDENT HITS	 	 	 
+0.503	unacc.	unacc.	neither of students failed.
+0.526	acc.	acc.	max seemed to be trying to force ted to leave the room, and walt, ira.
+0.532	unacc.	unacc.	the book was by john written.
+0.536	unacc.	unacc.	ourselves like ourselves.
+0.554	acc.	acc.	who who you like does sandy also like?
+0.586	unacc.	unacc.	which girl did mike quip never wore this hat?
+0.587	acc.	acc.	carla slid the book.
+0.613	acc.	acc.	you must pick any flower you see.
+0.613	acc.	acc.	mary asked me if, in st. louis, john could rent a house cheap.
+0.635	acc.	acc.	i read some of the book.

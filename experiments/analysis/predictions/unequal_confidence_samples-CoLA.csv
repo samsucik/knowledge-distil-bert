@@ -1,0 +1,1044 @@
+sentence,label,pred_teacher,confidence_teacher,pred_BERT,confidence_BERT,pred_LSTM,confidence_LSTM,confidence_diff
+the sailors rode the breeze clear of the rocks.,1,1,0.98,1,0.75,1,0.97,-0.21999999999999997
+the weights made the rope stretch over the pulley.,1,1,0.98,1,0.88,1,0.97,-0.08999999999999997
+the mechanical doll wriggled itself loose.,1,1,0.97,1,0.67,1,0.96,-0.2899999999999999
+"if you had eaten more, you would want less.",1,1,0.97,1,0.97,1,0.95,0.020000000000000018
+"as you eat the most, you want the least.",0,1,0.79,1,0.96,1,0.86,0.09999999999999998
+"the more you would want, the less you would eat.",0,1,0.97,1,0.95,1,0.85,0.09999999999999998
+"i demand that the more john eat, the more he pays.",0,0,0.94,0,0.9,0,0.83,0.07000000000000006
+"mary listens to the grateful dead, she gets depressed.",1,1,0.66,1,0.93,1,0.83,0.10000000000000009
+"the angrier mary got, the more she looked at pictures.",1,1,0.97,1,0.96,1,0.76,0.19999999999999996
+"the higher the stakes, the lower his expectations are.",1,1,0.98,1,0.98,1,0.87,0.10999999999999999
+"the more fred is obnoxious, the less attention you should pay to him.",1,1,0.97,1,0.92,1,0.52,0.4
+john was lots more obnoxious than fred.,1,1,0.94,1,0.96,1,0.97,-0.010000000000000009
+"the more people you give beer to, the more people get sick.",1,1,0.98,1,0.97,1,0.92,0.04999999999999993
+"the more does bill smoke, the more susan hates him.",0,1,0.96,0,0.83,0,0.9,-0.07000000000000006
+"the more pictures of him that appear in the news, the more embarrassed john becomes.",1,1,0.98,1,0.97,1,0.94,0.030000000000000027
+"every senator seems to become more corrupt, as he talks to more lobbyists.",1,1,0.96,1,0.96,1,0.88,0.07999999999999996
+who does john visit sally because he likes?,0,0,0.94,0,0.82,0,0.92,-0.10000000000000009
+marianne did not leave.,1,1,0.98,1,0.98,1,0.98,0.0
+he could not] have been working.,1,1,0.97,1,0.96,1,0.98,-0.020000000000000018
+he can not have been working.,1,1,0.98,1,0.98,1,0.98,0.0
+you will believe bob.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+john has not kissed mary.,1,1,0.97,1,0.98,1,0.98,0.0
+i said that never in my life had i seen a place like bangor.,1,1,0.97,1,0.71,1,0.8,-0.09000000000000008
+mickey looked up it.,0,1,0.66,0,0.93,1,0.75,0.18000000000000005
+there tended to be a lot of discussion.,1,1,0.97,1,0.98,1,0.93,0.04999999999999993
+john tried to be a good boy.,1,1,0.98,1,0.98,1,0.98,0.0
+john is eager.,1,1,0.98,1,0.98,1,0.98,0.0
+we want john to win.,1,1,0.98,1,0.98,1,0.98,0.0
+the box contained the ball from the tree.,0,1,0.97,0,0.63,0,0.83,-0.19999999999999996
+the tube was escaped by gas.,0,0,0.85,1,0.95,1,0.97,-0.020000000000000018
+water bubbled up out of the kettle.,1,1,0.98,1,0.98,1,0.98,0.0
+the tub leaked water.,1,1,0.98,1,0.83,0,0.86,-0.030000000000000027
+what the water did to the bottle was fill it.,0,1,0.97,1,0.97,0,0.59,0.38
+what the water did to the whole bottle was fill it.,0,1,0.89,1,0.97,0,0.79,0.17999999999999994
+the tank leaked the fluid free.,1,0,0.72,0,0.91,0,0.87,0.040000000000000036
+john lay the ball in the box.,1,1,0.97,1,0.97,1,0.98,-0.010000000000000009
+john owns the book.,1,1,0.98,1,0.98,1,0.98,0.0
+we persuaded mary to leave and sue to stay.,1,1,0.98,1,0.98,1,0.95,0.030000000000000027
+"most people probably consider, even though the courts didn't actually find, klaus guilty of murder.",1,1,0.97,0,0.69,1,0.61,0.07999999999999996
+mary beautifully plays the violin.,0,1,0.98,1,0.98,1,0.98,0.0
+"clearly, john probably will immediately learn french perfectly.",1,1,0.97,1,0.71,0,0.5,0.20999999999999996
+sue gave to bill a book.,0,1,0.98,1,0.98,1,0.98,0.0
+the men will all leave.,1,1,0.98,1,0.98,1,0.98,0.0
+john went home.,1,1,0.98,1,0.98,1,0.98,0.0
+they represented seriously to the dean mary as a genuine linguist.,0,0,0.95,0,0.66,0,0.85,-0.18999999999999995
+us love they.,0,0,0.94,0,0.95,0,0.95,0.0
+it is nice to go abroad.,1,1,0.98,1,0.98,1,0.98,0.0
+mary intended john to go abroad.,0,1,0.98,1,0.98,1,0.95,0.030000000000000027
+i remembered having kissed mary.,1,1,0.98,1,0.98,1,0.98,0.0
+"i can't believe fred won't, either.",1,1,0.96,1,0.97,1,0.92,0.04999999999999993
+"john wants to read fred's story, and i also want to.",1,1,0.98,1,0.97,1,0.97,0.0
+"we wanted to invite someone, but we couldn't decide who to.",0,0,0.86,1,0.95,0,0.55,0.3999999999999999
+"mary will read fred's story, and joe will read holly's.",1,1,0.95,1,0.98,1,0.97,0.010000000000000009
+"mary claimed that eating cabbage, holly shouldn't.",1,0,0.96,0,0.92,0,0.91,0.010000000000000009
+mary came to be introduced by the bartender and i also came to be.,0,0,0.92,1,0.62,0,0.8,-0.18000000000000005
+"if i can, i will work on it.",1,1,0.97,1,0.96,1,0.95,0.010000000000000009
+"joe's neuroses bother his patrons, and sally does too.",1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+"i know which book josé didn't read for class, and which book lilly did it for him.",0,1,0.93,1,0.94,1,0.8,0.1399999999999999
+"this is the book which bob reviewed, and this is the one which fred won't do it.",0,0,0.81,1,0.69,1,0.96,-0.27
+"i know which book mag read, and which book bob said that you hadn't.",1,1,0.95,0,0.89,0,0.89,0.0
+"i know which book mag read, and which book bob read my report that you hadn't.",0,0,0.84,0,0.91,0,0.89,0.020000000000000018
+i'm sure i would like him to eat fruit more than i would cookies.,1,1,0.97,1,0.96,1,0.92,0.039999999999999925
+rusty talked about himself only after mary did talk about him.,1,1,0.67,1,0.72,1,0.65,0.06999999999999995
+fred talked about everything before rusty did talk about something.,1,1,0.95,1,0.96,1,0.95,0.010000000000000009
+john often meets mary.,1,1,0.98,1,0.98,1,0.98,0.0
+the problem perceives easily.,0,0,0.95,0,0.86,0,0.91,-0.050000000000000044
+a hundred men surrounded the fort.,1,1,0.98,1,0.97,1,0.96,0.010000000000000009
+we elected me.,1,1,0.96,1,0.97,1,0.97,0.0
+which report that john was incompetent did he submit?,0,1,0.79,0,0.81,0,0.8,0.010000000000000009
+mary has always preferred lemons to limes.,1,1,0.98,1,0.82,1,0.79,0.029999999999999916
+he let the cats which were whining out.,1,1,0.92,1,0.89,1,0.83,0.06000000000000005
+what did bill buy?,1,1,0.98,1,0.98,1,0.98,0.0
+mary saw the boy walking toward the railroad station.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+a proof that the claim had been. made was giver that john had lied.,0,0,0.96,0,0.92,0,0.95,-0.029999999999999916
+he attributed to a short circuit which was caused by an overloaded transducer the fire which destroyed most of my factory.,1,1,0.84,1,0.69,0,0.75,-0.06000000000000005
+the mayor regarded as being absurd the proposal to build a sidewalk from dartmouth to smith.,0,1,0.96,0,0.56,1,0.91,-0.35
+i want that bill left to remain a secret.,0,0,0.86,1,0.98,0,0.84,0.14
+i know a man who tom drives as drives.,0,0,0.93,0,0.93,0,0.9,0.030000000000000027
+"drowning cats, which is against the law, are hard to rescue.",0,1,0.98,1,0.96,1,0.92,0.039999999999999925
+muriel said nothing else than that she had been insulted.,1,1,0.98,1,0.7,1,0.74,-0.040000000000000036
+himself is understood by rutherford.,0,0,0.88,0,0.92,0,0.91,0.010000000000000009
+i feel that arch will show up.,1,1,0.98,1,0.98,1,0.98,0.0
+the proof this set is recursive is difficult.,0,0,0.85,1,0.97,0,0.89,0.07999999999999996
+the madrigals which henry plays the lute and sings sound lousy.,0,0,0.89,0,0.94,0,0.93,0.009999999999999898
+"tom picked these grapes, and i washed some turnips, and suzie will prepare these grapes.",1,1,0.97,1,0.97,1,0.98,-0.010000000000000009
+where did you go and who ate what?,1,1,0.96,1,0.92,1,0.92,0.0
+which boy's did we elect guardian's employer president?,0,0,0.95,0,0.95,0,0.94,0.010000000000000009
+how sane is peter?,1,1,0.96,1,0.93,1,0.95,-0.019999999999999907
+i live at the place where route 150 crosses the river and my dad lives at the place where route 150 crosses the hudson river too.,1,1,0.97,1,0.97,1,0.93,0.039999999999999925
+i live at the place where route 150 crosses the hudson river and my dad lives at it too.,0,1,0.95,1,0.97,1,0.87,0.09999999999999998
+who is she trying to make up to now?,1,1,0.9,1,0.92,1,0.94,-0.019999999999999907
+wind was gotten of a plot to negotiate an honorable end to the war in vietnam.,0,0,0.91,0,0.93,0,0.51,0.42000000000000004
+mike talked about politics yesterday to my friends.,1,1,0.98,1,0.98,1,0.98,0.0
+it was expected by the reporters that the principal would fire some teacher.,1,1,0.98,1,0.98,1,0.98,0.0
+which hat did mike quip that she never wore?,0,1,0.94,1,0.97,0,0.74,0.22999999999999998
+which girl did mike quip never wore this hat?,0,0,0.59,0,0.9,0,0.94,-0.039999999999999925
+we donated wire for the convicts to build cages with.,1,0,0.85,0,0.95,0,0.91,0.039999999999999925
+i won't have some money.,0,1,0.9,1,0.97,1,0.98,-0.010000000000000009
+do you believe the claim that somebody was looking for something?,1,0,0.72,1,0.97,0,0.91,0.05999999999999994
+i won't ask you to believe that he tried to force me to give her any money.,1,1,0.98,1,0.98,1,0.98,0.0
+that sam sometimes didn't sleep must have pleased somebody.,1,1,0.98,1,0.97,1,0.92,0.04999999999999993
+i talked to winston about himself.,1,0,0.83,0,0.93,0,0.93,0.0
+"that the fuzz wanted him worried john, but that the fuzz wanted her didn't worry mary.",1,1,0.98,1,0.98,1,0.77,0.20999999999999996
+i'll work on it if sam will be working on it.,1,1,0.76,1,0.93,1,0.88,0.050000000000000044
+i'll work on it if i can.,1,1,0.94,1,0.79,1,0.84,-0.04999999999999993
+here's a knife with which for you to cut up the onions.,0,1,0.69,0,0.91,0,0.82,0.09000000000000008
+"fluffy is sick, which not everybody knows.",1,1,0.97,1,0.91,1,0.88,0.030000000000000027
+maxwell is quite a doctor.,1,1,0.98,1,0.98,1,0.98,0.0
+"the younger woman might have been tall and, and the older one definitely was, blond.",0,1,0.97,1,0.97,0,0.84,0.13
+"sally is tall, and may be blond, and sheila is short, and definitely is, blond.",1,0,0.86,1,0.71,1,0.6,0.10999999999999999
+i have to try to finish grading some papers.,1,1,0.98,1,0.68,1,0.95,-0.2699999999999999
+the socks are ready for for you to put on to be planned.,0,0,0.94,0,0.93,0,0.92,0.010000000000000009
+it is easy to play sonatas on this violin.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+this violin is difficult to play sonatas on.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+my mother is easy to please my father and.,0,0,0.95,0,0.85,0,0.92,-0.07000000000000006
+"poor bill, it had started to rain and he had no umbrella.",1,1,0.97,1,0.72,1,0.85,-0.13
+"that the cops spoke to the janitor about it yesterday is terrible, that robbery.",0,1,0.98,1,0.98,1,0.85,0.13
+"every student, and he wears socks, is a swinger.",0,0,0.93,0,0.92,0,0.9,0.020000000000000018
+that girl was given my binoculars by him.,1,1,0.98,1,0.98,1,0.95,0.030000000000000027
+bill didn't allege that roger had eaten anything.,1,1,0.97,1,0.97,1,0.95,0.020000000000000018
+nobody who hates to eat anything should work in a delicatessen.,1,1,0.98,1,0.91,1,0.73,0.18000000000000005
+everybody around here who ever buys anything on credit talks in his sleep.,1,1,0.97,1,0.76,0,0.52,0.24
+i can't remember the name of somebody who had misgivings.,0,1,0.94,1,0.64,1,0.94,-0.29999999999999993
+"no writer, and no playwright, meets in vienna.",0,1,0.96,1,0.97,1,0.95,0.020000000000000018
+"no writer, nor any playwright, meets in vienna.",0,1,0.96,1,0.97,1,0.9,0.06999999999999995
+that you will marry any student is not certain.,1,1,0.98,1,0.97,1,0.94,0.030000000000000027
+felicia kicked the ball off the bench.,1,1,0.97,1,0.98,1,0.97,0.010000000000000009
+i sent the package halfway around the world.,1,1,0.98,1,0.98,1,0.96,0.020000000000000018
+sam gave the ball out of the basket.,0,0,0.96,0,0.84,0,0.91,-0.07000000000000006
+sam offered the ball out of the basket.,0,0,0.91,0,0.87,1,0.68,0.18999999999999995
+park square has a festive air.,1,1,0.98,1,0.95,1,0.92,0.029999999999999916
+the worker will have a job.,1,1,0.98,1,0.98,1,0.98,0.0
+no one can forgive that comment to you.,0,0,0.84,1,0.98,1,0.98,0.0
+"we launched the rocket to the moon, but it blew up before it got there.",1,1,0.98,1,0.78,1,0.7,0.08000000000000007
+"sarah promised catherine her old car, but then gave it to her son instead.",1,1,0.98,1,0.76,1,0.97,-0.20999999999999996
+i lent the book partway to tony.,0,0,0.96,0,0.84,0,0.89,-0.050000000000000044
+the farmer loaded the cart with apples.,1,1,0.98,1,0.97,1,0.87,0.09999999999999998
+the farmer dumped the cart with apples.,0,0,0.76,1,0.97,1,0.93,0.039999999999999925
+martha carved the baby a toy out of wood.,1,1,0.98,1,0.94,0,0.89,0.04999999999999993
+the bread cuts easily.,1,1,0.98,1,0.98,1,0.98,0.0
+janet broke bill on the finger.,0,1,0.92,1,0.97,1,0.92,0.04999999999999993
+janet broke the cup.,1,1,0.98,1,0.98,1,0.98,0.0
+the visitor rang the bell.,1,1,0.98,1,0.98,1,0.98,0.0
+we pulled free.,1,1,0.98,1,0.98,0,0.59,0.39
+that movie always shocks people.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+that movie always shocks.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+sharon came the room.,0,0,0.95,0,0.95,0,0.95,0.0
+bill sent a package to tom.,1,1,0.98,1,0.98,1,0.98,0.0
+that acorn will grow into an oak tree.,1,1,0.73,1,0.59,1,0.94,-0.35
+he turned into a frog.,1,1,0.98,1,0.98,1,0.98,0.0
+i mixed the sugar into the butter.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+brian threw the fence with the stick.,0,0,0.93,1,0.56,1,0.97,-0.4099999999999999
+mira condemned terry for the accident.,1,1,0.98,1,0.97,1,0.96,0.010000000000000009
+we investigated the area for bombs.,1,1,0.77,1,0.66,1,0.94,-0.2799999999999999
+i sensed his eagerness.,1,1,0.98,1,0.51,1,0.96,-0.44999999999999996
+they praised the dedication in the volunteers.,0,0,0.92,1,0.67,0,0.71,-0.039999999999999925
+the earth was believed to be round.,1,1,0.98,1,0.98,1,0.93,0.04999999999999993
+sarah smiled a charming smile.,1,1,0.98,1,0.83,1,0.94,-0.10999999999999999
+sandra beamed a cheerful welcome.,1,1,0.98,1,0.88,1,0.82,0.06000000000000005
+you've really lived it up.,1,1,0.98,1,0.97,1,0.95,0.020000000000000018
+paperback books lift onto the table easily.,0,1,0.82,0,0.51,0,0.91,-0.4
+the books lifted onto the table.,0,1,0.85,0,0.65,0,0.92,-0.27
+jessica loaded boxes under the wagon.,1,1,0.97,1,0.98,1,0.88,0.09999999999999998
+jessica loaded boxes on the wagon.,1,1,0.95,1,0.97,1,0.73,0.24
+jessica crammed boxes at the truck.,0,0,0.93,0,0.94,0,0.83,0.10999999999999999
+lora buttered at the toast.,0,0,0.96,0,0.93,0,0.95,-0.019999999999999907
+carla shoveled the walk.,1,1,0.98,1,0.98,1,0.98,0.0
+nora sent the book.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+nora sent peter the book.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+carla slid the book.,1,1,0.59,1,0.98,1,0.98,0.0
+carla slid at the book.,0,0,0.96,0,0.91,0,0.89,0.020000000000000018
+amanda carried the package to pamela.,1,1,0.98,1,0.98,1,0.98,0.0
+packages drive easily to new york.,0,0,0.96,0,0.93,0,0.93,0.0
+the chair pushed.,0,0,0.94,1,0.85,0,0.86,-0.010000000000000009
+we offered a job to her.,1,0,0.89,1,0.97,1,0.97,0.0
+a job offered.,0,0,0.94,0,0.92,0,0.92,0.0
+brown presented a plaque to jones.,1,1,0.98,1,0.98,1,0.91,0.06999999999999995
+carmen bought mary a dress.,1,1,0.98,1,0.98,1,0.98,0.0
+carmen obtained the spare part at the hardware store.,1,1,0.98,1,0.97,1,0.72,0.25
+michelle kept the desk with the papers.,0,0,0.95,0,0.8,0,0.75,0.050000000000000044
+frances hid the presents in the drawer.,1,1,0.98,1,0.98,1,0.98,0.0
+the needle poked the cloth.,1,1,0.98,1,0.97,1,0.97,0.0
+carrie touched that cat.,1,1,0.98,1,0.98,1,0.98,0.0
+herman whipped the sugar and the cream.,0,0,0.83,0,0.73,0,0.7,0.030000000000000027
+linda taped the picture to the wall.,1,1,0.98,1,0.98,1,0.98,0.0
+linda taped the picture onto the wall.,1,1,0.98,1,0.98,1,0.98,0.0
+the child and her mother clung together.,1,1,0.98,1,0.98,1,0.98,0.0
+this flyer and that flyer differ.,1,1,0.98,1,0.94,1,0.8,0.1399999999999999
+this flyer and that flyer differ apart.,0,0,0.84,1,0.88,1,0.83,0.050000000000000044
+the jeweller scribbled the contract with his name.,0,1,0.7,1,0.98,1,0.98,0.0
+the gardener grew that acorn into an oak tree.,1,1,0.87,0,0.63,0,0.9,-0.27
+i shaped a loaf.,0,0,0.83,1,0.92,0,0.89,0.030000000000000027
+the children amused.,0,0,0.89,0,0.93,0,0.93,0.0
+susan whispered the news.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+susan whispered at rachel.,1,1,0.96,1,0.86,1,0.76,0.09999999999999998
+ellen said that melons were selling well.,1,1,0.98,1,0.98,1,0.98,0.0
+ellen said about the present conditions.,0,0,0.95,0,0.8,0,0.7,0.10000000000000009
+ellen warned helen against skating on thin ice.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+cynthia nibbled on the carrot .,1,1,0.98,1,0.98,1,0.95,0.030000000000000027
+cynthia chewed.,0,1,0.97,1,0.94,1,0.61,0.32999999999999996
+paul laughed at mary.,1,1,0.98,1,0.97,1,0.97,0.0
+linda winked her lip.,0,0,0.95,0,0.94,0,0.92,0.019999999999999907
+my heart is pounding me.,0,0,0.89,1,0.88,1,0.96,-0.07999999999999996
+sharon fainted from hunger.,1,1,0.98,1,0.94,1,0.97,-0.030000000000000027
+the witch poisoned the children.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+a grandfather clock ticked in the hallway.,1,1,0.98,1,0.86,0,0.85,0.010000000000000009
+i squeaked the door.,0,1,0.88,0,0.91,1,0.97,-0.05999999999999994
+over the fire there bubbled a fragrant stew.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+soaring temperatures are predicted for this weekend.,1,1,0.98,1,0.9,1,0.96,-0.05999999999999994
+the fort fluttered with many flags.,0,0,0.71,0,0.67,1,0.84,-0.16999999999999993
+the voices echoed in the hall.,1,1,0.98,1,0.98,1,0.96,0.020000000000000018
+the stream twists through the valley.,1,1,0.98,1,0.97,1,0.76,0.20999999999999996
+there presented itself a wonderful opportunity yesterday.,0,0,0.86,0,0.9,1,0.52,0.38
+a wonderful opportunity presented itself to him yesterday.,1,1,0.98,1,0.98,1,0.98,0.0
+out of the box jumped a little white rabbit.,1,1,0.97,0,0.57,0,0.82,-0.25
+penny skated around the rink.,1,1,0.98,1,0.98,1,0.98,0.0
+jackie accompanied rose.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+many information was provided.,0,0,0.95,0,0.94,0,0.92,0.019999999999999907
+john offers many advice.,0,1,0.97,1,0.85,1,0.94,-0.08999999999999997
+the cake that jones got was more delicious than the one that smith got.,1,1,0.98,1,0.98,1,0.94,0.040000000000000036
+we recommend to eat less cake and pastry.,1,0,0.62,1,0.58,1,0.61,-0.030000000000000027
+i saw that gas can explode.,1,1,0.92,1,0.98,1,0.97,0.010000000000000009
+he washed her.,1,1,0.98,1,0.98,1,0.98,0.0
+wash you!,0,1,0.95,1,0.97,1,0.98,-0.010000000000000009
+they have no in.,0,0,0.92,0,0.89,0,0.84,0.050000000000000044
+some my jobs are in jeopardy.,0,0,0.8,0,0.86,0,0.95,-0.08999999999999997
+it was the policeman met that several young students in the park last night.,0,0,0.88,1,0.96,0,0.83,0.13
+did the policeman meet in the park?,1,1,0.83,1,0.98,1,0.98,0.0
+john put old books in the box.,1,1,0.98,1,0.98,1,0.98,0.0
+the monkeys proud of their leader.,0,1,0.77,0,0.92,0,0.88,0.040000000000000036
+john sounded very.,0,0,0.93,0,0.91,0,0.82,0.09000000000000008
+i don't know if i should agree.,1,1,0.98,1,0.98,1,0.95,0.030000000000000027
+john bought a book on the table.,1,1,0.67,1,0.98,1,0.98,0.0
+john called the president a fool.,1,1,0.98,1,0.98,1,0.98,0.0
+i forgot how good beer tastes.,1,1,0.98,1,0.98,1,0.98,0.0
+this teacher is a genius.,1,1,0.98,1,0.98,1,0.98,0.0
+a good friend is remained to me by him.,0,0,0.94,0,0.94,0,0.96,-0.020000000000000018
+john ate his noodle quietly.,1,1,0.98,1,0.71,1,0.97,-0.26
+a smith hammered the metal.,1,1,0.98,1,0.96,1,0.97,-0.010000000000000009
+sandy removed her ballet shoes.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+this week will be a difficult one for us.,1,1,0.98,1,0.98,1,0.98,0.0
+benny worked in a shoe factory when he was a student.,1,1,0.98,1,0.97,1,0.97,0.0
+everyone hoped that she would sing.,1,1,0.98,1,0.98,1,0.98,0.0
+this proved a decisive factor.,1,1,0.98,1,0.97,1,0.96,0.010000000000000009
+the crocodile devoured the doughnut.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+john is afraid of bill.,1,1,0.98,1,0.98,1,0.98,0.0
+john put under the bathtub.,0,0,0.95,0,0.94,0,0.97,-0.030000000000000027
+john placed kim behind the garage.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+kim depends for sandy.,0,1,0.95,1,0.93,1,0.98,-0.04999999999999993
+john put the book in the box.,1,1,0.98,1,0.98,1,0.98,0.0
+john taught english syntax to new students.,1,1,0.98,1,0.98,1,0.98,0.0
+john regards bill as a good friend.,1,1,0.98,1,0.98,1,0.9,0.07999999999999996
+kim put in the box.,0,0,0.94,0,0.95,0,0.96,-0.010000000000000009
+the chickens seem fond of the farmer.,1,1,0.98,1,0.98,1,0.96,0.020000000000000018
+the rules require that the executives be polite.,1,1,0.98,1,0.98,1,0.98,0.0
+that fred was unpopular nominated bill.,0,0,0.95,1,0.96,0,0.88,0.07999999999999996
+they were taking a hard look at possible fta.,1,1,0.95,1,0.77,1,0.82,-0.04999999999999993
+john paid me against the book.,0,0,0.83,1,0.98,1,0.98,0.0
+the committee will study the feasibility of setting up a national computer network.,1,1,0.98,1,0.98,1,0.98,0.0
+we made them be rude.,1,1,0.98,1,0.97,1,0.97,0.0
+"after reading the pamphlet, judy threw it into the garbage can.",1,1,0.98,1,0.98,1,0.98,0.0
+students studying english reads conrad's heart of darkness while at university.,0,0,0.82,1,0.78,1,0.92,-0.14
+i read some of the book.,1,1,0.64,1,0.97,1,0.93,0.039999999999999925
+most of the fruit is rotten.,1,1,0.98,0,0.59,1,0.95,-0.36
+neither of students failed.,0,0,0.5,1,0.97,1,0.82,0.15000000000000002
+i drank some of water.,0,0,0.78,1,0.96,0,0.82,0.14
+it is a golden hair.,1,1,0.87,1,0.57,1,0.91,-0.3400000000000001
+the boy in the doorway waved to his father.,1,1,0.97,1,0.97,1,0.97,0.0
+"that dog is so ferocious, it even tried to bite itself.",1,1,0.68,0,0.9,0,0.63,0.27
+he washed yourself.,0,0,0.94,0,0.93,0,0.94,-0.009999999999999898
+john is easy to please kim.,0,0,0.96,0,0.81,0,0.92,-0.10999999999999999
+there seemed to be intelligent.,0,0,0.88,0,0.88,0,0.96,-0.07999999999999996
+john tried to please stephen.,1,1,0.98,1,0.98,1,0.98,0.0
+we believed john to be a fountain in the park.,0,0,0.92,1,0.98,1,0.97,0.010000000000000009
+it tries to leave the country.,0,0,0.95,0,0.94,0,0.96,-0.020000000000000018
+john tries to leave the country.,1,1,0.98,1,0.98,1,0.98,0.0
+under the bed seems to be a fun place to hide.,1,1,0.97,1,0.95,1,0.98,-0.030000000000000027
+there is believed to be sheep in the park.,0,0,0.78,0,0.52,1,0.88,-0.36
+i hope to would study in france.,0,0,0.94,0,0.94,0,0.94,0.0
+john can kick the ball.,1,0,0.88,1,0.97,1,0.97,0.0
+john will rain tomorrow.,0,1,0.85,1,0.95,1,0.96,-0.010000000000000009
+we expect there to will rain.,0,0,0.94,0,0.95,0,0.91,0.039999999999999925
+john was found in the office.,1,1,0.98,1,0.98,1,0.98,0.0
+did the child be in the school?,0,1,0.97,1,0.98,1,0.98,0.0
+it did not rain.,1,1,0.97,1,0.98,1,0.98,0.0
+john wants not to leave the town.,1,1,0.98,1,0.98,1,0.98,0.0
+"mary likes to tour art galleries, but bill hates to.",1,0,0.83,1,0.94,1,0.93,0.009999999999999898
+they needn't take this exam.,1,1,0.98,1,0.96,1,0.97,-0.010000000000000009
+ann may spend her vacation in italy.,1,1,0.98,1,0.98,1,0.98,0.0
+"they love to play golf, but i do not.",1,1,0.96,1,0.98,1,0.98,0.0
+"george has spent a lot of money, hasn't he?",1,1,0.98,1,0.69,1,0.96,-0.27
+"as a statesman, scarcely could he do anything worth mentioning.",1,1,0.94,0,0.9,1,0.87,0.030000000000000027
+we never found any of the unicorns.,1,1,0.98,1,0.98,1,0.98,0.0
+one of korea's most famous poets wrote these lines.,1,1,0.98,1,0.97,1,0.95,0.020000000000000018
+somebody apparently struck the unidentified victim during the early morning hours.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+the car was driven.,1,1,0.98,1,0.98,1,0.98,0.0
+ricky can be relied on.,1,1,0.98,1,0.97,1,0.95,0.020000000000000018
+the bed was slept in.,1,1,0.98,1,0.94,0,0.81,0.1299999999999999
+a pound was weighed by the book.,0,0,0.86,1,0.97,0,0.84,0.13
+who do you think tom saw?,1,1,0.98,1,0.98,1,0.98,0.0
+he had spent five thousand dollars.,1,1,0.98,1,0.98,1,0.98,0.0
+fed knows which politician her to vote for.,0,0,0.94,1,0.92,0,0.89,0.030000000000000027
+how did you guess that he fixed the computer?,1,1,0.98,1,0.96,1,0.93,0.029999999999999916
+the committee knows whose efforts to achieve peace the world should honor.,1,1,0.98,1,0.91,1,0.51,0.4
+which house does your friend live?,0,1,0.98,1,0.96,1,0.88,0.07999999999999996
+the baker from whom i bought these bagels left.,1,1,0.98,1,0.98,1,0.92,0.05999999999999994
+i found the place where we can relax.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+jack is the person with whom jenny fell in love with.,0,1,0.98,1,0.98,0,0.71,0.27
+there is a bench to sit on.,1,1,0.98,1,0.98,1,0.95,0.030000000000000027
+i met the man who grows peaches.,1,1,0.98,1,0.95,1,0.95,0.0
+which topic did you choose without getting his approval?,1,1,0.98,1,0.96,1,0.97,-0.010000000000000009
+which topic did you get bored because mary talked about?,0,1,0.63,1,0.93,1,0.98,-0.04999999999999993
+that is the reason why he resigned.,1,1,0.98,1,0.98,1,0.98,0.0
+it bothers me that john coughs.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+to please john is easy.,1,1,0.98,1,0.97,1,0.96,0.010000000000000009
+kim is eager to please tom.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+that we invaded iraq really bites.,1,1,0.97,1,0.96,1,0.96,0.0
+it annoys me that fido barks.,1,1,0.98,1,0.98,1,0.98,0.0
+who achieved the best result was angela.,0,1,0.97,1,0.76,1,0.96,-0.19999999999999996
+it was the peasant girl who got it.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+that kind of person is hard to find anyone to look after.,1,0,0.85,1,0.7,1,0.74,-0.040000000000000036
+a sick owl doesn't hunt mice.,1,1,0.98,1,0.97,1,0.72,0.25
+each candidate who has interest in semantics will be admitted to the department.,1,1,0.98,1,0.98,1,0.94,0.040000000000000036
+each author whose contribution is written in any language other than english will provide a summary in english.,1,1,0.98,1,0.97,1,0.93,0.039999999999999925
+i'm sure we even got these tickets!,1,1,0.96,1,0.76,1,0.96,-0.19999999999999996
+i'm even sure we got these tickets!,1,1,0.96,1,0.95,1,0.94,0.010000000000000009
+it's not because i have any sympathy for urban guerillas that i helped him.,1,1,0.96,0,0.7,1,0.9,-0.20000000000000007
+it isn't because sue said anything bad about me that i'm angry.,1,0,0.92,1,0.91,0,0.82,0.09000000000000008
+"that he was hungry, john whined.",0,1,0.72,1,0.95,1,0.9,0.04999999999999993
+1 gave mary after the party a book.,0,0,0.88,1,0.74,0,0.87,-0.13
+"because she's so pleasant, as for mary i really like her.",0,0,0.85,1,0.91,0,0.53,0.38
+"though he may hate those that criticize carter, it doesn't matter.",1,1,0.98,1,0.92,1,0.69,0.2300000000000001
+with no job would john be happy.,1,1,0.89,0,0.57,0,0.75,-0.18000000000000005
+i have much of the manuscript left to type.,1,1,0.68,1,0.73,0,0.88,-0.15000000000000002
+he's a more reliable man.,1,1,0.96,1,0.96,1,0.73,0.22999999999999998
+any trouble is what i don't want.,0,1,0.81,1,0.79,1,0.93,-0.14
+they may grow as high as bamboo.,1,1,0.93,1,0.76,1,0.93,-0.17000000000000004
+some of them made as many errors as 20.,1,1,0.93,1,0.97,1,0.9,0.06999999999999995
+sally kissed himself.,0,0,0.82,1,0.97,1,0.97,0.0
+drew believes i think rosie loves magazine ads.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+"dave, dan, erin, jaime, and alina left.",1,1,0.98,1,0.98,1,0.98,0.0
+"hopefully, we'll make it through the winter without snow.",1,1,0.98,1,0.96,0,0.76,0.19999999999999996
+blue leather shows herself that betsy is pretty.,0,0,0.77,1,0.51,1,0.8,-0.29000000000000004
+gwen hit the baseball.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+i hit that you knew the answer.,0,0,0.96,0,0.9,0,0.87,0.030000000000000027
+i've lost my wallet or i've lost my mind.,1,1,0.96,1,0.97,1,0.96,0.010000000000000009
+it was a brand new car that he bought.,1,1,0.98,1,0.98,1,0.98,0.0
+he likes cookies and he hates crumb cake.,1,1,0.94,1,0.97,1,0.98,-0.010000000000000009
+they chased the man with the car.,1,1,0.98,0,0.56,1,0.97,-0.4099999999999999
+i didn't have a red cent.,1,1,0.82,1,0.76,1,0.89,-0.13
+the book of poems and from blackwell takes a very long time to read.,0,1,0.69,1,0.97,1,0.96,0.010000000000000009
+the one with a red cover takes a very long time to read.,1,1,0.98,1,0.97,1,0.96,0.010000000000000009
+john has a fear of dogs.,1,1,0.98,1,0.98,1,0.98,0.0
+the building's the roof is leaking.,0,0,0.94,0,0.89,0,0.88,0.010000000000000009
+the panther's the coat is dark black.,0,0,0.95,0,0.86,0,0.9,-0.040000000000000036
+colin asked if they could get a mortgage.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+the man i saw get into the cab robbed the bank.,1,1,0.98,1,0.93,0,0.74,0.19000000000000006
+i know you eat asparagus.,1,1,0.98,1,0.98,1,0.98,0.0
+john's drum will always bother me.,1,1,0.97,1,0.98,1,0.98,0.0
+an evil thought struck dave.,1,1,0.97,1,0.95,1,0.91,0.039999999999999925
+in the classroom john put the book on the table.,1,1,0.98,1,0.97,1,0.94,0.030000000000000027
+phillip gave the medal to the soldier.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+heidi thinks that andy to eat salmon flavored candy bars.,0,0,0.95,1,0.87,0,0.89,-0.020000000000000018
+heidi thinks that andy should eat salmon flavored candy bars.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+he danced.,1,1,0.98,1,0.98,1,0.98,0.0
+did calvin his homework?,0,0,0.9,0,0.91,1,0.61,0.30000000000000004
+sylvia was slapping jeff upside the head in martial arts class.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+"if i am a rich man, i'd buy a diamond ring.",0,1,0.97,1,0.97,1,0.92,0.04999999999999993
+"if he were a rich man, he'd buy a diamond ring.",1,1,0.98,1,0.97,1,0.89,0.07999999999999996
+john is likely to leave.,1,1,0.98,1,0.98,1,0.98,0.0
+the manager laughed.,1,1,0.98,1,0.98,1,0.98,0.0
+was sunk.,0,0,0.85,0,0.89,0,0.64,0.25
+who did you think kissed the gorilla?,1,1,0.98,1,0.98,1,0.98,0.0
+have you seen my model airplane collection?,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+it seems that lucy was mugged.,1,1,0.98,1,0.98,1,0.98,0.0
+i ate a salad that was filled with lima beans.,1,1,0.98,1,0.74,1,0.9,-0.16000000000000003
+there were four men arriving at the station when i pulled up.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+jean is reluctant to dance.,1,1,0.98,1,0.98,1,0.98,0.0
+i want her to dance.,1,1,0.98,1,0.98,1,0.98,0.0
+jean persuaded robert.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+jean wants bill to do the macarena.,1,1,0.98,1,0.94,1,0.97,-0.030000000000000027
+the children admire their mother.,1,1,0.98,1,0.98,1,0.98,0.0
+who has peter talked with?,1,1,0.97,1,0.97,1,0.96,0.010000000000000009
+heidi likes her violin.,1,1,0.98,1,0.98,1,0.98,0.0
+john thinks that mary loves himself.,0,0,0.89,0,0.8,1,0.96,-0.15999999999999992
+which pictures of himself does john like?,1,1,0.97,1,0.98,1,0.97,0.010000000000000009
+any owl hunts mice.,1,1,0.97,1,0.97,1,0.86,0.10999999999999999
+any man didn't eat dinner.,0,1,0.84,1,0.86,1,0.72,0.14
+a pilot could be flying this plane.,1,1,0.98,1,0.98,1,0.98,0.0
+"everybody who attended last week's huge rally, whoever they were, signed the petition.",1,1,0.98,1,0.96,1,0.77,0.18999999999999995
+anybody who attended last week's huge rally signed the petition.,1,1,0.98,1,0.98,1,0.94,0.040000000000000036
+"any tiger has orange fur, marked with black stripes.",1,1,0.94,1,0.94,1,0.73,0.20999999999999996
+"any albino tiger has orange fur, marked with black stripes.",1,1,0.94,1,0.69,1,0.61,0.07999999999999996
+you must pick any flower you see.,1,1,0.61,1,0.6,1,0.57,0.030000000000000027
+any pilot on duty today could be flying this plane.,1,1,0.96,1,0.92,1,0.8,0.12
+"you may pick every flower, but leave a few for mary.",0,1,0.98,1,0.96,1,0.93,0.029999999999999916
+the dodgers beat the red sox and were beaten by the giants.,1,1,0.98,1,0.98,1,0.98,0.0
+in which car was the man seen?,1,1,0.98,1,0.67,1,0.9,-0.22999999999999998
+the man who mary loves and sally hates computed my tax.,1,1,0.88,1,0.69,1,0.56,0.1299999999999999
+the kennel which mary made and fido sleeps has been stolen.,0,1,0.96,1,0.98,1,0.96,0.020000000000000018
+tom said he would and bill actually did eat a raw eggplant.,1,1,0.94,1,0.7,1,0.97,-0.27
+the wealthy young man bought that piano for his secret fiancée.,1,1,0.98,1,0.98,1,0.98,0.0
+the dog stole the turkey.,1,1,0.98,1,0.98,1,0.98,0.0
+a tall building.,1,1,0.97,1,0.93,1,0.95,-0.019999999999999907
+this building is tall.,1,1,0.98,1,0.96,1,0.97,-0.010000000000000009
+i like the book which you gave me.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+captain wentworth wrote a letter to anne elliott.,1,1,0.98,1,0.98,1,0.98,0.0
+she asked was alison coming to the party.,1,1,0.97,0,0.94,0,0.93,0.009999999999999898
+they realised that never had sir thomas been so offended.,1,1,0.68,0,0.76,0,0.86,-0.09999999999999998
+fanny regretted having to talk to aunt norris.,1,1,0.98,1,0.97,1,0.97,0.0
+"knowing the country well, he took a short cut.",1,1,0.98,0,0.9,0,0.83,0.07000000000000006
+he left the train with somebody else's wallet in his pocket.,1,1,0.98,1,0.86,0,0.87,-0.010000000000000009
+magnus went to ireland.,1,1,0.98,1,0.96,1,0.97,-0.010000000000000009
+who did john send the book?,1,1,0.94,0,0.93,0,0.93,0.0
+the idea dismayed the prime minister that the dome was dull.,1,0,0.84,1,0.97,1,0.84,0.13
+came right in he did without so much as a knock.,1,1,0.68,0,0.91,0,0.91,0.0
+harriet admired mr knightley.,1,1,0.98,1,0.98,1,0.98,0.0
+the book is boring.,1,1,0.98,1,0.98,1,0.98,0.0
+ethel wishes to ask you some awkward questions.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+emma made harriet some food.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+the window was broken with a hammer.,1,1,0.98,1,0.98,1,0.98,0.0
+the fugitive lay motionless in order to avoid discovery.,1,1,0.98,1,0.96,1,0.98,-0.020000000000000018
+the guard marched the prisoners round the yard.,1,1,0.98,1,0.96,1,0.96,0.0
+frank churchill crossed the street.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+emma and harriet were attacked yesterday.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+fiona might be here by 5 o'clock.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+i am both expecting to get the job and of the opinion that it is a desirable one.,1,0,0.52,1,0.95,1,0.61,0.33999999999999997
+pat was awarded the golden fleece award and very upset about it.,1,1,0.84,1,0.68,1,0.76,-0.07999999999999996
+kim alienated cats and beating his dog.,0,0,0.88,0,0.64,1,0.92,-0.28
+they knew that pictures of each other would be on sale.,1,1,0.98,1,0.98,1,0.98,0.0
+which article did terry file papers without reading?,0,0,0.92,1,0.93,1,0.94,-0.009999999999999898
+i want to try and buy some whiskey.,1,1,0.94,1,0.97,1,0.97,0.0
+she goes and buying some whiskey.,0,0,0.95,0,0.89,0,0.86,0.030000000000000027
+kim and terry is happy.,0,0,0.95,0,0.95,0,0.98,-0.030000000000000027
+kim gave a dollar to bobbie and a dime to jean.,1,1,0.96,0,0.9,0,0.74,0.16000000000000003
+this girl in the red coat will put a picture of bill in the mailbox and on your desk before tomorrow.,1,1,0.93,1,0.97,1,0.9,0.06999999999999995
+"put a picture of bill on your desk before tomorrow, this girl in the red coat will put a picture of bill on your desk before tomorrow.",0,1,0.92,1,0.85,1,0.98,-0.13
+"picture of bill, this girl in the red coat will put a picture of bill on your desk before tomorrow.",0,1,0.72,1,0.75,1,0.91,-0.16000000000000003
+ann bought a first edition of richard iii for $1000.,1,1,0.97,1,0.98,1,0.98,0.0
+john became deadly afraid of flying.,1,1,0.98,1,0.94,1,0.98,-0.040000000000000036
+what john promised is to be gentle.,1,1,0.98,1,0.98,1,0.98,0.0
+henri wants to buy which books about cooking?,1,1,0.98,1,0.97,1,0.96,0.010000000000000009
+i will fix the computer for carol.,1,1,0.97,1,0.94,1,0.98,-0.040000000000000036
+smith loaned a valuable collection of manuscripts to the library.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+the paper is cut by mary.,1,1,0.98,1,0.97,1,0.95,0.020000000000000018
+it was from six to nine or it took place from six to nine.,1,1,0.96,1,0.9,1,0.58,0.32000000000000006
+"suddenly, there arrived two inspectors from the ins.",1,1,0.97,1,0.96,1,0.7,0.26
+"the soup cooks, thickens.",1,1,0.97,1,0.8,1,0.74,0.06000000000000005
+i gave money to the charity.,1,1,0.98,1,0.98,1,0.98,0.0
+john asked.,1,1,0.97,1,0.97,1,0.98,-0.010000000000000009
+i saw even the student.,1,0,0.84,1,0.95,0,0.94,0.010000000000000009
+john whispered mary left.,0,0,0.86,1,0.95,1,0.54,0.4099999999999999
+mary wonders that bill will come.,0,1,0.89,1,0.98,1,0.98,0.0
+sophie will theater.,0,0,0.9,1,0.98,1,0.98,0.0
+john finished the cake and drank the lemonade.,1,1,0.98,1,0.98,1,0.98,0.0
+herself likes mary's mother.,0,0,0.8,0,0.84,0,0.83,0.010000000000000009
+each of the boys fought with some of the other boys.,1,1,0.98,1,0.97,1,0.97,0.0
+john's mother likes himself.,0,0,0.9,1,0.98,1,0.92,0.05999999999999994
+mary revealed himself to john.,0,0,0.92,0,0.74,1,0.92,-0.18000000000000005
+mary believes that bill saw himself.,1,1,0.98,0,0.72,1,0.96,-0.24
+john heard that they criticized themselves.,0,0,0.92,0,0.86,1,0.55,0.30999999999999994
+mary thinks that she is smart.,1,1,0.98,1,0.98,1,0.98,0.0
+henry found that bill is sad.,1,1,0.86,1,0.98,1,0.93,0.04999999999999993
+john considers himself proud of mary.,1,1,0.98,1,0.98,1,0.98,0.0
+you should sit before there.,0,0,0.91,1,0.98,0,0.67,0.30999999999999994
+there is a nurse available.,1,1,0.98,1,0.96,1,0.53,0.42999999999999994
+everyone hopes everyone to sleep.,0,0,0.95,1,0.98,0,0.73,0.25
+everyone hopes that he will sleep.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+"only churchill remembered churchill giving the blood, sweat and tears speech.",0,1,0.98,1,0.97,1,0.8,0.16999999999999993
+john promise mary to shave himself.,1,0,0.95,0,0.91,0,0.71,0.20000000000000007
+john convinced bill that mary should sleep.,1,1,0.98,1,0.98,1,0.98,0.0
+i saw bill while you did so mary.,0,0,0.87,0,0.9,0,0.91,-0.010000000000000009
+what mary did bill was give a book.,0,0,0.96,0,0.95,0,0.89,0.05999999999999994
+the bears sniffed,1,1,0.97,0,0.93,0,0.94,-0.009999999999999898
+to steal talismans from witches is dangerous,1,1,0.97,1,0.96,1,0.97,-0.010000000000000009
+anson demonized,0,0,0.95,0,0.94,0,0.88,0.05999999999999994
+you kicked yourselves,1,1,0.68,0,0.86,1,0.53,0.32999999999999996
+the book that i said that i'd never read.,1,1,0.98,1,0.97,1,0.97,0.0
+anson demonized up the khyber,0,0,0.88,0,0.85,0,0.73,0.12
+it is not true that i might be going to the party.,1,1,0.98,1,0.98,1,0.98,0.0
+kick you!,0,1,0.95,1,0.96,1,0.98,-0.020000000000000018
+jason persuaded the doctor to treat medea,1,1,0.97,1,0.97,1,0.98,-0.010000000000000009
+who did you get an accurate description of?,1,1,0.97,1,0.98,1,0.87,0.10999999999999999
+the peter we all like was at the party,1,1,0.97,1,0.89,1,0.86,0.030000000000000027
+the government's imposition of a fine.,1,1,0.8,0,0.92,0,0.89,0.030000000000000027
+did athena help us?,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+you wanted to meet the man i saw.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+anson demonized david every day,1,1,0.97,1,0.97,1,0.98,-0.010000000000000009
+there is a programme about euripides on a radio 4 tonight?,1,1,0.8,1,0.92,1,0.86,0.06000000000000005
+medea denied poisoning the phoenix.,1,1,0.98,1,0.98,0,0.55,0.42999999999999994
+the elixir was hidden in a hole in the ground,1,1,0.98,1,0.97,1,0.97,0.0
+"extremely frantically, anson danced at trade",1,1,0.96,1,0.94,0,0.54,0.3999999999999999
+what did you ask who medea gave?,0,0,0.95,0,0.8,0,0.85,-0.04999999999999993
+it's anson that i like,1,1,0.97,1,0.96,1,0.95,0.010000000000000009
+medea tried the nurse to poison her children.,0,0,0.96,0,0.93,0,0.88,0.050000000000000044
+i felt that i know you.,1,1,0.96,1,0.98,1,0.98,0.0
+will he can do it?,1,1,0.96,0,0.84,1,0.88,-0.040000000000000036
+i ate that she was happy,0,0,0.94,0,0.76,0,0.9,-0.14
+anson believed himself to be handsome.,1,1,0.98,1,0.98,1,0.98,0.0
+we arrived about six o'clock,1,1,0.98,1,0.97,1,0.95,0.020000000000000018
+gilgamesh is having fought the dragon.,0,0,0.94,1,0.95,0,0.79,0.15999999999999992
+anson thought that himself was happy.,0,0,0.96,0,0.94,0,0.94,0.0
+fortunately hermione passed biology,1,1,0.98,1,0.76,1,0.9,-0.14
+i might be not going to the party but washing my hair,1,1,0.93,1,0.94,1,0.96,-0.020000000000000018
+i thought he liked myself,0,0,0.96,1,0.9,0,0.7,0.20000000000000007
+the butler sent the poison to dinah.,1,1,0.98,1,0.97,1,0.99,-0.020000000000000018
+jason happens to appear to seem to be sick.,1,1,0.98,1,0.86,1,0.95,-0.08999999999999997
+what did you ask who saw?,0,0,0.94,0,0.84,1,0.93,-0.09000000000000008
+we linguists love to argue,1,1,0.97,1,0.97,1,0.95,0.020000000000000018
+he can will go,0,0,0.95,0,0.95,0,0.96,-0.010000000000000009
+how fierce the battle?,0,1,0.92,0,0.91,0,0.91,0.0
+which king did you ask which city invaded?,0,0,0.85,1,0.86,0,0.76,0.09999999999999998
+it is some disgruntled old pigs in those ditches that humans love to eat.,1,1,0.98,1,0.93,1,0.9,0.030000000000000027
+that banana is eating the monkey.,1,0,0.84,1,0.64,1,0.6,0.040000000000000036
+burn them!,1,1,0.97,1,0.97,1,0.97,0.0
+it stinks that aphrodite is omnipotent.,1,1,0.68,1,0.88,1,0.94,-0.05999999999999994
+agamemnon seems to be a maniac,1,1,0.96,1,0.97,1,0.96,0.010000000000000009
+will anson come to the party?,1,1,0.98,1,0.98,1,0.98,0.0
+i wondered who medea had poisoned.,1,1,0.98,1,0.98,1,0.98,0.0
+i inquired when could we leave.,0,1,0.97,0,0.88,0,0.89,-0.010000000000000009
+they kicked them,1,1,0.95,1,0.95,1,0.96,-0.010000000000000009
+the monkey is ate the banana,0,0,0.94,0,0.95,0,0.94,0.010000000000000009
+i would like to could swim,1,0,0.96,0,0.95,0,0.8,0.1499999999999999
+i kicked myself,1,0,0.8,0,0.77,0,0.87,-0.09999999999999998
+the bookcase ran,0,1,0.68,0,0.91,0,0.93,-0.020000000000000018
+i shaved myself.,1,0,0.78,1,0.64,1,0.63,0.010000000000000009
+anson became a muscle bound.,1,0,0.84,1,0.63,0,0.92,-0.29000000000000004
+somebody just left - guess who.,1,1,0.98,0,0.83,0,0.72,0.10999999999999999
+"they claimed they had settled on something, but it wasn't clear what they had settled on.",1,1,0.98,1,0.79,1,0.95,-0.15999999999999992
+"if sam was going, sally would know where.",1,1,0.98,1,0.97,1,0.96,0.010000000000000009
+"they're going to serve the guests something, but it's unclear what.",1,1,0.98,1,0.97,0,0.78,0.18999999999999995
+she's reading. i can't imagine what.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+john said joan saw someone from her graduating class.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+john ate dinner but i don't know who.,0,1,0.94,1,0.97,1,0.93,0.039999999999999925
+"she mailed john a letter, but i don't know to whom.",0,1,0.98,1,0.96,1,0.94,0.020000000000000018
+i served leek soup to my guests.,1,1,0.98,0,0.73,1,0.82,-0.08999999999999997
+i served my guests.,1,1,0.98,1,0.98,1,0.98,0.0
+"she was bathing, but i couldn't make out who.",0,1,0.98,0,0.72,1,0.83,-0.10999999999999999
+she knew french for tom.,0,1,0.93,1,0.96,1,0.97,-0.010000000000000009
+john is tall on several occasions.,0,1,0.96,1,0.94,1,0.9,0.039999999999999925
+"the ship sank, but i don't know with what.",0,1,0.87,1,0.77,1,0.96,-0.18999999999999995
+"they noticed the painting, but i don't know for how long.",0,1,0.98,1,0.96,1,0.97,-0.010000000000000009
+"john was tall, but i don't know on what occasions.",0,1,0.97,0,0.56,1,0.77,-0.20999999999999996
+joan ate dinner with someone but i don't know who.,1,1,0.97,1,0.97,1,0.93,0.039999999999999925
+joan ate dinner with someone but i don't know who with.,1,0,0.86,1,0.92,0,0.86,0.06000000000000005
+"i know that meg's attracted to harry, but they don't know who.",0,1,0.98,1,0.97,1,0.96,0.010000000000000009
+"since jill said joe had invited sue, we didn't have to ask who.",0,1,0.98,1,0.79,1,0.91,-0.12
+"i know that meg's attracted to harry, but they don't know who.",1,1,0.98,1,0.97,1,0.96,0.010000000000000009
+"she said she had spoken to everybody, but he wasn't sure who.",0,1,0.97,0,0.84,1,0.55,0.2899999999999999
+"each of the performers came in, but were sitting so far back that we couldn't see who.",0,1,0.97,1,0.97,1,0.94,0.030000000000000027
+she didn't talk to one student.,1,1,0.97,1,0.96,1,0.97,-0.010000000000000009
+"she doesn't meet anyone for dinner, but they can't figure out who.",0,1,0.94,1,0.98,1,0.72,0.26
+everyone relies on someone. it's unclear who.,1,1,0.98,1,0.58,1,0.78,-0.20000000000000007
+"each student wrote a paper on a mayan language, but i don't remember which one.",1,1,0.97,1,0.74,1,0.88,-0.14
+"the newspaper has reported that they are about to appoint someone, but i can't remember who the newspaper has reported that they are about to appoint.",1,1,0.98,0,0.58,1,0.92,-0.3400000000000001
+"the newspaper has reported that they are about to appoint someone, but i can't remember who they are about to appoint.",1,1,0.98,1,0.75,1,0.92,-0.17000000000000004
+"most columnists claim that a senior white house official has been briefing them, and the newspaper today reveals which one.",1,1,0.97,0,0.54,0,0.76,-0.21999999999999997
+"most columnists claim that a senior white house official has been briefing them, but none will reveal which one.",1,1,0.97,1,0.53,1,0.53,0.0
+"bill wondered how many papers sandy had read, but he didn't care which ones.",1,1,0.97,1,0.96,1,0.94,0.020000000000000018
+"i never know which papers sandy has read, but i usually know how many.",1,1,0.97,1,0.92,1,0.97,-0.04999999999999993
+sandy had read how many papers?!,1,1,0.96,1,0.97,1,0.94,0.030000000000000027
+"everybody gets on well with a certain relative, but often only his therapist knows which one.",1,1,0.97,1,0.91,1,0.8,0.10999999999999999
+which book did each author recommend?,1,1,0.98,1,0.98,1,0.98,0.0
+his or her least known work.,1,1,0.95,0,0.92,0,0.87,0.050000000000000044
+"they were going to meet sometime on sunday, but the faculty didn't know when.",1,1,0.98,0,0.87,1,0.76,0.10999999999999999
+"john likes some students, but i don't know who.",1,1,0.97,1,0.98,1,0.94,0.040000000000000036
+i don't know who john likes.,1,1,0.98,1,0.98,1,0.98,0.0
+"john likes some students, but i don't know who john likes some students.",0,1,0.62,1,0.97,0,0.63,0.33999999999999997
+"joan said she talked to the students, but fred couldn't figure out who.",0,1,0.97,1,0.95,1,0.79,0.15999999999999992
+"he announced he had eaten the asparagus, but we didn't know what.",0,1,0.98,1,0.98,1,0.97,0.010000000000000009
+"she was reading the books under the table, but fred didn't know what books.",1,1,0.96,1,0.94,1,0.97,-0.030000000000000027
+"he announced he would marry the woman he loved most, but none of his relatives could figure out who.",1,1,0.97,1,0.97,1,0.88,0.08999999999999997
+she talked to john or mary but i don't know which.,1,1,0.94,1,0.89,1,0.82,0.07000000000000006
+she talked to john or mary but i don't know which one.,1,1,0.94,1,0.87,1,0.66,0.20999999999999996
+"she talked to harry, but i don't know who else.",1,1,0.95,1,0.97,1,0.56,0.4099999999999999
+"i will see them, but i don't know how many of them.",1,1,0.96,1,0.96,1,0.96,0.0
+everyone who knows either susan or laura likes her.,1,1,0.98,1,0.98,1,0.9,0.07999999999999996
+she said she talked to three students but i don't know how many.,0,1,0.96,1,0.86,1,0.94,-0.07999999999999996
+she said she talked to those students but i don't know how many.,0,1,0.96,1,0.94,1,0.93,0.009999999999999898
+"he shouted again, but i don't know who to.",1,0,0.89,0,0.58,0,0.84,-0.26
+"she was dancing with somebody, but i don't know who with.",1,0,0.87,1,0.9,0,0.81,0.08999999999999997
+"several firefighters were injured, but it's not known.",1,1,0.98,1,0.9,1,0.95,-0.04999999999999993
+"meg is attracted to harry, but they don't know who she is attracted to.",1,1,0.97,1,0.95,1,0.94,0.010000000000000009
+"sandy was trying to work out which students would be able to solve a certain problem, but she wouldn't tell us which one.",1,1,0.98,1,0.57,1,0.94,-0.37
+"sandy was trying to work out which students would be able to solve a certain problem, but she wouldn't tell us which one.",0,1,0.98,1,0.57,1,0.94,-0.37
+"john and someone were dancing together, but i don't know who.",0,1,0.97,1,0.98,1,0.91,0.06999999999999995
+"the ta's have been arguing about whether some student or other should pass, but i can't now remember which one.",1,1,0.97,1,0.72,0,0.61,0.10999999999999999
+it has been determined that somebody will be appointed; it's just not clear yet who.,0,1,0.98,1,0.96,0,0.85,0.10999999999999999
+"sally asked if somebody was going to fail math class, but i can't remember who.",0,1,0.98,1,0.97,1,0.96,0.010000000000000009
+"the ta's have been arguing about whether some student or other should pass, but i can't now remember which one.",0,1,0.97,1,0.72,0,0.61,0.10999999999999999
+"sandy is very anxious to see if the students will be able to solve the homework problem in a particular way, but she won't tell us which.",1,1,0.98,1,0.97,1,0.97,0.0
+"sandy is very anxious to see if the students will be able to solve the homework problem in a particular way, but she won't tell us in which way.",1,1,0.98,1,0.96,1,0.97,-0.010000000000000009
+"clinton is anxious to find out which budget dilemmas panetta would be willing to tackle in a certain way, but he won't say in which.",1,1,0.97,1,0.59,0,0.8,-0.21000000000000008
+"sandy is wondering whether there will be students who have to drop the class for a certain reason, but she won't reveal what.",1,1,0.98,1,0.96,1,0.98,-0.020000000000000018
+in which way is sandy very anxious to see if the students will be able to solve the homework problem?,0,1,0.96,1,0.85,1,0.97,-0.12
+in which way is clinton anxious to find out which budget dilemmas panetta would be willing to solve?,0,1,0.97,0,0.78,0,0.5,0.28
+"i know how many assignments i've graded, but i don't know how many bill has.",1,1,0.97,1,0.97,1,0.93,0.039999999999999925
+what did you leave before they did?,0,0,0.85,1,0.97,1,0.96,0.010000000000000009
+what did you leave before they started playing?,0,1,0.7,1,0.97,1,0.97,0.0
+sandy was trying to work out which students would be able to solve a certain problem.,1,1,0.98,1,0.98,1,0.98,0.0
+the administration has issued a statement that it is willing to meet with one of the student groups.,1,1,0.98,1,0.95,1,0.77,0.17999999999999994
+sandy was trying to work out which students would be able to solve a problem.,1,1,0.98,1,0.98,1,0.98,0.0
+the administration has issued a statement that it is willing to meet a student group.,1,1,0.98,1,0.97,0,0.67,0.29999999999999993
+"the administration has issued a statement that it is willing to meet a student group, but i'm not sure which one.",1,1,0.97,1,0.62,0,0.86,-0.24
+"i think agnes said that bill would speak, but i don't remember what about.",1,0,0.84,1,0.98,1,0.85,0.13
+agnes wondered how john could eat but it's not clear what.,0,1,0.97,1,0.97,1,0.95,0.020000000000000018
+"tony sent mo a picture that he painted, but it's not clear with what.",0,1,0.95,1,0.69,1,0.96,-0.27
+she's been dancing but we don't know with whom.,1,1,0.95,1,0.78,1,0.98,-0.19999999999999996
+who did they see someone?,0,0,0.94,0,0.95,0,0.93,0.019999999999999907
+it was believed by everybody that mary was a thief.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+that professor is feared by all students.,1,1,0.98,1,0.97,1,0.97,0.0
+mary was respected by john.,1,1,0.97,1,0.98,1,0.98,0.0
+ted was bitten by the spider.,1,1,0.98,1,0.98,1,0.98,0.0
+the book was by john written.,0,0,0.53,0,0.83,0,0.91,-0.08000000000000007
+the argument was summed by the coach up.,0,0,0.92,1,0.97,0,0.88,0.08999999999999997
+the paper was written up by john.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+the paper was written by john up.,0,1,0.89,1,0.79,0,0.85,-0.05999999999999994
+john was spoken to by mary.,1,1,0.98,0,0.62,1,0.62,0.0
+john was spoken by mary to.,0,0,0.94,0,0.91,0,0.88,0.030000000000000027
+the book was seen by mary.,1,1,0.82,1,0.98,1,0.93,0.04999999999999993
+john was seen the book.,0,0,0.95,1,0.98,1,0.64,0.33999999999999997
+the book was written.,1,1,0.93,1,0.98,1,0.97,0.010000000000000009
+john was spoke by mary to.,0,0,0.94,0,0.91,0,0.92,-0.010000000000000009
+the table was wiped clean by john.,1,1,0.98,1,0.96,1,0.89,0.06999999999999995
+the table was wiped by john clean.,0,0,0.72,1,0.96,1,0.5,0.45999999999999996
+mary was given by john the book.,0,0,0.95,1,0.93,0,0.86,0.07000000000000006
+john was believed to be telling the truth by mary.,1,1,0.95,1,0.98,1,0.97,0.010000000000000009
+john was believed by mary to be telling the truth.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+the car was driven by john to maine.,1,1,0.97,1,0.98,1,0.83,0.15000000000000002
+it was believed by the students that they would have an exam.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+the magazines were sent to herself by mary.,0,0,0.74,1,0.68,1,0.84,-0.15999999999999992
+chocolate eggs were hidden from each other by the children.,0,1,0.98,1,0.96,1,0.99,-0.030000000000000027
+the magazines were sent by mary to herself.,1,0,0.76,1,0.78,0,0.64,0.14
+chocolate eggs were hidden from no child by any adult.,1,1,0.66,1,0.92,1,0.66,0.26
+tabs were kept on each agent by the other.,1,1,0.93,1,0.98,1,0.77,0.20999999999999996
+chocolate eggs were hidden from every child by his mother.,1,1,0.97,1,0.97,1,0.98,-0.010000000000000009
+books were taken from no student and given to mary.,1,1,0.68,1,0.52,1,0.88,-0.36
+books were taken from no student and given to mary by any professor.,0,0,0.84,1,0.68,1,0.85,-0.16999999999999993
+books were taken from each student by the other.,1,1,0.93,1,0.96,1,0.83,0.13
+books were taken from each student and given to mary.,1,1,0.97,1,0.8,1,0.91,-0.10999999999999999
+books were taken from each student and given to mary by the other.,0,1,0.96,1,0.94,1,0.94,0.0
+jack hates sue and is loved by mary.,1,1,0.98,1,0.96,1,0.95,0.010000000000000009
+vera sent a baby alligator to max and a leather dinosaur to phyllis.,1,1,0.96,1,0.96,1,0.67,0.2899999999999999
+either sam plays the bassoon or jekyll the oboe.,1,1,0.98,1,0.94,0,0.67,0.2699999999999999
+"sam doesn't play bassoon, nor medusa oboe.",1,1,0.82,1,0.7,1,0.7,0.0
+"bill ate the peaches, but harry the grapes.",0,1,0.96,1,0.98,0,0.8,0.17999999999999994
+i no more could have stolen that steak than jack the diamonds.,1,1,0.77,0,0.9,0,0.87,0.030000000000000027
+bill ate more peaches than harry did grapes.,1,1,0.96,1,0.97,1,0.66,0.30999999999999994
+bill ate the peaches and harry did the grapes.,0,1,0.97,1,0.98,1,0.97,0.010000000000000009
+"tom will smoke the grass, and reuben has the hash.",0,1,0.96,1,0.78,1,0.94,-0.15999999999999992
+"if the ants were called elephants and elephants ants, i'd be able to squash an elephant.",1,1,0.87,0,0.62,0,0.72,-0.09999999999999998
+"simon quickly dropped the gold, and jack the diamonds.",1,1,0.94,1,0.93,1,0.54,0.39
+"bob tried to wash himself, and mary to read the funnies.",1,0,0.84,0,0.67,1,0.74,-0.06999999999999995
+"harry told sue that albania is a lovely place for a vacation, and tom told sally that albania is a lovely place for a vacation.",1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+"harry told sue that albania is a lovely place for a vacation, and tom.",1,0,0.79,1,0.98,1,0.98,0.0
+"max seemed to be trying to begin to love harriet, and fred to be trying to begin to love sue.",1,1,0.97,1,0.95,1,0.98,-0.030000000000000027
+"max seemed to be trying to force ted to leave the room, and walt, ira.",1,1,0.53,0,0.5,1,0.55,-0.050000000000000044
+"max seemed to be trying to force ted to leave the room, and walt to stay a little longer.",0,1,0.97,0,0.61,1,0.9,-0.29000000000000004
+"arizona elected goldwater senator, and massachusetts, mccormack.",0,1,0.79,0,0.83,0,0.88,-0.050000000000000044
+"millie will send the president an obscene telegram, and paul, the secretary a rude letter.",0,1,0.84,1,0.97,1,0.94,0.030000000000000027
+maytag will give a brand-new dryer to the winner of the mrs.,0,1,0.97,1,0.94,1,0.74,0.19999999999999996
+"bill didn't eat the peaches, nor harry.",0,1,0.87,1,0.78,1,0.94,-0.15999999999999992
+"bill ate the peaches, and harry did, too.",1,1,0.98,1,0.98,1,0.98,0.0
+"bill must quickly eat the peaches, and harry must slowly.",0,1,0.96,1,0.97,1,0.98,-0.010000000000000009
+"whenever russia has made a major political blunder, the u.s. has too.",1,1,0.98,1,0.77,1,0.85,-0.07999999999999996
+bill's story about sue and max's about kathy both amazed me.,1,1,0.96,1,0.57,0,0.52,0.04999999999999993
+i bought three quarts of wine and two of clorox.,1,1,0.97,1,0.9,1,0.66,0.24
+"scientists at the south hanoi institute of technology have succeeded in raising one dog with five legs, another with a cow's liver, and a third with no head.",1,1,0.96,1,0.86,1,0.58,0.28
+"bill's story about sue may be amazing, but max's is virtually incredible.",1,1,0.96,1,0.56,1,0.9,-0.33999999999999997
+"i like bill's yellow shirt, but not max's.",1,1,0.97,1,0.85,1,0.52,0.32999999999999996
+bill's funny story about sue and max's boring one about kathy both amazed me.,1,1,0.95,1,0.73,0,0.7,0.030000000000000027
+bill's wine from france and ted's from california cannot be compared.,1,1,0.96,0,0.8,0,0.75,0.050000000000000044
+"as a teacher, you have to deal simultaneously with the administration's pressure on you to succeed, and the children's to be a nice guy.",0,0,0.85,1,0.97,1,0.84,0.13
+neither von karajan's recording of beethoven's 6th on columbia nor klemperer's on angel has the right tempo.,1,1,0.82,0,0.86,0,0.94,-0.07999999999999996
+gould's performance of bach on the piano doesn't please me anywhere as much as ross's on the harpsichord.,0,1,0.96,0,0.94,0,0.52,0.41999999999999993
+tom's dog with one eye attacked frank's with three legs.,0,1,0.92,0,0.53,1,0.81,-0.28
+"because steve's of a spider's eye had been stolen, i borrowed fred's diagram of a snake's fang.",0,0,0.85,1,0.73,0,0.85,-0.12
+neither von karajan's recording of beethoven's 6th on columbia nor klemperer's has the right tempo.,1,1,0.95,0,0.86,0,0.94,-0.07999999999999996
+tom's dog with one eye attacked fred's.,1,1,0.91,1,0.97,1,0.8,0.16999999999999993
+i borrowed fred's diagram of a snake's eye because steve's had been stolen.,1,1,0.88,1,0.96,1,0.76,0.19999999999999996
+jerry attempted to blow up the pentagon.,1,1,0.98,1,0.98,1,0.98,0.0
+so fast did he run that nobody could catch him.,1,1,0.98,1,0.97,1,0.96,0.010000000000000009
+"bill bought a red house, and max bought one too.",1,1,0.97,1,0.96,1,0.86,0.09999999999999998
+who always drinks milk?,1,1,0.98,1,0.98,1,0.96,0.020000000000000018
+the book which inspired them was very long.,1,1,0.97,1,0.97,1,0.91,0.05999999999999994
+the book what inspired them was very long.,0,0,0.77,1,0.89,0,0.8,0.08999999999999997
+i know the person whose mother died.,1,1,0.98,1,0.98,1,0.98,0.0
+the person whose mother's dog we were all fond of.,1,1,0.97,1,0.56,1,0.78,-0.21999999999999997
+i wonder whose mother died.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+i wonder whose mother's dog died.,1,1,0.98,1,0.98,1,0.98,0.0
+i wonder to whom they dedicated the building.,1,1,0.97,1,0.85,0,0.69,0.16000000000000003
+give me the phone number of the person whose mother's dog died.,1,1,0.98,1,0.96,1,0.87,0.08999999999999997
+this is the senator to whose mother's friend's sister's i sent the letter.,1,0,0.85,1,0.95,0,0.88,0.06999999999999995
+i want goes to the store.,0,0,0.95,0,0.94,0,0.93,0.009999999999999898
+i wonder what to be a clown on the cover of.,0,0,0.84,1,0.7,0,0.56,0.1399999999999999
+bother you that kim left!,0,1,0.72,0,0.9,1,0.87,0.030000000000000027
+a student who to talk to us just walked in.,0,0,0.94,0,0.9,0,0.68,0.21999999999999997
+whose bagels do you like?,1,1,0.98,1,0.98,1,0.98,0.0
+i wonder in whom to place my trust.,1,1,0.68,1,0.72,0,0.89,-0.17000000000000004
+there were several old rocks songs that she and i were the only two who knew.,1,1,0.97,1,0.96,1,0.93,0.029999999999999916
+it was to to amuse us that kim was singing that they wanted.,0,1,0.71,1,0.93,1,0.97,-0.039999999999999925
+what they feared most was to be no one available to help them.,0,1,0.96,1,0.97,1,0.87,0.09999999999999998
+we tried to amuse them that kim was singing.,0,0,0.86,1,0.98,1,0.98,0.0
+"mary asked me if, in st. louis, john could rent a house cheap.",1,1,0.61,1,0.7,0,0.87,-0.17000000000000004
+"mary arranged for, in st. louis, john to rent a house cheap.",0,0,0.94,0,0.9,0,0.91,-0.010000000000000009
+it would be unwise for there to be no fire exit.,1,1,0.98,1,0.97,1,0.95,0.020000000000000018
+i believe there to be no way out.,1,1,0.98,1,0.98,1,0.98,0.0
+i wonder in whom them to place their trust.,0,0,0.94,0,0.91,0,0.94,-0.029999999999999916
+i wonder whom us to trust.,0,0,0.88,1,0.98,0,0.93,0.04999999999999993
+i wonder who for us to trust.,0,0,0.93,0,0.62,0,0.92,-0.30000000000000004
+i wonder who to place my trust in.,1,1,0.96,1,0.96,0,0.93,0.029999999999999916
+i know the people that voted in the election.,1,1,0.98,1,0.98,1,0.98,0.0
+i threw away a book that sandy thought we had read.,1,1,0.98,1,0.98,1,0.98,0.0
+i thought that you were sick.,1,1,0.98,1,0.98,1,0.98,0.0
+i dislike the people in who we placed our trust.,0,0,0.83,1,0.66,0,0.88,-0.21999999999999997
+i dislike the company in which we placed our trust.,1,1,0.98,1,0.68,0,0.85,-0.16999999999999993
+i dislike the people in whose house we stayed.,1,1,0.98,1,0.98,1,0.91,0.06999999999999995
+i dislike the person with whom we were talking.,1,1,0.98,1,0.98,1,0.96,0.020000000000000018
+"jones, that we were talking to last night, always watches football games alone.",0,1,0.96,1,0.71,0,0.52,0.18999999999999995
+a letter was received that jones would be upset by.,1,1,0.96,0,0.89,0,0.91,-0.020000000000000018
+a letter was received jones would be upset by.,0,0,0.86,0,0.93,0,0.87,0.06000000000000005
+i saw someone yesterday i hadn't seen for years.,1,1,0.98,1,0.97,1,0.94,0.030000000000000027
+something happened i couldn't really talk about.,1,1,0.98,1,0.93,1,0.93,0.0
+the only person that i like whose kids dana is willing to put up with is pat.,1,1,0.97,1,0.67,1,0.72,-0.04999999999999993
+the book that i like which everyone else in the class hates was written by john.,1,1,0.98,1,0.97,1,0.91,0.05999999999999994
+the only person whose kids dana is willing to put up with was written by john.,0,1,0.77,0,0.81,1,0.96,-0.1499999999999999
+the book that i like - everyone else in the class hates.,0,1,0.83,1,0.71,1,0.62,0.08999999999999997
+the only person whose kids dana is willing to put up with is pat.,1,1,0.96,0,0.91,1,0.89,0.020000000000000018
+"which book's, author did you meet?",1,0,0.87,1,0.97,0,0.94,0.030000000000000027
+"which boy's, mother, did you meet who you liked?",0,0,0.94,1,0.74,0,0.88,-0.14
+"which book's, author did you meet who you liked?",0,0,0.86,1,0.76,0,0.93,-0.17000000000000004
+"which boy's, mother, did you meet?",1,0,0.88,1,0.97,0,0.86,0.10999999999999999
+all who lost money in the scam are eligible for the program.,1,1,0.98,1,0.97,1,0.95,0.020000000000000018
+who for sandy to talk to is still enrolled in the class?,0,0,0.96,0,0.94,0,0.89,0.04999999999999993
+who who you like does sandy also like?,1,1,0.55,1,0.95,1,0.67,0.2799999999999999
+everything you like is on the table.,1,1,0.98,1,0.98,1,0.98,0.0
+the bills passed by the house yesterday that we objected to were vetoed.,1,1,0.98,1,0.97,1,0.7,0.27
+the only people being added to our group who were at harvard were students.,1,1,0.94,1,0.68,1,0.6,0.08000000000000007
+we like ourselves.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+nobody likes us.,1,1,0.98,1,0.98,1,0.98,0.0
+leslie likes ourselves.,0,0,0.82,0,0.87,0,0.75,0.12
+ourselves like ourselves.,0,0,0.54,0,0.67,0,0.87,-0.19999999999999996
+she voted for herself.,1,1,0.85,1,0.96,1,0.89,0.06999999999999995
+we gave us presents.,0,1,0.98,1,0.98,1,0.97,0.010000000000000009
+we gave ourselves presents.,1,1,0.98,1,0.98,1,0.95,0.030000000000000027
+we gave presents to ourselves.,1,1,0.98,1,0.95,0,0.62,0.32999999999999996
+we gave us to the cause.,0,0,0.75,1,0.96,1,0.69,0.27
+we gave ourselves to the cause.,1,1,0.98,1,0.97,1,0.84,0.13
+leslie told us about us.,0,0,0.94,1,0.97,1,0.94,0.030000000000000027
+leslie told ourselves about us.,0,0,0.94,0,0.86,0,0.74,0.12
+we think that leslie likes us.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+we think that leslie likes ourselves.,0,0,0.85,0,0.73,0,0.81,-0.08000000000000007
+our friends like us.,1,1,0.98,1,0.98,1,0.98,0.0
+those pictures of us offended us.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+we found your letter to ourselves in the trash.,0,1,0.96,1,0.97,1,0.73,0.24
+vote for you!,0,1,0.97,1,0.95,1,0.96,-0.010000000000000009
+vote for yourself!,1,1,0.97,1,0.96,1,0.86,0.09999999999999998
+we appeared to them to vote for themselves.,0,1,0.68,1,0.96,1,0.95,0.010000000000000009
+we admired the pictures of us in the album.,1,1,0.98,1,0.98,1,0.98,0.0
+we admired the pictures of ourselves in the album.,1,1,0.98,1,0.98,1,0.98,0.0
+leslie used a pen.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+we put the pigs in a pen.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+we need to pen the pigs to keep them from getting into the corn.,1,1,0.98,1,0.96,1,0.98,-0.020000000000000018
+they should pen the letter quickly.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+the car won't run.,1,1,0.97,1,0.95,1,0.95,0.0
+this dye will run.,1,1,0.97,1,0.93,1,0.94,-0.009999999999999898
+she can run an accelerator.,1,1,0.96,1,0.97,1,0.98,-0.010000000000000009
+these stockings will run.,1,1,0.95,1,0.94,1,0.94,0.0
+we need another run to win.,1,1,0.96,1,0.94,1,0.97,-0.030000000000000027
+lee saw the student with a telescope.,1,1,0.98,1,0.98,1,0.98,0.0
+i forgot how good beer tastes.,1,1,0.98,1,0.98,1,0.98,0.0
+visiting relatives can be boring.,1,1,0.98,1,0.97,1,0.99,-0.020000000000000018
+if only superman would stop flying planes!,1,1,0.97,1,0.94,1,0.94,0.0
+that's a new car dealership.,1,1,0.97,1,0.98,1,0.97,0.010000000000000009
+i know you like the back of my hand.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+max is on the phone now.,1,1,0.98,1,0.98,1,0.98,0.0
+i saw her duck.,1,1,0.98,1,0.97,1,0.97,0.0
+i'm creating a committee. kim – you're in charge.,1,1,0.98,1,0.87,1,0.91,-0.040000000000000036
+lights go out at ten. there will be no talking afterwards.,1,1,0.98,1,0.64,1,0.93,-0.29000000000000004
+they found the book on the atom.,1,1,0.97,1,0.97,1,0.88,0.08999999999999997
+which experts testified against defendants who exposed them?,1,1,0.98,1,0.96,1,0.95,0.010000000000000009
+list all experts for the defendant who represented himself.,1,1,0.89,1,0.8,0,0.9,-0.09999999999999998
+list associates of each defendant who speaks spanish.,1,1,0.98,1,0.84,1,0.64,0.19999999999999996
+they lost themselves' books.,0,0,0.84,1,0.97,1,0.93,0.039999999999999925
+some sentences go on and on and on.,1,1,0.97,1,0.93,1,0.96,-0.029999999999999916
+sentences some go on and on and on and on.,0,0,0.75,1,0.67,0,0.66,0.010000000000000009
+that surprised me.,1,1,0.97,1,0.98,1,0.98,0.0
+i noticed the.,0,0,0.85,0,0.88,0,0.81,0.06999999999999995
+they were interested in his.,1,0,0.9,0,0.54,0,0.66,-0.12
+this is my favorite.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+a large dog chased a small cat.,1,1,0.98,1,0.98,1,0.98,0.0
+some people yell at noisy dogs in my neighborhood.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+some people yell at the dogs in my neighborhood.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+some people yell at the dogs.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+some people yell at noisy dogs.,1,1,0.98,1,0.98,1,0.96,0.020000000000000018
+some people yell at dogs.,1,1,0.98,1,0.98,1,0.96,0.020000000000000018
+some people consider the noisy dogs dangerous.,1,1,0.98,1,0.96,1,0.97,-0.010000000000000009
+some people consider the dogs in my neighborhood dangerous.,1,1,0.98,1,0.96,1,0.9,0.05999999999999994
+some people consider noisy dogs in my neighborhood dangerous.,1,1,0.98,1,0.97,1,0.91,0.05999999999999994
+some people consider the dogs dangerous.,1,1,0.98,1,0.98,1,0.98,0.0
+some people consider noisy dogs dangerous.,1,1,0.98,1,0.94,1,0.97,-0.030000000000000027
+some people consider dogs in my neighborhood dangerous.,1,1,0.98,1,0.9,1,0.88,0.020000000000000018
+some people consider dogs dangerous.,1,1,0.98,1,0.98,1,0.98,0.0
+people with children who use drugs should be locked up.,1,1,0.98,1,0.97,1,0.93,0.039999999999999925
+this disease gave leslie a fever in rome.,1,1,0.97,1,0.96,1,0.74,0.21999999999999997
+the love of my life and mother of my children would never do such a thing.,1,1,0.98,1,0.96,1,0.92,0.039999999999999925
+"most elections are quickly forgotten, but the election of 2000, everyone will remember for a long time.",1,1,0.98,1,0.8,1,0.77,0.030000000000000027
+it is painting by klee or drawing by miro that the museum displays no.,0,1,0.7,1,0.97,1,0.93,0.039999999999999925
+the defendant denied the accusation.,1,1,0.98,1,0.98,1,0.98,0.0
+the teacher disappeared the problem.,0,0,0.94,0,0.93,0,0.93,0.0
+the teacher handed the student.,0,0,0.95,0,0.92,0,0.97,-0.04999999999999993
+the bird sings.,1,1,0.98,1,0.98,1,0.98,0.0
+the bird sing.,0,0,0.9,0,0.75,0,0.7,0.050000000000000044
+birds sings.,0,0,0.92,0,0.92,0,0.91,0.010000000000000009
+the birds give the worm a tug.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+the bird give the worm a tug.,0,1,0.96,1,0.73,1,0.98,-0.25
+the birds gives the worm a tug.,0,0,0.95,0,0.94,0,0.93,0.009999999999999898
+terry delighted in my pain.,1,1,0.97,1,0.92,0,0.88,0.040000000000000036
+terry delighted.,0,1,0.69,0,0.92,0,0.86,0.06000000000000005
+terry delighted my pain.,0,0,0.93,1,0.97,1,0.96,0.010000000000000009
+kerry remarked it was late.,1,1,0.98,1,0.97,1,0.96,0.010000000000000009
+what additional categories and rules would be required to handle these verbs?,1,1,0.98,1,0.86,1,0.68,0.17999999999999994
+we created a monster.,1,1,0.98,1,0.98,1,0.98,0.0
+i was already aware of fact.,0,0,0.94,1,0.98,1,0.98,0.0
+the defendant deny the allegation.,0,1,0.79,0,0.78,1,0.9,-0.12
+the defendants denies the allegation.,0,1,0.98,0,0.9,0,0.73,0.17000000000000004
+the defendant walks.,1,1,0.98,1,0.98,1,0.95,0.030000000000000027
+the defendant walk.,0,0,0.85,0,0.69,0,0.92,-0.2300000000000001
+the defendants walks.,0,0,0.8,0,0.92,0,0.89,0.030000000000000027
+how many feature structures categories can label the first daughter?,1,1,0.73,1,0.94,1,0.92,0.019999999999999907
+the child put the toy on the table.,1,1,0.98,1,0.98,1,0.98,0.0
+the teacher became angry with the students.,1,1,0.98,1,0.98,1,0.98,0.0
+the teacher became.,0,0,0.92,0,0.92,0,0.97,-0.04999999999999993
+the jury believed the defendant lied.,1,1,0.98,1,0.98,1,0.98,0.0
+the guests dined.,1,1,0.98,1,0.98,1,0.98,0.0
+we relied on leslie.,1,1,0.98,1,0.98,1,0.98,0.0
+we relied above leslie.,0,1,0.69,1,0.87,1,0.94,-0.06999999999999995
+we celebrated in the streets.,1,1,0.98,1,0.87,1,0.73,0.14
+we celebrated in the streets in the rain on tuesday in the morning.,1,1,0.97,1,0.94,1,0.88,0.05999999999999994
+the children are happy of ice cream.,0,0,0.95,1,0.98,1,0.98,0.0
+the children are fond with the ice cream.,0,0,0.82,1,0.98,1,0.98,0.0
+the children are fond that they have ice cream.,0,0,0.77,1,0.98,1,0.98,0.0
+a magazine appeared on the newsstands.,1,1,0.98,1,0.78,1,0.7,0.08000000000000007
+a magazine about crime appeared on the newsstands.,1,1,0.98,1,0.69,1,0.51,0.17999999999999994
+newsweek appeared on the newsstands.,1,1,0.97,1,0.75,1,0.85,-0.09999999999999998
+newsweek about crime appeared on the newsstands.,0,0,0.84,0,0.54,0,0.67,-0.13
+the report that crime was declining surprised many people.,1,1,0.98,0,0.9,1,0.93,-0.030000000000000027
+the book surprised many people.,1,1,0.98,1,0.98,1,0.98,0.0
+the book that crime was declining surprised many people.,0,0,0.91,0,0.87,1,0.94,-0.06999999999999995
+the storm arrived after the picnic.,1,1,0.98,1,0.97,1,0.93,0.039999999999999925
+the storm arrived while the picnic.,0,0,0.94,1,0.97,0,0.57,0.4
+the storm arrived while we ate lunch.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+this dogs barked.,0,0,0.94,0,0.92,0,0.53,0.39
+these dogs barked.,1,1,0.98,1,0.98,1,0.98,0.0
+a chair was broken.,1,1,0.98,1,0.98,1,0.98,0.0
+they want them arrested.,1,1,0.98,1,0.98,1,0.98,0.0
+they preferred them arrested.,1,1,0.97,1,0.98,1,0.96,0.020000000000000018
+we preferred them on our team.,1,1,0.97,1,0.78,1,0.93,-0.15000000000000002
+"with my parents as supportive as they are, i'll be in fine shape.",1,1,0.98,1,0.79,0,0.82,-0.029999999999999916
+we walks.,0,0,0.92,0,0.94,0,0.94,0.0
+few dog barked.,0,0,0.93,0,0.93,0,0.92,0.010000000000000009
+the dogs barked.,1,1,0.98,1,0.98,1,0.98,0.0
+i walk and dana runs.,1,1,0.98,1,0.68,0,0.75,-0.06999999999999995
+they like us.,1,1,0.98,1,0.98,1,0.98,0.0
+us like them.,0,1,0.94,0,0.9,0,0.52,0.38
+kim likes dogs.,1,1,0.98,1,0.98,1,0.98,0.0
+dogs like kim.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+the person responsible confessed.,1,1,0.98,1,0.93,1,0.59,0.3400000000000001
+the person confessed responsible.,0,0,0.86,0,0.91,0,0.82,0.09000000000000008
+the cat slept soundly and furry.,0,0,0.83,1,0.96,1,0.57,0.39
+the soundly and furry cat slept.,0,1,0.92,1,0.97,1,0.5,0.47
+"chris walks, pat eats broccoli, and sandy plays squash.",1,1,0.98,1,0.77,1,0.96,-0.18999999999999995
+there was some particular dog who saved every family.,1,1,0.97,1,0.97,1,0.98,-0.010000000000000009
+susan frightens her.,1,1,0.98,1,0.98,1,0.98,0.0
+susan told her a story.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+susan told a story to her.,1,1,0.98,1,0.98,1,0.98,0.0
+susan devoted herself to linguistics.,1,1,0.98,1,0.77,1,0.96,-0.18999999999999995
+nobody told susan about herself.,1,1,0.8,1,0.82,1,0.53,0.2899999999999999
+that picture of susan offended her.,1,1,0.98,1,0.98,1,0.98,0.0
+he offended sandy.,1,1,0.98,1,0.98,1,0.98,0.0
+i enjoy yourself.,0,1,0.58,0,0.86,1,0.95,-0.08999999999999997
+they talk to themselves.,1,1,0.97,1,0.98,1,0.96,0.020000000000000018
+nobody told susan.,1,1,0.98,1,0.97,1,0.99,-0.020000000000000018
+protect yourself!,1,1,0.97,1,0.97,1,0.99,-0.020000000000000018
+protect you!,0,1,0.96,1,0.97,1,0.99,-0.020000000000000018
+i met the person who left.,1,1,0.98,1,0.98,1,0.98,0.0
+leslie slept.,1,1,0.98,1,0.98,1,0.98,0.0
+chris handed bo.,0,0,0.95,0,0.94,0,0.95,-0.010000000000000009
+dana walked and leslie ran.,1,1,0.98,1,0.98,1,0.98,0.0
+dana walking and leslie ran.,0,0,0.92,1,0.52,0,0.93,-0.41000000000000003
+dana walking and leslie running.,0,1,0.95,0,0.85,0,0.92,-0.07000000000000006
+the putter of books left.,0,0,0.82,0,0.93,0,0.79,0.14
+kris donated a book to the library.,1,1,0.98,1,0.98,1,0.98,0.0
+the police sprayed the protesters with water.,1,1,0.98,1,0.98,1,0.98,0.0
+the police sprayed water on the protesters.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+the students drove cars.,1,1,0.98,1,0.98,1,0.98,0.0
+these cars drive easily.,1,1,0.76,1,0.86,1,0.56,0.29999999999999993
+the horse kicked me black and blue.,1,1,0.86,1,0.77,1,0.97,-0.19999999999999996
+they yelled.,1,1,0.97,1,0.98,1,0.98,0.0
+the horse raced past the barn fell.,1,0,0.93,1,0.97,1,0.91,0.05999999999999994
+the horse that was raced past the barn fell.,1,1,0.69,1,0.97,1,0.94,0.030000000000000027
+the boat seen down the river sank.,1,0,0.82,0,0.86,0,0.87,-0.010000000000000009
+the evidence assembled by the prosecution convinced the jury.,1,1,0.98,1,0.76,1,0.96,-0.19999999999999996
+lou forgot the umbrella.,1,1,0.98,1,0.98,1,0.98,0.0
+lou forgot the umbrella in the closet.,1,1,0.98,1,0.96,1,0.97,-0.010000000000000009
+lou hoped the umbrella was broken.,1,1,0.98,1,0.98,1,0.98,0.0
+lou hoped the umbrella in the closet.,0,0,0.96,0,0.89,1,0.61,0.28
+lou put the umbrella was broken.,0,0,0.95,0,0.94,0,0.95,-0.010000000000000009
+lou put the umbrella in the closet.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+the artist drew the child with a pencil.,1,1,0.98,1,0.97,1,0.95,0.020000000000000018
+the dog bit the cat.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+the cat was bitten the mouse.,0,0,0.96,0,0.95,0,0.95,0.0
+the cat was bitten the mouse by the dog.,0,0,0.94,0,0.94,0,0.94,0.0
+chris was handed sandy a note by pat.,0,1,0.94,1,0.98,0,0.93,0.04999999999999993
+chris was handed a note.,1,1,0.98,1,0.98,1,0.98,0.0
+chris was handed sandy a note.,0,0,0.83,1,0.98,0,0.93,0.04999999999999993
+tv puts dumb ideas in children's heads.,1,1,0.98,1,0.95,1,0.91,0.039999999999999925
+dumb ideas are put in children's heads by tv.,1,1,0.98,1,0.96,1,0.97,-0.010000000000000009
+dumb ideas are put in children's heads.,1,1,0.98,1,0.96,1,0.97,-0.010000000000000009
+dumb ideas are put notions in children's heads by tv.,0,0,0.84,1,0.94,1,0.94,0.0
+the patient died.,1,1,0.98,1,0.98,1,0.98,0.0
+the patient was died.,0,0,0.93,0,0.91,0,0.92,-0.010000000000000009
+chris was handed.,0,0,0.94,0,0.75,0,0.58,0.17000000000000004
+tv puts dumb ideas.,0,0,0.89,1,0.94,1,0.66,0.2799999999999999
+he was arrested by the police.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+the cat got bitten.,1,1,0.98,1,0.98,1,0.98,0.0
+the cat were bitten by the dog.,0,1,0.98,1,0.62,0,0.5,0.12
+there is a monster in loch ness.,1,1,0.98,1,0.94,1,0.97,-0.030000000000000027
+it is obvious that pat is lying.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+pat is the captain of the team.,1,1,0.98,1,0.98,1,0.98,0.0
+pat is hate chris.,0,0,0.96,0,0.95,0,0.63,0.31999999999999995
+there is a unicorn in the garden.,1,1,0.98,1,0.98,1,0.98,0.0
+there was a felon elected to the city council.,1,1,0.97,1,0.82,1,0.97,-0.15000000000000002
+there is a seat available.,1,1,0.97,1,0.96,0,0.68,0.2799999999999999
+a seat available was in the last row.,0,0,0.86,0,0.6,0,0.82,-0.21999999999999997
+many people were fond of pat.,1,1,0.98,1,0.98,1,0.95,0.030000000000000027
+people are looking through the window.,1,1,0.98,1,0.98,1,0.98,0.0
+a felon was elected to the city council.,1,1,0.98,1,0.97,1,0.97,0.0
+there loved sandy.,0,0,0.94,0,0.94,0,0.96,-0.020000000000000018
+we talked to them about there.,0,0,0.94,0,0.53,1,0.68,-0.15000000000000002
+it mattered that the giants had lost.,1,0,0.8,1,0.87,1,0.77,0.09999999999999998
+that dogs bark annoys people.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+it annoys people that dogs bark.,1,1,0.98,1,0.98,1,0.98,0.0
+that chris knew the answer occurred to pat.,1,1,0.98,1,0.97,1,0.88,0.08999999999999997
+it never occurred to pat that chris knew the answer.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+that the cardinal won the game gave sandy a thrill.,1,1,0.98,1,0.97,1,0.97,0.0
+it gave sandy a thrill that the cardinal won the game.,1,1,0.98,1,0.98,1,0.98,0.0
+that sandy had lied suggested.,0,0,0.8,0,0.94,0,0.91,0.029999999999999916
+it loved sandy.,0,0,0.92,0,0.94,0,0.94,0.0
+cohen proved the independence of the continuum hypothesis.,1,1,0.98,1,0.97,1,0.97,0.0
+cohen proved that the continuum hypothesis was independent.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+we forgot our invitations.,1,1,0.98,1,0.98,1,0.98,0.0
+nobody saw pat.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+that fido barks annoys me.,1,1,0.73,1,0.56,1,0.72,-0.15999999999999992
+fido barks.,1,1,0.98,1,0.98,1,0.98,0.0
+chris dreads the bucket.,1,1,0.98,1,0.96,1,0.83,0.13
+the candidates bring advantage to the voters.,1,1,0.97,1,0.98,1,0.97,0.010000000000000009
+tabs are kept on suspected drug dealers by the fbi.,1,1,0.98,1,0.98,1,0.98,0.0
+advantage is taken of every opportunity for improvement.,1,1,0.93,1,0.97,1,0.73,0.24
+the bucket was kicked by pat.,1,1,0.97,1,0.75,0,0.55,0.19999999999999996
+john is sad.,1,1,0.98,1,0.98,1,0.98,0.0
+john loaded the wagon full with hay.,1,1,0.98,1,0.8,1,0.81,-0.010000000000000009
+john loaded the wagon with hay green.,0,0,0.71,1,0.91,0,0.63,0.28
+i presented john with it dead.,0,0,0.94,0,0.82,0,0.87,-0.050000000000000044
+of whom are you thinking?,1,1,0.94,1,0.87,1,0.73,0.14
+john became rich.,1,1,0.98,1,0.98,1,0.98,0.0
+i gave john gold apples.,1,1,0.98,1,0.98,1,0.95,0.030000000000000027
+how silly is bill considered?,1,1,0.7,1,0.98,1,0.96,0.020000000000000018
+how mad was bill made?,1,0,0.92,1,0.67,1,0.9,-0.22999999999999998
+john is sick.,1,1,0.98,1,0.98,1,0.98,0.0
+john left singing.,1,0,0.91,0,0.89,0,0.74,0.15000000000000002
+john is near larry.,1,1,0.97,1,0.98,1,0.99,-0.010000000000000009
+john gave bill the dog dead.,1,0,0.96,1,0.54,1,0.89,-0.35
+bill was struck by john as stupid.,0,0,0.94,1,0.64,0,0.89,-0.25
+john was struck as sick.,0,0,0.83,1,0.57,1,0.62,-0.050000000000000044
+john was struck by bill's idiocy.,1,1,0.98,1,0.98,1,0.98,0.0
+john promised bill to leave.,1,1,0.97,1,0.98,1,0.98,0.0
+john tried to leave.,1,1,0.98,1,0.98,1,0.98,0.0
+to leave would be a pleasure.,1,1,0.98,1,0.97,1,0.97,0.0
+john was struck by bill as pompous.,0,0,0.87,0,0.87,0,0.76,0.10999999999999999
+john was promised by bill to leave.,0,1,0.97,1,0.87,1,0.78,0.08999999999999997
+they make good cooks.,1,1,0.98,1,0.98,1,0.97,0.010000000000000009
+there is nothing to do.,1,1,0.98,1,0.98,1,0.98,0.0
+john has something for bill to do.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+i am counting on bill to incriminate himself.,1,1,0.98,1,0.97,1,0.69,0.28
+on whom are you counting to incriminate himself?,1,0,0.79,1,0.76,1,0.86,-0.09999999999999998
+i am counting on bill to get there on time.,1,1,0.98,1,0.97,1,0.87,0.09999999999999998
+i would prefer to leave.,1,1,0.98,1,0.98,1,0.98,0.0
+i would hate for john to leave.,1,1,0.98,1,0.98,1,0.98,0.0
+i would prefer for john to leave.,1,1,0.98,1,0.98,1,0.98,0.0
+it was hated for john to leave.,0,0,0.96,0,0.93,0,0.83,0.10000000000000009
+john decided for bill to get the prize.,0,1,0.71,1,0.5,1,0.97,-0.47
+john decided bill to get the prize.,0,0,0.95,0,0.93,0,0.88,0.050000000000000044
+to die is no fun.,1,1,0.98,1,0.98,1,0.98,0.0
+john wants to leave.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+john counted on bill to get there on time.,1,1,0.98,0,0.71,0,0.9,-0.19000000000000006
+i bought bill a book to read.,1,1,0.97,1,0.93,0,0.85,0.08000000000000007
+john told mary that it would be important to leave early.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+john told mary that it was important to fred to leave early.,1,1,0.98,1,0.98,1,0.99,-0.010000000000000009
+"john, told mary that it would be appropriate to leave together.",1,0,0.55,0,0.75,0,0.85,-0.09999999999999998
+the election of john president surprised me.,0,0,0.82,1,0.92,1,0.92,0.0
+john's arriving dead surprised me.,1,1,0.92,1,0.96,1,0.98,-0.020000000000000018
+the attempt by john to leave surprised me.,1,1,0.98,1,0.96,1,0.93,0.029999999999999916
+john left orders to follow pete.,1,1,0.95,0,0.71,0,0.91,-0.20000000000000007
+john left us orders to follow pete.,1,0,0.86,1,0.96,0,0.89,0.06999999999999995
+john left orders not to be disturbed.,1,1,0.98,0,0.9,0,0.91,-0.010000000000000009
+that he is here is clear.,1,1,0.98,1,0.98,1,0.98,0.0
+it is a problem that he is here.,1,0,0.92,1,0.98,1,0.96,0.020000000000000018
+it bothers me that he is here.,1,1,0.98,1,0.98,1,0.98,0.0
+john regretted it that bill had a good time.,1,0,0.85,1,0.97,0,0.6,0.37
+john believes it that bill is here.,0,0,0.94,1,0.92,0,0.9,0.020000000000000018
+john believes it sincerely that bill is here.,0,1,0.98,0,0.78,1,0.89,-0.10999999999999999
+john is aware of it that bill is here.,0,0,0.94,1,0.98,1,0.97,0.010000000000000009
+john felt it that bill was tardy.,0,0,0.92,1,0.82,0,0.86,-0.040000000000000036
+john believed it that bill was tardy.,0,0,0.94,0,0.53,0,0.86,-0.32999999999999996
+it was believed that bill was tardy.,1,1,0.98,1,0.98,1,0.98,0.0
+that john is reluctant seems.,0,0,0.94,1,0.94,0,0.86,0.07999999999999996
+it is the problem that he is here.,0,0,0.94,1,0.98,1,0.97,0.010000000000000009
+that he is here is the problem.,1,1,0.98,1,0.98,1,0.98,0.0
+the problem we are discussing is george.,1,1,0.98,1,0.97,1,0.96,0.010000000000000009
+it is to give up to leave.,0,0,0.93,1,0.97,1,0.98,-0.010000000000000009
+it would prove our theory to be untenable for carrots to be vegetables.,1,1,0.68,1,0.95,1,0.9,0.04999999999999993
+it was believed to be illegal by them to do that.,0,1,0.86,1,0.96,1,0.95,0.010000000000000009
+john grudgingly accepted judgments of his incompetence as an auto mechanic.,1,1,0.95,1,0.9,1,0.97,-0.06999999999999995
+it was to john that i gave the book.,1,1,0.98,1,0.98,0,0.78,0.19999999999999996
+i bought it to read.,1,0,0.94,0,0.8,0,0.9,-0.09999999999999998
+i bought it to give to pete.,1,1,0.97,0,0.93,0,0.66,0.27
+i gave it to pete to take to the fair.,1,1,0.97,1,0.92,1,0.55,0.37
+i gave pete the book to impress.,0,0,0.82,0,0.52,1,0.92,-0.4
+i wrote to bill.,1,1,0.98,1,0.98,1,0.98,0.0
+i presented it to bill to read.,1,1,0.97,1,0.97,0,0.78,0.18999999999999995
+i presented bill with it to read.,0,0,0.9,0,0.66,0,0.91,-0.25
+i gave a book to bill to read.,1,1,0.97,1,0.96,1,0.66,0.29999999999999993
+john thinks it would upset himself to die.,1,1,0.97,1,0.96,0,0.69,0.27
+john made bill mad at himself.,1,1,0.98,1,0.98,1,0.84,0.14
+john made bill master of himself.,1,1,0.97,1,0.76,1,0.8,-0.040000000000000036
+the correspondence school made bill a good typist.,1,1,0.98,1,0.63,1,0.74,-0.10999999999999999
+the correspondence school sent bill a good typist.,1,1,0.94,0,0.65,1,0.5,0.15000000000000002
+john considers bill silly.,1,1,0.98,1,0.97,1,0.98,-0.010000000000000009
+john considers bill to be silly.,1,1,0.98,1,0.98,1,0.98,0.0
+john bought a dog for himself to play with.,0,1,0.93,1,0.95,1,0.76,0.18999999999999995
+john arranged for himself to get the prize.,1,1,0.86,1,0.97,1,0.97,0.0
+john talked to bill about himself.,1,0,0.82,1,0.94,0,0.8,0.1399999999999999

@@ -1,0 +1,28 @@
+confidence	true	predicted	sentence
+confident mistakes
+0.996	neg.	pos.	it 's somewhat clumsy and too lethargically paced -- but its story about a mysterious creature with psychic abilities offers a solid build-up , a terrific climax , and some nice chills along the way . 
+0.995	neg.	pos.	outer-space buffs might love this film , but others will find its pleasures intermittent . 
+0.995	neg.	pos.	although huppert 's intensity and focus has a raw exhilaration about it , the piano teacher is anything but fun . 
+0.994	neg.	pos.	you wo n't like roger , but you will quickly recognize him . 
+0.993	neg.	pos.	irwin is a man with enough charisma and audacity to carry a dozen films , but this particular result is ultimately held back from being something greater . 
+
+unconfident mistakes
+0.502	neg.	pos.	if the movie succeeds in instilling a wary sense of ` there but for the grace of god , ' it is far too self-conscious to draw you deeply into its world . 
+0.512	pos.	neg.	mcconaughey 's fun to watch , the dragons are okay , not much fire in the script . 
+0.534	pos.	neg.	it moves quickly , adroitly , and without fuss ; it does n't give you time to reflect on the inanity -- and the cold war datedness -- of its premise . 
+0.539	pos.	neg.	collateral damage finally delivers the goods for schwarzenegger fans . 
+0.579	neg.	pos.	even the finest chef ca n't make a hotdog into anything more than a hotdog , and robert de niro ca n't make this movie anything more than a trashy cop buddy comedy . 
+
+confident hits
+0.996	pos.	pos.	it 's a charming and often affecting journey . 
+0.996	pos.	pos.	immersing us in the endlessly inventive , fiercely competitive world of hip-hop djs , the project is sensational and revelatory , even if scratching makes you itch . 
+0.996	pos.	pos.	altogether , this is successful as a film , while at the same time being a most touching reconsideration of the familiar masterpiece . 
+0.996	pos.	pos.	there has always been something likable about the marquis de sade . 
+0.996	pos.	pos.	a warm but realistic meditation on friendship , family and affection . 
+
+unconfident hits
+0.511	pos.	pos.	you will emerge with a clearer view of how the gears of justice grind on and the death report comes to share airtime alongside the farm report . 
+0.512	pos.	pos.	hilariously inept and ridiculous . 
+0.519	pos.	pos.	the movie is n't just hilarious : it 's witty and inventive , too , and in hindsight , it is n't even all that dumb . 
+0.524	pos.	pos.	ramsay , as in ratcatcher , remains a filmmaker with an acid viewpoint and a real gift for teasing chilly poetry out of lives and settings that might otherwise seem drab and sordid . 
+0.532	neg.	neg.	manages to show life in all of its banality when the intention is quite the opposite . 

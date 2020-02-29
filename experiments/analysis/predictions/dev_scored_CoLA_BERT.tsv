@@ -1,0 +1,1044 @@
+sentence	label	pred	certainty_of_pred	certainty_of_label	logits
+the sailors rode the breeze clear of the rocks.	1	1	0.754	0.754	-0.43786842,0.6834626
+the weights made the rope stretch over the pulley.	1	1	0.880	0.880	-0.69231665,1.2988992
+the mechanical doll wriggled itself loose.	1	1	0.672	0.672	-0.33738807,0.3808282
+if you had eaten more, you would want less.	1	1	0.969	0.969	-1.2204651,2.2163427
+as you eat the most, you want the least.	0	1	0.963	0.037	-1.1217284,2.141201
+the more you would want, the less you would eat.	0	1	0.952	0.048	-1.0049447,1.9866685
+i demand that the more john eat, the more he pays.	0	0	0.900	0.900	0.7192052,-1.4772217
+mary listens to the grateful dead, she gets depressed.	1	1	0.928	0.928	-0.84739226,1.709841
+the angrier mary got, the more she looked at pictures.	1	1	0.961	0.961	-1.1050138,2.0903687
+the higher the stakes, the lower his expectations are.	1	1	0.976	0.976	-1.3772296,2.3237314
+the more fred is obnoxious, the less attention you should pay to him.	1	1	0.924	0.924	-0.81711864,1.6779011
+john was lots more obnoxious than fred.	1	1	0.958	0.958	-1.0582407,2.0797882
+the more people you give beer to, the more people get sick.	1	1	0.966	0.966	-1.1934975,2.1517122
+the more does bill smoke, the more susan hates him.	0	0	0.826	0.826	0.5385316,-1.0187094
+the more pictures of him that appear in the news, the more embarrassed john becomes.	1	1	0.972	0.972	-1.2846779,2.265968
+every senator seems to become more corrupt, as he talks to more lobbyists.	1	1	0.965	0.965	-1.1449289,2.1806364
+who does john visit sally because he likes?	0	0	0.821	0.821	0.57034206,-0.95321554
+marianne did not leave.	1	1	0.981	0.981	-1.5314833,2.4216335
+he could not] have been working.	1	1	0.957	0.957	-1.0297823,2.0622823
+he can not have been working.	1	1	0.980	0.980	-1.4806659,2.388697
+you will believe bob.	1	1	0.979	0.979	-1.4647098,2.3939066
+john has not kissed mary.	1	1	0.978	0.978	-1.4486045,2.345833
+i said that never in my life had i seen a place like bangor.	1	1	0.714	0.714	-0.5294497,0.38570008
+mickey looked up it.	0	0	0.931	0.931	0.8391595,-1.7594519
+there tended to be a lot of discussion.	1	1	0.977	0.977	-1.4254442,2.3388097
+john tried to be a good boy.	1	1	0.977	0.977	-1.4076903,2.337541
+john is eager.	1	1	0.978	0.978	-1.4544815,2.3546903
+we want john to win.	1	1	0.981	0.981	-1.5324594,2.4156024
+the box contained the ball from the tree.	0	0	0.632	0.632	0.22656874,-0.31211156
+the tube was escaped by gas.	0	1	0.952	0.048	-1.064241,1.9285327
+water bubbled up out of the kettle.	1	1	0.977	0.977	-1.4198773,2.3301854
+the tub leaked water.	1	1	0.830	0.830	-0.62340605,0.96071565
+what the water did to the bottle was fill it.	0	1	0.973	0.027	-1.3587724,2.225784
+what the water did to the whole bottle was fill it.	0	1	0.972	0.028	-1.3291419,2.221738
+the tank leaked the fluid free.	1	0	0.906	0.094	0.7446119,-1.5224417
+john lay the ball in the box.	1	1	0.971	0.971	-1.2759188,2.247764
+john owns the book.	1	1	0.981	0.981	-1.528816,2.4032605
+we persuaded mary to leave and sue to stay.	1	1	0.980	0.980	-1.4804376,2.3935566
+most people probably consider, even though the courts didn't actually find, klaus guilty of murder.	1	0	0.693	0.307	0.23353712,-0.57875735
+mary beautifully plays the violin.	0	1	0.980	0.020	-1.499937,2.3783367
+clearly, john probably will immediately learn french perfectly.	1	1	0.708	0.708	-0.49190536,0.39497828
+sue gave to bill a book.	0	1	0.977	0.023	-1.4129543,2.3295708
+the men will all leave.	1	1	0.981	0.981	-1.5126126,2.4177246
+john went home.	1	1	0.981	0.981	-1.5447572,2.4235272
+they represented seriously to the dean mary as a genuine linguist.	0	0	0.660	0.660	0.2304437,-0.43329364
+us love they.	0	0	0.949	0.949	0.9587414,-1.9596748
+it is nice to go abroad.	1	1	0.980	0.980	-1.491403,2.3932025
+mary intended john to go abroad.	0	1	0.980	0.020	-1.4867532,2.3889508
+i remembered having kissed mary.	1	1	0.980	0.980	-1.5010808,2.3872578
+i can't believe fred won't, either.	1	1	0.973	0.973	-1.295482,2.2712307
+john wants to read fred's story, and i also want to.	1	1	0.971	0.971	-1.2583892,2.2603197
+we wanted to invite someone, but we couldn't decide who to.	0	1	0.951	0.049	-1.0326016,1.9404273
+mary will read fred's story, and joe will read holly's.	1	1	0.975	0.975	-1.3501449,2.3222766
+mary claimed that eating cabbage, holly shouldn't.	1	0	0.917	0.083	0.76025766,-1.6418236
+mary came to be introduced by the bartender and i also came to be.	0	1	0.624	0.376	-0.29365015,0.2149674
+if i can, i will work on it.	1	1	0.959	0.959	-1.0797514,2.083156
+joe's neuroses bother his patrons, and sally does too.	1	1	0.969	0.969	-1.2260741,2.209678
+i know which book josé didn't read for class, and which book lilly did it for him.	0	1	0.941	0.059	-0.9046929,1.8697674
+this is the book which bob reviewed, and this is the one which fred won't do it.	0	1	0.693	0.307	-0.45621097,0.35948536
+i know which book mag read, and which book bob said that you hadn't.	1	0	0.886	0.114	0.6784492,-1.3722391
+i know which book mag read, and which book bob read my report that you hadn't.	0	0	0.911	0.911	0.75160813,-1.5745947
+i'm sure i would like him to eat fruit more than i would cookies.	1	1	0.957	0.957	-1.026208,2.0653706
+rusty talked about himself only after mary did talk about him.	1	1	0.719	0.719	-0.41928408,0.52113235
+fred talked about everything before rusty did talk about something.	1	1	0.960	0.960	-1.0723592,2.1000092
+john often meets mary.	1	1	0.978	0.978	-1.4568181,2.3517547
+the problem perceives easily.	0	0	0.856	0.856	0.6083949,-1.1756232
+a hundred men surrounded the fort.	1	1	0.966	0.966	-1.1806498,2.1600769
+we elected me.	1	1	0.967	0.967	-1.1887236,2.1983771
+which report that john was incompetent did he submit?	0	0	0.809	0.809	0.5622713,-0.87969595
+mary has always preferred lemons to limes.	1	1	0.824	0.824	-0.6134652,0.92986566
+he let the cats which were whining out.	1	1	0.894	0.894	-0.7451546,1.3855094
+what did bill buy?	1	1	0.978	0.978	-1.4583776,2.3594687
+mary saw the boy walking toward the railroad station.	1	1	0.981	0.981	-1.5313997,2.4240725
+a proof that the claim had been. made was giver that john had lied.	0	0	0.919	0.919	0.77462584,-1.6544449
+he attributed to a short circuit which was caused by an overloaded transducer the fire which destroyed most of my factory.	1	1	0.694	0.694	-0.49829382,0.32290837
+the mayor regarded as being absurd the proposal to build a sidewalk from dartmouth to smith.	0	0	0.559	0.559	-0.06124644,-0.29813582
+i want that bill left to remain a secret.	0	1	0.977	0.023	-1.4041458,2.340075
+i know a man who tom drives as drives.	0	0	0.933	0.933	0.8446428,-1.7823677
+drowning cats, which is against the law, are hard to rescue.	0	1	0.963	0.037	-1.1374083,2.1229143
+muriel said nothing else than that she had been insulted.	1	1	0.696	0.696	-0.47374833,0.35406882
+himself is understood by rutherford.	0	0	0.923	0.923	0.7856869,-1.6946491
+i feel that arch will show up.	1	1	0.980	0.980	-1.4883994,2.4100804
+the proof this set is recursive is difficult.	0	1	0.972	0.028	-1.2965187,2.2662468
+the madrigals which henry plays the lute and sings sound lousy.	0	0	0.938	0.938	0.88488346,-1.8359812
+tom picked these grapes, and i washed some turnips, and suzie will prepare these grapes.	1	1	0.972	0.972	-1.3080772,2.2567413
+where did you go and who ate what?	1	1	0.922	0.922	-0.8005938,1.6736833
+which boy's did we elect guardian's employer president?	0	0	0.948	0.948	0.9617325,-1.9480956
+how sane is peter?	1	1	0.934	0.934	-0.8519673,1.7986935
+i live at the place where route 150 crosses the river and my dad lives at the place where route 150 crosses the hudson river too.	1	1	0.972	0.972	-1.2694185,2.2605903
+i live at the place where route 150 crosses the hudson river and my dad lives at it too.	0	1	0.970	0.030	-1.2422029,2.2398663
+who is she trying to make up to now?	1	1	0.922	0.922	-0.8795963,1.5838631
+wind was gotten of a plot to negotiate an honorable end to the war in vietnam.	0	0	0.931	0.931	0.8469765,-1.759475
+mike talked about politics yesterday to my friends.	1	1	0.977	0.977	-1.405236,2.3566022
+it was expected by the reporters that the principal would fire some teacher.	1	1	0.981	0.981	-1.5171058,2.4057462
+which hat did mike quip that she never wore?	0	1	0.968	0.032	-1.2497661,2.1755211
+which girl did mike quip never wore this hat?	0	0	0.902	0.902	0.7427694,-1.4771875
+we donated wire for the convicts to build cages with.	1	0	0.946	0.054	0.9461721,-1.9245391
+i won't have some money.	0	1	0.974	0.026	-1.3418478,2.2970228
+do you believe the claim that somebody was looking for something?	1	1	0.968	0.968	-1.2137706,2.195352
+i won't ask you to believe that he tried to force me to give her any money.	1	1	0.975	0.975	-1.3378594,2.3202925
+that sam sometimes didn't sleep must have pleased somebody.	1	1	0.971	0.971	-1.3042623,2.1939926
+i talked to winston about himself.	1	0	0.933	0.067	0.8567148,-1.7801343
+that the fuzz wanted him worried john, but that the fuzz wanted her didn't worry mary.	1	1	0.975	0.975	-1.3474052,2.3043737
+i'll work on it if sam will be working on it.	1	1	0.928	0.928	-0.8254578,1.7238191
+i'll work on it if i can.	1	1	0.786	0.786	-0.5812844,0.7185081
+here's a knife with which for you to cut up the onions.	0	0	0.908	0.908	0.7378622,-1.5496311
+fluffy is sick, which not everybody knows.	1	1	0.908	0.908	-0.7988585,1.4950962
+maxwell is quite a doctor.	1	1	0.978	0.978	-1.4549224,2.3621378
+the younger woman might have been tall and, and the older one definitely was, blond.	0	1	0.968	0.032	-1.2104594,2.2009177
+sally is tall, and may be blond, and sheila is short, and definitely is, blond.	1	1	0.712	0.712	-0.4716868,0.4314027
+i have to try to finish grading some papers.	1	1	0.675	0.675	-0.5369474,0.19516766
+the socks are ready for for you to put on to be planned.	0	0	0.929	0.929	0.8433563,-1.7300937
+it is easy to play sonatas on this violin.	1	1	0.981	0.981	-1.531077,2.4243553
+this violin is difficult to play sonatas on.	1	1	0.981	0.981	-1.5221869,2.4243367
+my mother is easy to please my father and.	0	0	0.850	0.850	0.6251113,-1.1070753
+poor bill, it had started to rain and he had no umbrella.	1	1	0.720	0.720	-0.54611635,0.39839375
+that the cops spoke to the janitor about it yesterday is terrible, that robbery.	0	1	0.975	0.025	-1.3650289,2.3107843
+every student, and he wears socks, is a swinger.	0	0	0.924	0.924	0.79339075,-1.7036557
+that girl was given my binoculars by him.	1	1	0.979	0.979	-1.4482627,2.3715913
+bill didn't allege that roger had eaten anything.	1	1	0.973	0.973	-1.3054551,2.2906978
+nobody who hates to eat anything should work in a delicatessen.	1	1	0.914	0.914	-0.7773382,1.5860834
+everybody around here who ever buys anything on credit talks in his sleep.	1	1	0.765	0.765	-0.55114806,0.62774014
+i can't remember the name of somebody who had misgivings.	0	1	0.635	0.365	-0.40672195,0.14872792
+no writer, and no playwright, meets in vienna.	0	1	0.971	0.029	-1.2519809,2.245047
+no writer, nor any playwright, meets in vienna.	0	1	0.971	0.029	-1.2811005,2.2449365
+that you will marry any student is not certain.	1	1	0.970	0.970	-1.2490422,2.2313733
+felicia kicked the ball off the bench.	1	1	0.977	0.977	-1.4122992,2.3158576
+i sent the package halfway around the world.	1	1	0.975	0.975	-1.3588839,2.3251166
+sam gave the ball out of the basket.	0	0	0.844	0.844	0.6090153,-1.0788423
+sam offered the ball out of the basket.	0	0	0.873	0.873	0.66788644,-1.2572865
+park square has a festive air.	1	1	0.949	0.949	-0.96798646,1.9558147
+the worker will have a job.	1	1	0.978	0.978	-1.435025,2.371008
+no one can forgive that comment to you.	0	1	0.979	0.021	-1.4655592,2.3754213
+we launched the rocket to the moon, but it blew up before it got there.	1	1	0.783	0.783	-0.5771122,0.7076043
+sarah promised catherine her old car, but then gave it to her son instead.	1	1	0.756	0.756	-0.5393964,0.5920958
+i lent the book partway to tony.	0	0	0.839	0.839	0.5633423,-1.0862933
+the farmer loaded the cart with apples.	1	1	0.971	0.971	-1.2641499,2.2593884
+the farmer dumped the cart with apples.	0	1	0.969	0.031	-1.2264135,2.2317388
+martha carved the baby a toy out of wood.	1	1	0.938	0.938	-0.84539354,1.8632696
+the bread cuts easily.	1	1	0.979	0.979	-1.4786508,2.368585
+janet broke bill on the finger.	0	1	0.968	0.032	-1.2172335,2.1921048
+janet broke the cup.	1	1	0.979	0.979	-1.4602113,2.3592517
+the visitor rang the bell.	1	1	0.981	0.981	-1.5256692,2.412789
+we pulled free.	1	1	0.975	0.975	-1.3553646,2.2996194
+that movie always shocks people.	1	1	0.979	0.979	-1.4703947,2.389347
+that movie always shocks.	1	1	0.978	0.978	-1.4327922,2.3538105
+sharon came the room.	0	0	0.950	0.950	0.9672465,-1.9708555
+bill sent a package to tom.	1	1	0.981	0.981	-1.534224,2.4246488
+that acorn will grow into an oak tree.	1	1	0.588	0.588	-0.26001573,0.09582469
+he turned into a frog.	1	1	0.975	0.975	-1.3550918,2.2911785
+i mixed the sugar into the butter.	1	1	0.977	0.977	-1.412379,2.3458998
+brian threw the fence with the stick.	0	1	0.564	0.436	-0.17649345,0.08019419
+mira condemned terry for the accident.	1	1	0.973	0.973	-1.2913487,2.2925866
+we investigated the area for bombs.	1	1	0.660	0.660	-0.36688823,0.29763556
+i sensed his eagerness.	1	1	0.507	0.507	-0.032575652,-0.004595142
+they praised the dedication in the volunteers.	0	1	0.667	0.333	-0.3789772,0.31536007
+the earth was believed to be round.	1	1	0.977	0.977	-1.4126197,2.329357
+sarah smiled a charming smile.	1	1	0.829	0.829	-0.5783979,1.002517
+sandra beamed a cheerful welcome.	1	1	0.875	0.875	-0.70479494,1.242649
+you've really lived it up.	1	1	0.968	0.968	-1.2032477,2.2105558
+paperback books lift onto the table easily.	0	0	0.506	0.506	-0.040818878,-0.06570377
+the books lifted onto the table.	0	0	0.646	0.646	0.23301576,-0.3696477
+jessica loaded boxes under the wagon.	1	1	0.978	0.978	-1.4371101,2.3575644
+jessica loaded boxes on the wagon.	1	1	0.972	0.972	-1.2932614,2.2684205
+jessica crammed boxes at the truck.	0	0	0.939	0.939	0.8877381,-1.8540579
+lora buttered at the toast.	0	0	0.932	0.932	0.8354532,-1.7780735
+carla shoveled the walk.	1	1	0.977	0.977	-1.4108876,2.3452187
+nora sent the book.	1	1	0.979	0.979	-1.4848061,2.3635366
+nora sent peter the book.	1	1	0.980	0.980	-1.5055323,2.370816
+carla slid the book.	1	1	0.980	0.980	-1.4997128,2.3844826
+carla slid at the book.	0	0	0.908	0.908	0.7337227,-1.5561444
+amanda carried the package to pamela.	1	1	0.979	0.979	-1.468589,2.3665278
+packages drive easily to new york.	0	0	0.933	0.933	0.8460367,-1.7817711
+the chair pushed.	0	1	0.854	0.146	-0.67773306,1.086883
+we offered a job to her.	1	1	0.973	0.973	-1.3173283,2.2639258
+a job offered.	0	0	0.924	0.924	0.76837796,-1.7326964
+brown presented a plaque to jones.	1	1	0.979	0.979	-1.4627955,2.368383
+carmen bought mary a dress.	1	1	0.981	0.981	-1.525618,2.399735
+carmen obtained the spare part at the hardware store.	1	1	0.969	0.969	-1.2168365,2.2134542
+michelle kept the desk with the papers.	0	0	0.798	0.798	0.49159744,-0.8822373
+frances hid the presents in the drawer.	1	1	0.980	0.980	-1.4960918,2.3927233
+the needle poked the cloth.	1	1	0.969	0.969	-1.299077,2.148671
+carrie touched that cat.	1	1	0.981	0.981	-1.5249268,2.4099414
+herman whipped the sugar and the cream.	0	0	0.732	0.732	0.3515841,-0.6547567
+linda taped the picture to the wall.	1	1	0.981	0.981	-1.5289239,2.4243739
+linda taped the picture onto the wall.	1	1	0.981	0.981	-1.5337874,2.4261405
+the child and her mother clung together.	1	1	0.980	0.980	-1.5016605,2.4127533
+this flyer and that flyer differ.	1	1	0.942	0.942	-0.9845124,1.8031617
+this flyer and that flyer differ apart.	0	1	0.880	0.120	-0.73370206,1.2580729
+the jeweller scribbled the contract with his name.	0	1	0.977	0.023	-1.3802706,2.34776
+the gardener grew that acorn into an oak tree.	1	0	0.630	0.370	0.123100996,-0.410515
+i shaped a loaf.	0	1	0.925	0.075	-0.8873837,1.6207247
+the children amused.	0	0	0.932	0.932	0.8393306,-1.7766154
+susan whispered the news.	1	1	0.981	0.981	-1.5310181,2.420641
+susan whispered at rachel.	1	1	0.855	0.855	-0.58267474,1.1940048
+ellen said that melons were selling well.	1	1	0.981	0.981	-1.5247196,2.4244144
+ellen said about the present conditions.	0	0	0.804	0.804	0.48570046,-0.927606
+ellen warned helen against skating on thin ice.	1	1	0.978	0.978	-1.4439813,2.3663917
+cynthia nibbled on the carrot .	1	1	0.981	0.981	-1.5307232,2.4174938
+cynthia chewed.	0	1	0.941	0.059	-0.8757116,1.8983679
+paul laughed at mary.	1	1	0.974	0.974	-1.3253493,2.2904365
+linda winked her lip.	0	0	0.943	0.943	0.92383665,-1.8768935
+my heart is pounding me.	0	1	0.875	0.125	-0.66286933,1.2805032
+sharon fainted from hunger.	1	1	0.939	0.939	-0.8730588,1.8564687
+the witch poisoned the children.	1	1	0.981	0.981	-1.551693,2.4002585
+a grandfather clock ticked in the hallway.	1	1	0.858	0.858	-0.64009595,1.1581464
+i squeaked the door.	0	0	0.913	0.913	0.75436014,-1.5924301
+over the fire there bubbled a fragrant stew.	1	1	0.973	0.973	-1.3170849,2.2765357
+soaring temperatures are predicted for this weekend.	1	1	0.898	0.898	-0.7484651,1.4259814
+the fort fluttered with many flags.	0	0	0.674	0.674	0.26304412,-0.4647436
+the voices echoed in the hall.	1	1	0.979	0.979	-1.4401585,2.3786383
+the stream twists through the valley.	1	1	0.970	0.970	-1.2331492,2.2403355
+there presented itself a wonderful opportunity yesterday.	0	0	0.903	0.903	0.71110624,-1.5250479
+a wonderful opportunity presented itself to him yesterday.	1	1	0.979	0.979	-1.4614853,2.3668144
+out of the box jumped a little white rabbit.	1	0	0.570	0.430	-0.011069063,-0.2932603
+penny skated around the rink.	1	1	0.981	0.981	-1.5233078,2.4202542
+jackie accompanied rose.	1	1	0.980	0.980	-1.4951558,2.37699
+many information was provided.	0	0	0.942	0.942	0.9067656,-1.8777933
+john offers many advice.	0	1	0.848	0.152	-0.6254798,1.0955782
+the cake that jones got was more delicious than the one that smith got.	1	1	0.977	0.977	-1.4103241,2.3232412
+we recommend to eat less cake and pastry.	1	1	0.581	0.581	-0.2835178,0.04324715
+i saw that gas can explode.	1	1	0.980	0.980	-1.4917641,2.3975854
+he washed her.	1	1	0.979	0.979	-1.4896766,2.3591206
+wash you!	0	1	0.968	0.032	-1.1978024,2.2116835
+they have no in.	0	0	0.893	0.893	0.6893204,-1.4333122
+some my jobs are in jeopardy.	0	0	0.857	0.857	0.62227774,-1.1704819
+it was the policeman met that several young students in the park last night.	0	1	0.961	0.039	-1.1315681,2.0832782
+did the policeman meet in the park?	1	1	0.979	0.979	-1.4509834,2.387821
+john put old books in the box.	1	1	0.975	0.975	-1.3518801,2.3160036
+the monkeys proud of their leader.	0	0	0.918	0.918	0.7591943,-1.6516683
+john sounded very.	0	0	0.910	0.910	0.6475131,-1.6688046
+i don't know if i should agree.	1	1	0.980	0.980	-1.4828112,2.3914945
+john bought a book on the table.	1	1	0.980	0.980	-1.51792,2.392642
+john called the president a fool.	1	1	0.978	0.978	-1.44531,2.3301303
+i forgot how good beer tastes.	1	1	0.978	0.978	-1.4331563,2.3578742
+this teacher is a genius.	1	1	0.980	0.980	-1.5006185,2.408072
+a good friend is remained to me by him.	0	0	0.940	0.940	0.9065016,-1.8538862
+john ate his noodle quietly.	1	1	0.706	0.706	-0.44551733,0.4309705
+a smith hammered the metal.	1	1	0.958	0.958	-1.0412052,2.074461
+sandy removed her ballet shoes.	1	1	0.980	0.980	-1.51012,2.387355
+this week will be a difficult one for us.	1	1	0.978	0.978	-1.4233283,2.3590822
+benny worked in a shoe factory when he was a student.	1	1	0.970	0.970	-1.259265,2.2134225
+everyone hoped that she would sing.	1	1	0.981	0.981	-1.5360147,2.425631
+this proved a decisive factor.	1	1	0.970	0.970	-1.2573711,2.2297077
+the crocodile devoured the doughnut.	1	1	0.976	0.976	-1.3823204,2.320777
+john is afraid of bill.	1	1	0.980	0.980	-1.4999108,2.395575
+john put under the bathtub.	0	0	0.944	0.944	0.9213221,-1.899301
+john placed kim behind the garage.	1	1	0.971	0.971	-1.2527633,2.2426834
+kim depends for sandy.	0	1	0.934	0.066	-0.8786014,1.7716357
+john put the book in the box.	1	1	0.980	0.980	-1.5133808,2.3839388
+john taught english syntax to new students.	1	1	0.975	0.975	-1.3621454,2.319317
+john regards bill as a good friend.	1	1	0.977	0.977	-1.394328,2.3398724
+kim put in the box.	0	0	0.950	0.950	0.9768669,-1.9631271
+the chickens seem fond of the farmer.	1	1	0.976	0.976	-1.3828514,2.325058
+the rules require that the executives be polite.	1	1	0.980	0.980	-1.4821323,2.4057071
+that fred was unpopular nominated bill.	0	1	0.955	0.045	-1.0647385,2.0016012
+they were taking a hard look at possible fta.	1	1	0.770	0.770	-0.5824215,0.62372726
+john paid me against the book.	0	1	0.979	0.021	-1.462878,2.368119
+the committee will study the feasibility of setting up a national computer network.	1	1	0.978	0.978	-1.4269469,2.3571682
+we made them be rude.	1	1	0.966	0.966	-1.1709353,2.1676624
+after reading the pamphlet, judy threw it into the garbage can.	1	1	0.977	0.977	-1.4162227,2.3373199
+students studying english reads conrad's heart of darkness while at university.	0	1	0.781	0.219	-0.6032257,0.6671467
+i read some of the book.	1	1	0.971	0.971	-1.2669896,2.2371402
+most of the fruit is rotten.	1	0	0.593	0.407	0.113032654,-0.26244977
+neither of students failed.	0	1	0.973	0.027	-1.3011115,2.2794926
+i drank some of water.	0	1	0.962	0.038	-1.1241974,2.1192136
+it is a golden hair.	1	1	0.570	0.570	-0.18000148,0.101794064
+the boy in the doorway waved to his father.	1	1	0.967	0.967	-1.1902634,2.1830413
+that dog is so ferocious, it even tried to bite itself.	1	0	0.897	0.103	0.685374,-1.4778442
+he washed yourself.	0	0	0.933	0.933	0.8397917,-1.7991573
+john is easy to please kim.	0	0	0.809	0.809	0.5858607,-0.8598933
+there seemed to be intelligent.	0	0	0.878	0.878	0.6291171,-1.3442267
+john tried to please stephen.	1	1	0.980	0.980	-1.5098687,2.3839617
+we believed john to be a fountain in the park.	0	1	0.978	0.022	-1.4232264,2.3597567
+it tries to leave the country.	0	0	0.944	0.944	0.9076993,-1.9099312
+john tries to leave the country.	1	1	0.981	0.981	-1.5374728,2.412199
+under the bed seems to be a fun place to hide.	1	1	0.948	0.948	-0.94916767,1.9473398
+there is believed to be sheep in the park.	0	0	0.522	0.522	-0.04422261,-0.13115713
+i hope to would study in france.	0	0	0.944	0.944	0.9293747,-1.8997654
+john can kick the ball.	1	1	0.968	0.968	-1.2428622,2.1692114
+john will rain tomorrow.	0	1	0.948	0.052	-0.94025284,1.964097
+we expect there to will rain.	0	0	0.948	0.948	0.951247,-1.9605076
+john was found in the office.	1	1	0.980	0.980	-1.5029317,2.3805528
+did the child be in the school?	0	1	0.980	0.020	-1.4972657,2.390189
+it did not rain.	1	1	0.975	0.975	-1.3621366,2.3166525
+john wants not to leave the town.	1	1	0.981	0.981	-1.5299629,2.4139295
+mary likes to tour art galleries, but bill hates to.	1	1	0.945	0.945	-0.9254916,1.9207436
+they needn't take this exam.	1	1	0.964	0.964	-1.1393058,2.1471252
+ann may spend her vacation in italy.	1	1	0.979	0.979	-1.4535974,2.3727255
+they love to play golf, but i do not.	1	1	0.979	0.979	-1.4705664,2.3712869
+george has spent a lot of money, hasn't he?	1	1	0.693	0.693	-0.32685167,0.4880067
+as a statesman, scarcely could he do anything worth mentioning.	1	0	0.900	0.100	0.7088192,-1.4901705
+we never found any of the unicorns.	1	1	0.975	0.975	-1.3390759,2.3057091
+one of korea's most famous poets wrote these lines.	1	1	0.968	0.968	-1.1988378,2.226727
+somebody apparently struck the unidentified victim during the early morning hours.	1	1	0.979	0.979	-1.4683022,2.3729289
+the car was driven.	1	1	0.979	0.979	-1.4890434,2.355829
+ricky can be relied on.	1	1	0.972	0.972	-1.2745243,2.2550392
+the bed was slept in.	1	1	0.937	0.937	-0.8650426,1.8287559
+a pound was weighed by the book.	0	1	0.968	0.032	-1.238091,2.1767817
+who do you think tom saw?	1	1	0.980	0.980	-1.4840205,2.4052403
+he had spent five thousand dollars.	1	1	0.975	0.975	-1.365427,2.3113246
+fed knows which politician her to vote for.	0	1	0.919	0.081	-0.82482237,1.6085639
+how did you guess that he fixed the computer?	1	1	0.961	0.961	-1.0921317,2.1209192
+the committee knows whose efforts to achieve peace the world should honor.	1	1	0.910	0.910	-0.7645989,1.5542419
+which house does your friend live?	0	1	0.963	0.037	-1.1819562,2.0864835
+the baker from whom i bought these bagels left.	1	1	0.976	0.976	-1.3922489,2.3315165
+i found the place where we can relax.	1	1	0.971	0.971	-1.2588265,2.2545996
+jack is the person with whom jenny fell in love with.	0	1	0.980	0.020	-1.5124533,2.399839
+there is a bench to sit on.	1	1	0.979	0.979	-1.4763299,2.3580065
+i met the man who grows peaches.	1	1	0.949	0.949	-1.0026709,1.9140031
+which topic did you choose without getting his approval?	1	1	0.958	0.958	-1.0474684,2.0709426
+which topic did you get bored because mary talked about?	0	1	0.928	0.072	-0.8985587,1.663833
+that is the reason why he resigned.	1	1	0.980	0.980	-1.5021024,2.3889513
+it bothers me that john coughs.	1	1	0.973	0.973	-1.301359,2.279598
+to please john is easy.	1	1	0.971	0.971	-1.2634275,2.2504873
+kim is eager to please tom.	1	1	0.980	0.980	-1.4967508,2.3800452
+that we invaded iraq really bites.	1	1	0.962	0.962	-1.1145458,2.122322
+it annoys me that fido barks.	1	1	0.980	0.980	-1.4861099,2.4011724
+who achieved the best result was angela.	0	1	0.755	0.245	-0.52631354,0.60141027
+it was the peasant girl who got it.	1	1	0.979	0.979	-1.4766718,2.3744547
+that kind of person is hard to find anyone to look after.	1	1	0.697	0.697	-0.46731815,0.36520422
+a sick owl doesn't hunt mice.	1	1	0.972	0.972	-1.2858576,2.2707682
+each candidate who has interest in semantics will be admitted to the department.	1	1	0.977	0.977	-1.4253553,2.3452249
+each author whose contribution is written in any language other than english will provide a summary in english.	1	1	0.971	0.971	-1.2447684,2.256838
+i'm sure we even got these tickets!	1	1	0.755	0.755	-0.53139395,0.5916494
+i'm even sure we got these tickets!	1	1	0.952	0.952	-1.0158448,1.9666679
+it's not because i have any sympathy for urban guerillas that i helped him.	1	0	0.698	0.302	0.22640674,-0.6129712
+it isn't because sue said anything bad about me that i'm angry.	1	1	0.912	0.912	-0.7680556,1.5741554
+that he was hungry, john whined.	0	1	0.953	0.047	-1.0000905,2.0000277
+1 gave mary after the party a book.	0	1	0.737	0.263	-0.5007112,0.5314312
+because she's so pleasant, as for mary i really like her.	0	1	0.907	0.093	-0.76042527,1.514248
+though he may hate those that criticize carter, it doesn't matter.	1	1	0.918	0.918	-0.7922218,1.6227757
+with no job would john be happy.	1	0	0.567	0.433	-0.033367436,-0.30332112
+i have much of the manuscript left to type.	1	1	0.726	0.726	-0.47743738,0.4946515
+he's a more reliable man.	1	1	0.956	0.956	-1.0233341,2.0610325
+any trouble is what i don't want.	0	1	0.789	0.211	-0.5896266,0.72999454
+they may grow as high as bamboo.	1	1	0.758	0.758	-0.55489147,0.58914554
+some of them made as many errors as 20.	1	1	0.972	0.972	-1.273393,2.2577047
+sally kissed himself.	0	1	0.974	0.026	-1.3342584,2.3055546
+drew believes i think rosie loves magazine ads.	1	1	0.969	0.969	-1.2218817,2.2165067
+dave, dan, erin, jaime, and alina left.	1	1	0.976	0.976	-1.3851507,2.3219423
+hopefully, we'll make it through the winter without snow.	1	1	0.964	0.964	-1.1346347,2.1605995
+blue leather shows herself that betsy is pretty.	0	1	0.510	0.490	-0.10237836,-0.06260531
+gwen hit the baseball.	1	1	0.980	0.980	-1.4962647,2.3903415
+i hit that you knew the answer.	0	0	0.902	0.902	0.7609199,-1.4606347
+i've lost my wallet or i've lost my mind.	1	1	0.969	0.969	-1.2041607,2.2400634
+it was a brand new car that he bought.	1	1	0.977	0.977	-1.4050583,2.326972
+he likes cookies and he hates crumb cake.	1	1	0.970	0.970	-1.2387321,2.2404683
+they chased the man with the car.	1	0	0.556	0.444	0.036508076,-0.18668473
+i didn't have a red cent.	1	1	0.762	0.762	-0.56619394,0.59696984
+the book of poems and from blackwell takes a very long time to read.	0	1	0.971	0.029	-1.2619765,2.2601304
+the one with a red cover takes a very long time to read.	1	1	0.970	0.970	-1.2410712,2.2314024
+john has a fear of dogs.	1	1	0.978	0.978	-1.4358431,2.3523068
+the building's the roof is leaking.	0	0	0.892	0.892	0.6990737,-1.4171485
+the panther's the coat is dark black.	0	0	0.864	0.864	0.65182346,-1.199145
+colin asked if they could get a mortgage.	1	1	0.971	0.971	-1.2554743,2.25924
+the man i saw get into the cab robbed the bank.	1	1	0.934	0.934	-1.0712273,1.5829209
+i know you eat asparagus.	1	1	0.981	0.981	-1.5272907,2.4230225
+john's drum will always bother me.	1	1	0.976	0.976	-1.3839103,2.3198833
+an evil thought struck dave.	1	1	0.951	0.951	-1.0328715,1.9246238
+in the classroom john put the book on the table.	1	1	0.974	0.974	-1.3337934,2.3022523
+phillip gave the medal to the soldier.	1	1	0.981	0.981	-1.5401589,2.4233012
+heidi thinks that andy to eat salmon flavored candy bars.	0	1	0.868	0.132	-0.6474772,1.2387089
+heidi thinks that andy should eat salmon flavored candy bars.	1	1	0.980	0.980	-1.4924848,2.41122
+he danced.	1	1	0.979	0.979	-1.4699734,2.3577127
+did calvin his homework?	0	0	0.913	0.913	0.74724317,-1.600774
+sylvia was slapping jeff upside the head in martial arts class.	1	1	0.977	0.977	-1.3986813,2.3354344
+if i am a rich man, i'd buy a diamond ring.	0	1	0.974	0.026	-1.3406923,2.284822
+if he were a rich man, he'd buy a diamond ring.	1	1	0.974	0.974	-1.3406045,2.2846818
+john is likely to leave.	1	1	0.981	0.981	-1.5274763,2.3976765
+the manager laughed.	1	1	0.981	0.981	-1.5216707,2.4154034
+was sunk.	0	0	0.886	0.886	0.6509926,-1.3963886
+who did you think kissed the gorilla?	1	1	0.981	0.981	-1.5306889,2.4125957
+have you seen my model airplane collection?	1	1	0.971	0.971	-1.2535793,2.2639034
+it seems that lucy was mugged.	1	1	0.980	0.980	-1.4925618,2.3885586
+i ate a salad that was filled with lima beans.	1	1	0.742	0.742	-0.5194049,0.5374103
+there were four men arriving at the station when i pulled up.	1	1	0.970	0.970	-1.2253019,2.2526956
+jean is reluctant to dance.	1	1	0.980	0.980	-1.5060729,2.3928452
+i want her to dance.	1	1	0.981	0.981	-1.5386871,2.4216273
+jean persuaded robert.	1	1	0.980	0.980	-1.5103794,2.4069307
+jean wants bill to do the macarena.	1	1	0.939	0.939	-0.86333567,1.8723686
+the children admire their mother.	1	1	0.981	0.981	-1.5384704,2.4265356
+who has peter talked with?	1	1	0.971	0.971	-1.288036,2.2191179
+heidi likes her violin.	1	1	0.981	0.981	-1.5485963,2.4178333
+john thinks that mary loves himself.	0	0	0.799	0.799	0.49825123,-0.88084316
+which pictures of himself does john like?	1	1	0.978	0.978	-1.4270262,2.3597045
+any owl hunts mice.	1	1	0.974	0.974	-1.3338045,2.3017113
+any man didn't eat dinner.	0	1	0.856	0.144	-0.710569,1.0743154
+a pilot could be flying this plane.	1	1	0.978	0.978	-1.4281529,2.3506975
+everybody who attended last week's huge rally, whoever they were, signed the petition.	1	1	0.962	0.962	-1.1739643,2.062528
+anybody who attended last week's huge rally signed the petition.	1	1	0.976	0.976	-1.3893079,2.3291335
+any tiger has orange fur, marked with black stripes.	1	1	0.944	0.944	-0.9032067,1.9169071
+any albino tiger has orange fur, marked with black stripes.	1	1	0.694	0.694	-0.51502323,0.3038838
+you must pick any flower you see.	1	1	0.602	0.602	-0.312825,0.09923899
+any pilot on duty today could be flying this plane.	1	1	0.922	0.922	-0.8622898,1.6134627
+you may pick every flower, but leave a few for mary.	0	1	0.963	0.037	-1.1058716,2.1394503
+the dodgers beat the red sox and were beaten by the giants.	1	1	0.977	0.977	-1.4319167,2.3365717
+in which car was the man seen?	1	1	0.669	0.669	-0.3695725,0.33443657
+the man who mary loves and sally hates computed my tax.	1	1	0.687	0.687	-0.5397803,0.24448971
+the kennel which mary made and fido sleeps has been stolen.	0	1	0.977	0.023	-1.4075034,2.32443
+tom said he would and bill actually did eat a raw eggplant.	1	1	0.703	0.703	-0.4341745,0.42830312
+the wealthy young man bought that piano for his secret fiancée.	1	1	0.978	0.978	-1.4486164,2.3637562
+the dog stole the turkey.	1	1	0.981	0.981	-1.5475103,2.4198463
+a tall building.	1	1	0.927	0.927	-0.99072146,1.5495542
+this building is tall.	1	1	0.961	0.961	-1.0978991,2.1080194
+i like the book which you gave me.	1	1	0.978	0.978	-1.4431045,2.361836
+captain wentworth wrote a letter to anne elliott.	1	1	0.980	0.980	-1.46962,2.4102051
+she asked was alison coming to the party.	1	0	0.944	0.056	0.93027294,-1.8971182
+they realised that never had sir thomas been so offended.	1	0	0.763	0.237	0.33892065,-0.8328818
+fanny regretted having to talk to aunt norris.	1	1	0.973	0.973	-1.3025775,2.2772763
+knowing the country well, he took a short cut.	1	0	0.904	0.096	0.7256962,-1.5192876
+he left the train with somebody else's wallet in his pocket.	1	1	0.860	0.860	-0.6548411,1.1612936
+magnus went to ireland.	1	1	0.962	0.962	-1.1024622,2.1271663
+who did john send the book?	1	0	0.934	0.066	0.8837574,-1.7730371
+the idea dismayed the prime minister that the dome was dull.	1	1	0.969	0.969	-1.2339858,2.214753
+came right in he did without so much as a knock.	1	0	0.909	0.091	0.7317269,-1.5699207
+harriet admired mr knightley.	1	1	0.981	0.981	-1.5339283,2.4240785
+the book is boring.	1	1	0.981	0.981	-1.532412,2.4185698
+ethel wishes to ask you some awkward questions.	1	1	0.981	0.981	-1.5185201,2.4150815
+emma made harriet some food.	1	1	0.973	0.973	-1.303915,2.2759988
+the window was broken with a hammer.	1	1	0.980	0.980	-1.4856546,2.395359
+the fugitive lay motionless in order to avoid discovery.	1	1	0.961	0.961	-1.0510535,2.1410053
+the guard marched the prisoners round the yard.	1	1	0.955	0.955	-1.0190681,2.0414248
+frank churchill crossed the street.	1	1	0.974	0.974	-1.3327729,2.3091686
+emma and harriet were attacked yesterday.	1	1	0.981	0.981	-1.5454823,2.4245567
+fiona might be here by 5 o'clock.	1	1	0.976	0.976	-1.3659171,2.319164
+i am both expecting to get the job and of the opinion that it is a desirable one.	1	1	0.947	0.947	-0.9422441,1.9384396
+pat was awarded the golden fleece award and very upset about it.	1	1	0.682	0.682	-0.42987457,0.33170065
+kim alienated cats and beating his dog.	0	0	0.643	0.643	0.19274658,-0.39669514
+they knew that pictures of each other would be on sale.	1	1	0.976	0.976	-1.3776633,2.3296242
+which article did terry file papers without reading?	0	1	0.931	0.069	-0.82986444,1.7796738
+i want to try and buy some whiskey.	1	1	0.974	0.974	-1.3383579,2.2838404
+she goes and buying some whiskey.	0	0	0.891	0.891	0.685396,-1.4138614
+kim and terry is happy.	0	0	0.946	0.946	0.9392707,-1.9302208
+kim gave a dollar to bobbie and a dime to jean.	1	0	0.895	0.105	0.6901213,-1.4499404
+this girl in the red coat will put a picture of bill in the mailbox and on your desk before tomorrow.	1	1	0.974	0.974	-1.3210557,2.2995377
+put a picture of bill on your desk before tomorrow, this girl in the red coat will put a picture of bill on your desk before tomorrow.	0	1	0.850	0.150	-0.6768749,1.0584524
+picture of bill, this girl in the red coat will put a picture of bill on your desk before tomorrow.	0	1	0.751	0.249	-0.5744022,0.5318838
+ann bought a first edition of richard iii for $1000.	1	1	0.975	0.975	-1.3495657,2.2945228
+john became deadly afraid of flying.	1	1	0.942	0.942	-0.9201033,1.8633147
+what john promised is to be gentle.	1	1	0.976	0.976	-1.40306,2.2843683
+henri wants to buy which books about cooking?	1	1	0.974	0.974	-1.3395408,2.286197
+i will fix the computer for carol.	1	1	0.941	0.941	-0.9083774,1.8641552
+smith loaned a valuable collection of manuscripts to the library.	1	1	0.981	0.981	-1.5189109,2.4111018
+the paper is cut by mary.	1	1	0.974	0.974	-1.3260612,2.3046815
+it was from six to nine or it took place from six to nine.	1	1	0.901	0.901	-0.7261122,1.4837372
+suddenly, there arrived two inspectors from the ins.	1	1	0.957	0.957	-1.0657604,2.0421755
+the soup cooks, thickens.	1	1	0.799	0.799	-0.6095838,0.77117217
+i gave money to the charity.	1	1	0.980	0.980	-1.5122136,2.3694892
+john asked.	1	1	0.970	0.970	-1.2683893,2.2230048
+i saw even the student.	1	1	0.948	0.948	-0.9403719,1.9716856
+john whispered mary left.	0	1	0.949	0.051	-0.9445395,1.9740939
+mary wonders that bill will come.	0	1	0.976	0.024	-1.3664831,2.3289247
+sophie will theater.	0	1	0.979	0.021	-1.4400526,2.3799443
+john finished the cake and drank the lemonade.	1	1	0.977	0.977	-1.4286189,2.3401625
+herself likes mary's mother.	0	0	0.839	0.839	0.5798585,-1.0744412
+each of the boys fought with some of the other boys.	1	1	0.973	0.973	-1.2990991,2.2860334
+john's mother likes himself.	0	1	0.977	0.023	-1.4049356,2.3544965
+mary revealed himself to john.	0	0	0.740	0.740	0.343793,-0.7040912
+mary believes that bill saw himself.	1	0	0.724	0.276	0.3625498,-0.60317576
+john heard that they criticized themselves.	0	0	0.859	0.859	0.6106747,-1.1997977
+mary thinks that she is smart.	1	1	0.980	0.980	-1.483106,2.4020886
+henry found that bill is sad.	1	1	0.979	0.979	-1.4801712,2.3717988
+john considers himself proud of mary.	1	1	0.977	0.977	-1.4017283,2.3351483
+you should sit before there.	0	1	0.977	0.023	-1.4019129,2.3547387
+there is a nurse available.	1	1	0.963	0.963	-1.0996919,2.1482153
+everyone hopes everyone to sleep.	0	1	0.980	0.020	-1.475345,2.3947456
+everyone hopes that he will sleep.	1	1	0.981	0.981	-1.5266688,2.422265
+only churchill remembered churchill giving the blood, sweat and tears speech.	0	1	0.972	0.028	-1.2731438,2.2570071
+john promise mary to shave himself.	1	0	0.909	0.091	0.73582375,-1.5598421
+john convinced bill that mary should sleep.	1	1	0.979	0.979	-1.468511,2.3702922
+i saw bill while you did so mary.	0	0	0.895	0.895	0.702226,-1.4356971
+what mary did bill was give a book.	0	0	0.949	0.949	0.96534634,-1.9505855
+the bears sniffed	1	0	0.932	0.068	0.8117989,-1.8069043
+to steal talismans from witches is dangerous	1	1	0.960	0.960	-1.171572,2.008041
+anson demonized	0	0	0.940	0.940	0.8880051,-1.8665787
+you kicked yourselves	1	0	0.862	0.138	0.6379084,-1.1929303
+the book that i said that i'd never read.	1	1	0.973	0.973	-1.3471655,2.2456894
+anson demonized up the khyber	0	0	0.852	0.852	0.6067786,-1.1423415
+it is not true that i might be going to the party.	1	1	0.981	0.981	-1.5357032,2.4260528
+kick you!	0	1	0.955	0.045	-1.0247451,2.036649
+jason persuaded the doctor to treat medea	1	1	0.970	0.970	-1.2678235,2.21207
+who did you get an accurate description of?	1	1	0.977	0.977	-1.3968406,2.330873
+the peter we all like was at the party	1	1	0.894	0.894	-0.9040898,1.2281114
+the government's imposition of a fine.	1	0	0.916	0.084	0.7598345,-1.6358405
+did athena help us?	1	1	0.981	0.981	-1.5385665,2.425221
+you wanted to meet the man i saw.	1	1	0.974	0.974	-1.3212343,2.3012729
+anson demonized david every day	1	1	0.973	0.973	-1.3489916,2.2524524
+there is a programme about euripides on a radio 4 tonight?	1	1	0.919	0.919	-0.758824,1.6701648
+medea denied poisoning the phoenix.	1	1	0.976	0.976	-1.3896724,2.3300366
+the elixir was hidden in a hole in the ground	1	1	0.969	0.969	-1.240665,2.1851683
+extremely frantically, anson danced at trade	1	1	0.939	0.939	-0.9062556,1.8196875
+what did you ask who medea gave?	0	0	0.799	0.799	0.49990687,-0.88314843
+it's anson that i like	1	1	0.956	0.956	-1.0257827,2.0447698
+medea tried the nurse to poison her children.	0	0	0.928	0.928	0.82306737,-1.7261693
+i felt that i know you.	1	1	0.980	0.980	-1.5151544,2.3746681
+will he can do it?	1	0	0.844	0.156	0.568538,-1.1204038
+i ate that she was happy	0	0	0.765	0.765	0.5010464,-0.6766032
+anson believed himself to be handsome.	1	1	0.981	0.981	-1.5254084,2.41949
+we arrived about six o'clock	1	1	0.970	0.970	-1.2666246,2.2259376
+gilgamesh is having fought the dragon.	0	1	0.954	0.046	-1.0667424,1.9615924
+anson thought that himself was happy.	0	0	0.937	0.937	0.8717221,-1.836035
+fortunately hermione passed biology	1	1	0.755	0.755	-0.47107866,0.65635955
+i might be not going to the party but washing my hair	1	1	0.940	0.940	-0.8784111,1.8708249
+i thought he liked myself	0	1	0.905	0.095	-0.72887707,1.5279555
+the butler sent the poison to dinah.	1	1	0.970	0.970	-1.2225007,2.2435188
+jason happens to appear to seem to be sick.	1	1	0.858	0.858	-0.66948485,1.1265136
+what did you ask who saw?	0	0	0.835	0.835	0.57412225,-1.0491309
+we linguists love to argue	1	1	0.968	0.968	-1.2114099,2.2030363
+he can will go	0	0	0.950	0.950	0.97056884,-1.9731805
+how fierce the battle?	0	0	0.911	0.911	0.7461438,-1.5767579
+which king did you ask which city invaded?	0	1	0.855	0.145	-0.72101974,1.0542517
+it is some disgruntled old pigs in those ditches that humans love to eat.	1	1	0.933	0.933	-0.88895816,1.750923
+that banana is eating the monkey.	1	1	0.644	0.644	-0.23264605,0.35899222
+burn them!	1	1	0.967	0.967	-1.1894046,2.1800857
+it stinks that aphrodite is omnipotent.	1	1	0.881	0.881	-0.73844165,1.2590218
+agamemnon seems to be a maniac	1	1	0.974	0.974	-1.361731,2.2694004
+will anson come to the party?	1	1	0.977	0.977	-1.4026783,2.3246777
+i wondered who medea had poisoned.	1	1	0.978	0.978	-1.439541,2.374206
+i inquired when could we leave.	0	0	0.879	0.879	0.6862772,-1.2979945
+they kicked them	1	1	0.950	0.950	-0.9993163,1.9431297
+the monkey is ate the banana	0	0	0.950	0.950	0.9884515,-1.9604815
+i would like to could swim	1	0	0.950	0.050	0.97039676,-1.9717197
+i kicked myself	1	0	0.766	0.234	0.4219952,-0.7639297
+the bookcase ran	0	0	0.914	0.914	0.91642815,-1.451077
+i shaved myself.	1	1	0.640	0.640	-0.3494119,0.22556674
+anson became a muscle bound.	1	1	0.627	0.627	-0.30382234,0.21422541
+somebody just left - guess who.	1	0	0.829	0.171	0.5550945,-1.0237353
+they claimed they had settled on something, but it wasn't clear what they had settled on.	1	1	0.794	0.794	-0.5917417,0.7598257
+if sam was going, sally would know where.	1	1	0.972	0.972	-1.3058404,2.2378314
+they're going to serve the guests something, but it's unclear what.	1	1	0.972	0.972	-1.2669917,2.272535
+she's reading. i can't imagine what.	1	1	0.972	0.972	-1.3230329,2.2381952
+john said joan saw someone from her graduating class.	1	1	0.973	0.973	-1.3025969,2.299541
+john ate dinner but i don't know who.	0	1	0.974	0.026	-1.3133237,2.2970836
+she mailed john a letter, but i don't know to whom.	0	1	0.960	0.040	-1.0813254,2.0863836
+i served leek soup to my guests.	1	0	0.730	0.270	0.33070168,-0.66263866
+i served my guests.	1	1	0.976	0.976	-1.3721685,2.3366597
+she was bathing, but i couldn't make out who.	0	0	0.715	0.715	0.29254305,-0.62750894
+she knew french for tom.	0	1	0.964	0.036	-1.1329218,2.1556258
+john is tall on several occasions.	0	1	0.937	0.063	-0.8556631,1.8425548
+the ship sank, but i don't know with what.	0	1	0.774	0.226	-0.5082646,0.71999705
+they noticed the painting, but i don't know for how long.	0	1	0.961	0.039	-1.0862954,2.1147556
+john was tall, but i don't know on what occasions.	0	0	0.560	0.560	-0.042435,-0.28537026
+joan ate dinner with someone but i don't know who.	1	1	0.972	0.972	-1.2566967,2.27694
+joan ate dinner with someone but i don't know who with.	1	1	0.920	0.920	-0.7909437,1.6557316
+i know that meg's attracted to harry, but they don't know who.	0	1	0.972	0.028	-1.280622,2.2792108
+since jill said joe had invited sue, we didn't have to ask who.	0	1	0.789	0.211	-0.5415786,0.77897435
+i know that meg's attracted to harry, but they don't know who.	1	1	0.972	0.972	-1.280622,2.2792108
+she said she had spoken to everybody, but he wasn't sure who.	0	0	0.841	0.841	0.5894516,-1.0786493
+each of the performers came in, but were sitting so far back that we couldn't see who.	0	1	0.967	0.033	-1.1704919,2.1978302
+she didn't talk to one student.	1	1	0.965	0.965	-1.1602309,2.1536152
+she doesn't meet anyone for dinner, but they can't figure out who.	0	1	0.976	0.024	-1.3607725,2.337936
+everyone relies on someone. it's unclear who.	1	1	0.585	0.585	-0.2171102,0.12451008
+each student wrote a paper on a mayan language, but i don't remember which one.	1	1	0.736	0.736	-0.55731887,0.46544665
+the newspaper has reported that they are about to appoint someone, but i can't remember who the newspaper has reported that they are about to appoint.	1	0	0.585	0.415	0.09183063,-0.2517328
+the newspaper has reported that they are about to appoint someone, but i can't remember who they are about to appoint.	1	1	0.748	0.748	-0.5128814,0.5759565
+most columnists claim that a senior white house official has been briefing them, and the newspaper today reveals which one.	1	0	0.543	0.457	-0.09440006,-0.26806417
+most columnists claim that a senior white house official has been briefing them, but none will reveal which one.	1	1	0.526	0.526	-0.22202113,-0.11676328
+bill wondered how many papers sandy had read, but he didn't care which ones.	1	1	0.958	0.958	-1.0778973,2.0431013
+i never know which papers sandy has read, but i usually know how many.	1	1	0.915	0.915	-0.7654242,1.6126521
+sandy had read how many papers?!	1	1	0.972	0.972	-1.3204032,2.2400782
+everybody gets on well with a certain relative, but often only his therapist knows which one.	1	1	0.908	0.908	-0.7553518,1.5339389
+which book did each author recommend?	1	1	0.980	0.980	-1.4881904,2.4063776
+his or her least known work.	1	0	0.921	0.079	0.77556026,-1.6856056
+they were going to meet sometime on sunday, but the faculty didn't know when.	1	0	0.872	0.128	0.6410482,-1.2734118
+john likes some students, but i don't know who.	1	1	0.976	0.976	-1.3655432,2.322548
+i don't know who john likes.	1	1	0.980	0.980	-1.4857892,2.3861089
+john likes some students, but i don't know who john likes some students.	0	1	0.969	0.031	-1.2127483,2.2392068
+joan said she talked to the students, but fred couldn't figure out who.	0	1	0.949	0.051	-0.9554225,1.9692013
+he announced he had eaten the asparagus, but we didn't know what.	0	1	0.976	0.024	-1.3942908,2.3302963
+she was reading the books under the table, but fred didn't know what books.	1	1	0.942	0.942	-0.9254339,1.8540009
+he announced he would marry the woman he loved most, but none of his relatives could figure out who.	1	1	0.969	0.969	-1.2195653,2.2357452
+she talked to john or mary but i don't know which.	1	1	0.891	0.891	-0.7103561,1.3871708
+she talked to john or mary but i don't know which one.	1	1	0.874	0.874	-0.67615527,1.2582195
+she talked to harry, but i don't know who else.	1	1	0.971	0.971	-1.2642384,2.2621238
+i will see them, but i don't know how many of them.	1	1	0.957	0.957	-1.0153311,2.0942683
+everyone who knows either susan or laura likes her.	1	1	0.977	0.977	-1.3996367,2.366965
+she said she talked to three students but i don't know how many.	0	1	0.856	0.144	-0.6691423,1.1108991
+she said she talked to those students but i don't know how many.	0	1	0.941	0.059	-0.9031656,1.8671613
+he shouted again, but i don't know who to.	1	0	0.582	0.418	0.08663125,-0.24266155
+she was dancing with somebody, but i don't know who with.	1	1	0.902	0.902	-0.7312084,1.4923787
+several firefighters were injured, but it's not known.	1	1	0.905	0.905	-0.77635944,1.4740459
+meg is attracted to harry, but they don't know who she is attracted to.	1	1	0.953	0.953	-1.001039,2.0192573
+sandy was trying to work out which students would be able to solve a certain problem, but she wouldn't tell us which one.	1	1	0.574	0.574	-0.23928893,0.05846571
+sandy was trying to work out which students would be able to solve a certain problem, but she wouldn't tell us which one.	0	1	0.574	0.426	-0.23928893,0.05846571
+john and someone were dancing together, but i don't know who.	0	1	0.977	0.023	-1.405922,2.3477583
+the ta's have been arguing about whether some student or other should pass, but i can't now remember which one.	1	1	0.724	0.724	-0.53908855,0.4256147
+it has been determined that somebody will be appointed; it's just not clear yet who.	0	1	0.961	0.039	-1.1005336,2.0932508
+sally asked if somebody was going to fail math class, but i can't remember who.	0	1	0.968	0.032	-1.1961372,2.2207386
+the ta's have been arguing about whether some student or other should pass, but i can't now remember which one.	0	1	0.724	0.276	-0.53908855,0.4256147
+sandy is very anxious to see if the students will be able to solve the homework problem in a particular way, but she won't tell us which.	1	1	0.967	0.967	-1.17416,2.1948662
+sandy is very anxious to see if the students will be able to solve the homework problem in a particular way, but she won't tell us in which way.	1	1	0.963	0.963	-1.1120453,2.1408708
+clinton is anxious to find out which budget dilemmas panetta would be willing to tackle in a certain way, but he won't say in which.	1	1	0.588	0.588	-0.3182001,0.03613136
+sandy is wondering whether there will be students who have to drop the class for a certain reason, but she won't reveal what.	1	1	0.955	0.955	-1.0227244,2.0418415
+in which way is sandy very anxious to see if the students will be able to solve the homework problem?	0	1	0.850	0.150	-0.7113483,1.0201144
+in which way is clinton anxious to find out which budget dilemmas panetta would be willing to solve?	0	0	0.775	0.775	0.38527662,-0.8531339
+i know how many assignments i've graded, but i don't know how many bill has.	1	1	0.970	0.970	-1.2299967,2.248157
+what did you leave before they did?	0	1	0.968	0.032	-1.2013515,2.2015812
+what did you leave before they started playing?	0	1	0.974	0.026	-1.3356324,2.2940264
+sandy was trying to work out which students would be able to solve a certain problem.	1	1	0.976	0.976	-1.3761318,2.3308005
+the administration has issued a statement that it is willing to meet with one of the student groups.	1	1	0.948	0.948	-0.95817995,1.9433811
+sandy was trying to work out which students would be able to solve a problem.	1	1	0.979	0.979	-1.4622307,2.3642955
+the administration has issued a statement that it is willing to meet a student group.	1	1	0.973	0.973	-1.2895664,2.2817636
+the administration has issued a statement that it is willing to meet a student group, but i'm not sure which one.	1	1	0.621	0.621	-0.32960245,0.16597545
+i think agnes said that bill would speak, but i don't remember what about.	1	1	0.977	0.977	-1.4133024,2.344892
+agnes wondered how john could eat but it's not clear what.	0	1	0.971	0.029	-1.241041,2.2701695
+tony sent mo a picture that he painted, but it's not clear with what.	0	1	0.689	0.311	-0.5008341,0.29423243
+she's been dancing but we don't know with whom.	1	1	0.779	0.779	-0.5751746,0.6842991
+who did they see someone?	0	0	0.947	0.947	0.9737199,-1.9183087
+it was believed by everybody that mary was a thief.	1	1	0.973	0.973	-1.3026305,2.2854705
+that professor is feared by all students.	1	1	0.970	0.970	-1.2264829,2.2362618
+mary was respected by john.	1	1	0.976	0.976	-1.3901005,2.3269143
+ted was bitten by the spider.	1	1	0.981	0.981	-1.518393,2.4072146
+the book was by john written.	0	0	0.826	0.826	0.5598099,-1.0003829
+the argument was summed by the coach up.	0	1	0.972	0.028	-1.287897,2.2659285
+the paper was written up by john.	1	1	0.976	0.976	-1.3913394,2.3354418
+the paper was written by john up.	0	1	0.788	0.212	-0.4725135,0.8397031
+john was spoken to by mary.	1	0	0.623	0.377	0.16659056,-0.33530113
+john was spoken by mary to.	0	0	0.912	0.912	0.7397341,-1.598111
+the book was seen by mary.	1	1	0.975	0.975	-1.3636754,2.3045475
+john was seen the book.	0	1	0.975	0.025	-1.3792226,2.2808576
+the book was written.	1	1	0.980	0.980	-1.4957013,2.3856692
+john was spoke by mary to.	0	0	0.911	0.911	0.75182414,-1.5684794
+the table was wiped clean by john.	1	1	0.961	0.961	-1.0718299,2.1239316
+the table was wiped by john clean.	0	1	0.965	0.035	-1.1446106,2.1869168
+mary was given by john the book.	0	1	0.928	0.072	-0.83638155,1.7212156
+john was believed to be telling the truth by mary.	1	1	0.977	0.977	-1.4162966,2.35173
+john was believed by mary to be telling the truth.	1	1	0.971	0.971	-1.2578535,2.255201
+the car was driven by john to maine.	1	1	0.975	0.975	-1.3592457,2.2949996
+it was believed by the students that they would have an exam.	1	1	0.974	0.974	-1.311944,2.3003962
+the magazines were sent to herself by mary.	0	1	0.683	0.317	-0.367863,0.39958113
+chocolate eggs were hidden from each other by the children.	0	1	0.964	0.036	-1.1147473,2.1713154
+the magazines were sent by mary to herself.	1	1	0.781	0.781	-0.5122927,0.7607852
+chocolate eggs were hidden from no child by any adult.	1	1	0.921	0.921	-0.78308046,1.678821
+tabs were kept on each agent by the other.	1	1	0.976	0.976	-1.3885366,2.3121588
+chocolate eggs were hidden from every child by his mother.	1	1	0.972	0.972	-1.2803651,2.2785642
+books were taken from no student and given to mary.	1	1	0.519	0.519	-0.10773356,-0.033580013
+books were taken from no student and given to mary by any professor.	0	1	0.677	0.323	-0.41562173,0.32403395
+books were taken from each student by the other.	1	1	0.960	0.960	-1.0961043,2.0784354
+books were taken from each student and given to mary.	1	1	0.798	0.798	-0.52873707,0.8455512
+books were taken from each student and given to mary by the other.	0	1	0.945	0.055	-0.9153587,1.9277254
+jack hates sue and is loved by mary.	1	1	0.964	0.964	-1.1386611,2.1515229
+vera sent a baby alligator to max and a leather dinosaur to phyllis.	1	1	0.958	0.958	-1.0428486,2.0868232
+either sam plays the bassoon or jekyll the oboe.	1	1	0.941	0.941	-0.8779537,1.8966161
+sam doesn't play bassoon, nor medusa oboe.	1	1	0.695	0.695	-0.49022734,0.3334575
+bill ate the peaches, but harry the grapes.	0	1	0.975	0.025	-1.3470783,2.3090122
+i no more could have stolen that steak than jack the diamonds.	1	0	0.897	0.103	0.7034042,-1.4604251
+bill ate more peaches than harry did grapes.	1	1	0.969	0.969	-1.2171032,2.2223418
+bill ate the peaches and harry did the grapes.	0	1	0.976	0.024	-1.3852468,2.319937
+tom will smoke the grass, and reuben has the hash.	0	1	0.775	0.225	-0.58821195,0.64687145
+if the ants were called elephants and elephants ants, i'd be able to squash an elephant.	1	0	0.616	0.384	0.077469155,-0.39457387
+simon quickly dropped the gold, and jack the diamonds.	1	1	0.933	0.933	-0.84892476,1.7830269
+bob tried to wash himself, and mary to read the funnies.	1	0	0.671	0.329	0.19886339,-0.5145856
+harry told sue that albania is a lovely place for a vacation, and tom told sally that albania is a lovely place for a vacation.	1	1	0.972	0.972	-1.2703499,2.274358
+harry told sue that albania is a lovely place for a vacation, and tom.	1	1	0.976	0.976	-1.3857642,2.3304112
+max seemed to be trying to begin to love harriet, and fred to be trying to begin to love sue.	1	1	0.947	0.947	-0.95833385,1.921945
+max seemed to be trying to force ted to leave the room, and walt, ira.	1	0	0.501	0.499	-0.08596629,-0.091087624
+max seemed to be trying to force ted to leave the room, and walt to stay a little longer.	0	0	0.608	0.608	0.09304705,-0.3467044
+arizona elected goldwater senator, and massachusetts, mccormack.	0	0	0.831	0.831	0.5193712,-1.0763792
+millie will send the president an obscene telegram, and paul, the secretary a rude letter.	0	1	0.974	0.026	-1.3226722,2.3004935
+maytag will give a brand-new dryer to the winner of the mrs.	0	1	0.936	0.064	-0.8530806,1.8226563
+bill didn't eat the peaches, nor harry.	0	1	0.781	0.219	-0.6014769,0.6684873
+bill ate the peaches, and harry did, too.	1	1	0.976	0.976	-1.3906316,2.298356
+bill must quickly eat the peaches, and harry must slowly.	0	1	0.973	0.027	-1.3233943,2.2660599
+whenever russia has made a major political blunder, the u.s. has too.	1	1	0.768	0.768	-0.58320725,0.6125729
+bill's story about sue and max's about kathy both amazed me.	1	1	0.575	0.575	-0.23763277,0.065155104
+i bought three quarts of wine and two of clorox.	1	1	0.900	0.900	-0.7180579,1.473668
+scientists at the south hanoi institute of technology have succeeded in raising one dog with five legs, another with a cow's liver, and a third with no head.	1	1	0.855	0.855	-0.6773445,1.0987345
+bill's story about sue may be amazing, but max's is virtually incredible.	1	1	0.564	0.564	-0.19494382,0.06309412
+i like bill's yellow shirt, but not max's.	1	1	0.854	0.854	-0.6442937,1.1236911
+bill's funny story about sue and max's boring one about kathy both amazed me.	1	1	0.733	0.733	-0.5246691,0.4858858
+bill's wine from france and ted's from california cannot be compared.	1	0	0.800	0.200	0.4624359,-0.9230013
+as a teacher, you have to deal simultaneously with the administration's pressure on you to succeed, and the children's to be a nice guy.	0	1	0.974	0.026	-1.338293,2.290466
+neither von karajan's recording of beethoven's 6th on columbia nor klemperer's on angel has the right tempo.	1	0	0.858	0.142	0.6014265,-1.1949644
+gould's performance of bach on the piano doesn't please me anywhere as much as ross's on the harpsichord.	0	0	0.938	0.938	0.88734823,-1.8368381
+tom's dog with one eye attacked frank's with three legs.	0	0	0.528	0.528	-0.04483336,-0.15563941
+because steve's of a spider's eye had been stolen, i borrowed fred's diagram of a snake's fang.	0	1	0.732	0.268	-0.5366741,0.46909297
+neither von karajan's recording of beethoven's 6th on columbia nor klemperer's has the right tempo.	1	0	0.855	0.145	0.5938693,-1.1815478
+tom's dog with one eye attacked fred's.	1	1	0.971	0.971	-1.2770636,2.2437556
+i borrowed fred's diagram of a snake's eye because steve's had been stolen.	1	1	0.964	0.964	-1.1250992,2.1595252
+jerry attempted to blow up the pentagon.	1	1	0.976	0.976	-1.360817,2.324967
+so fast did he run that nobody could catch him.	1	1	0.968	0.968	-1.2077956,2.2028637
+bill bought a red house, and max bought one too.	1	1	0.964	0.964	-1.1272513,2.1493218
+who always drinks milk?	1	1	0.977	0.977	-1.3970194,2.3333764
+the book which inspired them was very long.	1	1	0.971	0.971	-1.2822378,2.2237997
+the book what inspired them was very long.	0	1	0.886	0.114	-0.8159504,1.2390515
+i know the person whose mother died.	1	1	0.976	0.976	-1.4150729,2.3049476
+the person whose mother's dog we were all fond of.	1	1	0.564	0.564	-0.28546333,-0.028205551
+i wonder whose mother died.	1	1	0.981	0.981	-1.5296783,2.4047954
+i wonder whose mother's dog died.	1	1	0.981	0.981	-1.5419458,2.4218528
+i wonder to whom they dedicated the building.	1	1	0.848	0.848	-0.60779506,1.1120149
+give me the phone number of the person whose mother's dog died.	1	1	0.964	0.964	-1.153794,2.1224165
+this is the senator to whose mother's friend's sister's i sent the letter.	1	1	0.946	0.946	-1.0680946,1.7962441
+i want goes to the store.	0	0	0.942	0.942	0.9024622,-1.8768251
+i wonder what to be a clown on the cover of.	0	1	0.698	0.302	-0.40911874,0.4294289
+bother you that kim left!	0	0	0.902	0.902	0.7223028,-1.4943546
+a student who to talk to us just walked in.	0	0	0.904	0.904	0.7380281,-1.5056599
+whose bagels do you like?	1	1	0.979	0.979	-1.4639721,2.3933818
+i wonder in whom to place my trust.	1	1	0.715	0.715	-0.37736052,0.54054326
+there were several old rocks songs that she and i were the only two who knew.	1	1	0.956	0.956	-1.0671549,2.0084941
+it was to to amuse us that kim was singing that they wanted.	0	1	0.930	0.070	-0.8186126,1.7684886
+what they feared most was to be no one available to help them.	0	1	0.969	0.031	-1.2857168,2.1559956
+we tried to amuse them that kim was singing.	0	1	0.976	0.024	-1.3810468,2.3334208
+mary asked me if, in st. louis, john could rent a house cheap.	1	1	0.699	0.699	-0.5176061,0.32293633
+mary arranged for, in st. louis, john to rent a house cheap.	0	0	0.903	0.903	0.72397274,-1.5061014
+it would be unwise for there to be no fire exit.	1	1	0.966	0.966	-1.1808208,2.1739058
+i believe there to be no way out.	1	1	0.979	0.979	-1.4754634,2.3883033
+i wonder in whom them to place their trust.	0	0	0.910	0.910	0.7668809,-1.5482166
+i wonder whom us to trust.	0	1	0.977	0.023	-1.4491018,2.315047
+i wonder who for us to trust.	0	0	0.621	0.621	0.18295293,-0.31043586
+i wonder who to place my trust in.	1	1	0.960	0.960	-1.048066,2.125234
+i know the people that voted in the election.	1	1	0.980	0.980	-1.5078657,2.4043043
+i threw away a book that sandy thought we had read.	1	1	0.978	0.978	-1.4446851,2.3609593
+i thought that you were sick.	1	1	0.981	0.981	-1.528859,2.4281793
+i dislike the people in who we placed our trust.	0	1	0.655	0.345	-0.30998448,0.33188105
+i dislike the company in which we placed our trust.	1	1	0.677	0.677	-0.3812001,0.35984546
+i dislike the people in whose house we stayed.	1	1	0.978	0.978	-1.4442046,2.371116
+i dislike the person with whom we were talking.	1	1	0.980	0.980	-1.4988081,2.384335
+jones, that we were talking to last night, always watches football games alone.	0	1	0.706	0.294	-0.5273679,0.34835324
+a letter was received that jones would be upset by.	1	0	0.886	0.114	0.6887489,-1.3615965
+a letter was received jones would be upset by.	0	0	0.931	0.931	0.8499918,-1.7524474
+i saw someone yesterday i hadn't seen for years.	1	1	0.968	0.968	-1.1956953,2.2029545
+something happened i couldn't really talk about.	1	1	0.928	0.928	-0.8776235,1.6756918
+the only person that i like whose kids dana is willing to put up with is pat.	1	1	0.667	0.667	-0.39963222,0.29574496
+the book that i like which everyone else in the class hates was written by john.	1	1	0.973	0.973	-1.2941353,2.2775457
+the only person whose kids dana is willing to put up with was written by john.	0	0	0.814	0.814	0.49575886,-0.9790251
+the book that i like - everyone else in the class hates.	0	1	0.706	0.294	-0.4729112,0.40549225
+the only person whose kids dana is willing to put up with is pat.	1	0	0.906	0.094	0.7320052,-1.5337182
+which book's, author did you meet?	1	1	0.972	0.972	-1.2796534,2.2539558
+which boy's, mother, did you meet who you liked?	0	1	0.739	0.261	-0.53706914,0.5014771
+which book's, author did you meet who you liked?	0	1	0.756	0.244	-0.47838348,0.6508138
+which boy's, mother, did you meet?	1	1	0.967	0.967	-1.2056823,2.1598384
+all who lost money in the scam are eligible for the program.	1	1	0.974	0.974	-1.3285546,2.3021438
+who for sandy to talk to is still enrolled in the class?	0	0	0.943	0.943	0.92174715,-1.8919625
+who who you like does sandy also like?	1	1	0.949	0.949	-1.1271857,1.8049326
+everything you like is on the table.	1	1	0.977	0.977	-1.4296477,2.3204339
+the bills passed by the house yesterday that we objected to were vetoed.	1	1	0.974	0.974	-1.3330729,2.2795599
+the only people being added to our group who were at harvard were students.	1	1	0.685	0.685	-0.43175858,0.3463437
+we like ourselves.	1	1	0.978	0.978	-1.4421909,2.3610716
+nobody likes us.	1	1	0.981	0.981	-1.5142475,2.416757
+leslie likes ourselves.	0	0	0.874	0.874	0.6541331,-1.2805446
+ourselves like ourselves.	0	0	0.672	0.672	0.13376166,-0.581763
+she voted for herself.	1	1	0.956	0.956	-1.0122699,2.0600915
+we gave us presents.	0	1	0.981	0.019	-1.5305121,2.421221
+we gave ourselves presents.	1	1	0.975	0.975	-1.3634411,2.303292
+we gave presents to ourselves.	1	1	0.951	0.951	-1.0241783,1.9452835
+we gave us to the cause.	0	1	0.959	0.041	-1.076134,2.071901
+we gave ourselves to the cause.	1	1	0.974	0.974	-1.3288699,2.3139663
+leslie told us about us.	0	1	0.970	0.030	-1.261213,2.225295
+leslie told ourselves about us.	0	0	0.864	0.864	0.62571704,-1.2272054
+we think that leslie likes us.	1	1	0.981	0.981	-1.5160961,2.421159
+we think that leslie likes ourselves.	0	0	0.727	0.727	0.3244953,-0.6548627
+our friends like us.	1	1	0.976	0.976	-1.3773042,2.33437
+those pictures of us offended us.	1	1	0.977	0.977	-1.3991475,2.3436482
+we found your letter to ourselves in the trash.	0	1	0.971	0.029	-1.2424396,2.2761571
+vote for you!	0	1	0.953	0.047	-1.0198128,1.9999706
+vote for yourself!	1	1	0.956	0.956	-1.0636641,2.02639
+we appeared to them to vote for themselves.	0	1	0.957	0.043	-1.027748,2.0808566
+we admired the pictures of us in the album.	1	1	0.977	0.977	-1.3991725,2.3534975
+we admired the pictures of ourselves in the album.	1	1	0.978	0.978	-1.4221263,2.356538
+leslie used a pen.	1	1	0.978	0.978	-1.4377806,2.3431919
+we put the pigs in a pen.	1	1	0.969	0.969	-1.2051419,2.2253158
+we need to pen the pigs to keep them from getting into the corn.	1	1	0.962	0.962	-1.1160675,2.1206353
+they should pen the letter quickly.	1	1	0.977	0.977	-1.410939,2.3435788
+the car won't run.	1	1	0.952	0.952	-1.0572032,1.9376881
+this dye will run.	1	1	0.931	0.931	-0.8823753,1.7230333
+she can run an accelerator.	1	1	0.972	0.972	-1.3076267,2.2392297
+these stockings will run.	1	1	0.936	0.936	-0.88178813,1.7929045
+we need another run to win.	1	1	0.939	0.939	-0.88106954,1.8565992
+lee saw the student with a telescope.	1	1	0.979	0.979	-1.4710786,2.393471
+i forgot how good beer tastes.	1	1	0.978	0.978	-1.4331563,2.3578742
+visiting relatives can be boring.	1	1	0.974	0.974	-1.3222082,2.298923
+if only superman would stop flying planes!	1	1	0.939	0.939	-0.8875464,1.8378016
+that's a new car dealership.	1	1	0.977	0.977	-1.4134218,2.3327003
+i know you like the back of my hand.	1	1	0.973	0.973	-1.3006656,2.2956073
+max is on the phone now.	1	1	0.975	0.975	-1.3530202,2.3032715
+i saw her duck.	1	1	0.973	0.973	-1.2959527,2.2754672
+i'm creating a committee. kim – you're in charge.	1	1	0.868	0.868	-0.6894686,1.1896482
+lights go out at ten. there will be no talking afterwards.	1	1	0.638	0.638	-0.35201856,0.21389869
+they found the book on the atom.	1	1	0.969	0.969	-1.2243276,2.2310572
+which experts testified against defendants who exposed them?	1	1	0.957	0.957	-1.0385501,2.075387
+list all experts for the defendant who represented himself.	1	1	0.795	0.795	-0.65369344,0.69882685
+list associates of each defendant who speaks spanish.	1	1	0.841	0.841	-0.67997825,0.9888569
+they lost themselves' books.	0	1	0.966	0.034	-1.167797,2.1801548
+some sentences go on and on and on.	1	1	0.932	0.932	-0.87883955,1.7345033
+sentences some go on and on and on and on.	0	1	0.674	0.326	-0.46674955,0.25923172
+that surprised me.	1	1	0.979	0.979	-1.4617196,2.3681943
+i noticed the.	0	0	0.884	0.884	0.6370596,-1.3940964
+they were interested in his.	1	0	0.535	0.465	-0.041006237,-0.1801638
+this is my favorite.	1	1	0.980	0.980	-1.4772315,2.3921266
+a large dog chased a small cat.	1	1	0.981	0.981	-1.5237797,2.4179952
+some people yell at noisy dogs in my neighborhood.	1	1	0.977	0.977	-1.4120026,2.3492756
+some people yell at the dogs in my neighborhood.	1	1	0.981	0.981	-1.5166444,2.417386
+some people yell at the dogs.	1	1	0.981	0.981	-1.5293262,2.4259796
+some people yell at noisy dogs.	1	1	0.978	0.978	-1.4487069,2.363642
+some people yell at dogs.	1	1	0.981	0.981	-1.53062,2.42329
+some people consider the noisy dogs dangerous.	1	1	0.955	0.955	-1.0624601,2.001431
+some people consider the dogs in my neighborhood dangerous.	1	1	0.959	0.959	-1.1068647,2.0560575
+some people consider noisy dogs in my neighborhood dangerous.	1	1	0.973	0.973	-1.2889371,2.2936068
+some people consider the dogs dangerous.	1	1	0.980	0.980	-1.4938769,2.412381
+some people consider noisy dogs dangerous.	1	1	0.939	0.939	-0.9544045,1.7870647
+some people consider dogs in my neighborhood dangerous.	1	1	0.902	0.902	-0.750246,1.4667104
+some people consider dogs dangerous.	1	1	0.979	0.979	-1.46264,2.3991084
+people with children who use drugs should be locked up.	1	1	0.974	0.974	-1.3321,2.2764688
+this disease gave leslie a fever in rome.	1	1	0.963	0.963	-1.1366508,2.1310706
+the love of my life and mother of my children would never do such a thing.	1	1	0.958	0.958	-1.0757735,2.054459
+most elections are quickly forgotten, but the election of 2000, everyone will remember for a long time.	1	1	0.800	0.800	-0.60729915,0.7791132
+it is painting by klee or drawing by miro that the museum displays no.	0	1	0.973	0.027	-1.3003533,2.2872353
+the defendant denied the accusation.	1	1	0.981	0.981	-1.5331595,2.4179988
+the teacher disappeared the problem.	0	0	0.928	0.928	0.8431954,-1.719876
+the teacher handed the student.	0	0	0.915	0.915	0.74291265,-1.6370763
+the bird sings.	1	1	0.981	0.981	-1.5366305,2.4177952
+the bird sing.	0	0	0.751	0.751	0.36440605,-0.7390481
+birds sings.	0	0	0.916	0.916	0.76940536,-1.6180185
+the birds give the worm a tug.	1	1	0.974	0.974	-1.3330448,2.2998765
+the bird give the worm a tug.	0	1	0.730	0.270	-0.46324304,0.5306495
+the birds gives the worm a tug.	0	0	0.940	0.940	0.9134271,-1.8354032
+terry delighted in my pain.	1	1	0.923	0.923	-0.78394365,1.7027909
+terry delighted.	0	0	0.923	0.923	0.7776339,-1.7011478
+terry delighted my pain.	0	1	0.972	0.028	-1.2972095,2.2614458
+kerry remarked it was late.	1	1	0.974	0.974	-1.3155227,2.3012311
+what additional categories and rules would be required to handle these verbs?	1	1	0.862	0.862	-0.6918864,1.1366916
+we created a monster.	1	1	0.979	0.979	-1.4634624,2.3779845
+i was already aware of fact.	0	1	0.975	0.025	-1.3681902,2.3072278
+the defendant deny the allegation.	0	0	0.776	0.776	0.4182846,-0.8214467
+the defendants denies the allegation.	0	0	0.902	0.902	0.7328188,-1.4873992
+the defendant walks.	1	1	0.980	0.980	-1.5121603,2.3844302
+the defendant walk.	0	0	0.694	0.694	0.24934527,-0.5681461
+the defendants walks.	0	0	0.922	0.922	0.79121023,-1.683008
+how many feature structures categories can label the first daughter?	1	1	0.940	0.940	-0.8965734,1.8596582
+the child put the toy on the table.	1	1	0.981	0.981	-1.5339787,2.4217362
+the teacher became angry with the students.	1	1	0.980	0.980	-1.4864538,2.3809574
+the teacher became.	0	0	0.920	0.920	0.73080266,-1.7180545
+the jury believed the defendant lied.	1	1	0.981	0.981	-1.5382563,2.4213734
+the guests dined.	1	1	0.981	0.981	-1.5444591,2.4234557
+we relied on leslie.	1	1	0.979	0.979	-1.4538741,2.364664
+we relied above leslie.	0	1	0.874	0.126	-0.6314414,1.3014269
+we celebrated in the streets.	1	1	0.867	0.867	-0.6628075,1.2145808
+we celebrated in the streets in the rain on tuesday in the morning.	1	1	0.941	0.941	-0.9015643,1.8719132
+the children are happy of ice cream.	0	1	0.978	0.022	-1.4249283,2.349088
+the children are fond with the ice cream.	0	1	0.979	0.021	-1.4655739,2.3656433
+the children are fond that they have ice cream.	0	1	0.979	0.021	-1.4609561,2.3791063
+a magazine appeared on the newsstands.	1	1	0.775	0.775	-0.5661969,0.67201406
+a magazine about crime appeared on the newsstands.	1	1	0.691	0.691	-0.47513133,0.32911938
+newsweek appeared on the newsstands.	1	1	0.750	0.750	-0.532453,0.5644661
+newsweek about crime appeared on the newsstands.	0	0	0.540	0.540	-0.09303004,-0.25194573
+the report that crime was declining surprised many people.	1	0	0.895	0.105	0.7101593,-1.4315151
+the book surprised many people.	1	1	0.977	0.977	-1.4180145,2.338768
+the book that crime was declining surprised many people.	0	0	0.866	0.866	0.6510762,-1.2111356
+the storm arrived after the picnic.	1	1	0.972	0.972	-1.3143716,2.2405632
+the storm arrived while the picnic.	0	1	0.970	0.030	-1.2424507,2.2228518
+the storm arrived while we ate lunch.	1	1	0.978	0.978	-1.430829,2.3504531
+this dogs barked.	0	0	0.925	0.925	0.79635155,-1.7148283
+these dogs barked.	1	1	0.981	0.981	-1.5203646,2.4099107
+a chair was broken.	1	1	0.977	0.977	-1.4139785,2.3495953
+they want them arrested.	1	1	0.981	0.981	-1.5344498,2.4214861
+they preferred them arrested.	1	1	0.980	0.980	-1.5097237,2.3890579
+we preferred them on our team.	1	1	0.778	0.778	-0.5459109,0.7105565
+with my parents as supportive as they are, i'll be in fine shape.	1	1	0.791	0.791	-0.61469626,0.71465206
+we walks.	0	0	0.945	0.945	0.9321672,-1.9148325
+few dog barked.	0	0	0.934	0.934	0.840667,-1.8039587
+the dogs barked.	1	1	0.981	0.981	-1.5427871,2.4220555
+i walk and dana runs.	1	1	0.675	0.675	-0.3745991,0.3578437
+they like us.	1	1	0.981	0.981	-1.5264976,2.4174879
+us like them.	0	0	0.896	0.896	0.6898539,-1.4689875
+kim likes dogs.	1	1	0.981	0.981	-1.5336952,2.425842
+dogs like kim.	1	1	0.980	0.980	-1.4838293,2.400215
+the person responsible confessed.	1	1	0.928	0.928	-0.9050592,1.644686
+the person confessed responsible.	0	0	0.914	0.914	0.74726737,-1.6134423
+the cat slept soundly and furry.	0	1	0.965	0.035	-1.1384839,2.1908302
+the soundly and furry cat slept.	0	1	0.966	0.034	-1.2095573,2.145085
+chris walks, pat eats broccoli, and sandy plays squash.	1	1	0.766	0.766	-0.55515325,0.6292182
+there was some particular dog who saved every family.	1	1	0.972	0.972	-1.2813342,2.269224
+susan frightens her.	1	1	0.981	0.981	-1.5509329,2.412147
+susan told her a story.	1	1	0.981	0.981	-1.5477718,2.423206
+susan told a story to her.	1	1	0.981	0.981	-1.5447478,2.4239101
+susan devoted herself to linguistics.	1	1	0.769	0.769	-0.5441316,0.65681016
+nobody told susan about herself.	1	1	0.815	0.815	-0.56215215,0.9223543
+that picture of susan offended her.	1	1	0.980	0.980	-1.4892128,2.3856976
+he offended sandy.	1	1	0.979	0.979	-1.4839561,2.3767762
+i enjoy yourself.	0	0	0.860	0.860	0.6297171,-1.1850203
+they talk to themselves.	1	1	0.979	0.979	-1.4467762,2.3733613
+nobody told susan.	1	1	0.970	0.970	-1.2453177,2.2386665
+protect yourself!	1	1	0.974	0.974	-1.3442705,2.2837057
+protect you!	0	1	0.970	0.030	-1.2548724,2.223447
+i met the person who left.	1	1	0.981	0.981	-1.5380864,2.4227874
+leslie slept.	1	1	0.981	0.981	-1.5254512,2.4183645
+chris handed bo.	0	0	0.943	0.943	0.90047556,-1.8993559
+dana walked and leslie ran.	1	1	0.977	0.977	-1.4169577,2.3327181
+dana walking and leslie ran.	0	1	0.522	0.478	-0.21186665,-0.123318076
+dana walking and leslie running.	0	0	0.852	0.852	0.52867275,-1.2227625
+the putter of books left.	0	0	0.932	0.932	0.82979506,-1.7829664
+kris donated a book to the library.	1	1	0.980	0.980	-1.5092118,2.3943393
+the police sprayed the protesters with water.	1	1	0.980	0.980	-1.5044646,2.4018893
+the police sprayed water on the protesters.	1	1	0.977	0.977	-1.4094507,2.352047
+the students drove cars.	1	1	0.981	0.981	-1.5265802,2.4148974
+these cars drive easily.	1	1	0.855	0.855	-0.66916716,1.1056321
+the horse kicked me black and blue.	1	1	0.766	0.766	-0.5306049,0.655079
+they yelled.	1	1	0.978	0.978	-1.4474324,2.360265
+the horse raced past the barn fell.	1	1	0.971	0.971	-1.2861799,2.2395163
+the horse that was raced past the barn fell.	1	1	0.969	0.969	-1.2392582,2.2091253
+the boat seen down the river sank.	1	0	0.865	0.135	0.6452026,-1.2099053
+the evidence assembled by the prosecution convinced the jury.	1	1	0.760	0.760	-0.52106476,0.6308984
+lou forgot the umbrella.	1	1	0.979	0.979	-1.4756806,2.364388
+lou forgot the umbrella in the closet.	1	1	0.961	0.961	-1.0953165,2.1038816
+lou hoped the umbrella was broken.	1	1	0.979	0.979	-1.4535103,2.366377
+lou hoped the umbrella in the closet.	0	0	0.888	0.888	0.6868924,-1.3864695
+lou put the umbrella was broken.	0	0	0.943	0.943	0.9246906,-1.8836955
+lou put the umbrella in the closet.	1	1	0.974	0.974	-1.3278017,2.2983916
+the artist drew the child with a pencil.	1	1	0.974	0.974	-1.3415079,2.2803934
+the dog bit the cat.	1	1	0.979	0.979	-1.4716485,2.3602571
+the cat was bitten the mouse.	0	0	0.949	0.949	0.9903534,-1.9379246
+the cat was bitten the mouse by the dog.	0	0	0.941	0.941	0.98488253,-1.7925308
+chris was handed sandy a note by pat.	0	1	0.975	0.025	-1.3516264,2.316042
+chris was handed a note.	1	1	0.980	0.980	-1.5026475,2.4099953
+chris was handed sandy a note.	0	1	0.981	0.019	-1.5233704,2.4070115
+tv puts dumb ideas in children's heads.	1	1	0.948	0.948	-0.9631276,1.9461138
+dumb ideas are put in children's heads by tv.	1	1	0.964	0.964	-1.1249169,2.174924
+dumb ideas are put in children's heads.	1	1	0.956	0.956	-1.0208021,2.0557308
+dumb ideas are put notions in children's heads by tv.	0	1	0.945	0.055	-0.9046113,1.9368442
+the patient died.	1	1	0.981	0.981	-1.5330167,2.4149122
+the patient was died.	0	0	0.911	0.911	0.75439346,-1.5692759
+chris was handed.	0	0	0.751	0.751	0.37137735,-0.7299822
+tv puts dumb ideas.	0	1	0.941	0.059	-0.9289829,1.8411789
+he was arrested by the police.	1	1	0.981	0.981	-1.5451357,2.420672
+the cat got bitten.	1	1	0.980	0.980	-1.4789121,2.393229
+the cat were bitten by the dog.	0	1	0.618	0.382	-0.39559034,0.08413777
+there is a monster in loch ness.	1	1	0.940	0.940	-0.87950414,1.8636436
+it is obvious that pat is lying.	1	1	0.981	0.981	-1.5461689,2.422601
+pat is the captain of the team.	1	1	0.978	0.978	-1.4526418,2.3579972
+pat is hate chris.	0	0	0.946	0.946	0.94440687,-1.9279703
+there is a unicorn in the garden.	1	1	0.981	0.981	-1.530719,2.4148219
+there was a felon elected to the city council.	1	1	0.818	0.818	-0.5896491,0.913215
+there is a seat available.	1	1	0.958	0.958	-1.0373087,2.082567
+a seat available was in the last row.	0	0	0.602	0.602	0.065969884,-0.34704402
+many people were fond of pat.	1	1	0.978	0.978	-1.4513022,2.3662074
+people are looking through the window.	1	1	0.981	0.981	-1.5388186,2.4223282
+a felon was elected to the city council.	1	1	0.974	0.974	-1.3398525,2.2912
+there loved sandy.	0	0	0.939	0.939	0.867512,-1.8731163
+we talked to them about there.	0	0	0.532	0.532	0.019573962,-0.1098657
+it mattered that the giants had lost.	1	1	0.868	0.868	-0.6727664,1.2147613
+that dogs bark annoys people.	1	1	0.981	0.981	-1.5224006,2.3985023
+it annoys people that dogs bark.	1	1	0.980	0.980	-1.5068309,2.4085915
+that chris knew the answer occurred to pat.	1	1	0.972	0.972	-1.2992,2.2526574
+it never occurred to pat that chris knew the answer.	1	1	0.974	0.974	-1.3258783,2.2957535
+that the cardinal won the game gave sandy a thrill.	1	1	0.969	0.969	-1.2276955,2.2147057
+it gave sandy a thrill that the cardinal won the game.	1	1	0.976	0.976	-1.3824064,2.3255787
+that sandy had lied suggested.	0	0	0.943	0.943	0.9196465,-1.8922718
+it loved sandy.	0	0	0.938	0.938	0.8657467,-1.8507268
+cohen proved the independence of the continuum hypothesis.	1	1	0.973	0.973	-1.3053241,2.2967339
+cohen proved that the continuum hypothesis was independent.	1	1	0.977	0.977	-1.39712,2.3371267
+we forgot our invitations.	1	1	0.980	0.980	-1.491108,2.3888853
+nobody saw pat.	1	1	0.973	0.973	-1.3088015,2.2845995
+that fido barks annoys me.	1	1	0.555	0.555	-0.22855341,-0.009612627
+fido barks.	1	1	0.979	0.979	-1.4518993,2.386143
+chris dreads the bucket.	1	1	0.957	0.957	-1.0375204,2.0741816
+the candidates bring advantage to the voters.	1	1	0.976	0.976	-1.3785228,2.3285582
+tabs are kept on suspected drug dealers by the fbi.	1	1	0.975	0.975	-1.3516427,2.3051715
+advantage is taken of every opportunity for improvement.	1	1	0.968	0.968	-1.2035699,2.1958656
+the bucket was kicked by pat.	1	1	0.752	0.752	-0.45389,0.65792394
+john is sad.	1	1	0.981	0.981	-1.510293,2.4127917
+john loaded the wagon full with hay.	1	1	0.799	0.799	-0.55472857,0.8258958
+john loaded the wagon with hay green.	0	1	0.911	0.089	-0.7188679,1.6023331
+i presented john with it dead.	0	0	0.821	0.821	0.5345533,-0.99166566
+of whom are you thinking?	1	1	0.867	0.867	-0.77153295,1.1065488
+john became rich.	1	1	0.980	0.980	-1.4821144,2.4063406
+i gave john gold apples.	1	1	0.976	0.976	-1.3810778,2.331431
+how silly is bill considered?	1	1	0.975	0.975	-1.3732455,2.2957566
+how mad was bill made?	1	1	0.671	0.671	-0.3382785,0.37259987
+john is sick.	1	1	0.981	0.981	-1.5474586,2.4209247
+john left singing.	1	0	0.892	0.108	0.69230545,-1.4148102
+john is near larry.	1	1	0.979	0.979	-1.4901425,2.3744342
+john gave bill the dog dead.	1	1	0.540	0.540	-0.11847398,0.042198054
+bill was struck by john as stupid.	0	1	0.644	0.356	-0.31385168,0.27980375
+john was struck as sick.	0	1	0.568	0.432	-0.18116443,0.09051303
+john was struck by bill's idiocy.	1	1	0.976	0.976	-1.363696,2.3247569
+john promised bill to leave.	1	1	0.976	0.976	-1.3767356,2.3292034
+john tried to leave.	1	1	0.981	0.981	-1.5409701,2.4206672
+to leave would be a pleasure.	1	1	0.970	0.970	-1.2568877,2.232538
+john was struck by bill as pompous.	0	0	0.870	0.870	0.6376742,-1.2590435
+john was promised by bill to leave.	0	1	0.873	0.127	-0.6353729,1.2959204
+they make good cooks.	1	1	0.977	0.977	-1.4122545,2.3396885
+there is nothing to do.	1	1	0.981	0.981	-1.5336045,2.418746
+john has something for bill to do.	1	1	0.973	0.973	-1.3045347,2.2620387
+i am counting on bill to incriminate himself.	1	1	0.969	0.969	-1.2172297,2.228855
+on whom are you counting to incriminate himself?	1	1	0.755	0.755	-0.5531599,0.5729271
+i am counting on bill to get there on time.	1	1	0.968	0.968	-1.2087995,2.2091238
+i would prefer to leave.	1	1	0.981	0.981	-1.5312634,2.4208612
+i would hate for john to leave.	1	1	0.977	0.977	-1.4129293,2.330387
+i would prefer for john to leave.	1	1	0.978	0.978	-1.4314133,2.34927
+it was hated for john to leave.	0	0	0.926	0.926	0.802532,-1.7191074
+john decided for bill to get the prize.	0	1	0.504	0.496	-0.06101745,-0.04686188
+john decided bill to get the prize.	0	0	0.926	0.926	0.8087319,-1.7108902
+to die is no fun.	1	1	0.976	0.976	-1.3983147,2.3149285
+john wants to leave.	1	1	0.981	0.981	-1.5445374,2.4224315
+john counted on bill to get there on time.	1	0	0.711	0.289	0.312451,-0.5879813
+i bought bill a book to read.	1	1	0.929	0.929	-0.886254,1.6862286
+john told mary that it would be important to leave early.	1	1	0.981	0.981	-1.5412388,2.4259434
+john told mary that it was important to fred to leave early.	1	1	0.980	0.980	-1.4957905,2.3868732
+john, told mary that it would be appropriate to leave together.	1	0	0.753	0.247	0.3253493,-0.78672975
+the election of john president surprised me.	0	1	0.918	0.082	-0.81030226,1.6098834
+john's arriving dead surprised me.	1	1	0.957	0.957	-1.0477268,2.0504138
+the attempt by john to leave surprised me.	1	1	0.962	0.962	-1.1762614,2.0670733
+john left orders to follow pete.	1	0	0.709	0.291	0.32057416,-0.570567
+john left us orders to follow pete.	1	1	0.955	0.955	-1.0395153,2.0270116
+john left orders not to be disturbed.	1	0	0.899	0.101	0.7218851,-1.4628783
+that he is here is clear.	1	1	0.978	0.978	-1.4462802,2.3667886
+it is a problem that he is here.	1	1	0.981	0.981	-1.5332117,2.4196653
+it bothers me that he is here.	1	1	0.981	0.981	-1.5443246,2.4237576
+john regretted it that bill had a good time.	1	1	0.971	0.971	-1.2394928,2.254089
+john believes it that bill is here.	0	1	0.925	0.075	-1.0110943,1.5016636
+john believes it sincerely that bill is here.	0	0	0.778	0.778	0.47051436,-0.7853199
+john is aware of it that bill is here.	0	1	0.977	0.023	-1.4061902,2.347432
+john felt it that bill was tardy.	0	1	0.823	0.177	-0.60685956,0.9295174
+john believed it that bill was tardy.	0	0	0.529	0.529	-0.10342449,-0.21770473
+it was believed that bill was tardy.	1	1	0.981	0.981	-1.5215349,2.4217422
+that john is reluctant seems.	0	1	0.936	0.064	-0.91708946,1.7718394
+it is the problem that he is here.	0	1	0.981	0.019	-1.5386996,2.422199
+that he is here is the problem.	1	1	0.977	0.977	-1.4197354,2.3169808
+the problem we are discussing is george.	1	1	0.973	0.973	-1.3417207,2.2251146
+it is to give up to leave.	0	1	0.974	0.026	-1.3338282,2.2891188
+it would prove our theory to be untenable for carrots to be vegetables.	1	1	0.949	0.949	-1.0225555,1.9075066
+it was believed to be illegal by them to do that.	0	1	0.961	0.039	-1.1137799,2.0895002
+john grudgingly accepted judgments of his incompetence as an auto mechanic.	1	1	0.899	0.899	-0.69725704,1.4847993
+it was to john that i gave the book.	1	1	0.976	0.976	-1.3855851,2.325943
+i bought it to read.	1	0	0.798	0.202	0.53101593,-0.8441517
+i bought it to give to pete.	1	0	0.933	0.067	0.856022,-1.7810256
+i gave it to pete to take to the fair.	1	1	0.916	0.916	-0.77025306,1.6139088
+i gave pete the book to impress.	0	0	0.519	0.519	0.00012239814,-0.07508202
+i wrote to bill.	1	1	0.979	0.979	-1.4513575,2.3692667
+i presented it to bill to read.	1	1	0.972	0.972	-1.2873341,2.2747853
+i presented bill with it to read.	0	0	0.655	0.655	0.2701139,-0.37284288
+i gave a book to bill to read.	1	1	0.956	0.956	-1.0308918,2.056698
+john thinks it would upset himself to die.	1	1	0.960	0.960	-1.0925319,2.0755892
+john made bill mad at himself.	1	1	0.978	0.978	-1.4367276,2.3632379
+john made bill master of himself.	1	1	0.756	0.756	-0.50450164,0.6264437
+the correspondence school made bill a good typist.	1	1	0.626	0.626	-0.271855,0.24197634
+the correspondence school sent bill a good typist.	1	0	0.653	0.347	0.19551952,-0.4349435
+john considers bill silly.	1	1	0.973	0.973	-1.2944695,2.2964625
+john considers bill to be silly.	1	1	0.979	0.979	-1.4534075,2.3784087
+john bought a dog for himself to play with.	0	1	0.950	0.050	-0.93914044,1.9972944
+john arranged for himself to get the prize.	1	1	0.971	0.971	-1.2470896,2.257743
+john talked to bill about himself.	1	1	0.941	0.941	-0.8754878,1.8946553
