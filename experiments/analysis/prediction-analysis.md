@@ -1,7 +1,28 @@
 # Prediction analysis
+## Questions/tasks to answer
+### Individual models
+- describe when the models fail and succeed (i.e. describe the hits/misses)
+- describe the confidence of predictions: how confident is the model on average? and just on the mistakes?
+- describe the confident/unconfident hits/misses of each individual student
+
+### Comparing models (think about differences within one student)
+- is one student generally more confident than the other?
+- describe cases where one student is very confident and the other one is very unconfident
+- describe cases where one student is right and the other is wrong
+- what's the overlap of the 2 students' mistakes and which ones are unique to one student?
+
+### Exploring knowledge distillation
+- describe cases where teacher is confident but both students are unconfident
+- describe cases where teacher is right but both students are wrong
+
+### Overall
+- what are the strengths/weaknesses of each student?
+
+## Samples to look at
 Find samples that:
 - are predicted differently by different students (in terms of label)
 - are predicted very confidently by some students but unconfidently by others
+
 ## SST-2
 ### Teacher
 #### Confident mistakes

@@ -7,22 +7,22 @@
 	- zelda
 
 ## Setting up environment in the cluster (or elsewhere)
-```bash
-mkdir minfp2
-cd minfp2/
-git init
-git remote add origin git@github.com:samsucik/knowledge-distil-bert.git
-git pull origin master
-git submodule update --init --recursive
-git pull --recurse-submodules origin master
-conda env create -f environment.yml
-source activate minfp2
-pip install -e pytorch-transformers
-cd data
-python download_glue_data.py --tasks "CoLA"
-cd ../experiments
-```
-Add `alias minfp='cd ~/minfp2; source activate minfp2; source path.sh'` to .bashrc/.profile
+	```bash
+	mkdir minfp2
+	cd minfp2/
+	git init
+	git remote add origin git@github.com:samsucik/knowledge-distil-bert.git
+	git pull origin master
+	git submodule update --init --recursive
+	git pull --recurse-submodules origin master
+	conda env create -f environment.yml
+	source activate minfp2
+	pip install -e pytorch-transformers
+	cd data
+	python download_glue_data.py --tasks "CoLA"
+	cd ../experiments
+	```
+	Add `alias minfp='cd ~/minfp2; source activate minfp2; source path.sh'` to .bashrc/.profile
 
 ## About cluster nodes
 
@@ -40,16 +40,16 @@ landonia[02,19], letha03, has /disk/scratch
 	- landonia[11,21]: ???? (doesn't permit interactive jobs)
 
 ## Interactive jobs in the cluster
-```bash
-stage=finetune-gpt2
-task=CoLA
-config=config=student-configs/third.cfg
-dt=$(date '+%b%d-%H:%M:%S')
-out_dir=$stage-$task-$dt
-teacher_dir=
-interactive=true
-./run_in_cluster.sh "${stage}" "${task}" "${config}" "${out_dir}" "${teacher_dir}" "${interactive}"
-```
+	```bash
+	stage=finetune-gpt2
+	task=CoLA
+	config=config=student-configs/third.cfg
+	dt=$(date '+%b%d-%H:%M:%S')
+	out_dir=$stage-$task-$dt
+	teacher_dir=
+	interactive=true
+	./run_in_cluster.sh "${stage}" "${task}" "${config}" "${out_dir}" "${teacher_dir}" "${interactive}"
+	```
 
 ## Finetuning GPT-2
 Differences to be implemented if new pytorchtransformers code is to be used for finetuning (instead of the code from d-bert):
@@ -76,6 +76,7 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 	- inflating: width up to 4x, depth up to 3x
 ### BiLSTM
 	Tang: H=300 FC=400 (2.41M)
+	-
 
 ## Hparam search
 ### BiLSTM
