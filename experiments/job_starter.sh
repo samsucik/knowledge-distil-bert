@@ -42,11 +42,11 @@ out_dir=$stage-$task-$dt
 interactive=false
 
 if [[ $(hostname -s) =~ ^(greekie|uhtred)$ ]]; then
-  #nodelist=damnii03
-  #partition=PGR-Standard
-  #timelimit="7-0"
+  nodelist=damnii07
+  partition=PGR-Standard
+  timelimit="7-0"
   
-  nodelist=letha04
+  nodelist=letha01
   partition=General_Usage
   timelimit="3-8"
 

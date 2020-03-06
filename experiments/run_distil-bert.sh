@@ -27,6 +27,7 @@ mode=non-static
 optimizer=adam
 learning_rate=5e-6
 dropout=0.1
+seed=42
 
 # BERT params
 attention_dropout=0.1
@@ -102,6 +103,7 @@ echo "token_type_embedding_dimensionality: $token_type_embedding_dimensionality"
 echo "token_embedding_dimensionality: $token_embedding_dimensionality"
 echo "use_word_vectors: $use_word_vectors"
 echo "load_token_embeddings: $load_token_embeddings"
+echo "seed: $seed"
 echo "###########################################"
 
 echo "DISTILLATION STARTING"
@@ -146,7 +148,7 @@ python distil_from_finetuned.py \
   --max_grad_norm $max_grad_norm \
   --initializer_range 0.02  \
   --n_gpu $n_gpu \
-  --seed 42 \
+  --seed $seed \
   --log_interval $log_interval \
   --no_cuda "$no_cuda" \
   --evaluate_during_training \

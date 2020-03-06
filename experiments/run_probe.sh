@@ -4,22 +4,20 @@ task=$1
 cfg=$2
 out_dir=$3
 
+#model_type=embedding_word
 model_type=LSTM
-model_dir=$(pwd)/good-student-lstm-new
+#model_dir=$(pwd)/teacher-$task
+model_dir=$(pwd)/student-${task}-${model_type}-hard-logits
 is_student=true
-
-model_type=embedding_word
-model_dir=$(pwd)/teacher-$task
-is_student=false
 
 senteval_path=$PROJECT_DIR/SentEval
 glue_data_dir=$GLUE_DIR/$task
 
 pushd $TRANSFORMERS/examples > /dev/null
 python probe_model.py \
-	--use_word_vectors=true \
+    --use_word_vectors=true \
     --embed_strategy=avg \
-    --layer_to_probe=5 \
+    --layer_to_probe=0 \
     --out_dir=$out_dir \
     --senteval_path=$senteval_path \
     --glue_task=$task \
