@@ -1,48 +1,45 @@
-confidence	true	predicted	sentence
-CONFIDENT MISTAKES	 	 	 
-0.981	unacc.	acc.	chris was handed sandy a note.
-0.981	unacc.	acc.	it is the problem that he is here.
-0.981	unacc.	acc.	we gave us presents.
-0.980	unacc.	acc.	everyone hopes everyone to sleep.
-0.980	unacc.	acc.	mary beautifully plays the violin.
-0.980	unacc.	acc.	mary intended john to go abroad.
-0.980	unacc.	acc.	jack is the person with whom jenny fell in love with.
-0.980	unacc.	acc.	did the child be in the school?
-0.979	unacc.	acc.	john paid me against the book.
-0.979	unacc.	acc.	sophie will theater.
-
-UNCONFIDENT MISTAKES	 	 	 
-0.501	acc.	unacc.	max seemed to be trying to force ted to leave the room, and walt, ira.
-0.504	unacc.	acc.	john decided for bill to get the prize.
-0.510	unacc.	acc.	blue leather shows herself that betsy is pretty.
-0.522	unacc.	acc.	dana walking and leslie ran.
-0.535	acc.	unacc.	they were interested in his.
-0.543	acc.	unacc.	most columnists claim that a senior white house official has been briefing them, and the newspaper today reveals which one.
-0.556	acc.	unacc.	they chased the man with the car.
-0.564	unacc.	acc.	brian threw the fence with the stick.
-0.567	acc.	unacc.	with no job would john be happy.
-0.568	unacc.	acc.	john was struck as sick.
-
-CONFIDENT HITS	 	 	 
-0.981	acc.	acc.	some people yell at dogs.
-0.981	acc.	acc.	i know you eat asparagus.
-0.981	acc.	acc.	penny skated around the rink.
-0.981	acc.	acc.	everyone hoped that she would sing.
-0.981	acc.	acc.	john tries to leave the country.
-0.981	acc.	acc.	john wants not to leave the town.
-0.981	acc.	acc.	that dogs bark annoys people.
-0.981	acc.	acc.	people are looking through the window.
-0.981	acc.	acc.	phillip gave the medal to the soldier.
-0.981	acc.	acc.	the witch poisoned the children.
-
-UNCONFIDENT HITS	 	 	 
-0.506	unacc.	unacc.	paperback books lift onto the table easily.
-0.507	acc.	acc.	i sensed his eagerness.
-0.519	unacc.	unacc.	i gave pete the book to impress.
-0.519	acc.	acc.	books were taken from no student and given to mary.
-0.522	unacc.	unacc.	there is believed to be sheep in the park.
-0.526	acc.	acc.	most columnists claim that a senior white house official has been briefing them, but none will reveal which one.
-0.528	unacc.	unacc.	tom's dog with one eye attacked frank's with three legs.
-0.529	unacc.	unacc.	john believed it that bill was tardy.
-0.532	unacc.	unacc.	we talked to them about there.
-0.540	acc.	acc.	john gave bill the dog dead.
+confidence	true	predicted	sentence	annot_major	annot_minor
+CONFIDENT MISTAKES	 	 	 	[]	[]
+0.981	unacc.	acc.	chris was handed sandy a note.	['Argument Type', 'Arg Altern', 'Auxiliary', 'Violations']	['Oblique', 'High Arity', 'Passive', 'Aux', 'Extra/Mising Expr']
+0.981	unacc.	acc.	it is the problem that he is here.	['Predicate', 'Argument Type', 'Arg Altern', 'Comp Clause', 'S-Syntax', 'Violations']	['Copula', 'Expletive', 'High Arity', 'Add Arg', 'CP Arg VP', 'Info Struc', 'Sem  Violation']
+0.981	unacc.	acc.	we gave us presents.	['Argument Type', 'Arg Altern', 'Binding']	['Oblique', 'High Arity', 'Binding:Other']
+0.980	unacc.	acc.	everyone hopes everyone to sleep.	['Arg Altern', 'to-VP', 'Determiner', 'Violations']	['High Arity', 'Add Arg', 'Control', 'Quantifier', 'Extra/Mising Expr']
+0.980	unacc.	acc.	mary beautifully plays the violin.	['Adjunct', 'S-Syntax']	['VP Adjunct', 'Dislocation']
+0.980	unacc.	acc.	mary intended john to go abroad.	['Comp Clause', 'Violations']	['Non-finite CP', 'No C-izer', 'Extra/Mising Expr']
+0.980	unacc.	acc.	jack is the person with whom jenny fell in love with.	['Predicate', 'Argument Type', 'Arg Altern', 'Question', 'N, Adj', 'Violations']	['Copula', 'Oblique', 'PP Arg-VP', 'High Arity', 'Complex QP', 'RC', 'Compx NP', 'Extra/Mising Expr']
+0.980	unacc.	acc.	did the child be in the school?	['Predicate', 'Argument Type', 'Question', 'Auxiliary', 'Violations']	['Copula', 'PP Arg-VP', 'Matrix Q', 'Aux', 'Extra/Mising Expr']
+0.979	unacc.	acc.	john paid me against the book.	['Argument Type', 'Arg Altern']	['Oblique', 'PP Arg-VP', 'High Arity']
+0.979	unacc.	acc.	sophie will theater.	['Simple', 'Auxiliary', 'Violations']	['Simple', 'Modal', 'Sem  Violation']
+UNCONFIDENT MISTAKES	 	 	 	[]	[]
+0.501	acc.	unacc.	max seemed to be trying to force ted to leave the room, and walt, ira.	['Comp Clause', 'Auxiliary', 'to-VP', 'S-Syntax']	['Deep Embed', 'Aux', 'Control', 'Raising', 'Coord', 'Ellipsis/Anaphor']
+0.504	unacc.	acc.	john decided for bill to get the prize.	['Comp Clause']	['CP Arg VP', 'Non-finite CP']
+0.510	unacc.	acc.	blue leather shows herself that betsy is pretty.	['Predicate', 'Arg Altern', 'Binding', 'Comp Clause', 'Violations']	['Copula', 'High Arity', 'Binding:Refl', 'CP Arg VP', 'Infl/Agr Violation']
+0.522	unacc.	acc.	dana walking and leslie ran.	['S-Syntax', 'Violations']	['Coord', 'Infl/Agr Violation']
+0.535	acc.	unacc.	they were interested in his.	['Predicate', 'Argument Type', 'N, Adj']	['Copula', 'PPArg-NP/AP', 'Rel Adj']
+0.543	acc.	unacc.	most columnists claim that a senior white house official has been briefing them, and the newspaper today reveals which one.	['Adjunct', 'Binding', 'Comp Clause', 'Auxiliary', 'N, Adj', 'S-Syntax', 'Determiner']	['VP Adjunct', 'Temporal', 'Binding:Refl', 'CP Arg VP', 'Deep Embed', 'Aux', 'NNCompd', 'Coord', 'Ellipsis/Anaphor', 'Quantifier']
+0.556	acc.	unacc.	they chased the man with the car.	['Adjunct', 'N, Adj']	['VP Adjunct', 'NP Adjunct', 'Misc', 'Compx NP']
+0.564	unacc.	acc.	brian threw the fence with the stick.	['Adjunct', 'Argument Type']	['Misc', 'Oblique', 'PP Arg-VP']
+0.567	acc.	unacc.	with no job would john be happy.	['Predicate', 'Auxiliary', 'S-Syntax', 'Determiner']	['Copula', 'Neg', 'Modal', 'Dislocation', 'Info Struc', 'Quantifier']
+0.568	unacc.	acc.	john was struck as sick.	['Predicate', 'Argument Type', 'Arg Altern']	['Pred/SC', 'PP Arg-VP', 'Drop Arg', 'Passive']
+CONFIDENT HITS	 	 	 	[]	[]
+0.981	acc.	acc.	some people yell at dogs.	['Argument Type', 'Determiner']	['PP Arg-VP', 'Quantifier']
+0.981	acc.	acc.	i know you eat asparagus.	['Comp Clause']	['CP Arg VP', 'No C-izer']
+0.981	acc.	acc.	penny skated around the rink.	['Adjunct']	['VP Adjunct', 'Locative']
+0.981	acc.	acc.	everyone hoped that she would sing.	['Binding', 'Comp Clause', 'Auxiliary', 'Determiner']	['Binding:Other', 'CP Arg VP', 'Modal', 'Quantifier']
+0.981	acc.	acc.	john tries to leave the country.	['to-VP']	['Control']
+0.981	acc.	acc.	john wants not to leave the town.	['Auxiliary', 'to-VP']	['Neg', 'Control']
+0.981	acc.	acc.	that dogs bark annoys people.	['Comp Clause']	['CP Subj']
+0.981	acc.	acc.	people are looking through the window.	['Argument Type', 'Auxiliary']	['PP Arg-VP', 'Aux']
+0.981	acc.	acc.	phillip gave the medal to the soldier.	['Argument Type', 'Arg Altern']	['Oblique', 'PP Arg-VP', 'High Arity']
+0.981	acc.	acc.	the witch poisoned the children.	['Simple']	['Simple']
+UNCONFIDENT HITS	 	 	 	[]	[]
+0.506	unacc.	unacc.	paperback books lift onto the table easily.	['Adjunct', 'Arg Altern', 'N, Adj']	['VP Adjunct', 'Drop Arg', 'NNCompd']
+0.507	acc.	acc.	i sensed his eagerness.	['Simple', 'Arg Altern']	['Simple', 'Drop Arg']
+0.519	unacc.	unacc.	i gave pete the book to impress.	['Adjunct', 'Argument Type', 'Arg Altern', 'to-VP', 'Violations']	['VP Adjunct', 'Misc', 'Oblique', 'High Arity', 'Drop Arg', 'VP+Extract', 'Extra/Mising Expr']
+0.519	acc.	acc.	books were taken from no student and given to mary.	['Argument Type', 'Arg Altern', 'Auxiliary', 'Determiner']	['Oblique', 'PP Arg-VP', 'Drop Arg', 'Passive', 'Neg', 'Quantifier']
+0.522	unacc.	unacc.	there is believed to be sheep in the park.	['Predicate', 'Argument Type', 'Arg Altern', 'Auxiliary', 'to-VP', 'Violations']	['Copula', 'Expletive', 'Drop Arg', 'Add Arg', 'Passive', 'Aux', 'Raising', 'Infl/Agr Violation']
+0.526	acc.	acc.	most columnists claim that a senior white house official has been briefing them, but none will reveal which one.	['Binding', 'Question', 'Comp Clause', 'Auxiliary', 'S-Syntax', 'Determiner']	['Binding:Other', 'Emb Q', 'Complex QP', 'CP Arg VP', 'Neg', 'Modal', 'Aux', 'Coord', 'Ellipsis/Anaphor', 'Quantifier']
+0.528	unacc.	unacc.	tom's dog with one eye attacked frank's with three legs.	['Adjunct', 'N, Adj', 'S-Syntax']	['NP Adjunct', 'Misc', 'Compx NP', 'Ellipsis/Anaphor']
+0.529	unacc.	unacc.	john believed it that bill was tardy.	['Predicate', 'Argument Type', 'Arg Altern', 'Comp Clause']	['Copula', 'Expletive', 'High Arity', 'Add Arg', 'CP Arg VP']
+0.532	unacc.	unacc.	we talked to them about there.	['Argument Type', 'Arg Altern']	['PP Arg-VP', 'Expletive', 'High Arity']
+0.540	acc.	acc.	john gave bill the dog dead.	['Predicate', 'Argument Type', 'Arg Altern']	['Result/Depictive', 'Oblique', 'High Arity']

@@ -1,48 +1,45 @@
-confidence	true	predicted	sentence
-CONFIDENT MISTAKES	 	 	 
-0.982	unacc.	acc.	mary beautifully plays the violin.
-0.982	unacc.	acc.	which house does your friend live?
-0.981	unacc.	acc.	jack is the person with whom jenny fell in love with.
-0.980	unacc.	acc.	it has been determined that somebody will be appointed; it's just not clear yet who.
-0.979	unacc.	acc.	mary intended john to go abroad.
-0.978	unacc.	acc.	sandy was trying to work out which students would be able to solve a certain problem, but she wouldn't tell us which one.
-0.978	unacc.	acc.	she was bathing, but i couldn't make out who.
-0.978	unacc.	acc.	that the cops spoke to the janitor about it yesterday is terrible, that robbery.
-0.977	unacc.	acc.	john believes it sincerely that bill is here.
-0.977	unacc.	acc.	sally asked if somebody was going to fail math class, but i can't remember who.
-
-UNCONFIDENT MISTAKES	 	 	 
-0.519	acc.	unacc.	i am both expecting to get the job and of the opinion that it is a desirable one.
-0.549	acc.	unacc.	john, told mary that it would be appropriate to leave together.
-0.578	unacc.	acc.	i enjoy yourself.
-0.616	acc.	unacc.	we recommend to eat less cake and pastry.
-0.624	unacc.	acc.	john likes some students, but i don't know who john likes some students.
-0.632	unacc.	acc.	which topic did you get bored because mary talked about?
-0.665	unacc.	acc.	mickey looked up it.
-0.677	unacc.	acc.	the bookcase ran
-0.680	unacc.	acc.	we appeared to them to vote for themselves.
-0.687	unacc.	acc.	the book of poems and from blackwell takes a very long time to read.
-
-CONFIDENT HITS	 	 	 
-0.985	acc.	acc.	that is the reason why he resigned.
-0.985	acc.	acc.	i believe there to be no way out.
-0.985	acc.	acc.	some people consider the dogs dangerous.
-0.984	acc.	acc.	the witch poisoned the children.
-0.984	acc.	acc.	fortunately hermione passed biology
-0.984	acc.	acc.	captain wentworth wrote a letter to anne elliott.
-0.984	acc.	acc.	the defendant denied the accusation.
-0.984	acc.	acc.	i would prefer for john to leave.
-0.984	acc.	acc.	the visitor rang the bell.
-0.984	acc.	acc.	chris was handed a note.
-
-UNCONFIDENT HITS	 	 	 
-0.503	unacc.	unacc.	neither of students failed.
-0.526	acc.	acc.	max seemed to be trying to force ted to leave the room, and walt, ira.
-0.532	unacc.	unacc.	the book was by john written.
-0.536	unacc.	unacc.	ourselves like ourselves.
-0.554	acc.	acc.	who who you like does sandy also like?
-0.586	unacc.	unacc.	which girl did mike quip never wore this hat?
-0.587	acc.	acc.	carla slid the book.
-0.613	acc.	acc.	you must pick any flower you see.
-0.613	acc.	acc.	mary asked me if, in st. louis, john could rent a house cheap.
-0.635	acc.	acc.	i read some of the book.
+confidence	true	predicted	sentence	annot_major	annot_minor
+CONFIDENT MISTAKES	 	 	 	[]	[]
+0.982	unacc.	acc.	mary beautifully plays the violin.	['Adjunct', 'S-Syntax']	['VP Adjunct', 'Dislocation']
+0.982	unacc.	acc.	which house does your friend live?	['Question', 'Auxiliary', 'Violations']	['Matrix Q', 'Complex QP', 'Aux', 'Extra/Mising Expr']
+0.981	unacc.	acc.	jack is the person with whom jenny fell in love with.	['Predicate', 'Argument Type', 'Arg Altern', 'Question', 'N, Adj', 'Violations']	['Copula', 'Oblique', 'PP Arg-VP', 'High Arity', 'Complex QP', 'RC', 'Compx NP', 'Extra/Mising Expr']
+0.980	unacc.	acc.	it has been determined that somebody will be appointed; it's just not clear yet who.	['Predicate', 'Argument Type', 'Arg Altern', 'Question', 'Comp Clause', 'Auxiliary', 'N, Adj', 'S-Syntax', 'Determiner']	['Copula', 'Expletive', 'Drop Arg', 'Add Arg', 'Passive', 'Emb Q', 'CP Arg VP', 'Neg', 'Aux', 'Trans Adj', 'Coord', 'Quantifier', 'NPI/FCI']
+0.979	unacc.	acc.	mary intended john to go abroad.	['Comp Clause', 'Violations']	['Non-finite CP', 'No C-izer', 'Extra/Mising Expr']
+0.978	unacc.	acc.	sandy was trying to work out which students would be able to solve a certain problem, but she wouldn't tell us which one.	['Predicate', 'Adjunct', 'Arg Altern', 'Question', 'Auxiliary', 'to-VP', 'S-Syntax', 'Determiner']	['Copula', 'Particle', 'High Arity', 'Emb Q', 'Complex QP', 'Modal', 'Control', 'Coord', 'Ellipsis/Anaphor', 'Quantifier']
+0.978	unacc.	acc.	she was bathing, but i couldn't make out who.	['Adjunct', 'Arg Altern', 'Question', 'Auxiliary', 'S-Syntax']	['Particle', 'Drop Arg', 'Emb Q', 'Neg', 'Modal', 'Aux', 'Coord', 'Ellipsis/Anaphor']
+0.978	unacc.	acc.	that the cops spoke to the janitor about it yesterday is terrible, that robbery.	['Predicate', 'Adjunct', 'Argument Type', 'Arg Altern', 'Comp Clause', 'S-Syntax']	['Copula', 'VP Adjunct', 'Temporal', 'Oblique', 'PP Arg-VP', 'High Arity', 'CP Subj', 'Frag/Paren']
+0.977	unacc.	acc.	john believes it sincerely that bill is here.	['Predicate', 'Adjunct', 'Argument Type', 'Arg Altern', 'Comp Clause', 'S-Syntax']	['Copula', 'VP Adjunct', 'Misc', 'Expletive', 'High Arity', 'Add Arg', 'CP Arg VP', 'Dislocation']
+0.977	unacc.	acc.	sally asked if somebody was going to fail math class, but i can't remember who.	['Question', 'Auxiliary', 'to-VP', 'S-Syntax', 'Determiner']	['Emb Q', 'Neg', 'Modal', 'Aux', 'Psuedo-Aux', 'Control', 'Coord', 'Ellipsis/Anaphor', 'Quantifier']
+UNCONFIDENT MISTAKES	 	 	 	[]	[]
+0.519	acc.	unacc.	i am both expecting to get the job and of the opinion that it is a desirable one.	['Predicate', 'Argument Type', 'Binding', 'Comp Clause', 'Auxiliary', 'to-VP', 'N, Adj', 'S-Syntax']	['Copula', 'PP Arg-VP', 'Binding:Other', 'CP Arg NP/AP', 'Aux', 'Control', 'Trans NP', 'Coord', 'Ellipsis/Anaphor']
+0.549	acc.	unacc.	john, told mary that it would be appropriate to leave together.	['Predicate', 'Argument Type', 'Arg Altern', 'Comp Clause', 'Auxiliary', 'to-VP', 'N, Adj']	['Copula', 'Expletive', 'High Arity', 'Add Arg', 'CP Arg VP', 'Modal', 'Non-finite VP Misc', 'Deverbal']
+0.578	unacc.	acc.	i enjoy yourself.	['Simple', 'Binding', 'Violations']	['Simple', 'Binding:Refl', 'Infl/Agr Violation']
+0.616	acc.	unacc.	we recommend to eat less cake and pastry.	['to-VP', 'S-Syntax', 'Determiner']	['Control', 'Coord', 'Comparative']
+0.624	unacc.	acc.	john likes some students, but i don't know who john likes some students.	['Arg Altern', 'Question', 'S-Syntax', 'Violations']	['High Arity', 'Add Arg', 'Emb Q', 'Coord', 'Extra/Mising Expr']
+0.632	unacc.	acc.	which topic did you get bored because mary talked about?	['Predicate', 'Argument Type', 'Question', 'S-Syntax']	['Copula', 'PP Arg-VP', 'Matrix Q', 'Complex QP', 'Island', 'Subordinate/Cond']
+0.665	unacc.	acc.	mickey looked up it.	['Adjunct', 'Arg Altern', 'S-Syntax']	['Particle', 'High Arity', 'Dislocation']
+0.677	unacc.	acc.	the bookcase ran	['Simple', 'Violations']	['Simple', 'Sem  Violation']
+0.680	unacc.	acc.	we appeared to them to vote for themselves.	['Argument Type', 'Arg Altern', 'Binding', 'to-VP']	['PP Arg-VP', 'High Arity', 'Binding:Refl', 'Control']
+0.687	unacc.	acc.	the book of poems and from blackwell takes a very long time to read.	['Adjunct', 'Argument Type', 'Arg Altern', 'to-VP', 'N, Adj', 'S-Syntax']	['NP Adjunct', 'Misc', 'PPArg-NP/AP', 'High Arity', 'VP+Extract', 'Rel NP', 'Compx NP', 'Coord']
+CONFIDENT HITS	 	 	 	[]	[]
+0.985	acc.	acc.	that is the reason why he resigned.	['Predicate', 'Question', 'Comp Clause', 'N, Adj']	['Copula', 'Emb Q', 'CP Arg NP/AP', 'Trans NP']
+0.985	acc.	acc.	i believe there to be no way out.	['Argument Type', 'Arg Altern', 'Auxiliary', 'to-VP', 'N, Adj', 'Determiner']	['PPArg-NP/AP', 'Expletive', 'High Arity', 'Drop Arg', 'Neg', 'Raising', 'Rel NP', 'Quantifier']
+0.985	acc.	acc.	some people consider the dogs dangerous.	['Predicate', 'Arg Altern', 'Determiner']	['Pred/SC', 'High Arity', 'Quantifier']
+0.984	acc.	acc.	the witch poisoned the children.	['Simple']	['Simple']
+0.984	acc.	acc.	fortunately hermione passed biology	['S-Syntax']	['S-Adjunct']
+0.984	acc.	acc.	captain wentworth wrote a letter to anne elliott.	['Argument Type', 'Arg Altern']	['Oblique', 'PP Arg-VP', 'High Arity']
+0.984	acc.	acc.	the defendant denied the accusation.	['Simple']	['Simple']
+0.984	acc.	acc.	i would prefer for john to leave.	['Comp Clause', 'Auxiliary']	['CP Arg VP', 'Non-finite CP', 'Modal']
+0.984	acc.	acc.	the visitor rang the bell.	['Simple']	['Simple']
+0.984	acc.	acc.	chris was handed a note.	['Arg Altern']	['Drop Arg', 'Passive']
+UNCONFIDENT HITS	 	 	 	[]	[]
+0.503	unacc.	unacc.	neither of students failed.	['Determiner', 'Violations']	['Quantifier', 'Partitive', 'Extra/Mising Expr']
+0.526	acc.	acc.	max seemed to be trying to force ted to leave the room, and walt, ira.	['Comp Clause', 'Auxiliary', 'to-VP', 'S-Syntax']	['Deep Embed', 'Aux', 'Control', 'Raising', 'Coord', 'Ellipsis/Anaphor']
+0.532	unacc.	unacc.	the book was by john written.	['Argument Type', 'Arg Altern', 'S-Syntax']	['by-Phrase', 'Passive', 'Dislocation']
+0.536	unacc.	unacc.	ourselves like ourselves.	['Simple', 'Binding', 'Violations']	['Simple', 'Binding:Refl', 'Infl/Agr Violation']
+0.554	acc.	acc.	who who you like does sandy also like?	['Question', 'Auxiliary']	['Matrix Q', 'Complex QP', 'RC', 'Aux']
+0.586	unacc.	unacc.	which girl did mike quip never wore this hat?	['Adjunct', 'Question', 'Comp Clause', 'Auxiliary']	['VP Adjunct', 'Temporal', 'Matrix Q', 'Complex QP', 'Island', 'CP Arg VP', 'No C-izer', 'Neg', 'Aux']
+0.587	acc.	acc.	carla slid the book.	['Arg Altern']	['Drop Arg']
+0.613	acc.	acc.	you must pick any flower you see.	['Question', 'Comp Clause', 'Auxiliary', 'Determiner']	['RC', 'No C-izer', 'Modal', 'NPI/FCI']
+0.613	acc.	acc.	mary asked me if, in st. louis, john could rent a house cheap.	['Adjunct', 'Arg Altern', 'Question', 'Auxiliary', 'S-Syntax']	['VP Adjunct', 'Misc', 'High Arity', 'Emb Q', 'Modal', 'Dislocation', 'Frag/Paren']
+0.635	acc.	acc.	i read some of the book.	['Determiner']	['Quantifier', 'Partitive']
