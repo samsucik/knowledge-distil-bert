@@ -275,14 +275,76 @@ Binding
 Miscellaneous
 - carla slid the book. (unusual word?) (acc)
 - you must pick any flower you see. (seems easy) (acc)
-- 
-
 
 ### LSTM
 #### Confident mistakes
+*All* are unacc predicted as acc. Interesting are binding cases and cases with illegal/missing prepositions. Doesn't really struggle with long-range deps.
+
+Binding
+- protect you!
+- wash you!
+- kick you!
+
+Semantic violation
+- chocolate eggs were hidden from each other by the children. (would be fine with different verb, not "hidden", or with different clause order)
+- mary wonders that bill will come. (would be fine with "thinks")
+- the jeweller scribbled the contract with his name. ("decorated the ring with his name" would be ok)
+- no one can forgive that comment to you. (word order; would be ok with "give")
+
+Relational adjectives
+- the children are fond that they have ice cream. (required preposition "of" not used, would be ok with "happy" instead of "fond")
+
+Miscellanous
+- bill must quickly eat the peaches, and harry must slowly. (anaphor, long-range issue ("too" would be ok instad of "slowly"))
+- sophie will theater. (kinda semantic -- the specific verb doesn't permit NP object)
+
 #### Unconfident mistakes
+Tricky accs
+- clearly, john probably will immediately learn french perfectly. (multiple adverbs) (acc)
+- everybody around here who ever buys anything on credit talks in his sleep. (just a tricky sentence?) (acc)
+- bill's story about sue and max's about kathy both amazed me. (complex subject) (acc)
+- extremely frantically, anson danced at trade (tricky word order -- sentence-level adjunct) (acc)
+- the bucket was kicked by pat. (unusual passive) (acc)
+
+Long-range deps
+- the table was wiped by john clean. (wrong argument order; the resultative "clean" makes it illegal) (unacc)
+
+Ungrammatical
+- the soundly and furry cat slept. (adverb used as adjective) (unacc)
+
+Word order
+- there presented itself a wonderful opportunity yesterday. (scrambled) (unacc)
+
+Semantic violation
+- john whispered mary left. (would be ok with "thought" but now "that" is compulsory) (unacc)\
+- john heard that they criticized themselves. (weird sentence, maybe "him" was the desired word?) (unacc)
+
 #### Confident hits
+**All accs**. Some simple sentences (susan told her a story.) and some a bit less typical (i.e. not simple SVO):
+- you will believe bob.
+- john told mary that it was important to fred to leave early.
+- john told mary that it would be important to leave early.
+- those pictures of us offended us.
+
 #### Unconfident hits
+Binding
+- us like them. (unacc)
+
+Tricky examples
+- in which way is clinton anxious to find out which budget dilemmas panetta would be willing to solve? (really tricky!) (unacc)
+- the correspondence school sent bill a good typist. (really tricky!) (acc)
+- the committee knows whose efforts to achieve peace the world should honor. (really tricky) (acc)
+- gould's performance of bach on the piano doesn't please me anywhere as much as ross's on the harpsichord. (long-range, and still tricky; anaphor) (unacc)
+- i like bill's yellow shirt, but not max's. (gapping -- deletion) (acc)
+- jones, that we were talking to last night, always watches football games alone. (kinda semantic; would work fine with "the guy" instead of "jones") (unacc)
+
+Ungrammatical
+- the cat were bitten by the dog. (unacc)
+- wind was gotten of a plot to negotiate an honorable end to the war in vietnam. (scrambled; original: A plan to negotiate an honorable end to the war in Vietnam was gotten wind of.) (unacc)
+
+Rare words?
+- a magazine about crime appeared on the newsstands. (simple but has the unusual "newsstands") (acc)
+
 ### BERT
 #### Confident mistakes
 #### Unconfident mistakes
