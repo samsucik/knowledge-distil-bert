@@ -347,6 +347,67 @@ Rare words?
 
 ### BERT
 #### Confident mistakes
+*All* are unacc predicted as acc. Semantic issues labelled as (S)
+
+Extra/illegal words
+- chris was handed sandy a note. (mid-range dep)
+- it is the problem that he is here. (wrong determiner, long-range dep)
+- everyone hopes everyone to sleep. (tricky; illegal only because the two words are the same!) (S)
+- jack is the person with whom jenny fell in love with. (repeated prep.)
+- did the child be in the school? (long-range dep; would be fine with "was" instead o "did be") (S)
+- john paid me against the book. (tricky, would be fine with "for") (S)
+- sophie will theater. (kinda semantic -- the specific verb doesn't permit NP object) (S)
+
+Word order
+- mary beautifully plays the violin. (adverb position) (S)
+
+Missing prep.
+- Mary intended John to go abroad (S)
+
+Binding
+- we gave us presents. (incorrect dative, mid-range dep)
+
 #### Unconfident mistakes
+Tricky examples
+- max seemed to be trying to force ted to leave the room, and walt, ira. (deep structure) (acc)
+- john decided for bill to get the prize. ("it was decided" would be fine; long-range dep) (unacc)
+- they were interested in his. (unnatural sentence ending) (acc)
+- most columnists claim that a senior white house official has been briefing them, and the newspaper today reveals which one. (long-range dep) (acc)
+
+Word order
+- blue leather shows herself that betsy is pretty. (scrambled) (unacc)
+- with no job would john be happy. (unusual order, dislocation) (acc)
+
+Illegal word/word form
+- dana walking and leslie ran. (coordination, lonng-range dep) (unacc)
+- brian threw the fence with the stick. ("throw" doesn't fit, "hit" would be fine) (S) (unacc)
+- john was struck as sick. (would be fine with "treated", etc.; originally "Bill strikes John as sick.") (S) (unacc)
+
+Miscellaneous
+- they chased the man with the car. (should be easy) (acc)
+
 #### Confident hits
+**All accs**. Surprisingly few simple sentences (the witch poisoned the children., john tries to leave the country.), others are a bit more complex:
+- that dogs bark annoys people. 
+- everyone hoped that she would sing.
+- john wants not to leave the town. 
+- phillip gave the medal to the soldier.
+
 #### Unconfident hits
+Tricky examples
+- books were taken from no student and given to mary. (acc)
+- most columnists claim that a senior white house official has been briefing them, but none will reveal which one. (tricky, long-range dep) (acc)
+- tom's dog with one eye attacked frank's with three legs. (illegal omission) (unacc)
+- john gave bill the dog dead. (rare word order) (acc)
+
+Extra/wrong word
+- john believed it that bill was tardy. (extra expletive; short-range dep) (unacc)
+- we talked to them about there. (wrong expletive; should be "it") (unacc)
+
+Semantic violation
+- paperback books lift onto the table easily. ("fall" would be fine; original "I lifted the paperback book onto the table") (S) (unacc)
+- i gave pete the book to impress. (would be fine with "read") (S) (unacc)
+
+Miscellaneous
+- i sensed his eagerness. (should be easy; maybe rare words?) (acc)
+- there is believed to be sheep in the park. (weird, sounds acceptable) (unacc)
