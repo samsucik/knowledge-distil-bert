@@ -115,7 +115,7 @@ Common knowledge:
 - need to understand that "full world" is positive: `a full world has been presented onscreen , not some series of carefully structured plot points building to a pat resolution .` (labelled positive)
 
 #### Confident hits
-All labelled as positive and contain only neutral or positive words.
+All labell  ed as positive and contain only neutral or positive words.
 #### Unconfident hits
 Complicated sentence structure:
 - `it 's hard to like a film about a guy who is utterly unlikeable , and shiner , starring michael caine as an aging british boxing promoter desperate for a taste of fame and fortune , is certainly that .` (negative)
@@ -204,3 +204,87 @@ Uncommon words, metaphors:
 - `with its >>dogged hollywood naturalism and the inexorable passage of its characters toward sainthood<< , windtalkers is nothing but >>a sticky-sweet soap<< .` (negative)
 - unknown words: `bogdanovich tantalizes by offering a peep show into the lives of the era 's creme de la celluloid .` (positive)
 - `it showcases carvey 's talent for voices , but >>not nearly enough<< and >>not without taxing every drop of one 's patience to get to the good stuff<< .` (negative)
+
+## CoLA
+### Teacher
+#### Confident mistakes
+*All* are unacc predicted as acc.
+Many are based on verbal properties, i.e. a specific verb taking specific args. Hence, many of the sentences would've been OK if the verb was replaced by a different one. So, this is also a semantic issue. (S)
+
+Word order:
+- mary beautifully plays the violin. (adverb position) (S)
+
+Long-range dep.
+- which house does your friend live? (missing prep.) (S)
+- jack is the person with whom jenny fell in love with. (repeated prep.)
+- she was bathing, but i couldn't make out who. (intransitive with illegal argument) (V)
+- sally asked if somebody was going to fail math class, but i can't remember who. (quantifier)
+- that the cops spoke to the janitor about it yesterday is terrible, that robbery. (clause reordering illegal here, long-range thing)
+
+Missing prep.
+- Mary intended John to go abroad (S)
+
+Inserted expletive
+- john believes it sincerely that bill is here.
+
+Bad labels?
+- it has been determined that somebody will be appointed; it's just not clear yet who.
+- sandy was trying to work out which students would be able to solve a certain problem, but she wouldn't tell us which one.
+
+#### Unconfident mistakes
+Tricky accs
+- i am both expecting to get the job and of the opinion that it is a desirable one. (acc)
+- john, told mary that it would be appropriate to leave together. (CP, complex argument) (acc)
+- we recommend to eat less cake and pastry. (to-VP less typical than gerund) (acc)
+
+Tricky unaccs
+- i enjoy yourself. ('i' makes the reflexive illegal) (unacc)
+- john likes some students, but i don't know who john likes some students. (long-range issue) (unacc)
+- the book of poems and from blackwell takes a very long time to read. (inserted conjunction) (unacc)
+
+Illegal word order
+- which topic did you get bored because mary talked about? (bad question forming) (acc)
+- mickey looked up it. (unacc)
+
+Semantic violation
+- the bookcase ran (unacc)
+- we appeared to them to vote for themselves. ("appealed" would've been OK) (unacc)
+
+#### Confident hits
+**All accs** and mostly simple sentences (SVO) such as "the witch poisoned the children.".
+
+Not entirely trivial examples:
+- i believe there to be no way out.
+- i would prefer for john to leave. 
+- chris was handed a note.
+- that is the reason why he resigned.
+
+#### Unconfident hits
+Tricky examples
+- neither of students failed. (missing determiner) (unacc)
+- max seemed to be trying to force ted to leave the room, and walt, ira. (deep structure) (acc)
+- the book was by john written. (word order) (unacc)
+- who who you like does sandy also like? (acc)
+- which girl did mike quip never wore this hat? (verb "quip" doesn't permit moving elements out of the CP, some other verbs would) (unacc)
+- mary asked me if, in st. louis, john could rent a house cheap. (parenthesis) (acc)
+- i read some of the book. (acc)
+
+Binding
+- ourselves like ourselves. (unacc)
+
+Miscellaneous
+- carla slid the book. (unusual word?) (acc)
+- you must pick any flower you see. (seems easy) (acc)
+- 
+
+
+### LSTM
+#### Confident mistakes
+#### Unconfident mistakes
+#### Confident hits
+#### Unconfident hits
+### BERT
+#### Confident mistakes
+#### Unconfident mistakes
+#### Confident hits
+#### Unconfident hits
