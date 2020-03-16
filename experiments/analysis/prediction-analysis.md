@@ -411,3 +411,74 @@ Semantic violation
 Miscellaneous
 - i sensed his eagerness. (should be easy; maybe rare words?) (acc)
 - there is believed to be sheep in the park. (weird, sounds acceptable) (unacc)
+
+### Cases where one student is very confident and the other one is very unconfident
+In most of these cases, the teacher is also quite unconfident or even wrong. It's very difficult to spot patterns in the sentences (describe what they've got in common).
+
+When LSTM is unconfident and BERT is confident, it's mostly:
+- lstm careful (correct), BERT confident (correct):      5x
+- lstm careful (incorrect), BERT confident (incorrect):  3x
+- rest (2x): lstm careful (incorrect), BERT confident (correct), OR lstm careful (correct), BERT confident (incorrect)
+
+When BERT is unconfident and LSTM is confident, it's mostly:
+- BERT careful (incorrect), LSTM confident (incorrect): 3x
+- BERT careful (correct), LSTM confident (correct):     3x
+- BERT careful (incorrect), LSTM confident (correct):   3x
+- BERT careful (correct), LSTM confident (incorrect):   1x
+
+### Cases where one student is right and the other is wrong (teacher being right)
+Hard to interpret and draw conclusions. Generally, many long sentences appear here. Also, in most cases the teacher is below-average confident and one or both students are very unconfident as well (sometimes the correct one, sometimes the incorrect one, and in ~50% cases both).
+
+### Overlap of the 2 students' hits/misses
+Surprisingly many mistakes are model-specific! Rougly 1/3 of each model's mistakes are made only by that model and the other model gets those right.
+### Cases where teacher is confident but both students are unconfident
+Most of these are really tricky sentences, mostly acceptable, and mostly predicted correctly but unconfidently by the teacher, with mixed correctness of students. Basically, hard cases that the teacher barely handles and the students are either just very unconfident or even incorrect.
+
+Tricky examples:
+- most columnists claim that a senior white house official has been briefing them, but none will reveal which one.  
+- clearly, john probably will immediately learn french perfectly.
+- bill's story about sue and max's about kathy both amazed me.
+
+The two unacceptable examples the teacher got wrong:
+- the cat were bitten by the dog. (morphology) (unacc)
+- jones, that we were talking to last night, always watches football games alone. (long-range issue) (unacc)
+
+### Cases where teacher is right but both students are wrong
+These are long sentences:
+- neither von karajan's recording of beethoven's 6th on columbia nor klemperer's has the right tempo. (acc)
+- if the ants were called elephants and elephants ants, i'd be able to squash an elephant. (acc)
+- bill's wine from france and ted's from california cannot be compared. (acc)
+
+as well as sentences that are problematic only semantically:
+- my heart is pounding me. (unacc)
+- leslie told us about us. (unacc)
+- the tube was escaped by gas. (unacc)
+
+but also other short ungrammatical cases:
+- the children are fond with the ice cream. (requires knowledge of the specific verb and its prepositions) (unacc)
+- the table was wiped by john clean. (long-range deps) (unacc)
+
+In most cases, the teacher is right but unconfident. These are difficult sentences and the students, sometimes very confidently, make mistakes on them -- possibly to their length and complexity, and due to missing semantic knowledge needed to detect ungrammaticality.
+
+### Mistake type analysis (CoLA only)
+On simple sentences, students roughly match the teacher, it's the harder cases where students start making mistakes.
+
+Differences were considered only where there's ~100 or more examples in the category.
+
+#### BERT better:
+- adjunct (major), not consistently across minor categories
+- binding (major), consistently across minor categories
+- VP adjunct    (maj: adjunct)
+- Misc adjunct  (maj: adjunct)
+- Oblique       (maj: arg types)
+- PP Arg-VP     (maj: arg types)
+- high arity    (maj: arg altern)
+- Add Arg       (maj: arg altern)
+
+#### LSTM better:
+- predicate (major), mostly due to copula, really
+- determiner (major), mostly due to quantifier, really
+- copula        (maj: pred): unacceptable sentences which the teacher predicts mostly correctly. issues often related to word/clause order: `i wonder what to be a clown on the cover of.`, `because she's so pleasant, as for mary i really like her.`, `that john is reluctant seems.`, `` 
+- passive       (maj: arg altern): unacceptable sentences, mixed success of teacher: `the paper was written by john up.`, `chris was handed sandy a note.`, `a pound was weighed by the book.`, etc.
+- Compx NP      (maj: N, Adj): mixed examples, mostly correctly predicted by teacher, often with long-range deps: `jack is the person with whom jenny fell in love with.`, `the only person whose kids dana is willing to put up with is pat.`, `i dislike the people in who we placed our trust.`, etc.
+- quantifier    (maj: determiner): mixed examples, mostly correctly predicted by teacher, often with long-range deps: `it has been determined that somebody will be appointed; it's just not clear yet who.`, `we wanted to invite someone, but we couldn't decide who to.`, `most people probably consider, even though the courts didn't actually find, klaus guilty of murder.`, `the newspaper has reported that they are about to appoint someone, but i can't remember who the newspaper has reported that they are about to appoint.`, etc
