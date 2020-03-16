@@ -474,9 +474,9 @@ In general, confidence of students and teacher on most of these is low.
 - Oblique       (maj: arg types): mixed examples, often short, mostly correctly predicted by teacher. examples range from semantically tricky `lou hoped the umbrella in the closet.`, `sam offered the ball out of the basket.`, `mary revealed himself to john.` to relatively easy ones `martha carved the baby a toy out of wood.`, `john left us orders to follow pete.`
 - PP Arg-VP     (maj: arg types): mostly acceptable sentences, mostly long, mostly correctly predicted by teacher. includes sentences that are long and/or with atypical ordering: `she said she had spoken to everybody, but he wasn't sure who.`, `he attributed to a short circuit which was caused by an overloaded transducer the fire which destroyed most of my factory.`, `the ta's have been arguing about whether some student or other should pass, but i can't now remember which one.`, `it was to john that i gave the book.`.
 - high arity    (maj: arg altern): mostly acceptable sentences, mostly medium/short, sometimes incorrectly predicted even by teacher. tricky sentences like `we gave presents to ourselves.`, `john regretted it that bill had a good time.`, `i presented it to bill to read.`, `clinton is anxious to find out which budget dilemmas panetta would be willing to tackle in a certain way, but he won't say in which.`
-- Add Arg       (maj: arg altern): mixed examples, often medium/short, mostly correctly predicted by teacher. various examples: `john believes it sincerely that bill is here.`, `there is a seat available.`, `there presented itself a wonderful opportunity yesterday.`, `i squeaked the door.`
+- Add Arg       (maj: arg altern): mixed examples, often medium/short, mostly correctly predicted by teacher. various examples: `john believes it sincerely that bill is here.`, `there is a seat available.`, `there presented itself a wonderful opportunity yesterday.`, `i squeaked the door.   `
 
-#### LSTM better:clinton is anxious to find out which budget dilemmas panetta would be willing to tackle in a certain way, but he won't say in which.   
+#### LSTM better:
 In general, confidence of students and teacher on most of these is low.
 - predicate (major), mostly due to copula, really
 - determiner (major), mostly due to quantifier, really
@@ -484,3 +484,6 @@ In general, confidence of students and teacher on most of these is low.
 - passive       (maj: arg altern): unacceptable sentences, mixed success of teacher: `the paper was written by john up.`, `chris was handed sandy a note.`, `a pound was weighed by the book.`, etc.
 - Compx NP      (maj: N, Adj): mixed examples, mostly correctly predicted by teacher, often with long-range deps: `jack is the person with whom jenny fell in love with.`, `the only person whose kids dana is willing to put up with is pat.`, `i dislike the people in who we placed our trust.`, etc.
 - quantifier    (maj: determiner): mixed examples, mostly correctly predicted by teacher, often with long-range deps: `it has been determined that somebody will be appointed; it's just not clear yet who.`, `we wanted to invite someone, but we couldn't decide who to.`, `most people probably consider, even though the courts didn't actually find, klaus guilty of murder.`, `the newspaper has reported that they are about to appoint someone, but i can't remember who the newspaper has reported that they are about to appoint.`, etc
+
+
+CorrelationCorrelation
