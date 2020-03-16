@@ -466,16 +466,18 @@ On simple sentences, students roughly match the teacher, it's the harder cases w
 Differences were considered only where there's ~100 or more examples in the category.
 
 #### BERT better:
+In general, confidence of students and teacher on most of these is low.
 - adjunct (major), not consistently across minor categories
 - binding (major), consistently across minor categories
-- VP adjunct    (maj: adjunct)
-- Misc adjunct  (maj: adjunct)
-- Oblique       (maj: arg types)
-- PP Arg-VP     (maj: arg types)
-- high arity    (maj: arg altern)
-- Add Arg       (maj: arg altern)
+- VP adjunct    (maj: adjunct): mostly acceptable sentences, mostly correctly predicted by teacher. in many cases, quite long sentences with long-range deps. various examples, from `i gave pete the book to impress.` to `joan ate dinner with someone but i don't know who with.` to `the bed was slept in.`.
+- Misc adjunct  (maj: adjunct): mostly acceptable sentences, mostly correctly predicted by teacher. in many cases, quite long sentences with long-range deps. various examples, from `he left the train with somebody else's wallet in his pocket.` to `mary asked me if, in st. louis, john could rent a house cheap.` to `i presented it to bill to read.`
+- Oblique       (maj: arg types): mixed examples, often short, mostly correctly predicted by teacher. examples range from semantically tricky `lou hoped the umbrella in the closet.`, `sam offered the ball out of the basket.`, `mary revealed himself to john.` to relatively easy ones `martha carved the baby a toy out of wood.`, `john left us orders to follow pete.`
+- PP Arg-VP     (maj: arg types): mostly acceptable sentences, mostly long, mostly correctly predicted by teacher. includes sentences that are long and/or with atypical ordering: `she said she had spoken to everybody, but he wasn't sure who.`, `he attributed to a short circuit which was caused by an overloaded transducer the fire which destroyed most of my factory.`, `the ta's have been arguing about whether some student or other should pass, but i can't now remember which one.`, `it was to john that i gave the book.`.
+- high arity    (maj: arg altern): mostly acceptable sentences, mostly medium/short, sometimes incorrectly predicted even by teacher. tricky sentences like `we gave presents to ourselves.`, `john regretted it that bill had a good time.`, `i presented it to bill to read.`, `clinton is anxious to find out which budget dilemmas panetta would be willing to tackle in a certain way, but he won't say in which.`
+- Add Arg       (maj: arg altern): mixed examples, often medium/short, mostly correctly predicted by teacher. various examples: `john believes it sincerely that bill is here.`, `there is a seat available.`, `there presented itself a wonderful opportunity yesterday.`, `i squeaked the door.`
 
-#### LSTM better:
+#### LSTM better:clinton is anxious to find out which budget dilemmas panetta would be willing to tackle in a certain way, but he won't say in which.   
+In general, confidence of students and teacher on most of these is low.
 - predicate (major), mostly due to copula, really
 - determiner (major), mostly due to quantifier, really
 - copula        (maj: pred): unacceptable sentences which the teacher predicts mostly correctly. issues often related to word/clause order: `i wonder what to be a clown on the cover of.`, `because she's so pleasant, as for mary i really like her.`, `that john is reluctant seems.`, `` 
