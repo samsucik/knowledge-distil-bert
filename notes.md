@@ -449,8 +449,8 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #4:	distil-bert-CoLA-Feb09-00:12:53_F 45.0
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #5:	distil-bert-CoLA-Feb09-00:24:58_F 45.0
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #6:	distil-bert-CoLA-Feb09-00:25:16_F 45.0
-	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 seed=47: #1
-	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 seed=48: #2
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 seed=47: distil-bert-CoLA-Mar12-10:02:41_FC 41.9
+	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 seed=48: distil-bert-CoLA-Mar12-10:03:12_FC 41.8
 ##### No pretrained embeddings, multichannel
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #1:	distil-bert-CoLA-Feb20-12:09:30_F 35.2 >>
 	- W=4, D=1 (L=5 H=816 A=12 I=3000), 38.5M, B=4x32, lr=7e-5 #2:	distil-bert-CoLA-Feb20-12:09:32_F 35.2
@@ -466,8 +466,8 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 	- W=2, D=2, LSTM=600, FC=800, L=2 #6:	distil-bert-CoLA-Feb06-22:22:07_FC 43.5
 	- W=2, D=2, LSTM=600, FC=800, L=2 #7:	distil-bert-CoLA-Feb06-22:22:12_FC 43.5
 	- W=2, D=2, LSTM=600, FC=800, L=2 #8:	distil-bert-CoLA-Feb06-22:22:17_FC 44.2
-	- W=2, D=2, LSTM=600, FC=800, L=2 seed=47: #3	
-	- W=2, D=2, LSTM=600, FC=800, L=2 seed=48: #4	
+	- W=2, D=2, LSTM=600, FC=800, L=2 seed=47: distil-bert-CoLA-Mar12-10:15:42_FC 44.5
+	- W=2, D=2, LSTM=600, FC=800, L=2 seed=48: distil-bert-CoLA-Mar12-09:59:01_FC 43.4
 ##### No pretrained embeddings, multichannel
 	- W=2, D=2, LSTM=600, FC=800, L=2 #1:	distil-bert-CoLA-Feb17-08:51:09_F 36.4 << distil-bert-CoLA-Feb20-11:35:53_F 37.5 <<
 	- W=2, D=2, LSTM=600, FC=800, L=2 #2:	distil-bert-CoLA-Feb17-08:51:17_F 36.4    distil-bert-CoLA-Feb20-11:35:55_F 37.5
@@ -478,8 +478,8 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 #### BERT: word multichannel (89.2)
 	- default #1:	distil-bert-SST-2-Feb05-17:35:22_F 89.3 <<
 	- default #2:	distil-bert-SST-2-Feb05-17:35:27_FC 89.3
-	- default seed=47: #5
-	- default seed=48: #6
+	- default seed=47: distil-bert-SST-2-Mar12-10:14:17_FC 88.3
+	- default seed=48: distil-bert-SST-2-Mar12-09:56:52_FC 89.1
 ##### No pretrained embeddings, multichannel
 	- default #1:	distil-bert-SST-2-Feb17-08:54:56_F 89.8 << distil-bert-SST-2-Feb20-12:07:05_F 87.4 <<
 	- default #2:	distil-bert-SST-2-Feb17-08:55:00_F 89.8    distil-bert-SST-2-Feb20-12:07:06_F 87.4
@@ -492,8 +492,8 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 	- default #3:	distil-bert-SST-2-Feb07-09:53:26_FC 91.2
 	- default #4:	distil-bert-SST-2-Feb07-09:53:29_FC 91.2
 	- default #5:	distil-bert-SST-2-Feb07-09:53:33_FC 91.2
-	- default seed=47: #7
-	- default seed=48: #8
+	- default seed=47: distil-bert-SST-2-Mar12-09:54:04_FC 91.7
+	- default seed=48: distil-bert-SST-2-Mar12-09:54:36_FC 91.6
 ##### No pretrained embeddings, multichannel
 	- default #1:	distil-bert-SST-2-Feb17-08:57:37_F 90.8 << distil-bert-SST-2-Feb20-11:37:33_F 90.8 <<
 	- default #2:	distil-bert-SST-2-Feb17-08:57:46_F 90.8    distil-bert-SST-2-Feb20-11:37:52_F 90.5
@@ -506,8 +506,8 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 	- default #2:	distil-bert-Sara-Feb06-22:24:58_F 87.1 <<
 	- default #3:	distil-bert-Sara-Feb06-22:26:22_FC 87.1
 	- default #4:	distil-bert-Sara-Feb06-22:26:26_FC 87.1
-	- default seed=47: #9
-	- default seed=48: #10
+	- default seed=47: distil-bert-Sara-Mar12-09:49:07_FC 86.8
+	- default seed=48: distil-bert-Sara-Mar12-09:50:37_FC 86.8
 ##### No pretrained embeddings, non-static
 	- default #1:	distil-bert-Sara-Feb17-09:01:25_F 86.0 <<
 	- default #2:	distil-bert-Sara-Feb17-09:00:39_F 86.0
@@ -516,8 +516,8 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 	- default #2:	distil-bert-Sara-Feb21-09:08:22_F 83.9
 #### LSTM: wordpiece multichannel (86.5)
 	- default #1:	distil-bert-Sara-Feb05-17:04:42_F 86.5 <<
-	- default seed=47: #11
-	- default seed=48: #12
+	- default seed=47: distil-bert-Sara-Mar12-09:47:45_FC 86.2
+	- default seed=48: distil-bert-Sara-Mar05-23:33:38_F 86.5, distil-bert-Sara-Mar05-23:33:47_F 86.5
 ##### No pretrained embeddings, multichannel
 	- default #1:	distil-bert-Sara-Feb17-09:04:57_F 85.6 <<
 	- default #2:	distil-bert-Sara-Feb17-09:05:01_F 85.6
@@ -534,6 +534,7 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 	- compare probing knowledge in students trained on binarised soft labels
 	- compare probing knowledge in students trained on original data only (with learned embeddings, possibly also without)
 	- see embedding-layer probing performance in from-scratch models: embeddings in LSTM and only token embeddings in BERT
+	- compare also small BERT student on CoLA categories
 
 Letha
 	1:....

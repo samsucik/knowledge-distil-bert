@@ -431,6 +431,7 @@ Hard to interpret and draw conclusions. Generally, many long sentences appear he
 
 ### Overlap of the 2 students' hits/misses
 Surprisingly many mistakes are model-specific! Rougly 1/3 of each model's mistakes are made only by that model and the other model gets those right.
+
 ### Cases where teacher is confident but both students are unconfident
 Most of these are really tricky sentences, mostly acceptable, and mostly predicted correctly but unconfidently by the teacher, with mixed correctness of students. Basically, hard cases that the teacher barely handles and the students are either just very unconfident or even incorrect.
 
@@ -439,7 +440,7 @@ Tricky examples:
 - clearly, john probably will immediately learn french perfectly.
 - bill's story about sue and max's about kathy both amazed me.
 
-The two unacceptable examples the teacher got wrong:
+The two unacceptable examples (which the teacher got wrong):
 - the cat were bitten by the dog. (morphology) (unacc)
 - jones, that we were talking to last night, always watches football games alone. (long-range issue) (unacc)
 
@@ -458,7 +459,7 @@ but also other short ungrammatical cases:
 - the children are fond with the ice cream. (requires knowledge of the specific verb and its prepositions) (unacc)
 - the table was wiped by john clean. (long-range deps) (unacc)
 
-In most cases, the teacher is right but unconfident. These are difficult sentences and the students, sometimes very confidently, make mistakes on them -- possibly to their length and complexity, and due to missing semantic knowledge needed to detect ungrammaticality.
+In most cases, the teacher is right but unconfident. These are difficult sentences and the students, sometimes very confidently, make mistakes on them -- possibly due to their length and complexity, and due to missing semantic knowledge needed to detect ungrammaticality.
 
 ### Mistake type analysis (CoLA only)
 On simple sentences, students roughly match the teacher, it's the harder cases where students start making mistakes.
@@ -468,22 +469,23 @@ Differences were considered only where there's ~100 or more examples in the cate
 #### BERT better:
 In general, confidence of students and teacher on most of these is low.
 - adjunct (major), not consistently across minor categories
-- binding (major), consistently across minor categories
+- binding (major), consistently across minor categories (SCRAP)
 - VP adjunct    (maj: adjunct): mostly acceptable sentences, mostly correctly predicted by teacher. in many cases, quite long sentences with long-range deps. various examples, from `i gave pete the book to impress.` to `joan ate dinner with someone but i don't know who with.` to `the bed was slept in.`.
 - Misc adjunct  (maj: adjunct): mostly acceptable sentences, mostly correctly predicted by teacher. in many cases, quite long sentences with long-range deps. various examples, from `he left the train with somebody else's wallet in his pocket.` to `mary asked me if, in st. louis, john could rent a house cheap.` to `i presented it to bill to read.`
-- Oblique       (maj: arg types): mixed examples, often short, mostly correctly predicted by teacher. examples range from semantically tricky `lou hoped the umbrella in the closet.`, `sam offered the ball out of the basket.`, `mary revealed himself to john.` to relatively easy ones `martha carved the baby a toy out of wood.`, `john left us orders to follow pete.`
-- PP Arg-VP     (maj: arg types): mostly acceptable sentences, mostly long, mostly correctly predicted by teacher. includes sentences that are long and/or with atypical ordering: `she said she had spoken to everybody, but he wasn't sure who.`, `he attributed to a short circuit which was caused by an overloaded transducer the fire which destroyed most of my factory.`, `the ta's have been arguing about whether some student or other should pass, but i can't now remember which one.`, `it was to john that i gave the book.`.
-- high arity    (maj: arg altern): mostly acceptable sentences, mostly medium/short, sometimes incorrectly predicted even by teacher. tricky sentences like `we gave presents to ourselves.`, `john regretted it that bill had a good time.`, `i presented it to bill to read.`, `clinton is anxious to find out which budget dilemmas panetta would be willing to tackle in a certain way, but he won't say in which.`
-- Add Arg       (maj: arg altern): mixed examples, often medium/short, mostly correctly predicted by teacher. various examples: `john believes it sincerely that bill is here.`, `there is a seat available.`, `there presented itself a wonderful opportunity yesterday.`, `i squeaked the door.   `
+- Oblique   (SCRAP)    (maj: arg types): mixed examples, often short, mostly correctly predicted by teacher. examples range from semantically tricky `lou hoped the umbrella in the closet.`, `sam offered the ball out of the basket.`, `mary revealed himself to john.` to relatively easy ones `martha carved the baby a toy out of wood.`, `john left us orders to follow pete.`
+- PP Arg-VP  (SCRAP)   (maj: arg types): mostly acceptable sentences, mostly long, mostly correctly predicted by teacher. includes sentences that are long and/or with atypical ordering: `she said she had spoken to everybody, but he wasn't sure who.`, `he attributed to a short circuit which was caused by an overloaded transducer the fire which destroyed most of my factory.`, `the ta's have been arguing about whether some student or other should pass, but i can't now remember which one.`, `it was to john that i gave the book.`.
+- high arity  (SCRAP)  (maj: arg altern): mostly acceptable sentences, mostly medium/short, sometimes incorrectly predicted even by teacher. tricky sentences like `we gave presents to ourselves.`, `john regretted it that bill had a good time.`, `i presented it to bill to read.`, `clinton is anxious to find out which budget dilemmas panetta would be willing to tackle in a certain way, but he won't say in which.`
+- Add Arg   (SCRAP)    (maj: arg altern): mixed examples, often medium/short, mostly correctly predicted by teacher. various examples: `john believes it sincerely that bill is here.`, `there is a seat available.`, `there presented itself a wonderful opportunity yesterday.`, `i squeaked the door.`
 
 #### LSTM better:
 In general, confidence of students and teacher on most of these is low.
 - predicate (major), mostly due to copula, really
-- determiner (major), mostly due to quantifier, really
+- determiner (major), mostly due to quantifier, really (SCRAP)
+- Comp Clause (major) (NEW)
 - copula        (maj: pred): unacceptable sentences which the teacher predicts mostly correctly. issues often related to word/clause order: `i wonder what to be a clown on the cover of.`, `because she's so pleasant, as for mary i really like her.`, `that john is reluctant seems.`, `` 
+- temporal (only ~40 examples though)
 - passive       (maj: arg altern): unacceptable sentences, mixed success of teacher: `the paper was written by john up.`, `chris was handed sandy a note.`, `a pound was weighed by the book.`, etc.
 - Compx NP      (maj: N, Adj): mixed examples, mostly correctly predicted by teacher, often with long-range deps: `jack is the person with whom jenny fell in love with.`, `the only person whose kids dana is willing to put up with is pat.`, `i dislike the people in who we placed our trust.`, etc.
-- quantifier    (maj: determiner): mixed examples, mostly correctly predicted by teacher, often with long-range deps: `it has been determined that somebody will be appointed; it's just not clear yet who.`, `we wanted to invite someone, but we couldn't decide who to.`, `most people probably consider, even though the courts didn't actually find, klaus guilty of murder.`, `the newspaper has reported that they are about to appoint someone, but i can't remember who the newspaper has reported that they are about to appoint.`, etc
-
-
-CorrelationCorrelation
+- CP Arg VP
+- Control (only ~80 examples though)
+- quantifier (SCRAP) (maj: determiner): mixed examples, mostly correctly predicted by teacher, often with long-range deps: `it has been determined that somebody will be appointed; it's just not clear yet who.`, `we wanted to invite someone, but we couldn't decide who to.`, `most people probably consider, even though the courts didn't actually find, klaus guilty of murder.`, `the newspaper has reported that they are about to appoint someone, but i can't remember who the newspaper has reported that they are about to appoint.`, etc
