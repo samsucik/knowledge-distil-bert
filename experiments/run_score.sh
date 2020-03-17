@@ -17,10 +17,10 @@ else
 fi
 
 student_type=BERT
-score_with_teacher=true
-score_with_student=false
-# trained_model_dir=best-models/student-$task-$student_type
-trained_model_dir=teacher-$task
+score_with_teacher=false
+score_with_student=true
+trained_model_dir=best-models/student-${task}-${student_type}-s48
+# trained_model_dir=teacher-$task
 teacher_dir=teacher-$task
 source $cfg
 trained_model_dir=$(pwd)/$trained_model_dir
