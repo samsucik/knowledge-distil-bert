@@ -717,3 +717,34 @@ Difficult examples: the teacher is mostly confident while both students are most
 ### Overlap of the 2 students' hits/misses
 Both students have quite solid agreement, under 20% of mistakes are student-specific. Maybe it means the mistakes are simply due to difficult (noisy?) samples which are hard for any kind of model?
 
+### Cases where teacher is confident but both students are unconfident
+Shows how teacher has broader understanding of language than the students. Teacher always correct, students correct about 50% of the time each. Quite difficult examples -- teacher sometimes a bit unconfident, both students always very unconfident.
+
+Nontrivial wordings (typically without keywords) that require more robust intent representation:
+- `i decline` (t:deny, L:deny, B:out_of_scope)
+- `you live around here?` (t:ask_wherefrom, L:ask_wherefrom, B:ask_wherefrom)
+- `whatchcha doing` (t:ask_howdoing, L:out_of_scope, B:ask_howdoing)
+- `tlak to you later` (t:bye, L:react_positive, B:bye)
+- `are you bilingual?` (t:ask_languagesbot, L:ask_languagesbot, B:out_of_scope)
+- `you originated through what means?` (t:ask_howbuilt, L:ask_whatisrasa, B:out_of_scope)
+- "moronic" unseen during training: `you're the most moronic person i know` (t:handleinsult, L:out_of_scope, B:out_of_scope)
+- "install", "get", "run" are typical of install_rasa: `i have chosen rasa stack` (t:install_rasa, L:install_rasa, B:install_rasa)
+- `halo` (t:greet, L:greet, B:greet)
+
+Weird label:
+- arguably should be technical_question! `able to integrate with paypal, wordpress, facebook andd twilio` (t:enter_data, L:enter_data, B:technical_question)
+
+### Cases where teacher is right but both students are wrong
+Teacher often unconfident, students much more unconfident (i.e. difficult examples). Students very keyword oriented, teacher is much more mature in this sense.
+
+- "junk" unseen during training: `u r a piece of junk` (t:handleinsult, L:enter_data, B:react_positive)
+- "moronic" unseen during training: `you're the most moronic person i know` (t:handleinsult, L:out_of_scope, B:out_of_scope)
+- unseen during training, show how TEACHER HAS MULTILINGUAL KNOWLEDGE: `como estas` (t:ask_howdoing, L:out_of_scope, B:enter_data)
+
+- confusing "fuck": `fuck yeah!` (t:affirm, L:handleinsult, B:handleinsult)
+- confusing "today": `what is todays date` (t:out_of_scope, L:ask_weather, B:ask_weather)
+- confusing "who": `who is the president of india ?` (t:out_of_scope, L:ask_builder, B:ask_builder)
+- confusing "talk" (handoff is chracterised by "talk/speak"): `whom i talking to` (t:ask_whoisit, L:human_handoff, B:human_handoff)
+- confusing "what is rasa": `what is the last version of rasa core?` (t:technical_question, L:ask_whatisrasa, B:ask_whatisrasa)
+- missing meywords like "how": `you originated through what means?` (t:ask_howbuilt, L:ask_whatisrasa, B:out_of_scope)
+- confusing example, also confusing "talk": `talk to me!` (t:ask_whatspossible, L:human_handoff, B:human_handoff)
