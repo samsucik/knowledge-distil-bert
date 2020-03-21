@@ -27,115 +27,121 @@ Find samples that:
 ### Teacher
 #### Confident mistakes
 Samples with wrong or questionable labels: 
-- `this riveting world war ii moral suspense story deals with the shadow side of american culture : racial prejudice in its ugly and diverse forms .` (labelled negative).
-- `moretti 's compelling anatomy of grief and the difficult process of adapting to loss .` (labelled negative)
-- `it 's somewhat clumsy and too lethargically paced -- but its story about a mysterious creature with psychic abilities offers a solid build-up , a terrific climax , and some nice chills along the way .` (labelled negative)
-- `american chai encourages rueful laughter at stereotypes only an indian-american would recognize .` (labelled negative)
-- ```while there 's something intrinsically funny about sir anthony hopkins saying ` get in the car , bitch , ' this jerry bruckheimer production has little else to offer``` (labelled positive)
-- `you wo n't like roger , but you will quickly recognize him .` (labelled negative)
-- `the longer the movie goes , the worse it gets , but it 's actually pretty good in the first few minutes .` (labelled negative)
+- `this riveting world war ii moral suspense story deals with the shadow side of american culture : racial prejudice in its ugly and diverse forms .` (neg).
+- `moretti 's compelling anatomy of grief and the difficult process of adapting to loss .` (neg)
+- `it 's somewhat clumsy and too lethargically paced -- but its story about a mysterious creature with psychic abilities offers a solid build-up , a terrific climax , and some nice chills along the way .` (neg)
+- `american chai encourages rueful laughter at stereotypes only an indian-american would recognize .` (neg)
+- ```while there 's something intrinsically funny about sir anthony hopkins saying ` get in the car , bitch , ' this jerry bruckheimer production has little else to offer``` (pos)
+- `you wo n't like roger , but you will quickly recognize him .` (neg)
+- `the longer the movie goes , the worse it gets , but it 's actually pretty good in the first few minutes .` (neg)
 
 Confused by negative keywords: 
-- `though it 's become almost >>redundant<< to say so , major kudos go to leigh for actually casting people who look working-class .`
-- `as unseemly as its title suggests .`
+- `though it 's become almost >>redundant<< to say so , major kudos go to leigh for actually casting people who look working-class .` (pos)
+- `as unseemly as its title suggests .` (pos)
 
 Confused by positive keywords:
-- Doesn't understand "anything but fun" as negative: `although huppert 's intensity and focus has a raw exhilaration about it , the piano teacher is anything but fun .` (labelled negative)
+- Doesn't understand "anything but fun" as negative: `although huppert 's intensity and focus has a raw exhilaration about it , the piano teacher is anything but fun .` (neg)
 
 #### Unconfident mistakes
 Hard to explain:
-- Maybe "hollow" and "despair" give negative feeling: `huston nails both the glad-handing and the choking sense of hollow despair .` (labelled positive)
-- `the lion king was a roaring success when it was released eight years ago , but on imax it seems better , not just bigger .` (labelled positive)
+- Maybe "hollow" and "despair" give negative feeling: `huston nails both the glad-handing and the choking sense of hollow despair .` (pos)
+- `the lion king was a roaring success when it was released eight years ago , but on imax it seems better , not just bigger .` (pos)
 
 Unclear labels:
-- `it 's one of those baseball pictures where the hero is stoic , the wife is patient , the kids are as cute as all get-out and the odds against success are long enough to intimidate , but short enough to make a dream seem possible .` (labelled positive)
-- `funny but perilously slight .` (labelled positive)
-- `we root for ( clara and paul ) , even like them , though perhaps it 's an emotion closer to pity .` (labelled positive)
-- `mcconaughey 's fun to watch , the dragons are okay , not much fire in the script .` (labelled positive)
-- `good film , but very glum .` (labelled positive)
+- `it 's one of those baseball pictures where the hero is stoic , the wife is patient , the kids are as cute as all get-out and the odds against success are long enough to intimidate , but short enough to make a dream seem possible .` (pos)
+- `funny but perilously slight .` (pos)
+- `we root for ( clara and paul ) , even like them , though perhaps it 's an emotion closer to pity .` (pos)
+- `mcconaughey 's fun to watch , the dragons are okay , not much fire in the script .` (pos)
+- `good film , but very glum .` (pos)
 
 Uncommon words, metaphors:
-- Also unclear label: `sam mendes has become >>valedictorian<< at the school for >>soft landings and easy ways out<< .` (labelled negative)
-- `a great ensemble cast ca n't >>lift this heartfelt enterprise out of the familiar<< .` (labelled negative)
+- Also unclear label: `sam mendes has become >>valedictorian<< at the school for >>soft landings and easy ways out<< .` (neg)
+- `a great ensemble cast ca n't >>lift this heartfelt enterprise out of the familiar<< .` (neg)
 
 Common knowledge:
-- need to understand what jabs are to get the positive description: `the jabs it employs are short , carefully placed and dead-center .` (labelled positive)
+- need to understand what jabs are to get the positive description: `the jabs it employs are short , carefully placed and dead-center .` (pos)
 
 #### Confident hits
 All labelled as positive and contain only neutral or positive words, the only exception being the word "strangely" in `a strangely compelling and brilliantly acted psychological drama .`.
 
 #### Unconfident hits
 Not strongly positive or negative:
-- `in all , this is a watchable movie that 's not quite the memorable experience it might have been .` (negative)
+- `in all , this is a watchable movie that 's not quite the memorable experience it might have been .` (neg)
+- `something akin to a japanese alice through the looking glass , except that it seems to take itself far more seriously .` (pos)
 
 Containing metaphors and similes that the model likely cannot pick up:
-- `the socio-histo-political treatise is told >>in earnest strides<< ... ( and ) personal illusion is deconstructed with poignancy .` (positive)
-- `in a way , the film >>feels like a breath of fresh air<< , but only to those that allow it in .` (positive)
+- `the socio-histo-political treatise is told >>in earnest strides<< ... ( and ) personal illusion is deconstructed with poignancy .` (pos)
+- `in a way , the film >>feels like a breath of fresh air<< , but only to those that allow it in .` (pos)
+- `light years / several warp speeds / levels and levels of dilithium crystals better than the pitiful insurrection .` (pos)
+- `very special effects , brilliantly bold colors and heightened reality ca n't hide the giant achilles ' heel in `` stuart little 2 `` : there 's just no story , folks .` (neg)
+- `to say this was done better in wilder 's some like it hot is like saying the sun rises in the east .` (neg)
 
 Referring to domain knowledge the model can't have:
-- `this time mr. burns is >>trying something in the martin scorsese street-realist mode<< , but his self-regarding sentimentality trips him up again .` (negative)
-- `collateral damage finally >>delivers the goods for schwarzenegger fans<< .` (positive)
+- `this time mr. burns is >>trying something in the martin scorsese street-realist mode<< , but his self-regarding sentimentality trips him up again .` (neg)
+- `collateral damage finally >>delivers the goods for schwarzenegger fans<< .` (pos)
 
 ### LSTM
 #### Confident mistakes
 Samples with wrong or questionable labels: 
-- `this riveting world war ii moral suspense story deals with the shadow side of american culture : racial prejudice in its ugly and diverse forms .` (labelled negative).
-- `moretti 's compelling anatomy of grief and the difficult process of adapting to loss .` (labelled negative)
-- `it 's somewhat clumsy and too lethargically paced -- but its story about a mysterious creature with psychic abilities offers a solid build-up , a terrific climax , and some nice chills along the way .` (labelled negative)
-- `american chai encourages rueful laughter at stereotypes only an indian-american would recognize .` (labelled negative)
-- `you wo n't like roger , but you will quickly recognize him .` (labelled negative)
+- `this riveting world war ii moral suspense story deals with the shadow side of american culture : racial prejudice in its ugly and diverse forms .` (neg).
+- `moretti 's compelling anatomy of grief and the difficult process of adapting to loss .` (neg)
+- `it 's somewhat clumsy and too lethargically paced -- but its story about a mysterious creature with psychic abilities offers a solid build-up , a terrific climax , and some nice chills along the way .` (neg)
+- `american chai encourages rueful laughter at stereotypes only an indian-american would recognize .` (neg)
+- `you wo n't like roger , but you will quickly recognize him .` (neg)
 
 Confused by negative keywords: 
-- `though it 's become almost >>redundant<< to say so , major kudos go to leigh for actually casting people who look working-class .`
-- `as unseemly as its title suggests .`
-- ```if steven soderbergh 's ` solaris ' is a failure it is a glorious failure .```
+- `though it 's become almost >>redundant<< to say so , major kudos go to leigh for actually casting people who look working-class .` (pos)
+- `as unseemly as its title suggests .` (pos)
+- ```if steven soderbergh 's ` solaris ' is a failure it is a glorious failure .``` (pos)
 
 Confused by positive keywords:
 - Doesn't understand "anything but fun" as negative: `although huppert 's intensity and focus has a raw exhilaration about it , the piano teacher is anything but fun .` (labelled negative)
-- `all that 's missing is the spontaneity , originality and delight .` (labelled negative)
+- `all that 's missing is the spontaneity , originality and delight .` (neg)
 
 #### Unconfident mistakes
 Hard to explain:
-- Maybe "hollow" and "despair" give negative feeling: `huston nails both the glad-handing and the choking sense of hollow despair .` (labelled positive)
-- `although german cooking does not come readily to mind when considering the world 's best cuisine , mostly martha could make deutchland a popular destination for hungry tourists .` (labelled positive)
+- Maybe "hollow" and "despair" give negative feeling: `huston nails both the glad-handing and the choking sense of hollow despair .` (pos)
+- `although german cooking does not come readily to mind when considering the world 's best cuisine , mostly martha could make deutchland a popular destination for hungry tourists .` (pos)
 
 Unclear labels:
-- `verbinski implements every hack-artist trick to give us the ooky-spookies .` (labelled negative)
-- `if you 've ever entertained the notion of doing what the title of this film implies , what sex with strangers actually shows may put you off the idea forever .` (labelled negative)
+- `verbinski implements every hack-artist trick to give us the ooky-spookies .` (neg)
+- `if you 've ever entertained the notion of doing what the title of this film implies , what sex with strangers actually shows may put you off the idea forever .` (neg)
+
 Confused by positive keywords:
-- `i do n't think i laughed out loud once .` (labelled negative)
-- `sustains its >>dreamlike glide<< through a succession of cheesy coincidences and voluptuous cheap effects , not the least of which is rebecca romijn-stamos .` (labelled negative)
+- `i do n't think i laughed out loud once .` (neg)
+- `sustains its >>dreamlike glide<< through a succession of cheesy coincidences and voluptuous cheap effects , not the least of which is rebecca romijn-stamos .` (neg)
 
 Uncommon words, metaphors, similes:
-- `in a way , the film >>feels like a breath of fresh air<< , but only to those that allow it in .` (labelled positive)
-- `determined to be fun , and bouncy , with energetic musicals , the humor did n't quite engage this adult .` (labelled negative)
-- also confused by negative keyword: `light years / several warp speeds / levels and levels of dilithium crystals better than the pitiful insurrection .` (labelled positive)
+- `in a way , the film >>feels like a breath of fresh air<< , but only to those that allow it in .` (pos)
+- `determined to be fun , and bouncy , with energetic musicals , the humor did n't quite engage this adult .` (neg)
+- also confused by negative keyword: `light years / several warp speeds / levels and levels of dilithium crystals better than the pitiful insurrection .` (pos)
 
 Common knowledge:
-- need to understand that "full world" is positive: `a full world has been presented onscreen , not some series of carefully structured plot points building to a pat resolution .` (labelled positive)
+- need to understand that "full world" is positive: `a full world has been presented onscreen , not some series of carefully structured plot points building to a pat resolution .` (pos)
 
 #### Confident hits
-All labell  ed as positive and contain only neutral or positive words.
+All labelled as positive and contain only neutral or positive words.
+
 #### Unconfident hits
 Complicated sentence structure:
-- `it 's hard to like a film about a guy who is utterly unlikeable , and shiner , starring michael caine as an aging british boxing promoter desperate for a taste of fame and fortune , is certainly that .` (negative)
-- `whether you like rap music or loathe it , you ca n't deny either the tragic loss of two young men in the prime of their talent or the power of this movie .` (positive)
+- `it 's hard to like a film about a guy who is utterly unlikeable , and shiner , starring michael caine as an aging british boxing promoter desperate for a taste of fame and fortune , is certainly that .` (neg)
+- `whether you like rap music or loathe it , you ca n't deny either the tragic loss of two young men in the prime of their talent or the power of this movie .` (pos)
 
 Tricky wordings:
-- `if you 're hard up for raunchy college humor , >>this is your ticket right here<< .` (positive)
-- `the story and the friendship proceeds in such a way that you 're watching a >>soap opera rather than a chronicle of the ups and downs that accompany lifelong friendships<< .` (negative)
+- `if you 're hard up for raunchy college humor , >>this is your ticket right here<< .` (pos)
+- `the story and the friendship proceeds in such a way that you 're watching a >>soap opera rather than a chronicle of the ups and downs that accompany lifelong friendships<< .` (neg)
 
 Unclear labels:
-- `funny but perilously slight .` (positive)
-- `for anyone unfamiliar with pentacostal practices in general and theatrical phenomenon of hell houses in particular , it 's an eye-opener .` (positive)
+- `funny but perilously slight .` (pos)
+- `for anyone unfamiliar with pentacostal practices in general and theatrical phenomenon of hell houses in particular , it 's an eye-opener .` (pos)
 
 Metaphors, similes:
-- `it 's inoffensive , cheerful , built to inspire the young people , set to an unending soundtrack of beach party pop numbers and aside from its remarkable camerawork and awesome scenery , >>it 's about as exciting as a sunburn<< .` (negative)
+- `it 's inoffensive , cheerful , built to inspire the young people , set to an unending soundtrack of beach party pop numbers and aside from its remarkable camerawork and awesome scenery , >>it 's about as exciting as a sunburn<< .` (neg)
 
 Context knowledge:
-- `the iditarod lasts for days - this just felt like it did .` (negative)
-- need to understand that an insufferable character is a downside: `davis ... is so enamored of her own creation that she ca n't see how insufferable the character is .` (negative)
-- `without non-stop techno or the existential overtones of a kieslowski morality tale , maelström is just another winter sleepers .` (negative)
+- `the iditarod lasts for days - this just felt like it did .` (neg)
+- need to understand that an insufferable character is a downside: `davis ... is so enamored of her own creation that she ca n't see how insufferable the character is .` (neg)
+- also tricky sentence structure: `without non-stop techno or the existential overtones of a kieslowski morality tale , maelström is just another winter sleepers .` (neg)
 
 ### BERT
 #### Confident mistakes
@@ -204,6 +210,37 @@ Uncommon words, metaphors:
 - `with its >>dogged hollywood naturalism and the inexorable passage of its characters toward sainthood<< , windtalkers is nothing but >>a sticky-sweet soap<< .` (negative)
 - unknown words: `bogdanovich tantalizes by offering a peep show into the lives of the era 's creme de la celluloid .` (positive)
 - `it showcases carvey 's talent for voices , but >>not nearly enough<< and >>not without taxing every drop of one 's patience to get to the good stuff<< .` (negative)
+
+### Cases where one student is very confident and the other one is very unconfident
+Mixed examples. The teacher is mostly right, but below average. INTERESTING: Teacher is quite unconfident when BERT is unconfident, and much more confident when LSTM is unconfident.
+
+The sentences are mostly long, with tricky sentence structures and wordings, lots of similes and metaphors, domain knowledge often required too, and even with unclear labels.
+
+When LSTM is unconfident and BERT is confident, there are no clear patterns:
+- lstm careful (correct), BERT confident (correct):  	2x    
+- lstm careful (incorrect), BERT confident (incorrect): 2x 
+- lstm careful (incorrect), BERT confident (correct):   3x
+- lstm careful (correct), BERT confident (incorrect):   3x
+
+When BERT is unconfident and LSTM is confident, there are no clear patterns but BERT is mostly correct (however unconfident):
+- BERT careful (incorrect), LSTM confident (incorrect): 1x
+- BERT careful (correct), LSTM confident (correct):     4x
+- BERT careful (incorrect), LSTM confident (correct):   2x
+- BERT careful (correct), LSTM confident (incorrect):   3x
+
+### Cases where one student is right and the other is wrong (teacher being right)
+Mostly long sentences, mixed labels. The teacher always correct, but often unconfident. Almost exclusively, LSTM is predicting negative while BERT is predicting positive. In most cases, one student is much less confident than the other (often, the incorrect prediction is unconfident).
+
+### Overlap of the 2 students' hits/misses
+Surprisingly many mistakes are model-specific! Almost 1/3 of LSTM's mistakes are LSTM-specific, and over 40% are specific for BERT.
+
+### Cases where teacher is confident but both students are unconfident
+Mixed examples, predicted (mostly) correctly by teacher, mixed correctness of students. Long sentences, often tricky. Unclear patterns.
+
+### Cases where teacher is right but both students are wrong
+These are mostly negative sentences, with the teacher and students being mostly unconfident.
+
+The sentences are often long, unclear, tricky, with domain knowledge needed or with metaphors.
 
 ## CoLA
 ### Teacher
@@ -430,7 +467,7 @@ When BERT is unconfident and LSTM is confident, it's mostly:
 Hard to interpret and draw conclusions. Generally, many long sentences appear here. Also, in most cases the teacher is below-average confident and one or both students are very unconfident as well (sometimes the correct one, sometimes the incorrect one, and in ~50% cases both).
 
 ### Overlap of the 2 students' hits/misses
-Surprisingly many mistakes are model-specific! Rougly 1/3 of each model's mistakes are made only by that model and the other model gets those right.
+Surprisingly many mistakes are model-specific! Over 40% of each model's mistakes are made only by that model and the other model gets those right.
 
 ### Cases where teacher is confident but both students are unconfident
 Most of these are really tricky sentences, mostly acceptable, and mostly predicted correctly but unconfidently by the teacher, with mixed correctness of students. Basically, hard cases that the teacher barely handles and the students are either just very unconfident or even incorrect.
@@ -489,3 +526,194 @@ In general, confidence of students and teacher on most of these is low.
 - CP Arg VP
 - Control (only ~80 examples though)
 - quantifier (SCRAP) (maj: determiner): mixed examples, mostly correctly predicted by teacher, often with long-range deps: `it has been determined that somebody will be appointed; it's just not clear yet who.`, `we wanted to invite someone, but we couldn't decide who to.`, `most people probably consider, even though the courts didn't actually find, klaus guilty of murder.`, `the newspaper has reported that they are about to appoint someone, but i can't remember who the newspaper has reported that they are about to appoint.`, etc
+
+
+## Sara
+### Teacher
+#### Confident mistakes
+Most cases (7/10) are unrecognised utts defaulting to enter_data, e.g. `thx` (thank) or `i'm not sure` (deny).
+
+Also: close intent pairs (`i want to learn something about rasa` (t:ask_whatisrasa, p:how_to_get_started)), questionable labels (`ok let's start` (t:affirm, p:how_to_get_started))
+
+#### Unconfident mistakes
+out_of_scope mistaken for more specific intents:
+- `i want to know current situtation in pakistan` (ask_wherefrom)
+- `what is evolution ?` (nlu_info)
+- `oh my god, not again!` (canthelp)
+
+confusing intent pairs:
+- `what should i work on?` (t:ask_how_contribute, p:how_to_get_started)
+- `recommend me some nlu tools` (t:nlu_generation_tool_recommendation, p:technical_question)
+
+really fuzzy utts:
+- `places` (t:enter_data, p:out_of_scope)
+- `come stai?` (t:ask_howdoing, p:out_of_scope)
+
+miscellaneous:
+- `i would just like to have the link for the community` (t:ask_faq_what_is_forum, p:signup_newsletter)
+
+#### Confident hits
+Everything is enter_data. 5 cases contain the clear `__email_address__` token, the other 5 are not really identifiable with any other intent. Especially utts like `software developer` are very clearly typical answers to some question that asks for data about the person.
+
+#### Unconfident hits
+These are mostly unusual examples of the particular intents, e.g. they don't contain the usual keywords.
+- `what do you do as a company?` (ask_whatisrasa)
+- `u are?` (ask_whoisit)
+- `please provide information on your enterprise package` (contact_sales)
+- `i want to put some of my effort in.` (ask_how_contribute)
+
+There are also some out_of_scope examples, which are really just varied a lot: `what is todays date`, `what's your wife doing this weekend`
+
+### LSTM
+#### Confident mistakes
+Getting confused by keywords characteristic of a particular (incorrect) intent:
+- "learn": `how do you learn` (t:out_of_scope, p:how_to_get_started)
+- "languages": `how many languages does spacy support?` (t:out_of_scope, p:ask_faq_languages)
+- "start": `ok let's start` (t:affirm, p:how_to_get_started)
+
+Similar intents:
+- `toodle-oo` (t:bye, p:greet)
+
+Defaulting to out_of_scope (long utts) and enter_data (short utts) where text is kind of random:
+- `i am an opioid addict` (t:out_of_scope, p:enter_data)
+- `chatfuel` (t:switch, p:enter_data)
+- `i am qq` (t:out_of_scope, p:enter_data)
+- `how many candles were on your last birthday cake?` (t:ask_howold, p:out_of_scope)
+- `wit` (t:switch, p:enter_data)
+- `i want to know how can buld my own bot` (t:how_to_get_started, p:out_of_scope)
+
+#### Unconfident mistakes
+Getting confused by keywords characteristic of a particular (incorrect) intent:
+- "doesn't" or maybe just any negation: `that doesn't sound like a joke` (t:out_of_scope, p:deny)
+- `places` (t:enter_data, p:ask_restaurant)
+- "rasa": `what is the last version of rasa core?` (t:technical_question, p:ask_whatisrasa)
+- "python": `how can i install python` (t:install_rasa, p:ask_faq_python_version)
+
+Similar intents:
+- `you originated through what means?` (t:ask_howbuilt, p:ask_whatisrasa)
+- `what is your job?` (t:ask_whoisit, p:ask_builder)
+
+Unusual wordings default to out_of_scope:
+- `tell me what's your skill` (t:ask_whatspossible, p:out_of_scope)
+- `are there also humans working for your company?` (t:human_handoff, p:out_of_scope)
+
+Miscellaneous:
+- `i would just like to have the link for the community` (t:ask_faq_what_is_forum, p:signup_newsletter)
+- `what is evolution ?` (t:out_of_scope, p:technical_question)
+
+#### Confident hits
+Basically everything is enter_data and 100% confidence. Interesting how the wordpiece model learns keywords.
+
+Keyword based:
+- "german": `language = german` (enter_data)
+- "english": `language: english` (enter_data)
+- "french": `language = french` (enter_data)
+- "hello": `rasa hello` (greet)
+- "english": `it’s only in english but i plan to train it in other languages` (enter_data)
+- "mandarin": `it’s only in mandarin but i plan to train it in other languages` (enter_data)
+- "bot", "insurance": `i want to build a health insurance bot` (enter_data)
+- "spanish": `the bot speaks spanish` (enter_data)
+- "bot": `a wolf bot` (enter_data)
+- "work": `i work for stanford university` (enter_data)
+
+#### Unconfident hits
+Mixed examples.
+
+The broad out_of_scope and enter_data intents (may be uncertain because of probability attracted by various other intents):
+- `i want to know current situtation in pakistan` (out_of_scope)
+- `some thing else` (out_of_scope)
+- `that link doesn't work!` (out_of_scope)
+- `my budget is oov` (enter_data)
+- `able to integrate with paypal, wordpress, facebook andd twilio` (enter_data)
+
+Unusual examples (in particular, without the usual keywords):
+- `i want to put some of my effort in.` (ask_how_contribute)
+- `why help rasa's organization?` (ask_why_contribute)
+- `get the latest news from rasa` (signup_newsletter)
+- `what i a good pipeline to start with?` (pipeline_recommendation)
+- `i decline` (deny) THIS ONE is interesting because "decline" isn't in the training data, so it has to be pulled from the embedding knowledge
+
+### BERT
+#### Confident mistakes
+Unrecognised words default to biggest intent:
+- `i am an opioid addict` (t:out_of_scope, p:enter_data)
+- `wit` (t:switch, p:enter_data)
+- `weatger` (t:ask_weather, p:enter_data)
+- `cya` (t:bye, p:enter_data)
+- `chatfuel` (t:switch, p:enter_data)
+
+Getting confused by keywords:
+- "start": `ok let's start` (t:affirm, p:how_to_get_started)
+- "learn": `how do you learn` (t:out_of_scope, p:how_to_get_started)
+- "sales": `sales bot` (t:enter_data, p:contact_sales)
+- "languages": `how many languages does spacy support?` (t:out_of_scope, p:ask_faq_languages)
+
+out_of_scope taking long phrases with recognised words?
+- `how many candles were on your last birthday cake?` (t:ask_howold, p:out_of_scope)
+
+#### Unconfident mistakes
+Unusual phrasings/wordings (without keywords):
+- `who went through the trouble of setting you up?` (t:ask_builder, p:technical_question)
+- `what citizenship do you lay claim to?` (t:ask_wherefrom, p:nlu_info)
+- `what is your job?` (t:ask_whoisit, p:ask_builder)
+- `i want to put some of my effort in.` (t:ask_how_contribute, p:out_of_scope)
+- `i decline` (t:deny, p:out_of_scope)
+- `what do you do as a company?` (t:ask_whatisrasa, p:out_of_scope)
+- missing keyword: `are you bilingual?` (t:ask_languagesbot, p:out_of_scope)
+
+Keywords typical for different intent:
+- "today": `what is todays date` (t:out_of_scope, p:ask_weather)
+
+Miscellaneous:
+- `get me a club mate` (t:out_of_scope, p:human_handoff)
+- `i would just like to have the link for the community` (t:ask_faq_what_is_forum, p:signup_newsletter)
+
+#### Confident hits
+Everything enter_data. Keywords:
+- "italian": `the assistant speaks italian` (enter_data)
+- "spanish": `it’s trained only in spanish` (enter_data)
+- "english": `the assistant speaks english` (enter_data)
+- "mandarin": `it speaks mandarin` (enter_data)
+- "portuguese": `it’s trained in portuguese` (enter_data)
+- "mandarin": `until now it’s only in mandarin` (enter_data)
+- `__email_address__` (enter_data)
+- "engineer": `enginer` (enter_data)
+- "none"?: `i have none` (enter_data)
+
+#### Unconfident hits
+Unusual wordings; in the case of out_of_scope/enter_data likely other classes attract some probability mass:
+- `what are the componensts of rasa` (ask_whatisrasa)
+- `what does on-premise mean?` (technical_question)
+- `i have chosen rasa stack` (install_rasa)
+- `that wasn't very funny` (handleinsult)
+- `you live around here?` (ask_wherefrom)
+- `hey, let's talk` (greet)
+- `ok quick question here do i download this api` (technical_question)
+- `how to export dialogflow data to rasa` (switch)
+- `some thing else` (out_of_scope)
+- `i am responsible for our innovation department` (enter_data)
+
+### Cases where one student is very confident and the other one is very unconfident
+The confident student is often itself unconfident too.
+
+Where LSTM unconfident, it's mostly correct (and so is the confident BERT). In some cases, the teacher is also unconfident. Examples are often a bit tricky (in wording and lack of keywords:
+- `you originated through what means?` (ask_howbuilt)
+- `i'd like to know how you were put together?` (ask_howbuilt)
+- `what am i called?` (ask_whatismyname)
+
+
+Where BERT confident, it's ~50% correct (and so is the confident LSTM). Teacher sometimes unconfident too. Examples are of all kinds, mostly tricky.
+- `u r a piece of junk` (handleinsult) PREDICTED AS react_positive BY BERT, why???
+- `bots are bad` (out_of_scope) BERT predicts correctly, doesn't get tricked by "bad" into react_negative like LSTM and teacher
+- `get me a club mate` (out_of_scope) BERT does get tricked into human_handoff (despite not seeing "mate" at training time), unlike LSTM and teacher
+
+### Cases where one student is right and the other is wrong (teacher being right)
+Difficult examples: the teacher is mostly confident while both students are mostly unconfident. Students correct are split 50-50, no student being "the better one".
+- LSTM confused by keywords: `by whom were you built?` (t:ask_builder, p:ask_howbuilt)
+- BERT not understanding unobserved words: `i decline` (t:deny, p:out_of_scope)
+- BERT reacting to keyword "alexa": `alexa, order 5 tons of natrium chloride` (t:out_of_scope, p:ask_faq_voice)
+- BERT reacting to "mate": `get me a club mate`	(t:out_of_scope, p:human_handoff)
+
+### Overlap of the 2 students' hits/misses
+Both students have quite solid agreement, under 20% of mistakes are student-specific. Maybe it means the mistakes are simply due to difficult (noisy?) samples which are hard for any kind of model?
+
