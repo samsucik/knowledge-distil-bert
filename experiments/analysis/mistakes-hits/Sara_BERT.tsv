@@ -10,46 +10,6 @@ CONFIDENT MISTAKES
 0.992	bye	enter_data	cya
 0.992	out_of_scope	ask_faq_languages	how many languages does spacy support?
 0.992	switch	enter_data	chatfuel
-0.992	ask_whatisrasa	how_to_get_started	i want to learn something about rasa
-0.991	technical_question	ask_faq_languages	which language is rasa programmed in
-0.987	canthelp	out_of_scope	and you call yourself bot company? pff
-0.987	out_of_scope	ask_howdoing	what the latest news ?
-0.987	affirm	deny	not bad
-0.987	affirm	enter_data	fcourse
-0.985	out_of_scope	enter_data	i am qq
-0.984	bye	greet	toodle-oo
-0.983	ask_builder	ask_whoisit	tell me more about you
-0.980	contact_sales	enter_data	book
-0.978	out_of_scope	enter_data	nlw
-0.978	out_of_scope	ask_restaurant	i want to book a hotel
-0.977	how_to_get_started	out_of_scope	i want to know how can buld my own bot
-0.972	out_of_scope	ask_whatspossible	what are you doing now?
-0.971	how_to_get_started	enter_data	compnnent of rasa
-0.971	enter_data	how_to_get_started	i want to build a bot about me
-0.968	ask_whoisit	ask_whatisrasa	what is sara?
-0.966	ask_faq_languages	ask_languagesbot	your nlu understand spanish?
-0.966	out_of_scope	ask_whatspossible	what else?
-0.965	handleinsult	out_of_scope	you are shortsighted.
-0.964	ask_howold	out_of_scope	when you were bon
-0.960	deny	greet	noooooooooooooooooooooooooooooooooooooooo
-0.959	affirm	handleinsult	fuck yeah!
-0.958	enter_data	out_of_scope	the name of the company is oov
-0.957	ask_howdoing	greet	wassup>
-0.956	ask_question_in_forum	ask_faq_what_is_forum	where is the forum
-0.956	how_to_get_started	enter_data	both
-0.954	ask_whatisrasa	ask_whatspossible	what is it for?
-0.950	canthelp	out_of_scope	do you get anything?
-0.950	out_of_scope	ask_faq_voice	what do you think of alexa
-0.948	bye	greet	k byyye #slay
-0.946	enter_data	contact_sales	i'm head of sales
-0.945	out_of_scope	ask_wherefrom	which city are you talking about?
-0.942	deny	enter_data	i'm not sure
-0.939	install_rasa	how_to_get_started	how do i run rasa on windows
-0.933	out_of_scope	ask_whatspossible	sel me something
-0.931	canthelp	ask_whatspossible	you cannot help me with what i want
-0.918	enter_data	out_of_scope	i book a bus ticket
-0.916	out_of_scope	ask_wherefrom	what is your address?
-0.913	ask_faq_channels	enter_data	rasa is good for messaging chanels
 
 UNCONFIDENT MISTAKES	 	 	 
 0.163	ask_builder	technical_question	who went through the trouble of setting you up?
@@ -62,46 +22,6 @@ UNCONFIDENT MISTAKES
 0.311	out_of_scope	human_handoff	get me a club mate
 0.335	ask_faq_what_is_forum	signup_newsletter	i would just like to have the link for the community
 0.343	ask_languagesbot	out_of_scope	are you bilingual?
-0.348	affirm	out_of_scope	yes i have built a bot before
-0.367	ask_whatspossible	out_of_scope	tell me what's your skill
-0.376	ask_how_contribute	technical_question	what should i work on?
-0.380	handleinsult	react_positive	u r a piece of junk
-0.381	out_of_scope	technical_question	what is evolution ?
-0.385	out_of_scope	technical_question	i want to know current situtation in pakistan
-0.398	ask_how_contribute	source_code	how can i help with the code?
-0.416	ask_whatspossible	human_handoff	talk to me!
-0.424	greet	enter_data	guten morgen
-0.425	human_handoff	out_of_scope	are there also humans working for your company?
-0.435	enter_data	technical_question	able to integrate with paypal, wordpress, facebook andd twilio
-0.437	technical_question	ask_whatisrasa	what is the last version of rasa core?
-0.446	out_of_scope	enter_data	recharge
-0.468	handleinsult	out_of_scope	you're the most moronic person i know
-0.468	out_of_scope	technical_question	what are contextual ai assistants and how different are they from chatbots?
-0.503	ask_howdoing	ask_whatspossible	how ?
-0.507	greet	enter_data	sup
-0.516	ask_whatisrasa	ask_whatspossible	what can i do with rasa
-0.518	ask_question_in_forum	ask_faq_what_is_forum	how do i create a thread on the forum?
-0.519	ask_faq_languages	technical_question	is rasa available for node?
-0.532	canthelp	out_of_scope	and that's it?
-0.546	ask_whoisit	human_handoff	whom i talking to
-0.550	out_of_scope	ask_whoami	where am i?
-0.551	out_of_scope	deny	i dont like bots
-0.571	ask_howdoing	out_of_scope	come stai?
-0.580	out_of_scope	ask_builder	who is the president of india ?
-0.620	enter_data	technical_question	please give me instructions for pip
-0.634	ask_whoisit	out_of_scope	como te llamas
-0.636	install_rasa	ask_faq_python_version	how can i install python
-0.645	affirm	greet	amayzing
-0.657	enter_data	rasa_cost	how much money
-0.668	ask_howbuilt	out_of_scope	you originated through what means?
-0.680	contact_sales	out_of_scope	can someone call me please?
-0.685	out_of_scope	technical_question	what is significance of domain.yml file
-0.696	ask_whatspossible	ask_restaurant	show me the menu
-0.706	how_to_get_started	technical_question	full framework
-0.708	out_of_scope	how_to_get_started	how can i test this
-0.732	out_of_scope	ask_faq_voice	alexa, order 5 tons of natrium chloride
-0.732	out_of_scope	deny	oh my god, not again!
-0.742	how_to_get_started	technical_question	can i just test features without having to deal with your predefined conversation
 
 CONFIDENT HITS	 	 	 
 0.999	enter_data	enter_data	the assistant speaks italian
@@ -114,46 +34,6 @@ CONFIDENT HITS
 0.999	enter_data	enter_data	until now it’s only in mandarin
 0.999	enter_data	enter_data	i have none
 0.999	enter_data	enter_data	it’s trained in portuguese
-0.999	enter_data	enter_data	my emayl is __email_address__
-0.999	enter_data	enter_data	so far it only speaks chinese
-0.999	enter_data	enter_data	__email_address__
-0.999	enter_data	enter_data	developer advocate
-0.999	enter_data	enter_data	__email_address__
-0.999	enter_data	enter_data	i'm the developer
-0.999	enter_data	enter_data	__email_address__
-0.999	enter_data	enter_data	i work at the nyt
-0.999	enter_data	enter_data	all the training data was in portuguese
-0.999	enter_data	enter_data	__email_address__
-0.999	enter_data	enter_data	1 euro
-0.999	enter_data	enter_data	it’s trained in english
-0.999	enter_data	enter_data	the language of the ai assistant is portuguese
-0.999	enter_data	enter_data	until now it’s only in spanish
-0.999	enter_data	enter_data	my name is __person_name__
-0.999	enter_data	enter_data	the bot speaks english
-0.999	enter_data	enter_data	user can talk to my bot in dutch
-0.999	enter_data	enter_data	language: english
-0.999	enter_data	enter_data	it's a tech company, apple
-0.999	enter_data	enter_data	$1000
-0.999	enter_data	enter_data	it's __person_name__
-0.999	enter_data	enter_data	dutch is the only language but i want to add more
-0.999	enter_data	enter_data	it’s only in english but i plan to train it in other languages
-0.999	enter_data	enter_data	it is in portuguese
-0.999	enter_data	enter_data	it speaks italian
-0.999	enter_data	enter_data	language = french
-0.999	enter_data	enter_data	it’s only in spanish but i plan to train it in other languages
-0.999	enter_data	enter_data	2 million
-0.999	enter_data	enter_data	it’s in spanish
-0.999	enter_data	enter_data	the bot speaks spanish
-0.999	enter_data	enter_data	i work for stanford university
-0.999	enter_data	enter_data	100000
-0.999	enter_data	enter_data	it’s an chinese bot
-0.999	enter_data	enter_data	__person_name__
-0.999	enter_data	enter_data	i wrote it in chinese
-0.999	enter_data	enter_data	it’s available in german
-0.999	enter_data	enter_data	customer service automation bot
-0.999	enter_data	enter_data	__email_address__
-0.999	enter_data	enter_data	__email_address__
-0.999	enter_data	enter_data	__person_name__
 
 UNCONFIDENT HITS	 	 	 
 0.210	ask_whatisrasa	ask_whatisrasa	what are the componensts of rasa
@@ -166,43 +46,3 @@ UNCONFIDENT HITS
 0.358	out_of_scope	out_of_scope	some thing else
 0.398	technical_question	technical_question	ok quick question here do i download this api
 0.405	switch	switch	how to export dialogflow data to rasa
-0.405	out_of_scope	out_of_scope	bots are bad
-0.418	ask_howdoing	ask_howdoing	whatchcha doing
-0.439	out_of_scope	out_of_scope	are you ready?
-0.450	ask_why_contribute	ask_why_contribute	why help rasa's organization?
-0.461	out_of_scope	out_of_scope	that doesn't sound like a joke
-0.473	bye	bye	tlak to you later
-0.490	affirm	affirm	definitely yes without a doubt
-0.501	react_positive	react_positive	rasa is awesome
-0.522	nlu_generation_tool_recommendation	nlu_generation_tool_recommendation	i require more nlu data
-0.545	ask_which_events	ask_which_events	does the community have meet ups?
-0.546	react_positive	react_positive	that was a great interaction
-0.558	handleinsult	handleinsult	you brain is dull.
-0.565	ask_faq_languages	ask_faq_languages	language
-0.566	enter_data	enter_data	idk
-0.580	out_of_scope	out_of_scope	what i do after cd starter-pack-rasa-stack?
-0.591	ask_builder	ask_builder	by whom were you built?
-0.595	technical_question	technical_question	interactive learning?
-0.597	affirm	affirm	please
-0.599	react_positive	react_positive	okay rasabot, you're cool
-0.600	ask_whatismyname	ask_whatismyname	what would be the name on my tombstone?
-0.607	handleinsult	handleinsult	you lack understanding.
-0.612	out_of_scope	out_of_scope	that link doesn't work!
-0.616	greet	greet	halo
-0.618	pipeline_recommendation	pipeline_recommendation	what i a good pipeline to start with?
-0.641	how_to_get_started	how_to_get_started	different parts of rasa
-0.641	ask_faq_python_version	ask_faq_python_version	which python version should i install to run rasa example?
-0.659	ask_why_contribute	ask_why_contribute	what is the benefit of contributing to your code
-0.666	technical_question	technical_question	what infrastructure is required to run a bot?
-0.670	how_to_get_started	how_to_get_started	how do i download rasa ?
-0.676	how_to_get_started	how_to_get_started	how can i try out rasa?
-0.681	ask_wherefrom	ask_wherefrom	where did you grow up?
-0.688	install_rasa	install_rasa	i want to use rasa stack
-0.689	ask_why_contribute	ask_why_contribute	why should i help?
-0.694	pipeline_recommendation	pipeline_recommendation	recommend pipeline
-0.699	ask_whoisit	ask_whoisit	u are?
-0.700	ask_why_contribute	ask_why_contribute	why help out?
-0.702	pipeline_recommendation	pipeline_recommendation	what pipeline is better for what i want?
-0.703	canthelp	canthelp	this conversation is not really helpful
-0.708	signup_newsletter	signup_newsletter	i'm craving the newsletter
-0.709	ask_weather	ask_weather	beautiful day, isn't it?

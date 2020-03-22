@@ -697,13 +697,12 @@ Unusual wordings; in the case of out_of_scope/enter_data likely other classes at
 - `i am responsible for our innovation department` (enter_data)
 
 ### Cases where one student is very confident and the other one is very unconfident
-The confident student is often itself unconfident too.
+The confident student is often itself a bit unconfident too.
 
 Where LSTM unconfident, it's mostly correct (and so is the confident BERT). In some cases, the teacher is also unconfident. Examples are often a bit tricky (in wording and lack of keywords:
 - `you originated through what means?` (ask_howbuilt)
 - `i'd like to know how you were put together?` (ask_howbuilt)
 - `what am i called?` (ask_whatismyname)
-
 
 Where BERT confident, it's ~50% correct (and so is the confident LSTM). Teacher sometimes unconfident too. Examples are of all kinds, mostly tricky.
 - `u r a piece of junk` (handleinsult) PREDICTED AS react_positive BY BERT, why???
