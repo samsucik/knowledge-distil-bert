@@ -23,6 +23,7 @@ Find samples that:
 - are predicted differently by different students (in terms of label)
 - are predicted very confidently by some students but unconfidently by others
 
+
 ## SST-2
 ### Teacher
 #### Confident mistakes
@@ -95,7 +96,7 @@ Confused by negative keywords:
 - ```if steven soderbergh 's ` solaris ' is a failure it is a glorious failure .``` (pos)
 
 Confused by positive keywords:
-- Doesn't understand "anything but fun" as negative: `although huppert 's intensity and focus has a raw exhilaration about it , the piano teacher is anything but fun .` (labelled negative)
+- Doesn't understand "anything but fun" as negative: `although huppert 's intensity and focus has a raw exhilaration about it , the piano teacher is anything but fun .` (neg)
 - `all that 's missing is the spontaneity , originality and delight .` (neg)
 
 #### Unconfident mistakes
@@ -146,70 +147,70 @@ Context knowledge:
 ### BERT
 #### Confident mistakes
 Wrong or questionable labels: 
-- `this riveting world war ii moral suspense story deals with the shadow side of american culture : racial prejudice in its ugly and diverse forms .` (labelled negative).
-- `harrison 's flowers puts its heart in the right place , but its brains are in no particular place at all .` (labelled positive)
-- `it 's somewhat clumsy and too lethargically paced -- but its story about a mysterious creature with psychic abilities offers a solid build-up , a terrific climax , and some nice chills along the way .` (labelled negative)
-- `you wo n't like roger , but you will quickly recognize him .` (labelled negative)
+- `this riveting world war ii moral suspense story deals with the shadow side of american culture : racial prejudice in its ugly and diverse forms .` (neg).
+- `harrison 's flowers puts its heart in the right place , but its brains are in no particular place at all .` (pos)
+- `it 's somewhat clumsy and too lethargically paced -- but its story about a mysterious creature with psychic abilities offers a solid build-up , a terrific climax , and some nice chills along the way .` (neg)
+- `you wo n't like roger , but you will quickly recognize him .` (neg)
 
 Confused by negative keywords: 
-- `as unseemly as its title suggests .`
+- `as unseemly as its title suggests .` (pos)
 
 Confused by positive keywords:
-- `outer-space buffs might love this film , but others will find its pleasures intermittent .` (labelled negative)
-- Doesn't understand "anything but fun" as negative: `although huppert 's intensity and focus has a raw exhilaration about it , the piano teacher is anything but fun .` (labelled negative)
+- `outer-space buffs might love this film , but others will find its pleasures intermittent .` (neg)
+- Doesn't understand "anything but fun" as negative: `although huppert 's intensity and focus has a raw exhilaration about it , the piano teacher is anything but fun .` (neg)
 
 Complicated wordings:
-- `irwin is a man with enough charisma and audacity to carry a dozen films , but this particular result is ultimately held back from being something greater .` (labelled negative)
-- "guffaw" and "diabolical" are quite tricky: `you really have to wonder how on earth anyone , anywhere could have thought they 'd make audiences guffaw with a script as utterly diabolical as this .` (labelled negative)
+- `irwin is a man with enough charisma and audacity to carry a dozen films , but this particular result is ultimately held back from being something greater .` (neg)
+- "guffaw" and "diabolical" are quite tricky: `you really have to wonder how on earth anyone , anywhere could have thought they 'd make audiences guffaw with a script as utterly diabolical as this .` (neg)
 
 Metaphors, similes:
-- `it 's inoffensive , cheerful , built to inspire the young people , set to an unending soundtrack of beach party pop numbers and aside from its remarkable camerawork and awesome scenery , >>it 's about as exciting as a sunburn<< .` (labelled negative)
+- `it 's inoffensive , cheerful , built to inspire the young people , set to an unending soundtrack of beach party pop numbers and aside from its remarkable camerawork and awesome scenery , >>it 's about as exciting as a sunburn<< .` (neg)
 
 #### Unconfident mistakes
 Tricky wordings:
-- `if the movie succeeds in instilling a wary sense of ` there but for the grace of god , ' it is far too self-conscious to draw you deeply into its world .` (labelled negative)
-- `even the >>finest chef ca n't make a hotdog into anything more than a hotdog<< , and robert de niro ca n't >>make this movie anything more than a trashy cop buddy comedy<< .` (labelled negative)
-- `combining >>quick-cut editing and a blaring heavy metal<< much of the time , beck seems to be >>under the illusion that he 's shooting the latest system of a down video<< .` (labelled negative)
-- here "doesn't bother" is actually positive: `( d ) oes n't bother being as cloying or preachy as equivalent evangelical christian movies -- maybe the filmmakers know that the likely audience will already be among the faithful .` (labelled positive)
+- `if the movie succeeds in instilling a wary sense of " there but for the grace of god , ' it is far too self-conscious to draw you deeply into its world .` (neg)
+- `even the >>finest chef ca n't make a hotdog into anything more than a hotdog<< , and robert de niro ca n't >>make this movie anything more than a trashy cop buddy comedy<< .` (neg)
+- `combining >>quick-cut editing and a blaring heavy metal<< much of the time , beck seems to be >>under the illusion that he 's shooting the latest system of a down video<< .` (neg)
+- here "doesn't bother" is actually positive: `( d ) oes n't bother being as cloying or preachy as equivalent evangelical christian movies -- maybe the filmmakers know that the likely audience will already be among the faithful .` (pos)
 
 Unclear labels:
-- `mcconaughey 's fun to watch , the dragons are okay , not much fire in the script .` (labelled positive)
-- `it moves quickly , adroitly , and without fuss ; it does n't give you time to reflect on the inanity -- and the cold war datedness -- of its premise .` (labelled positive)
+- `mcconaughey 's fun to watch , the dragons are okay , not much fire in the script .` (pos)
+- `it moves quickly , adroitly , and without fuss ; it does n't give you time to reflect on the inanity -- and the cold war datedness -- of its premise .` (pos)
 
 Referring to domain knowledge the model can't have:
-- `collateral damage finally >>delivers the goods for schwarzenegger fans<< .` (labelled positive)
-- has to know that "PR hype is something negative": `that 's pure pr hype .` (labelled negative)
+- `collateral damage finally >>delivers the goods for schwarzenegger fans<< .` (pos)
+- has to know that "PR hype is something negative": `that 's pure pr hype .` (neg)
 
 Metaphors, similes:
-- `to say this was done better in wilder 's some like it hot is >>like saying the sun rises in the east<< .` (labelled negative)
+- `to say this was done better in wilder 's some like it hot is >>like saying the sun rises in the east<< .` (neg)
 
 Confused by positive keywords:
-- `the only excitement comes when the credits finally roll and you get to leave the theater .` (labelled negative)
+- `the only excitement comes when the credits finally roll and you get to leave the theater .` (neg)
 
 #### Confident hits
 All labelled as positive and contain only neutral or positive words.
 #### Unconfident hits
 Context knowledge:
-- need to know about the issues: `you will emerge with a clearer view of how the gears of justice grind on and the death report comes to share airtime alongside the farm report .` (positive)
+- need to know about the issues: `you will emerge with a clearer view of how the gears of justice grind on and the death report comes to share airtime alongside the farm report .` (pos)
 
 Unclear label:
-- is this irony? `the movie is n't just hilarious : it 's witty and inventive , too , and in hindsight , it is n't even all that dumb .` (positive)
+- is this irony? `the movie is n't just hilarious : it 's witty and inventive , too , and in hindsight , it is n't even all that dumb .` (pos)
 
 Confusing negative keywords:
-- `hilariously inept and ridiculous .` (positive)
+- `hilariously inept and ridiculous .` (pos)
 
 Confusing negative words:
-- `ramsay , as in ratcatcher , remains a filmmaker with an acid viewpoint and a real gift for teasing chilly poetry out of lives and settings that might otherwise seem drab and sordid .` (positive)
+- `ramsay , as in ratcatcher , remains a filmmaker with an acid viewpoint and a real gift for teasing chilly poetry out of lives and settings that might otherwise seem drab and sordid .` (pos)
 
 Tricky wordings:
-- `manages to show life in all of its banality when the intention is quite the opposite .` (negative)
-- probably unable to handle negations: `the film contains no good jokes , no good scenes , barely a moment when carvey 's saturday night live-honed mimicry rises above the level of embarrassment .` (negative)
+- `manages to show life in all of its banality when the intention is quite the opposite .` (neg)
+- probably unable to handle negations: `the film contains no good jokes , no good scenes , barely a moment when carvey 's saturday night live-honed mimicry rises above the level of embarrassment .` (neg)
 
 Uncommon words, metaphors:
-- `a great ensemble cast ca n't >>lift this heartfelt enterprise out of the familiar<< .` (labelled negative)
-- `with its >>dogged hollywood naturalism and the inexorable passage of its characters toward sainthood<< , windtalkers is nothing but >>a sticky-sweet soap<< .` (negative)
-- unknown words: `bogdanovich tantalizes by offering a peep show into the lives of the era 's creme de la celluloid .` (positive)
-- `it showcases carvey 's talent for voices , but >>not nearly enough<< and >>not without taxing every drop of one 's patience to get to the good stuff<< .` (negative)
+- `a great ensemble cast ca n't >>lift this heartfelt enterprise out of the familiar<< .` (neg)
+- `with its >>dogged hollywood naturalism and the inexorable passage of its characters toward sainthood<< , windtalkers is nothing but >>a sticky-sweet soap<< .` (neg)
+- unknown words: `bogdanovich tantalizes by offering a peep show into the lives of the era 's creme de la celluloid .` (pos)
+- `it showcases carvey 's talent for voices , but >>not nearly enough<< and >>not without taxing every drop of one 's patience to get to the good stuff<< .` (neg)
 
 ### Cases where one student is very confident and the other one is very unconfident
 Mixed examples. The teacher is mostly right, but below average. INTERESTING: Teacher is quite unconfident when BERT is unconfident, and much more confident when LSTM is unconfident.
@@ -241,6 +242,7 @@ Mixed examples, predicted (mostly) correctly by teacher, mixed correctness of st
 These are mostly negative sentences, with the teacher and students being mostly unconfident.
 
 The sentences are often long, unclear, tricky, with domain knowledge needed or with metaphors.
+
 
 ## CoLA
 ### Teacher
@@ -528,6 +530,7 @@ In general, confidence of students and teacher on most of these is low.
 - quantifier (SCRAP) (maj: determiner): mixed examples, mostly correctly predicted by teacher, often with long-range deps: `it has been determined that somebody will be appointed; it's just not clear yet who.`, `we wanted to invite someone, but we couldn't decide who to.`, `most people probably consider, even though the courts didn't actually find, klaus guilty of murder.`, `the newspaper has reported that they are about to appoint someone, but i can't remember who the newspaper has reported that they are about to appoint.`, etc
 
 
+
 ## Sara
 ### Teacher
 #### Confident mistakes
@@ -553,7 +556,7 @@ miscellaneous:
 - `i would just like to have the link for the community` (t:ask_faq_what_is_forum, p:signup_newsletter)
 
 #### Confident hits
-Everything is enter_data. 5 cases contain the clear `__email_address__` token, the other 5 are not really identifiable with any other intent. Especially utts like `software developer` are very clearly typical answers to some question that asks for data about the person.
+Everything is enter_data. 5 cases contain the clear `__email_address__` token, the other 5 are not really identifiable with any other intent. Especially utts like `software developer` are very clearly typical answers to some question that asks for data about the person. Interesting how teacher picks up the long `__email_address__` token while students (mainly LSTM) focus more on the shorter tokens like language names.
 
 #### Unconfident hits
 These are mostly unusual examples of the particular intents, e.g. they don't contain the usual keywords.
