@@ -55,7 +55,18 @@ Sara: As much as 98% of students' hits is shared with the teacher. The overlap o
 
 # Exploring knowledge distillation
 ## Cases where teacher is confident but both students are unconfident
+CoLA: Mostly very tricky acceptable examples. The teacher is mostly correct yet unconfident, while the students are often wrong -- these are examples of the teacher being more capable than the students. Example: `bill's story about sue and max's about kathy both amazed me.` (acc.).
+
+SST-2: Often difficult, long examples, with teacher mostly correct and mixed success of students.
+
+Sara: Again difficult examples, with the teacher being correct yet sometimes unconfident, and students being very unconfident and often wrong. The examples often lack typical keywords and their correct classification requires more advanced language representations, e.g. `are you bilingual?` (ask_languagesbot), `you live around here?` (ask_wherefrom).
+
 ## Cases where teacher is right but both students are wrong
+CoLA: Difficult examples where the teacher is often unconfident and the students often make (sometimes even confident) mistakes. Examples range from long, complex sentences (`bill's wine from france and ted's from california cannot be compared.`) to ones that require knowing the semantics of a particular word: `my heart is pounding me.` (unacc.).
+
+SST-2: These are difficult examples, often with unclear sentiment, metaphors or requiring domain knowledge. All models are mostly unconfident.
+
+Sara: Difficult examples where the teacher is unconfident and the students are very unconfident, often both making the same incorrect prediction. In particular, the teacher deals well with words unseen during training (e.g. "moronic" in `you're the most moronic person i know` (handleinsult)) while students get confused by keywords, e.g. `whom i talking to` is misclassified as human_handoff because of the characteristic word "talk", and similarly `fuck yeah!` is misclassified by both as handle_insult.
 
 # Overall
 ## Strengths/weaknesses of each student

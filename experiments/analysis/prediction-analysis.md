@@ -243,7 +243,6 @@ These are mostly negative sentences, with the teacher and students being mostly 
 
 The sentences are often long, unclear, tricky, with domain knowledge needed or with metaphors.
 
-
 ## CoLA
 ### Teacher
 #### Confident mistakes
@@ -746,7 +745,7 @@ Teacher often unconfident, students much more unconfident (i.e. difficult exampl
 - confusing "fuck": `fuck yeah!` (t:affirm, L:handleinsult, B:handleinsult)
 - confusing "today": `what is todays date` (t:out_of_scope, L:ask_weather, B:ask_weather)
 - confusing "who": `who is the president of india ?` (t:out_of_scope, L:ask_builder, B:ask_builder)
-- confusing "talk" (handoff is chracterised by "talk/speak"): `whom i talking to` (t:ask_whoisit, L:human_handoff, B:human_handoff)
+- confusing "talk" (handoff is characterised by "talk/speak"): `whom i talking to` (t:ask_whoisit, L:human_handoff, B:human_handoff)
 - confusing "what is rasa": `what is the last version of rasa core?` (t:technical_question, L:ask_whatisrasa, B:ask_whatisrasa)
 - missing meywords like "how": `you originated through what means?` (t:ask_howbuilt, L:ask_whatisrasa, B:out_of_scope)
 - confusing example, also confusing "talk": `talk to me!` (t:ask_whatspossible, L:human_handoff, B:human_handoff)
