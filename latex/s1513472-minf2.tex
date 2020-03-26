@@ -106,18 +106,29 @@
   }
 }
 
+% Prerequisites: define NLP abbreviation
 \chapter{Background}{
+  \label{ch:background}
+
+  In this chapter, the Transformer models are introduced and set into the historical context; knowledge distillation is introduced, in particular its recent applications in NLP; and an overview of some relevant work in model understanding is given.
+
   % NLP (sentence classification), transformers, knowledge distillation, model understanding (probing)
-  \section{Pre-Transformer sequence encoders}{
-    NLP is all about sequences of variable lengths: sentences, sentence pairs, documents, speech segments...
+  \section{NLP before Transformers}{
+    \label{sec:pre-transformer-nlp}
+    % NLP is all about sequences of variable lengths: sentences, sentence pairs, documents, speech segments...
+    By the very nature of the natural language, its processing has always meant processing sequences of variable length: be it written phrases or sentences, words (sequences of characters), spoken utterances, sentence pairs, or entire documents.
+    % NLP tasks are typically about making simple predictions about sequences: classifying sentences based on their intent or language, scoring a document's level of formality, predicting whether two sentences form a coherent question-answer pair or not, predicting the next word of a sentence...
+    Very often, NLP tasks boil down to making simple decisions about such sequences: classifying sentences based on their intent or language, assigning a score to a document based on its formality, deciding whether two given sentences form a meaningful question-answer pair, or predicting the next word of an unfinished sentence.
 
-    NLP tasks are typically about making simple predictions about sequences: classifying sentences based on their intent or language, scoring a document's level of formality, predicting whether two sentences form a coherent question-answer pair or not, predicting the next word of a sentence...
+    % Machine learning predictors are typically designed to work with fixed-size representations of inputs. Therefore, ever since the resurgence of neural networks around 2010, neural NLP has been using various models for encoding variable-length sequences into common fixed-dimensional representations.
+    Machine learning models are typically suited for tasks where the dimensionality of inputs and outputs is known and fixed. Thus, natural language sequences as inputs pose a challenge. It comes as no surprise that NLP research has been focusing on developing models that can encode variable-length sequences into fixed-length representations. 
+    \textbf{(TO-DO: Maybe mention TDNNs? They kind of fit here although they process speech, not text...)}
+    For example, once any sentence can be embedded as a vector in a space with a fixed dimensionality, a simple sentence classification model can be learned on top of these vectors.
 
-    Machine learning predictors are typically designed to work with fixed-size representations of inputs. Therefore, ever since the resurgence of neural networks around 2010, neural NLP has been using various models for encoding variable-length sequences into common fixed-dimensional representations.
-
-    Word vectors used already by \citet{Collobert_Weston_2008,Collobert_Weston_2011}, trained in unsupervised fashion. Used for various NLP tasks in a CNN.
-
-    Word2vec \citet{Mikolov_2013} made embedding learning much more efficient (and made learning the embedings the main aim!), using CBOW and skip-grams.
+    % Word vectors used already by \citet{Collobert_Weston_2008,Collobert_Weston_2011}, trained in unsupervised fashion. Used for various NLP tasks in a CNN.
+    As early as 2008, Collobert and others \citep{Collobert_Weston_2008,Collobert_Weston_2011} introduced a key component of today's sequence encoder models: the idea of \textit{word embeddings}, i.e. rich, fixed-length representations of words, constructed to numerically encode various word properties (e.g. lexical, syntactical or semantical). When viewed as a lookup table (one vector per each supported word), the embeddings are used to ``translate'' input words into numerical vectors. These are then further processed by a model.
+    % Word2vec \citet{Mikolov_2013} made embedding learning much more efficient (and made learning the embedings the main aim!), using CBOW and skip-grams.
+    \citet{Mikolov_2013} introduced an efficient and improved way of learning high-quality word embeddings: \textit{word2vec}. The embeddings are learnt as part of a larger neural network, which is trained to predict the next word given several previous words, and the previous words given the current word\footnote{These are the so-called Continuous bag-of-words (CBOW) and Skip-gram (SG) tasks, respectively.}. Such training can be easily done on large amounts of unlabelled text data, and the embeddings learn to capture various properties from a word's morphology to its meaning. Released word2vec embeddings became very popular due to their ease of use and performance improvements in many NLP tasks.
 
     RNN- and later LSTM-based encoder architectures were dominating the area for a long time as they were naturally suited for processing sequences of any length.
 
