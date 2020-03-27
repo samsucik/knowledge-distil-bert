@@ -1,0 +1,62 @@
+{
+  "customFonts": [
+    "CMU Serif"
+  ],
+  "customPresetColors": [
+    "964b00",
+    "56b4e9",
+    "e69f00",
+    "0072b2",
+    "00ad76",
+    "bf7300",
+    "5a17ee"
+  ],
+  "customColorSchemes": [
+    [
+      {
+        "fill": "#56b4e9",
+        "stroke": "#177BB5"
+      },
+      {
+        "fill": "#964b00",
+        "stroke": "#633200"
+      },
+      {
+        "fill": "#e69f00",
+        "stroke": "#9E6D00"
+      },
+      {
+        "fill": "#0072b2",
+        "stroke": "#004E7A"
+      }
+    ],
+    [
+      {
+        "fill": "#00ad76",
+        "stroke": "#007550"
+      },
+      {
+        "fill": "#bf7300",
+        "stroke": "#875100"
+      },
+      {
+        "fill": "#5a17ee",
+        "stroke": "#3B0F9E"
+      }
+    ]
+  ],
+  "defaultVertexStyle": {
+    "fontFamily": "CMU Serif",
+    "fillColor": "#56b4e9",
+    "strokeColor": "#177bb5",
+    "fontColor": "#212121"
+  },
+  "defaultEdgeStyle": {
+    "fontFamily": "CMU Serif",
+    "fillColor": "#212121",
+    "strokeColor": "#212121",
+    "fontColor": "#212121",
+    "endArrow": "blockThin",
+    "strokeWidth": 2
+  }
+}
