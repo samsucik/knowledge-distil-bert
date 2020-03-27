@@ -15,6 +15,7 @@ experiments/**/
 !experiments/analysis/mistakes-hits
 *.log
 *.out
+latex/*.cpt
 nohup.out
 .ipynb_checkpoints
 *.zip

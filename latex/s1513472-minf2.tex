@@ -44,6 +44,9 @@
 % For minipages with multiple figures, each with its own subcaption
 \usepackage{subcaption}
 
+% For verbatim in captions
+\usepackage{cprotect}
+
 \begin{document}
 
 \title{\vspace{-5.0cm} \centering{\includeshield} \vspace{1cm} \\ Teacher-student knowledge distillation from BERT\\for sentence classifiers}
@@ -123,21 +126,42 @@
     % Word vectors used already by \citet{Collobert_Weston_2008,Collobert_Weston_2011}, trained in unsupervised fashion. Used for various NLP tasks in a CNN.
     As early as 2008, artificial neural networks started playing a key role in NLP: \citet{Collobert_Weston_2008}\footnote{See also \citet{Collobert_Weston_2011}.} successfully trained a deep neural model to perform a variety of tasks from part-of-speech tagging to semantic role labelling.
     % Machine learning predictors are typically designed to work with fixed-size representations of inputs. Therefore, ever since the resurgence of neural networks around 2010, neural NLP has been using various models for encoding variable-length sequences into common fixed-dimensional representations.
-    However, machine learning models like neural networks are typically suited for tasks where the dimensionality of inputs is known and fixed. Thus, it comes as no surprise that NLP research has been focusing on developing models that encode variable-length sequences into fixed-length representations. 
+    However, neural machine learning models are typically suited for tasks where the dimensionality of inputs is known and fixed. Thus, it comes as no surprise that NLP research has focused on developing better models that encode variable-length sequences into fixed-length representations. 
     If any sequence (e.g. a sentence) can be embedded as a vector in a fixed-dimensionality space, a simple classification model can be learned on top of these vectors.
     
-    One key step in the development of neural sequence encoders has been the idea of \textit{word embeddings}: rich, dense, fixed-length representations of words, constructed to numerically encode various word properties. When viewed as a lookup table -- one vector per each supported word -- such embeddings can be used to ``translate'' input words into numerical vectors which are then processed further.
+    One key step in the development of neural sequence encoder models has been the idea of \textit{word embeddings}: rich, dense, fixed-length numerical representations of words. When viewed as a lookup table -- one vector per each supported word -- such embeddings can be used to ``translate'' input words into vectors which are then processed further.
     % Word2vec \citet{Mikolov_2013} made embedding learning much more efficient (and made learning the embedings the main aim!), using CBOW and skip-grams.
     \citet{Mikolov_2013} introduced an efficient and improved way of learning high-quality word embeddings: \textit{word2vec}. The embeddings are learnt as part of a larger neural network, which is trained to predict the next word given several previous words, and the previous words given the current word\footnote{These are the so-called Continuous bag-of-words (CBOW) and Skip-gram (SG) tasks, respectively.}. Such training can easily leverage large amounts of unlabelled text data and the embeddings learn to capture various properties from a word's morphology to its semantics. Released word2vec embeddings became very popular due to their easy use and performance improvements in many NLP tasks.
+    \textbf{TO-DO: Add a simple illustration of learning word2vec.}
 
-    \textbf{(TO-DO: Maybe mention TDNNs? They kind of fit here although they process speech, not text...)}
+    % \textbf{(TO-DO: Maybe mention TDNNs? They kind of fit here although they process speech, not text...)}
     
     % RNN- and later LSTM-based encoder architectures were dominating the area for a long time as they were naturally suited for processing sequences of any length.
-    While word embeddings were a breakthrough, they do not address the issue of encoding larger sequences like sentences into fixed-size representations.
+    While word embeddings were a breakthrough, they themselves do not address the issue of encoding a sequence of words into a fixed-size representation. This is where Recurrent neural networks (RNNs) \citep{Rumelhart_1986} and later their improved variant -- Long Short-Term Memory neural networks (LSTMs) \citep{Hochreiter_Schmidhuber_1997} -- come into play. Although originally proposed long ago, they became popular in NLP, and in text processing in particular, only later (see e.g. \citet{Mikolov_2010} and \citet{Graves_2013}). These recurrent encoders process one word at a time while updating an internal (``hidden'') fixed-size representation of the text seen so far. Once the entire sequence is processed, the hidden representation (also called ``hidden state'') is used to make a simple prediction. \textbf{TO-DO: Add a picture.}
+    \begin{figure}[h!t]
+      \centering
+      \includegraphics[width=6cm]{graphics/rnn}
+      \caption{A recurrent neural network (RNN) consumes at each timestep one input word. Then, it produces a single vector representation of the inputs.}
+      \label{fig:RNN}
+    \end{figure}
 
-    A major breakthrough came when \citet{Kalchbrenner_2013} and \citet{Sutskever_2014} developed the encoder-decoder architecture for machine translation and other sequence-to-sequence tasks such as paraphrasing or parsing.
+    % A major breakthrough came when \citet{Kalchbrenner_2013} and \citet{Sutskever_2014} developed the encoder-decoder architecture for machine translation and other sequence-to-sequence tasks such as paraphrasing or parsing.
+    As various recurrent models started dominating NLP, one particularly influential architecture emerged, addressing tasks such as machine translation, where the output is a new sequence rather than a simple decision. This was the \textit{encoder-decoder} architecture \citep{Kalchbrenner_2013,Sutskever_2014}, using an recurrent encoder to turn an input sentence into a single vector, and a recurrent decoder to generate an output sequence based on the vector. \textbf{TO-DO: Add a picture.}
+    \begin{figure}[h!t]
+      \centering
+      \includegraphics[width=11.5cm]{graphics/encoder-decoder}
+      \cprotect\caption{An encoder-decoder model for machine translation. Notice how the decoder initially takes as input the special \verb|<start>| token and at later time consumes the previous output word.}
+      \label{fig:encoder-decoder}
+    \end{figure}
 
-    \citet{Bahdanau_2014} improved things by introducing attention, enabling the recurrent encoders to learn to selectively attend or ignore parts of the input sequence.
+    % \citet{Bahdanau_2014} improved things by introducing attention, enabling the recurrent encoders to learn to selectively attend or ignore parts of the input sequence.
+    \citet{Bahdanau_2014} improved encoder-decoder models by introducing the concept of \textit{attention}. The attention module enables the decoder to produce pieces of output by intentionally focusing on relevant pieces of the input (until now, all the output was produced based on the single overall input representation). \textbf{TO-DO: Add a picture.} For years to come, recurrent models with attention were the state of the art in most of NLP.
+    \begin{figure}[h!t]
+      \centering
+      \includegraphics[width=11.5cm]{graphics/encoder-decoder-att}
+      \cprotect\caption{An encoder-decoder model for machine translation. Notice how the decoder initially takes as input the special \verb|<start>| token and at later time consumes the previous output word.}
+      \label{fig:encoder-decoder-att}
+    \end{figure}
   }
 
   \section{Transformer models and BERT}{
@@ -471,52 +495,6 @@
     \item Mar 2-Apr 2: buffer time and writing the report (a lot of coursework in this period as well)
   \end{itemize}
 }
-
-% \chapter{Notes}{
-%   \section{Knowledge distillation -- assorted}{
-%     \citet{Zharov-et-al-2018} use KD of DNNs into decision forests for interpretability.
-%   }
-
-%   \section{Datasets}{
-%     Unsuitable:
-%     \begin{enumerate}
-%       \item \href{https://github.com/microsoft/CNTK/tree/master/Examples/LanguageUnderstanding/ATIS}{ATIS}: too easy (see \href{https://github.com/nghuyong/rasa-nlu-benchmark#result}{here}). Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
-%       \item \href{https://github.com/sebischair/NLU-Evaluation-Corpora}{AskUbuntu, Chatbot and Web Applications (all from TU Munich): too small (max. 206 datapoints)}. Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
-%       \item \href{https://github.com/snipsco/nlu-benchmark/tree/master/2016-12-built-in-intents}{SNIPS}: too easy (see \href{https://github.com/nghuyong/rasa-nlu-benchmark#result}{here}). Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
-%     \end{enumerate}
-
-%     Suitable:
-%     \begin{enumerate}
-%       \item \href{https://fb.me/multilingual_task_oriented_data}{FB's Multilingual Task Oriented Dataset}: F1 0.99 by supervised embeddings (very easy, but perhaps usable). Rasa version \href{https://github.com/nghuyong/rasa-nlu-benchmark}{here}.
-%       \item \href{https://nyu-mll.github.io/CoLA/}{CoLA} \citep{CoLA-paper}, needs processing into Rasa format.
-%       \item \href{https://nlp.stanford.edu/sentiment/index.html}{SST} \citep{SST-paper}, needs processing into Rasa format. 5-way classification may be too hard (accuracy \texttildelow{}50\%), 2-way much easier.
-%       \item \href{https://cogcomp.seas.upenn.edu/Data/QA/QC/}{TREC question-type classification} \citep{TREC-paper}, needs processing into Rasa format. 6-way classification (abbreviation, entity, description, human, location, numeric), also has another (more fine-grained) level of categories.
-%     \end{enumerate}
-
-%     Maybe suitable:
-%     \begin{enumerate}
-%       \item \href{https://github.com/xiul-msr/e2e_dialog_challenge}{Microsoft Dialogue Challenge} \citep{MDC-paper} needs processing into Rasa format. Also, no results using Rasa.
-%       \item \href{http://fb.me/semanticparsingdialog}{TOP} \citep{TOP-paper} needs processing into Rasa format. Also, no results using Rasa. Intents are hierarchical, would need to take only the top-most intent.
-%       \item \href{https://github.com/allenai/scicite}{SciCite} \citep{SciCite-paper} needs processing into Rasa format. Also, no results using Rasa.
-%     \end{enumerate}
-
-%     Probing/evaluation:
-%     Started by Shi et al. (2016) and Adi et al. (2017)?
-%     \begin{enumerate}
-%       \item \href{https://github.com/nyu-mll/jiant/tree/master/probing/data}{Google's edge probing} \citep{Tenney-et-al-2019-1} for evaluating span representations on 9 tasks closely following classical NLP pipeline (data not freely accessible!)
-%       \item \href{https://github.com/facebookresearch/SentEval/tree/master/data/probing}{FB's probing} \citep{Conneau-et-al-2018} used to evaluate entire sentence embeddings (10 tasks from sentence length to semantics)
-%       \item \href{https://github.com/facebookresearch/SentEval}{FB's SentEval} \citep{SentEval-paper} is meant for evaluating trained sentence encoders (i.e. not meant as downstream tasks that encoders should be fitted to), but it curates interesting existing datasets.
-%     \end{enumerate}
-%   }
-
-%   \section{Plans for MVP}{
-%     Let's distill BERT into a smaller BERT.
-
-%     Code: pytorch-transformers (re-using code for DistilBERT), no Rasa for now.
-
-%     Dataset: CoLA (because pytorch-transformers offers easy feeding of GLUE datasets).
-%   }
-% }
 
 \bibliographystyle{apalike}
 \bibliography{s1513472-minf2}
