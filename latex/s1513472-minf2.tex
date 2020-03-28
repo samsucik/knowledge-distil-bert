@@ -185,6 +185,26 @@
   \section{Transformer models and BERT}{
     % \citet{Vaswani_2017} introduced Transformer. Main idea: process tokens in parallel, not sequentially, with sequentiality represented by positional markers (embeddings). Self-attention is used to pool from the context of the entire sequence, leading to evolving rich contextualised representations of each token in the higher layers.
     We saw how the attention mechanism can selectively focus on parts of a sequence to extract relevant information from it. This raises the question of whether processing the inputs in a sequential fashion with the recurrent encoder is still needed. In particular, RNN models are slow as a results of this sequentiality, with no room for parallelisation. In their influential work, \citet{Vaswani_2017} proposed an encoder-decoder model based solely on attention and fully parallelised: the \textit{Transformer}. The core element of the model is the \textit{self-attention} mechanism, used to process all input words in parallel.
+
+    In particular, a Transformer model typically has multiple self-attention layers, each layer processing separate representations of all input words. Continuing with the three-word input example from \autoref{fig:encoder-decoder-att}, a high-level diagram of the workings of a self-attention layer is shown in \autoref{fig:self-att-layer}. Importantly, the input word representations evolve from lower to higher layers such that they consider not just the one input word, but also all other words -- the representation becomes \textit{contextual} (also referred to as a \textit{contextual embedding} of the word within the input sentence).
+
+    \begin{figure}[h!t]
+      \centering
+      \includegraphics[width=7cm]{graphics/self-att-layer}
+      \cprotect\caption{A high-level diagram of the application of self-attention in Transformer models. Three hidden states are shown for consistency with the length of the input shown in \autoref{fig:encoder-decoder-att}; in general, the input length can vary.}
+      \label{fig:self-att-layer}
+    \end{figure}
+
+    As for the internals of self-attention, the basic principle is very similar to standard attention. Self-attention too is used to focus on and gather relevant information from a sequence of elements, given a query. However, to produce a richer contextual embedding $\bm{h_{l+1}^{(i)}}$ in layer $l+1$ of the $i$-th input word, self-attention uses the incoming representation $\bm{h_l^{(i)}}$ for the query, and considers focusing on all representations in layer $l$, including $\bm{h_l^{(i)}}$ itself. \autoref{fig:self-att} shows this in detail for input position $i=0$. Query $\bm{q^{(0)}}$ is produced and matched with every key in layer $l$ (i.e. $\bm{k^{(0)}},\ldots,\ \bm{k^{(2)}}$) to produce the attention weights. These weights quantify how relevant each representation $\bm{h_l^{(i)}}$ is with respect to position $i=0$. Then, the new contextual embedding $\bm{h_{l+1}^{(i)}}$ is constructed as a weighted sum of the values $\bm{v^{(0)}},\ldots,\ \bm{v^{(2)}}$ (same as constructing the context vector in standard attention).
+
+    \begin{figure}[h!t]
+      \centering
+      \includegraphics[width=8cm]{graphics/self-att}
+      \cprotect\caption{The internals of self-attention, illustrated on creating the next-layer hidden representation of the input position $i=0$, given all representations in the current layer. Note that $\otimes$ stands for multiplication (matrix or scalar), and $\oplus$ denotes summation.}
+      \label{fig:self-att}
+    \end{figure}
+
+    Notice that, even though each contextual embedding considers all input positions, the next-layer contextual embeddings $\bm{h_{l+1}^{(0)}},\ldots,\ \bm{h_{l+1}^{(2)}}$ can be computed all at the same time, in parallel: First, the keys, queries and values for all input positions are computed; then, the attention weights with respect to each position are produced; finally, all the new representations are produced. It is this parallelism that allows Transformer models to run faster. As a result, they can be much bigger (and hence create richer input representations) than recurrent models while taking the same time to train.
     
     \citet{Radford_2018} introduced the idea of generative LM pre-training and fine-tuning. This concept helps train much better models even for low-resource tasks with small datasets, by leveraging general language knowledge acquired by the model in the pre-training phase. Publishing pre-trained model instances makes the power of NLP much more accessible to anyone and has become a popular thing to do. (Also mention that subword tokens were used instead of words.)
     
