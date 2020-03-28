@@ -7,6 +7,8 @@
 
 \usepackage{textcomp} % for text tilde
 
+\usepackage{bm} % bold in math mode
+
 % Nice references including the words Figure, Section, etc
 \renewcommand*{\chapterautorefname}{Chapter}
 \renewcommand*{\sectionautorefname}{Section}
@@ -137,7 +139,7 @@
     % \textbf{(TO-DO: Maybe mention TDNNs? They kind of fit here although they process speech, not text...)}
     
     % RNN- and later LSTM-based encoder architectures were dominating the area for a long time as they were naturally suited for processing sequences of any length.
-    While word embeddings were a breakthrough, they themselves do not address the issue of encoding a sequence of words into a fixed-size representation. This is where Recurrent neural networks (RNNs) \citep{Rumelhart_1986} and later their improved variant -- Long Short-Term Memory neural networks (LSTMs) \citep{Hochreiter_Schmidhuber_1997} -- come into play. Although originally proposed long ago, they became popular in NLP, and in text processing in particular, only later (see e.g. \citet{Mikolov_2010} and \citet{Graves_2013}). These recurrent encoders process one word at a time while updating an internal (``hidden'') fixed-size representation of the text seen so far. Once the entire sequence is processed, the hidden representation (also called ``hidden state'') is used to make a simple prediction. \textbf{TO-DO: Add a picture.}
+    While word embeddings were a breakthrough, they themselves do not address the issue of encoding a sequence of words into a fixed-size representation. This is where Recurrent neural networks (RNNs) \citep{Rumelhart_1986} and later their improved variant -- Long Short-Term Memory neural networks (LSTMs) \citep{Hochreiter_Schmidhuber_1997} -- come into play. Although originally proposed long ago, they became popular in NLP, and in text processing in particular, only later (see e.g. \citet{Mikolov_2010} and \citet{Graves_2013}). These recurrent encoders process one word at a time (see \autoref{fig:RNN}) while updating an internal (``hidden'') fixed-size representation of the text seen so far. Once the entire sequence is processed, the hidden representation (also called ``hidden state'') is outputted and used make a simple prediction.
     \begin{figure}[h!t]
       \centering
       \includegraphics[width=6cm]{graphics/rnn}
@@ -146,7 +148,7 @@
     \end{figure}
 
     % A major breakthrough came when \citet{Kalchbrenner_2013} and \citet{Sutskever_2014} developed the encoder-decoder architecture for machine translation and other sequence-to-sequence tasks such as paraphrasing or parsing.
-    As various recurrent models started dominating NLP, one particularly influential architecture emerged, addressing tasks such as machine translation, where the output is a new sequence rather than a simple decision. This was the \textit{encoder-decoder} architecture \citep{Kalchbrenner_2013,Sutskever_2014}, using an recurrent encoder to turn an input sentence into a single vector, and a recurrent decoder to generate an output sequence based on the vector. \textbf{TO-DO: Add a picture.}
+    As various recurrent models started dominating NLP, one particularly influential architecture emerged, addressing tasks such as machine translation, where the output is a new sequence rather than a simple decision. This was the \textit{encoder-decoder} architecture \citep{Kalchbrenner_2013,Sutskever_2014}, see \autoref{fig:encoder-decoder}. It uses a recurrent encoder to turn an input sentence into a single vector, and a recurrent decoder to generate an output sequence based on the vector.
     \begin{figure}[h!t]
       \centering
       \includegraphics[width=11.5cm]{graphics/encoder-decoder}
@@ -155,17 +157,34 @@
     \end{figure}
 
     % \citet{Bahdanau_2014} improved things by introducing attention, enabling the recurrent encoders to learn to selectively attend or ignore parts of the input sequence.
-    \citet{Bahdanau_2014} improved encoder-decoder models by introducing the concept of \textit{attention}. The attention module enables the decoder to produce pieces of output by intentionally focusing on relevant pieces of the input (until now, all the output was produced based on the single overall input representation). \textbf{TO-DO: Add a picture.} For years to come, recurrent models with attention were the state of the art in most of NLP.
+    \citet{Bahdanau_2014} improved encoder-decoder models by introducing the concept of \textit{attention}. The attention module helps the decoder produce better output by selectively focusing on the most relevant parts of the input at each decoder timestep. This is depicted in \autoref{fig:encoder-decoder-att}, showing the decoder just about to output the second word (``est\'as''). The steps (as numbered in the diagram) are:
+    \begin{enumerate}
+      \item the decoder's hidden state passed to the attention module,
+      \item the intermediate hidden states of the encoder also passed to the attention module,
+      \item the attention module, based on information from the decoder's state, selecting relevant information from the encoder's hidden states and combining it into the attentional \textit{context vector},
+      \item the decoder combining the last outputted word (``c\'omo'') with the context vector and consuming this information to better decide which word to output next. 
+    \end{enumerate}
+
     \begin{figure}[h!t]
       \centering
       \includegraphics[width=11.5cm]{graphics/encoder-decoder-att}
-      \cprotect\caption{An encoder-decoder model for machine translation. Notice how the decoder initially takes as input the special \verb|<start>| token and at later time consumes the previous output word.}
+      \cprotect\caption{An encoder-decoder model for machine translation with added attention mechanism.}
       \label{fig:encoder-decoder-att}
     \end{figure}
+    
+    The attention can be described more formally\footnote{My description does not exactly follow the original works of \citet{Bahdanau_2014} and \citet{Luong_2015}. Instead, I introduce concepts that will be useful in later sections of this work.}: First, the decoder state $\bm{h_D}$ is processed into a \textit{query} $\bm{q}$ using $$\bm{q}=\bm{h_D}W_Q$$
+    and each encoder state $\bm{h_{E}^{(i)}}$ is used to produce the \textit{key} and \textit{value} vectors, $\bm{k^{(i)}}$ and $\bm{v^{(i)}}$: $$\bm{k^{(i)} = h_{E}^{(i)}W_K},\ \ \ \bm{v^{(i)} = h_{E}^{(i)}W_V}\ .$$
+    Then, the selective focus of the attention is computed as an \textit{attention weight} $w^{(i)}$ for each encoder state \textit{i}, by combining the query with the $i$-th key: $$w^{(i)}=\bm{q^\top}W_A\bm{k^{(i)}}\ .$$
+    The weights are normalised using softmax and used to create the context vector $c$ as a weighted average of the values:
+    $$\bm{c}=\sum_{i}a^{(i)}\bm{v^{(i)}}\ \ \ \textrm{where}\ \ \ a^{(i)}=softmax(w^{(i)})=\frac{e^{w^{(i)}}}{\sum_{j}e^{w^{(j)}}}\ .$$
+    Note that $W_Q$, $W_K$, $W_V$ and $W_A$ are matrices of learnable parameters, optimised in training the model. This way, the attention's ``informed selectivity'' improves over time.
+    
+    For years, recurrent models with attention were the state of the art in many NLP tasks. However, as we will see, the potential of attention reached far beyond recurrent models.
   }
 
   \section{Transformer models and BERT}{
-    \citet{Vaswani_2017} introduced Transformer. Main idea: process tokens in parallel, not sequentially, with sequentiality represented by positional markers (embeddings). Self-attention is used to pool from the context of the entire sequence, leading to evolving rich contextualised representations of each token in the higher layers.
+    % \citet{Vaswani_2017} introduced Transformer. Main idea: process tokens in parallel, not sequentially, with sequentiality represented by positional markers (embeddings). Self-attention is used to pool from the context of the entire sequence, leading to evolving rich contextualised representations of each token in the higher layers.
+    We saw how the attention mechanism can selectively focus on parts of a sequence to extract relevant information from it. This raises the question of whether processing the inputs in a sequential fashion with the recurrent encoder is still needed. In particular, RNN models are slow as a results of this sequentiality, with no room for parallelisation. In their influential work, \citet{Vaswani_2017} proposed an encoder-decoder model based solely on attention and fully parallelised: the \textit{Transformer}. The core element of the model is the \textit{self-attention} mechanism, used to process all input words in parallel.
     
     \citet{Radford_2018} introduced the idea of generative LM pre-training and fine-tuning. This concept helps train much better models even for low-resource tasks with small datasets, by leveraging general language knowledge acquired by the model in the pre-training phase. Publishing pre-trained model instances makes the power of NLP much more accessible to anyone and has become a popular thing to do. (Also mention that subword tokens were used instead of words.)
     
