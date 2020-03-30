@@ -234,29 +234,36 @@
     \subsection{BERT}{
       \label{sec:BERT}
       % \citet{Devlin_2018} improved the concept by pre-training the model bi-directionally (leading to language modelling based on left \textit{and} right context).
-      Perhaps the most popular Transformer model today is BERT, proposed by \citet{Devlin_2018}. Architecturally, it is an encoder, which makes it suitable for classification tasks. While being heavily based on the original Transformer \citep{Vaswani_2017}, BERT uses a few further tricks:
+      Perhaps the most popular Transformer model today is BERT (\textbf{Bidirectional Encoder Representations from Transformers}), proposed by \citet{Devlin_2018}. Architecturally, it is a sequence encoder, which makes it suitable for classification tasks. While being heavily based on the original Transformer \citep{Vaswani_2017}, BERT adds a few further tricks:
       \begin{enumerate}
-        \item bi-directional
-        \item different pre-training tasks: MLM, sentence pair
-        \item wordpieces
+        \item The model is bidirectional: It can be trained on language modelling that is not next-word prediction (prediction given left context), but word prediction given both the left and the right context.
+        \item It uses two very different pre-training classification tasks:
+        \begin{enumerate}
+          \item The \textit{masked language modelling} (MLM) task encourages BERT to learn good contextual words embeddings. The task itself is to correctly predict the word at a given position in a sentence, given  that the model can see the sentence, with the target word replaced with the special \verb|MASK| token, with a different word, or left unchanged.
+          \item The \textit{next-sentence prediction} (NSP) task encourages BERT to learn good sentence-level representations. Given two sentences, the task is to predict whether they formed a consecutive sentence pair in the text they came from.
+        \end{enumerate}
+        \item The inputs are processed not word by word, but in \textit{wordpieces}, which are sub-word units. This way, BERT can better deal with out-of-vocabulary words. (In word-level models, words that are not found in the model's vocabulary are replaced with a special \verb|unknown| token, which means disregarding any information carried by the words.) The tokeniser module of BERT has a fixed vocabulary of wordpieces, which is used to tokenise (segment) the input text before it is further processed.
       \end{enumerate}
       % They also changed the pre-training to 2 tasks trained at the same time: masked language modelling to learn to understand words, and next sentence prediction to learn to reason about entire sentences (as the actual NLP tasks often require such reasoning). 
       % This is is how BERT was born, which then became extremely popular in the community, attracting a lot of work on improving it, analysing its capabilities, extending it to other languages, and even applying it to multi-modal tasks such as video captioning. 
       % TO-DO: elaborate more on BERT, also with a schematic picture.
+      elaborate on pre-training
+      add a detailed diagram. things beyond what was said about Transformers already: residual connections, classification using [CLS], the HL modules (tokeniser, embeddings, Transformer, hat), GeLU?
+      mention how BERT has many extensions, tweaks, applications in other domains, languages. due to being published (in two variants) early.
     }
     \subsection{Newer and larger Transformer models}{
       \label{sec:post-BERT-models}
-      Following the success of BERT, further and often bigger Transformer models started emerging:
+      % Following the success of BERT, further and often bigger Transformer models started emerging:
+      Following the success of the early Transformers \citep{Vaswani_2017,Radford_2018,Devlin_2018}, many further variants started emerging, including:
       \begin{itemize}
-        \item GPT-2 \citep{Radford_2019}, a bigger and improved version of GPT
-        \item XLM \citep{Lample_2019} with added introduced cross-lingual pre-training
-        \item Transformer XL \citep{Dai_2019} with better handling of much longer contexts
-        \item and many others
+        \item The OpenAI team released GPT-2 \citep{Radford_2019}, a larger and improved version of their original, simple Transformer model GPT \citep{Radford_2018}.
+        \item \citep{Lample_2019} introducd XLM, which uses cross-lingual pre-training and is thus better suited for downstream tasks in various languages. \textbf{TO-DO: check}
+        \item Transformer XL \citep{Dai_2019}, which features an improved self-attention for handling very long contexts.  \textbf{TO-DO: check}
       \end{itemize}
 
-      Although the open-sourced powerful pre-trained models were a huge step towards more accessible NLP, the model size meant they couldn't be applied easily outside of research: They were memory-hungry and slow. 
-      This inspired another wave of research: compressing the huge, well-performing Transformers (very often BERT) to make them faster and resource-efficient. 
-      I will focus on the compression method that so far looks the most effective: knowledge transfer from huge models into smaller ones using teacher-student knowledge distillation.
+      All these open-sourced, powerful pre-trained models were a significant step towards more accessible high-quality NLP (in the context of downstream tasks with limited data). However, the model size -- often in 100s of million trainable parameters -- meant these models could not be applied easily in practice (outside of research): They were memory-hungry and slow.
+      Naturally, this inspired another stream of research: Compressing large, well-performing Transformer models (very often BERT) to make them faster and resource-efficient. \textbf{TO-DO: add some notable compression papers}
+      I turn my focus to one compression method that worked particularly well so far: the teacher-student knowledge distillation.
     }
   }
 
