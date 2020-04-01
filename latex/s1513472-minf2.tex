@@ -12,6 +12,9 @@
 \usepackage{lmodern}
 \usepackage{bm}
 
+% additional keywords in math mode
+\DeclareMathOperator{\softmax}{softmax}
+
 % Nice references including the words Figure, Section, etc
 \renewcommand*{\chapterautorefname}{Chapter}
 \renewcommand*{\sectionautorefname}{Section}
@@ -19,7 +22,7 @@
 \renewcommand*{\figureautorefname}{Fig.}
 \renewcommand*{\tableautorefname}{Tab.}
 \newcommand{\algorithmautorefname}{Alg.}
-\renewcommand{\equationautorefname}{Eq.}
+\def\equationautorefname~#1\null{(#1)\null}
 
 % Change font family and size in captions
 \DeclareCaptionFont{captionfont}{\small\fontseries{n}\fontfamily{phv}\selectfont}
@@ -52,7 +55,11 @@
 % For verbatim in captions
 \usepackage{cprotect}
 
+% For verbatim in footnotes
+\usepackage{fancyvrb}
+
 \begin{document}
+\VerbatimFootnotes
 
 \title{\vspace{-5.0cm} \centering{\includeshield} \vspace{1cm} \\ Teacher-student knowledge distillation from BERT\\for sentence classifiers}
 
@@ -175,12 +182,23 @@
       \label{fig:encoder-decoder-att}
     \end{figure}
     
-    The attention can be described more formally\footnote{My description does not exactly follow the original works of \citet{Bahdanau_2014} and \citet{Luong_2015}. Instead, I introduce concepts that will be useful in later sections of this work.}: First, the decoder state $\bm{h_D}$ is processed into a \textit{query} $\bm{q}$ using $$\bm{q}=\bm{h_D}W_Q$$
-    and each encoder state $\bm{h_{E}^{(i)}}$ is used to produce the \textit{key} and \textit{value} vectors, $\bm{k^{(i)}}$ and $\bm{v^{(i)}}$: $$\bm{k^{(i)} = h_{E}^{(i)}W_K},\ \ \ \bm{v^{(i)} = h_{E}^{(i)}W_V}\ .$$
-    Then, the selective focus of the attention is computed as an \textit{attention weight} $w^{(i)}$ for each encoder state \textit{i}, by combining the query with the $i$-th key: $$w^{(i)}=\bm{q^\top}W_A\bm{k^{(i)}}\ .$$
+    The attention can be described more formally\footnote{My description does not exactly follow the original works of \citet{Bahdanau_2014} and \citet{Luong_2015}. Instead, I introduce concepts that will be useful in later sections of this work.}: First, the decoder state $\bm{h_D}$ is processed into a \textit{query} $\bm{q}$ using
+    \begin{equation}
+    \bm{q}=\bm{h_D}W_Q
+    \end{equation}
+    and each encoder state $\bm{h_{E}^{(i)}}$ is used to produce the \textit{key} and \textit{value} vectors, $\bm{k^{(i)}}$ and $\bm{v^{(i)}}$:
+    \begin{equation}
+    \bm{k^{(i)} = h_{E}^{(i)}W_K},\ \ \ \bm{v^{(i)} = h_{E}^{(i)}W_V}\ .
+    \end{equation}
+    Then, the selective focus of the attention is computed as an \textit{attention weight} $w^{(i)}$ for each encoder state \textit{i}, by combining the query with the $i$-th key:
+    \begin{equation}
+    w^{(i)}=\bm{q^\top}\bm{k^{(i)}}\ .
+    \end{equation}
     The weights are normalised using softmax and used to create the context vector $c$ as a weighted average of the values:
-    $$\bm{c}=\sum_{i}a^{(i)}\bm{v^{(i)}}\ \ \ \textrm{where}\ \ \ a^{(i)}=softmax(w^{(i)})=\frac{e^{w^{(i)}}}{\sum_{j}e^{w^{(j)}}}\ .$$
-    Note that $W_Q$, $W_K$, $W_V$ and $W_A$ are matrices of learnable parameters, optimised in training the model. This way, the attention's ``informed selectivity'' improves over time.
+    \begin{equation}
+    \bm{c}=\sum_{i}a^{(i)}\bm{v^{(i)}}\ \ \ \textrm{where}\ \ \ a^{(i)}=\softmax(w^{(i)})=\frac{\exp{(w^{(i)})}}{\sum_{j}\exp{(w^{(j)})}}\ .
+    \end{equation}
+    Note that $W_Q$, $W_K$, $W_V$ are matrices of learnable parameters, optimised in training the model. This way, the attention's ``informed selectivity'' improves over time.
     
     For years, recurrent models with attention were the state of the art in many NLP tasks. However, as we will see, the potential of attention reached far beyond recurrent models.
   }
@@ -206,7 +224,7 @@
       \begin{figure}[h!t]
         \centering
         \includegraphics[width=8cm]{graphics/self-att}
-        \cprotect\caption{The internals of self-attention, illustrated on creating the next-layer hidden representation of the input position $i=0$, given all representations in the current layer. Note that $\otimes$ stands for multiplication (matrix or scalar), and $\oplus$ denotes summation.}
+        \cprotect\caption{The internals of self-attention, illustrated on creating the next-layer hidden representation of the input position $i=0$, given all representations in the current layer. Note that $\otimes$ stands for multiplication (where the multiplication involves a learnable matrix like $W_K$, this is written next to the $\otimes$), and $\oplus$ denotes summation.}
         \label{fig:self-att}
       \end{figure}
 
@@ -217,8 +235,15 @@
       Due to their parallel nature, self-attentional layers have no notion of an element's position within the input sequence. This means no sensitivity to word order. (Recurrent models sense this order quite naturally because they process input text word by word.) To alleviate this downside of self-attention, Transformers use \textit{positional embeddings}. These are artificially created numerical vectors added to each input word, different across input positions, thus enabling the model's layers to learn to be position- and order-sensitive.
 
       % multi-headedness
-      As an additional improvement of the self-attentional mechanism, \citeauthor{Vaswani_2017} introduce the concept of multiple self-attention heads. This is very similar to having multiple instances of the attention module in \autoref{fig:encoder-decoder-att} (each instance being one head). The motivation behind multiple self-attention modules (heads) is to enable each head to learn different ``focusing skills''. \textbf{TO-DO: Check the following is correct!} The self-attention inputs are split into $H$ parts ($H$ being the number of heads) and each part is processed by one head. Afterwards, the heads' outputs are joined back together.
-      \textbf{TO-DO: Add a diagram.}
+      As an additional improvement of the self-attentional mechanism, \citeauthor{Vaswani_2017} introduce the concept of multiple self-attention heads. This is very similar to having multiple instances of the self-attention module in \autoref{fig:self-att} (each instance being one \textit{head}). The motivation behind multiple self-attention heads is to enable each head $h$ to learn different ``focusing skills'' by learning its own $W_{Q,h}$, $W_{K,h}$, $W_{V,h}$. Each head produces its own output:
+      \begin{equation}
+      O_{att,h} = \softmax(\frac{\bm{q}\bm{k^\top}}{\sqrt{d_k}})\bm{v} = \softmax(\frac{(\bm{h_l^\top}W_{Q,h})^\top(\bm{h_l^\top}W_{K,h})}{\sqrt{d_k}})(\bm{h_l^\top}W_{V,h})
+      \end{equation}
+      which matches \autoref{fig:self-att} (but notice the detail of the additional scaling by $\frac{1}{\sqrt{d_k}}$, introduced by \citeauthor{Vaswani_2017}, where $d_k$ is the dimensionality of the key).
+      The outputs of the $H$ individual heads are then concatenated and dimensionality reduced with a trainable linear transformation $W_{AO}$, to produce the final output, which replaces $\bm{h_{l+1}}$ in \autoref{fig:self-att}:
+      \begin{equation}
+      O_{att} = [O_{att, 1},\ \ldots,\ O_{att, H}]W_{AO}\ .
+      \end{equation}
       
       % \citet{Radford_2018} introduced the idea of generative LM pre-training and fine-tuning. This concept helps train much better models even for low-resource tasks with small datasets, by leveraging general language knowledge acquired by the model in the pre-training phase. Publishing pre-trained model instances makes the power of NLP much more accessible to anyone and has become a popular thing to do. (Also mention that subword tokens were used instead of words.)
       Besides the self-attention-based architecture, there is one more important property that makes today's Transformer models perform so well on a wide variety of NLP tasks: the way these models are trained. First used for Transformers by \citet{Radford_2018}\footnote{The idea was previously used with recurrent models by \citet{Dai_2015}.}, the general procedure is:
@@ -234,23 +259,52 @@
     \subsection{BERT}{
       \label{sec:BERT}
       % \citet{Devlin_2018} improved the concept by pre-training the model bi-directionally (leading to language modelling based on left \textit{and} right context).
-      Perhaps the most popular Transformer model today is BERT (\textbf{Bidirectional Encoder Representations from Transformers}), proposed by \citet{Devlin_2018}. Architecturally, it is a sequence encoder, which makes it suitable for classification tasks. While being heavily based on the original Transformer \citep{Vaswani_2017}, BERT adds a few further tricks:
+      Perhaps the most popular Transformer model today is BERT (Bidirectional Encoder Representations from Transformers), proposed by \citet{Devlin_2018}. Architecturally, it is a sequence encoder, hence suited for sequence classification tasks. While being heavily based on the original Transformer \citep{Vaswani_2017}, BERT adds a few further tricks:
       \begin{enumerate}
-        \item The model is bidirectional: It can be trained on language modelling that is not next-word prediction (prediction given left context), but word prediction given both the left and the right context.
-        \item It uses two very different pre-training classification tasks:
+        \item The model learns bidirectional representations: It can be trained on language modelling that is not next-word prediction (prediction given left context), but word prediction given both the left and the right context.
+        \item {It uses two very different pre-training classification tasks:
         \begin{enumerate}
-          \item The \textit{masked language modelling} (MLM) task encourages BERT to learn good contextual words embeddings. The task itself is to correctly predict the word at a given position in a sentence, given  that the model can see the sentence, with the target word replaced with the special \verb|MASK| token, with a different word, or left unchanged.
-          \item The \textit{next-sentence prediction} (NSP) task encourages BERT to learn good sentence-level representations. Given two sentences, the task is to predict whether they formed a consecutive sentence pair in the text they came from.
+          \item The \textit{masked language modelling} (MLM) task encourages BERT to learn good contextual word embeddings. The task itself is to correctly predict the token at a given position in a sentence, given that the model can see the entire sentence with the target token(s) masked out\footnote{I.e. replaced with the special \verb|[MASK]| token.}, with a different token, or left unchanged.
+          \item The \textit{next-sentence prediction} (NSP) task encourages BERT to learn good sentence-level representations. Given two sentences, the task is to predict whether they formed a consecutive sentence pair in the text they came from, or not.
         \end{enumerate}
-        \item The inputs are processed not word by word, but in \textit{wordpieces}, which are sub-word units. This way, BERT can better deal with out-of-vocabulary words. (In word-level models, words that are not found in the model's vocabulary are replaced with a special \verb|unknown| token, which means disregarding any information carried by the words.) The tokeniser module of BERT has a fixed vocabulary of wordpieces, which is used to tokenise (segment) the input text before it is further processed.
+        The pre-training was carried out on text from books and from the English Wikipedia, totalling to 3,400 million words (for details see \citet{Devlin_2018}). The MLM and NSP tasks were both used throughout the pre-training, forcing the model to learn both at the same time.
+        }
+        \item The inputs are processed not word by word, but are broken down using a fixed vocabulary of sub-word units (\textit{wordpieces}, introduced by \citet{Wu_2016}). This way, BERT can better deal with rare words. (In word-level models, words that are not found in the model's vocabulary are replaced with a special \verb|UNKNOWN| token, which means disregarding any information carried by the words.) The tokeniser module of BERT uses the wordpiece vocabulary to tokenise (segment) the input text before it is further processed. \autoref{fig:bert-inputs} shows an example; notice how my surname (``Sucik'') gets split into three wordpieces whereas the other, much more common words are found in the wordpiece vocabulary.
+        \item To enable the different pre-training tasks as well as two-sentence inputs, BERT uses a special input sequence representation, illustrated in \autoref{fig:bert-inputs}. Given the two input sentences $S_A$, $S_B$, they are concatenated and separated by the special \verb|[SEP]| token. The overall sequence is prepended with the \verb|[CLS]| (classification) token. Then, for tasks like NSP, only the output representation of the \verb|[CLS]| token (i.e. $\bm{o_0}$) is used, whereas for token-level tasks like MLM the output vector from the desired position is used (in \autoref{fig:bert-inputs}, the MLM task would use $\bm{o_3}$ to predict the correct token at this position).
       \end{enumerate}
+
+      \begin{figure}[h!t]
+        \centering
+        \includegraphics[width=14cm]{graphics/bert-inputs}
+        \caption{BERT's handling of input for sentence-level and token-leven tasks. The input sentences ($S_A = How\ are\ you,\ Sam\ Sucik?$ and $S_B = Good,\ you?$) are shown as split by BERT's tokeniser, with the first instance of ``you'' masked out for MLM.}
+        \label{fig:bert-inputs}
+      \end{figure}
       % They also changed the pre-training to 2 tasks trained at the same time: masked language modelling to learn to understand words, and next sentence prediction to learn to reason about entire sentences (as the actual NLP tasks often require such reasoning). 
       % This is is how BERT was born, which then became extremely popular in the community, attracting a lot of work on improving it, analysing its capabilities, extending it to other languages, and even applying it to multi-modal tasks such as video captioning. 
       % TO-DO: elaborate more on BERT, also with a schematic picture.
-      elaborate on pre-training
-      add a detailed diagram. things beyond what was said about Transformers already: residual connections, classification using [CLS], the HL modules (tokeniser, embeddings, Transformer, hat), GeLU?
-      mention how BERT has many extensions, tweaks, applications in other domains, languages. due to being published (in two variants) early.
+      The overall architecture of BERT is shown in \autoref{fig:bert-hl}. The tokeniser also adds the special tokens like \verb|[CLS]| and \verb|[SEP]| to the input, while the trainable token embedding layer also adds positional embeddings to the tokens. The pooler takes the appropriate model output (for sequence level classification the first output $\bm{o_0}$ as discussed above) and applies a fully-connected layer with the tanh activation function.
+      The external classifier is often another fully-connected layer with the tanh activation, producing the logits. These get normalised using softmax to produce a probability distribution over all classes. The most probable class is outputted as the model's prediction.
+      
+      \begin{figure}[h!t]
+        \centering
+        \includegraphics[width=6cm]{graphics/bert-hl}
+        \caption{High-level overview of the modules that make up the architecture of BERT as used for sequence-level classification.}
+        \label{fig:bert-hl}
+      \end{figure}
+
+      % things beyond what was said about Transformers already: residual connections, GeLU?
+      To complete the picture of BERT, \autoref{fig:bert-encoder-layer} shows the internals of an encoder layer. Besides the multi-headed self-attention submodule, it also contains the fully-connected submodule, consisting of the intermediate fully-connected transformation with parameters $W_I$, and the layer output fully-connected transformation with parameters $W_O$. Each submodule is also by-passed by a residual connection (shown with dashed lines). The residual information is summed with the submodule's output, and layer normalisation is applied to the sum. Note that this structure is not new in BERT; it was used already by the original Transformer of \citet{Vaswani_2017}.
+
+      \begin{figure}[h!t]
+        \centering
+        \includegraphics[width=6cm]{graphics/bert-encoder-layer}
+        \caption{The modules making up one encored layer in BERT; residual connections highlighted by using dashed lines.}
+        \label{fig:bert-encoder-layer}
+      \end{figure}
+      
+      Originally, pre-trained BERT was released in two sizes: BERT\textsubscript{Base} with 110 million parameters, 12 encoder layers and 12-head self-attention, and BERT\textsubscript{Large} with 340 million parameters, 24 encoder layers and 16-head self-attention. The models quickly became popular, successfully applied to various tasks from document classification \citep{Adhikari_2019} to video captioning \citep{Sun_2019}. Further pre-trained versions were released too, covering, for example, the specific domain of biomedical text \citep{Lee_2019} or multilingual text \citep{Pires_2019}.
     }
+
     \subsection{Newer and larger Transformer models}{
       \label{sec:post-BERT-models}
       % Following the success of BERT, further and often bigger Transformer models started emerging:
@@ -295,7 +349,6 @@
         p_c=\frac{\exp{(z^{(c)}/T})}{\sum_{c=1}^{C}{\exp{(z^{(c')}/T)}}}
         \label{eq:softmax-temperature}        
       \end{equation}
-      \textbf{TO-DO: Change equation autoref.}
       The temperature parameter $T$ determines the extent to which the distribution will be ``unsharpened'' -- two extremes being the completely flat, uniform distribution (for $T \rightarrow \infty$) and the maximally sharp distribution\footnote{I.e. having the preferred class's probability 1.0 and the other classes' probabilities 0.} (for $T \rightarrow 0$). When $T > 1$, the distribution gets softened and the student can extract richer information from it. Today, using soft labels with the cross-entropy loss with temperature is what many refer to simply as knowledge distillation.
 
       Since 2015, further knowledge distillation variants have been proposed, enhancing the vanilla technique in various ways, for example:
@@ -509,7 +562,7 @@
     After observing that the best $LSTM_S$ consistently outperforms its counterpart $BERT_S$, I turned to exploring the effect of pre-trained knowledge present in the student before distillation.
     In $LSTM_S$, this lies in the word2vec embeddings. Additionally, the embedding layer is used in the \textit{multichannel mode}: two parallel embedding layers are initialised from word2vec, with one being frozen during distillation and the other one allowed to be finetuned. In $BERT_S$, there is no pre-trained knowledge or there is the knowledge from the teacher's wordpiece embeddings (dimensionality reduced by a trainable linear layer to match the smaller hidden size of $BERT_S$.
 
-    I was interested to see whether the effect of different type of embeddings -- word2vec pre-trained on general language modelling vs wordpiece pretrained on language modelling and finetuned on the particular downstream task -- could explain some of the performance gap between $BERT_S$ and $LSTM_S$.
+    I was interested to see whether the effect of different type of embeddings -- word2vec pre-trained on general language modelling vs wordpiece pre-trained on language modelling and finetuned on the particular downstream task -- could explain some of the performance gap between $BERT_S$ and $LSTM_S$.
     Hence, I tried each of the 2 students with each of the 2 embedding types, combined with each of the following 2 modes: the multichannel mode described above, and the simple (\textit{non-static}) mode where only one embedding instance is created, which is unfrozen and allowed to further train during distillation.
 
     TO-DO: add graphs
@@ -560,7 +613,7 @@
     Here, I will for each downstream task:
     \begin{itemize}
       \item probe each of the 3 models in different layers (e.g. the 24-layer $BERT_T$ in layers 1, 6, 12, 18, 24) to see how much linguistic knowledge and where is present in each model
-      \item probe also the pretrained BERT (not finetund on any downstream task) and look at how knowledge is preserved/thrown away when the teacher gets finetuned vs when students with little prior knowledge are trained during distillation
+      \item probe also the pre-trained BERT (not finetund on any downstream task) and look at how knowledge is preserved/thrown away when the teacher gets finetuned vs when students with little prior knowledge are trained during distillation
       \item compare how knowledge is present in the two architecturally different students, try to relate this to other differences noticed when analysing the students' predictions
     \end{itemize}
 
@@ -568,7 +621,7 @@
     \begin{figure}[h!t]
       \centering
       \includegraphics[width=12.5cm]{graphics/probing_master.png}
-      \caption{Probing the 3 finetuned teachers and the pretrained one. The dotted line shows baseline accuracy levels achieved by majority-class guessing, the dashed line shows human performance.}
+      \caption{Probing the 3 finetuned teachers and the pre-trained one. The dotted line shows baseline accuracy levels achieved by majority-class guessing, the dashed line shows human performance.}
       \label{fig:probing-master}
     \end{figure}
   }
