@@ -283,7 +283,7 @@
       % This is is how BERT was born, which then became extremely popular in the community, attracting a lot of work on improving it, analysing its capabilities, extending it to other languages, and even applying it to multi-modal tasks such as video captioning. 
       % TO-DO: elaborate more on BERT, also with a schematic picture.
       The overall architecture of BERT is shown in \autoref{fig:bert-hl}. The tokeniser also adds the special tokens like \verb|[CLS]| and \verb|[SEP]| to the input, while the trainable token embedding layer also adds positional embeddings to the tokens. The pooler takes the appropriate model output (for sequence level classification the first output $\bm{o_0}$ as discussed above) and applies a fully-connected layer with the tanh activation function.
-      The external classifier is often another fully-connected layer with the tanh activation, producing the logits. These get normalised using softmax to produce a probability distribution over all classes. The most probable class is outputted as the model's prediction.
+      The external classifier is often another fully-connected layer with the tanh activation, producing the logits\footnote{For a classifier, the logits are the (unnormalised) predicted class probabilities.}. These get normalised using softmax to produce a probability distribution over all classes. The most probable class is outputted as the model's prediction.
       
       \begin{figure}[h!t]
         \centering
@@ -308,15 +308,16 @@
     \subsection{Newer and larger Transformer models}{
       \label{sec:post-BERT-models}
       % Following the success of BERT, further and often bigger Transformer models started emerging:
-      Following the success of the early Transformers \citep{Vaswani_2017,Radford_2018,Devlin_2018}, many further variants started emerging, including:
+      Following the success of the early Transformers and BERT \citep{Vaswani_2017,Radford_2018,Devlin_2018}, many further model variants started emerging, including:
       \begin{itemize}
-        \item The OpenAI team released GPT-2 \citep{Radford_2019}, a larger and improved version of their original, simple Transformer model GPT \citep{Radford_2018}.
-        \item \citep{Lample_2019} introducd XLM, which uses cross-lingual pre-training and is thus better suited for downstream tasks in various languages. \textbf{TO-DO: check}
-        \item Transformer XL \citep{Dai_2019}, which features an improved self-attention for handling very long contexts.  \textbf{TO-DO: check}
+        \item The OpenAI team releasing GPT-2 \citep{Radford_2019}, a larger and improved version of their original, simple Transformer model GPT \citep{Radford_2018}.
+        \item \citep{Lample_2019} introducing XLM, which uses cross-lingual pre-training and is thus better suited for downstream tasks in different languages.
+        \item Transformer-XL \citep{Dai_2019}, which features an improved self-attention that can handle very long contexts (across multiple sentences/documents).
       \end{itemize}
 
       All these open-sourced, powerful pre-trained models were a significant step towards more accessible high-quality NLP (in the context of downstream tasks with limited data). However, the model size -- often in 100s of million trainable parameters -- meant these models could not be applied easily in practice (outside of research): They were memory-hungry and slow.
-      Naturally, this inspired another stream of research: Compressing large, well-performing Transformer models (very often BERT) to make them faster and resource-efficient. \textbf{TO-DO: add some notable compression papers}
+      
+      Naturally, this inspired another stream of research: Compressing large, well-performing Transformer models (very often BERT) to make them faster and resource-efficient.
       I turn my focus to one compression method that worked particularly well so far: the teacher-student knowledge distillation.
     }
   }
@@ -327,11 +328,11 @@
     % different objectives: logits, hard labels, mimicking internal representations...
     \subsection{A brief introduction to knowledge distillation}{
       \label{sec:KD-intro}
-      Knowledge distillation was introduced by \citep{Bucila_2006} as a way of knowledge transfer from large models into small ones. The aim is to end up with a smaller -- and hence faster -- yet well-performing model. The steps are 1) to train a big neural classifier model (also called the \textit{teacher}), 2) let a smaller neural classifier model (the \textit{student}) learn from it -- by learning to mimic the teacher's behaviour. Hence also the name \textit{teacher-student knowledge distillation}, often simply \textit{knowledge distillation}.
+      Knowledge distillation was introduced by \citep{Bucila_2006} as a way of knowledge transfer from large models into small ones. The aim is to end up with a smaller -- and hence faster -- yet well-performing model. The steps are 1) to train a big neural classifier model (also called the \textit{teacher}), 2) to let a smaller neural classifier model (the \textit{student}) learn from it -- by learning to mimic the teacher's behaviour. Hence also the name \textit{teacher-student knowledge distillation}, often simply \textit{knowledge distillation}.
       
       There are different ways of defining the teacher's ``behaviour'' which the student learns to mimic. Originally, this was realised as learning to mimic the teacher's predictions: A dataset would be labelled by the teacher, and the student would be trained on these labels (which are in this context referred to as the \textit{hard labels}). The dataset used for training the student (together with the teacher-generated labels) is referred to as the \textit{transfer dataset}.
 
-      Later, \citet{Ba_2013} introduced the idea of learning from the teacher-generated \textit{soft labels}, which are the teacher's logits\footnote{For a classifier, the logits are the (unnormalised) predicted class probabilities.}. The idea is to provide the student with richer information about the teacher's decisions: While hard labels only express which class had the highest predicted probability, soft labels also describe how confident the prediction was and which other classes (and to what extent) the teacher was considering for a given example.
+      Later, \citet{Ba_2013} introduced the idea of learning from the teacher-generated \textit{soft labels}, which are the teacher's logits. The idea is to provide the student with richer information about the teacher's decisions: While hard labels only express which class had the highest predicted probability, soft labels also describe how confident the prediction was and which other classes (and to what extent) the teacher was considering for a given example.
 
       When soft labels were first used, the student's training loss function was the mean squared distance between the student's and the teacher's logits:
       \begin{equation}
@@ -346,75 +347,95 @@
         \label{eq:E_CE}        
       \end{equation}
       \begin{equation}
-        p_c=\frac{\exp{(z^{(c)}/T})}{\sum_{c=1}^{C}{\exp{(z^{(c')}/T)}}}
+        p_c=\frac{\exp{(z^{(c)}/T})}{\sum_{c'=1}^{C}{\exp{(z^{(c')}/T)}}}
         \label{eq:softmax-temperature}        
       \end{equation}
-      The temperature parameter $T$ determines the extent to which the distribution will be ``unsharpened'' -- two extremes being the completely flat, uniform distribution (for $T \rightarrow \infty$) and the maximally sharp distribution\footnote{I.e. having the preferred class's probability 1.0 and the other classes' probabilities 0.} (for $T \rightarrow 0$). When $T > 1$, the distribution gets softened and the student can extract richer information from it. Today, using soft labels with the cross-entropy loss with temperature is what many refer to simply as knowledge distillation.
+      The temperature parameter $T$ determines the extent to which the distribution will be ``unsharpened'' -- two extremes being the completely flat, uniform distribution (for $T \rightarrow \infty$) and the maximally sharp distribution\footnote{I.e. having the preferred class's probability 1 and the other classes' probabilities 0.} (for $T \rightarrow 0$). When $T > 1$, the distribution gets softened and the student can extract richer information from it. Today, using soft labels with the cross-entropy loss with temperature is what many refer to simply as knowledge distillation.
 
       Since 2015, further knowledge distillation variants have been proposed, enhancing the vanilla technique in various ways, for example:
       \begin{itemize}
         \item \citet[p. 13]{Papamakarios_2015} points out that mimicking teacher outputs can be extended to mimicking mimicking the \textit{derivatives} of the teacher's loss with respect to the inputs. This is realised by including in the student's loss function also the term: $\frac{\partial \bm{o}_s}{\partial \bm{x}} - \frac{\partial \bm{o}_t}{\partial \bm{x}}$ ($\bm{x}$ being an input, e.g. a sentence, and $\bm{o}$ being the output, e.g. the predicted class). %, the additional loss term being calculated using the R technique (Pearlmutter, 1994).
         \item \citet{Romero_2015} proposed to additionally match the teacher's internal, intermediate representations of the input. \citet{Huang_2017} achieved this by learning to align the distributions of neuron selectivity patterns between the teacher's and the student's hidden layers. Unlike standard knowledge distillation, this approach is no longer limited only to classifier models with softmax outputs (see the approach of \citet{Hinton_2015} discussed above).
         \item \citet{Sau_2016} showed that learning can be more effective when noise is added to the teacher logits.
-        \item \citet{Mirzadeh_2019} showed that when the teacher is much larger than the student, knowledge distillation performs poorly, and improved on this by \textit{multi-stage distillation}: First, knowledge is distilled from the teacher into an intermediate-size ``teacher assistant'' model, then from the assistant into the final student.
+        \item \citet{Mirzadeh_2019} showed that when the teacher is much larger than the student, knowledge distillation performs poorly, and improved on this by ``multi-stage'' distillation: First, knowledge is distilled from the teacher into an intermediate-size ``teacher assistant'' model, then from the assistant into the final student.
       \end{itemize}
     }
 
     \subsection{Knowledge distillation in NLP}{
       % \citet{Kim_2016} observe that KD and weight pruning are orthogonal (can be used together), and that mimicking top-most hidden layer outputs (instead of outputs themselves) doesn't provide improvements previously reported.
-      Practically all the so far mentioned research in knowledge distillation was done in the domain of image processing. This comes as no surprise: It was image processing that was benefitting the most from the resurgence of deep learning. Ever since the AlexNet \citep{Krizhevsky_2012}, bigger and bigger models were proposed, simultaneously driving the research in model compression so as to make the models usable in practice.
+      % Practically all the so far mentioned research in knowledge distillation was done in the domain of image processing. This comes as no surprise: It was image processing that was benefitting the most from the resurgence of deep learning. Ever since the AlexNet \citep{Krizhevsky_2012}, bigger and bigger models were proposed, simultaneously driving the research in model compression so as to make the models usable in practice.
+      The knowledge distillation research discussed so far was tied to the image processing domain. This is not surprising: Image processing was the first area to start taking advantage of deep learning, and bigger and bigger models had been researched ever since the revolutional AlexNet \citep{Krizhevsky_2012}.
 
       % KD in NLP: sequence-level KD \citep{Kim_2016}, then basically straight to distilling from BERT?
         % In the NLP literature, it has previously been used in neural machine translation (Kim and Rush, 2016) and language modeling (Yu et al., 2018).
-      In natural language processing, research on knowledge distillation was rare for a long time. One notable work was the adaptation of distillation for sequence-to-sequence machine translation models -- whose outputs are no longer simple classification scores -- by \citet{Kim_2016}. Another pioneering study compressed a recurrent neural language model for use on mobile devices \citep{Yu_2018}.
+      % In natural language processing, research on knowledge distillation was rare for a long time. One notable work was the adaptation of distillation for sequence-to-sequence machine translation models -- whose outputs are no longer simple classification scores -- by \citet{Kim_2016}. Another pioneering study compressed a recurrent neural language model for use on mobile devices \citep{Yu_2018}.
+      In NLP, the (recurrent) models were moderately sized for a long time, not attracting much research in model compression. Still, one early notable work was on adapting knowledge distillation for sequence-to-sequence models \citep{Kim_2016}, while another pioneering study \citep{Yu_2018} distilled a recurrent model into en even smaller one -- to make it suitable for running on mobile devices.
 
-      However, the real need for model compression started very recently when huge Transformer models were introduced. This follows on from the main limitation of the otherwise very accessible pre-trained models: being huge and slow.
+      Understandably, the real need for model compression started very recently, when the large pre-trained Transformer models became popular. Large size and low speed seemed to be the only downside of these -- otherwise very successful and accessible -- models.
 
-      When distilling knowledge from big, pre-trained Transformer models, the main decision is whether to distil before or after fine-tuning on a concrete downstream task. Each option has its pros and cons.
-      In the first scenario, the steps are: 1) distilling into a small student, 2) fine-tuning the student on any downstream task. One advantage is that the distillation is done only once and fine-tuning the student can be fast (due to the student's size). Since the distillation can be done on the same data that the teacher was pre-trained on -- large corpora of unlabelled data, one does not have to worry about not having enough data. One possible downside is that the amount of general language knowledge contained in the pre-trained teacher will be too much to contain within a small student, hence requiring students that are themselves considerably large (and slow). \citet{Sanh_2019} took this approach and while their student model is very successfully fine-tuned to a wide range of tasks, it smaller than the teacher (BERT base) only by 40\%, still having 66M parameters.
+      % When distilling knowledge from big, pre-trained Transformer models, the main decision is whether to distil before or after fine-tuning on a concrete downstream task. Each option has its pros and cons.
+      Perhaps the first decision to make when distilling large pre-trained models is at which point to distill. In particular, one can distill the general knowledge from a pre-trained teacher and use such general student by fine-tuning it on downstream tasks, or one can fine-tune the pre-trained teacher on a task and then distill this specialised knowledge into a student model meant for the one task only. Each of these approaches has its advantages and disadvantages.
+
+      In the first scenario (distilling pre-trained knowledge), a major advantage is that the distillation happens once and the small student can be fine-tuned fast for various downstream tasks.
+      Since the distillation can be done on the same data that the teacher was pre-trained on -- large unlabelled text corpora --, lack of transfer data is not a concern.
+      A possible risk is that the large amount of general pre-trained language knowledge will not ``fit'' into the small student, requiring the student itself to be considerably large. \citet{Sanh_2019} took this approach and, while their student is successfully fine-tuned for a wide range of tasks, it is only 40\% smaller than the BERT\textsubscript{Base} teacher.
+
       % Distilling beforeinto a small student and subsequently finetuning it on any downstream task means easy 
       %   pros: have flexible model that's easy to finetune for any downstream task. lots of transfer data to work with.
       %   cons: too small model may not be able to take all of teacher's useful knowledge
       %   Sanh tried and only got to making BERT 60\% smaller??? (# of params).
 
       % CAREFUL NOT TO MIX IN OWN METHODOLOGY HERE!!!
-      In the second scenario, the steps are: 1) fine-tuning the pre-trained teacher on a downstream task, 2) distilling the teacher into a small student. 
-      In this case, the downstream task-specific language knowledge is likely to be much smaller than the teacher's overall pre-trained language knowledge, meaning that a much smaller student can still contain all important knowledge from the fine-tuned teacher. 
-      However, with this approach, the teacher fine-tuning and distillation has to be done separately every downstream task, which can be resource-intensive.
-      Even more importantly, the distillation procedure can suffer from lack of data, since the distillation is now being done only with the downstream task dataset, which will often be small and has to be augmented.
-      Various ways of augmenting small datasets to increase the amount of transfer data have been proposed, with mixed success. 
-      \citet{Mukherjee_2019} use additional unlabelled in-domain sentences with labels generated by the teacher -- an approach that only works if such in-domain sentences are available. \citet{Tang_2019a} propose augmentation based on simple, rule-based perturbation of existing sentences from the downstream task data. Finally, \citet{Jiao_2019} and \citet{Tang_2019b} use big Transformer models generatively to create new sentences. In the first case, BERT is repeatedly used to choose a suitable replacement for an existing word in a given sentence, eventually leading to a new sentence with many words changed for different ones. In the second case, a GPT-2 model is fine-tuned on the downstream task with a language model objective, and a new sentence is generated by repeatedly predicting the next token, conditioned on the sequence generated so far.
+      In the second scenario, only the task-specific knowledge needs to be transferred to the student -- potentially allowing very small students.
+      However, teacher fine-tuning and distillation have to be done anew for each task and this is resource-hungry.
+      Additionally, there may be a lack of transfer data if the downstream task dataset is small.
+      Various ways of addressing this issue by \textit{augmenting} small datasets have been proposed, with mixed success. 
+      \citet{Mukherjee_2019} use additional unlabelled in-domain sentences with labels generated by the teacher -- this is limited to cases where such in-domain data are available. \citet{Tang_2019a} create additional sentences using simple, rule-based perturbation of existing sentences from the downstream dataset. Finally, \citet{Jiao_2019} and \citet{Tang_2019b} use large Transformer models generatively to create new sentences. In the first case, BERT is applied repeatedly to an existing sentence, changing words into different ones one by one and thus generating a new sentence. In the second case, new sentences are sampled token-by-token from a GPT-2 model fine-tuned on the downstream dataset with the next-token-prediction objective.
       % After:
       %   pros: only task-specific knowledge is distilled, likely into much smaller model.
       %   cons: have to train big teacher for each downstream task, likely to take long. may need more transfer data than small downstream dataset.
       %   Tang: distilled into much smaller student. didn't address issue of having to train teacher repeatedly. addressed issue of little data quite successfully.
 
-      In this work, I adopt the approach of \citet{Tang_2019b} as I view it as the most promising one so far. However, while they use only bidirectional LSTM students, I also experiment with a smaller version of BERT, similarly to \citet{Jiao_2019}. For detailed description of the system see \autoref{chap:implementation}.
+      % In this work, I adopt the approach of \citet{Tang_2019b} as I view it as the most promising one so far. However, while they use only bidirectional LSTM students, I also experiment with a smaller version of BERT, similarly to \citet{Jiao_2019}. For detailed description of the system see \autoref{chap:implementation}.
+      Clearly, each approach is preferred in a different situation: If the requirement is to compress the model as much as possible, and there is enough transfer data, distilling the fine-tuned teacher is more promising. If, on the other hand, one wants to make available a re-usable, small model, then distilling the broader, pre-trained knowledge is preferred.
     }
   }
   
-  \section{Analysing and understanding NLP models}{
-    NNs are black boxes and (not) understanding the models is a serious issue.
-    performance is typically more important than transparence, but recently the demand for explainable AI (XAI) has been increasing. additionally, understanding is opportunity for further improvements of the mdels and techniques.
+  \section{Understanding NLP models}{
+    % NNs are black boxes and (not) understanding the models is a serious issue.
+    Neural models are by their very nature opaque or even black boxes, and (not) really understanding the models is a serious concern.
+    % performance is typically more important than transparence, but recently the demand for explainable AI (XAI) has been increasing. additionally, understanding is opportunity for further improvements of the mdels and techniques.
+    Despite the typical preferrence of performance over transparence, recently, the demand for explainable artificial intelligence (XAI) has been increasing, as neural models become widely used.
 
-    in image processing, interpretability is easy thanks to visualising things. (somewhat similarly music.) notable works: maximising activation, visualising neurons' output for given input, maximum activation samples.
-    in NLP, interpreting is more difficult, and also comes with a delay after image processing -- same with the big model hype and compression hype.
+    % in image processing, interpretability is easy thanks to visualising things. (somewhat similarly music.) notable works: maximising activation, visualising neurons' output for given input, maximum activation samples.
+    The area of image processing has seen the most attempts at interpreting neural models, partly because reasoning about images is easy for humans. Various techniques shed light into the workings of image classifiers, e.g. creating images that maximally excite certain neurons \citep{Simonyan_2013} or highlighting those parts of an image that a particular neuron ``focuses'' on \citep{Zeiler_2013}. 
+    
+    In NLP, interpreting is more difficult and historically came with a delay similar to the delay with which large neural models became popular for NLP tasks.
     % hard to do maximising activation or visualising single units. BUT types of information preserved in internal input representations can be well explored: probing!
-    \citet{Belinkov_2018} give nice overview of work done up until 2018. they point out that many methods for analysing and interpreting models are adapted from image processing, especially visualising activations of single neurons on specific input examples. in attentional seq2seq models, the attention maps can be visualised to show soft alignments between input and output sequences. however, these methods taken from image processing are mostly qualitative, not suited for comparing models.
+    In their review, \citet{Belinkov_2018} observe that many methods for analysing and interpreting models are simply adapted from image processing, in particular the approach of visualising a single neuron's focus, given an input.
+    In attentional sequence-to-sequence models, the attention maps can be visualised to explore the soft alignments between input and output words (see, e.g., \citet{Strobelt_2018}). However, these methods are mostly qualitative, not well suited for model comparison.
     
-    more quantitative and NLP-specific are the approaches that look at kinds of linguistic knowledge present in a model's internal representations of input. most often, this means extracting activations for a set of inputs and trying to predict properties of the input from the activations by using a simple predictor model. if the prediction works well, then the activations must've contained linguistic knowledge relevant for the predicted property. since first proposed by \citet{Shi_2016}, this approach has been used repeatedly to explore various forms of representations. the first work was looking at how well NMT systems capture syntactic properties of input. later, \citet{Adi_2017} used simpler artificial prediction tasks (sentence length, word content and word order) to better understand sentence embeddings produced by recurrent encoders. more recently, \citet{Conneau_2018} curated a set of 10 probing tasks ranging from surface properties through syntactic to semantic ones, and compared different recurrent and convolutional sentence encoders (and many useful baseline models) in terms of the linguistic knowledge in their sentence representations.
-    focusing specifically on Transformer models, \citet{Tenney_2019a} propose a set of \textit{edge probing} tasks which examine how much contextual knowledge about the entire sentence is captured within the representation of a single word. the tasks mimic the typical steps of a standard NLP pipeline -- from POS tagging to identifying dependencies and entities to semantic role labelling. \citet{Tenney_2019b} were able to localise the layers of BERT that are the most important for each of the tasks, showing that the different linguistic capabilities are ordered within the model in the typical NLP pipeline order: from simple POS tagging in the earlier layers to the most complex semantic tasks in the last layers.
+    More quantitative and NLP-specific are the approaches that explore the linguistic knowledge present in a model's internal representations.
+    Most often, this is realised by trying to automatically recover specific properties of the input from such representations -- when such recovery works well, the representations must have contained the linguistic knowledge tied to the input properties in question.
+    First used by \citet{Shi_2016} for exploring syntactic properties captured by machine translation models, this general approach was later applied to various representations.
+    \citet{Adi_2017} explored sentence encodings from recurrent models by trying to recover simple properties like sentence length, word content and word order.
+    More recently, \citet{Conneau_2018} curated a set of 10 probing tasks ranging from surface properties through syntactic to semantic ones. This enabled comparing various sentence encoder architectures in terms of the low- and high-level linguistic knowledge they capture.
+    Focusing on Transformers, \citet{Tenney_2019a} proposed a set of \textit{edge probing} tasks, examining how much contextual knowledge about an entire input sentence is captured within the contextual representation of one of its words.
+    These tasks correspond to the typical steps of a text processing pipeline -- from part-of-speech tagging to identifying dependencies and entities to semantic role labelling. \citet{Tenney_2019b} managed to localise the layers of BERT most important for each of these tasks, showing that the ordering of these ``centres of expertise'' within BERT's enoder matches the usual low- to high-level order: from simple POS tagging in the earlier layers to the most complex semantic tasks in the last layers.
 
-    while the abovementioned methods for analysing models provide valuable insights, they are incomplete. for one, they merely help us describe in intuitive terms the kinds of internal knowledge/specialisation observed in the models. in their overview of interpretability of machine learning, \citet{Gilpin_2018} call this level of model understanding \textit{interpretability} -- comprehending what a model does. however, what we should strive to achieve, is \textit{explainability}: the ability to ``summarize the reasons for neural network behavior, gain the trust of users, or produce insights about the causes of their decisions''. In this sense, today's methods for analysing neural NLP models achieve only interpretability because they enable us to describe but not explain (especially in terms of causality) the internals and decisions of the models.
+    While the discussed approaches provide valuable insights, they merely help us intuitively describe or quantify the kinds of internal knowledge/expertise present in the models. 
+    \citet{Gilpin_2018} call this level of model understanding \textit{interpretability} -- comprehending what a model does. 
+    However, they argue thas what we should strive to achieve is \textit{explainability}: the ability to ``summarize the reasons for neural network behavior, gain the trust of users, or produce insights about the causes of their decisions''.
+    In this sense, today's methods achieve only interpretability because they enable researchers to describe but not explain -- especially in terms of causality -- the internals and decisions of the models.
     
-    In this work, I also attempt to mainly \textit{interpret} the student and teacher models. I adopt two approaches:
-    \begin{enumerate}
-      \item analysing the mistakes the models make on the downstream task they were trained to do, including how confident the correct and incorrect predictions are
-      \item probing the models using the probing tasks curated by \citet{Conneau_2018}
-    \end{enumerate}
-    By comparing the findings between models trained on different downstream tasks or with different architectures, I try to characterise each task in terms of the linguistic capabilities it utilises. 
-    Further, I describe how different student model architectures influence how linguistic knowledge is distilled from a teacher and stored in the student, and what the effect on the student's confidence is. 
-    Finally, I try to relate the observed effects to the method of knowledge distillation itself.
+    % In this work, I also attempt to mainly \textit{interpret} the student and teacher models. I adopt two approaches:
+    % \begin{enumerate}
+    %   \item analysing the mistakes the models make on the downstream task they were trained to do, including how confident the correct and incorrect predictions are
+    %   \item probing the models using the probing tasks curated by \citet{Conneau_2018}
+    % \end{enumerate}
+    % By comparing the findings between models trained on different downstream tasks or with different architectures, I try to characterise each task in terms of the linguistic capabilities it utilises. 
+    % Further, I describe how different student model architectures influence how linguistic knowledge is distilled from a teacher and stored in the student, and what the effect on the student's confidence is. 
+    % Finally, I try to relate the observed effects to the method of knowledge distillation itself.
   }
 }
 
