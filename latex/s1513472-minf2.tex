@@ -362,6 +362,7 @@
     }
 
     \subsection{Knowledge distillation in NLP}{
+      \label{sec:kd-nlp}
       % \citet{Kim_2016} observe that KD and weight pruning are orthogonal (can be used together), and that mimicking top-most hidden layer outputs (instead of outputs themselves) doesn't provide improvements previously reported.
       % Practically all the so far mentioned research in knowledge distillation was done in the domain of image processing. This comes as no surprise: It was image processing that was benefitting the most from the resurgence of deep learning. Ever since the AlexNet \citep{Krizhevsky_2012}, bigger and bigger models were proposed, simultaneously driving the research in model compression so as to make the models usable in practice.
       The knowledge distillation research discussed so far was tied to the image processing domain. This is not surprising: Image processing was the first area to start taking advantage of deep learning, and bigger and bigger models had been researched ever since the revolutional AlexNet \citep{Krizhevsky_2012}.
@@ -402,6 +403,7 @@
   }
   
   \section{Understanding NLP models}{
+    \label{sec:understanding-models}
     % NNs are black boxes and (not) understanding the models is a serious issue.
     Neural models are by their very nature opaque or even black boxes, and (not) really understanding the models is a serious concern.
     % performance is typically more important than transparence, but recently the demand for explainable AI (XAI) has been increasing. additionally, understanding is opportunity for further improvements of the mdels and techniques.
@@ -446,7 +448,6 @@
 
   In this chapter, I introduce the downstream tasks and how I augmented their data to create large transfer datasets. I also introduce the probing tasks used later for analysing the teacher and student models.
 
-  % GLUE: CoLA, SST-2; Sara (anonymised!), probing tasks. Other alternatives considered.
   \section{Downstream tasks}{
     The downstream task datasets I use to fine-tune the teacher model. The tasks are chosen to be diverse so that the knowledge distillation analysis later in this work is set in a wide NLP context. At the same time, all the datasets are rather small and therefore well representing the type of use case where pre-trained models like BERT are desirable due to the lack of labelled fine-tuning data.
 
@@ -479,9 +480,9 @@
     \subsection{Stanford Sentiment Treebank}{
       \label{sec:datasets-SST-2}
 
-      The SST-2 dataset \citep{SST-paper} is considerably bigger than CoLA, with roughly 67,000 training sentences, 900 evaluation and 1,800 testing examples. It contains sentences and phrases from movie reviews collected on \url{rottentomatoes.com}. The main SST dataset comes with human-created sentiment annotations on the continuous scale from very negative to very positive. SST-2 is a simplified version with neutral-sentiment phrases removed, only containing binary sentiment labels (positive and negative).
+      The SST-2 dataset \citep{SST-paper} is considerably bigger than CoLA, with roughly 67,000 training examples, 900 evaluation and 1,800 testing examples. It contains sentences and phrases from movie reviews collected on \url{rottentomatoes.com}. The main SST dataset comes with human-created sentiment annotations on the continuous scale from very negative to very positive. SST-2 is a simplified version with neutral-sentiment phrases removed, only containing binary sentiment labels (positive and negative).
 
-      Unlike the hand-crafted examples in CoLA, many examples in SST-2 are not the best-quality examples. In particular, sentences are sometimes split into somewhat arbitrary segments\footnote{This is due to the use of an automated parser in creating teh dataset.}, such as:
+      Unlike the hand-crafted examples in CoLA, many examples in SST-2 are not the best-quality examples. In particular, sentences are sometimes split into somewhat arbitrary segments\footnote{This is due to the use of an automated parser in creating the dataset.}, such as:
       \begin{itemize}
         \item \textit{should have been someone else - } (negative)
         \item \textit{but it could have been worse.} (negative)
@@ -493,68 +494,103 @@
         \item \textit{you won't like roger, but you will quickly recognize him.} (negative)
       \end{itemize}
 
-      Despite the problematic examples, most are straightforward (e.g. ``delightfully cheeky''), making this task a relatively easy one. With accuracy being the official metric, best models in the GLUE leaderboard score over 97\%, very close to the official human baseline of 97.8\%\footnote{See the GLUE leaderboard at \url{https://gluebenchmark.com/leaderboard}}.
+      Despite the problematic examples, most are straightforward (e.g. ``delightfully cheeky'' or ``with little logic or continuity''), making this task a relatively easy one. With accuracy being the official metric, best models in the GLUE leaderboard score over 97\%, very close to the official human baseline of 97.8\%\footnote{See the GLUE leaderboard at \url{https://gluebenchmark.com/leaderboard}}.
     }
 
     \subsection{Sara}{
       \label{sec:datasets-Sara}
-      As the third task, I use an intent classification dataset collected by Rasa, a company building open-source tools for conversational AI\footnote{For transparency: I did a 3-month internship as Machine Learning researcher with Rasa in the summer of 2019.}. The dataset is named Sara, after the company's own chatbot\footnote{Demonstrated at \url{https://github.com/RasaHQ/rasa-demo}} which provides various information about Rasa and its products to the visitors of the company's website\footnote{\url{https://rasa.com/}}. The dataset comprises 4.8k examples overall, split between 1k testing portion and 3.8k training portion. Each example is a human-generated utterance and has been manually labelled with one of 57 intents, helping the Sara chatbot learn to detect what a human is talking to it about. Originally, the dataset was initialised by Rasa employees talking to Sara. Later, many more examples were collected by deploying the chatbot and letting site visitors talk to it. The 57 intent types were designed by Rasa, starting with a smaller number of broader intents and refining the set after observing real questions humans were asking the chatbot. \textbf{TO-DO: verify this is true; my knowledge of the history of Sara is limited.} The main scoring metric is the multi-class micro-averaged F1 score.
-      Mention the consent ethics.
 
-      I modified the Sara dataset by splitting the training portion into 2.8k training and 1k evaluation sentences (while keeping both sets class-balanced). I also PSEUDONYMISED the dataset by replacing all sensitive information with generic tokens. Namely, I replaced people's names and surnames with a single token \verb|__PERSON_NAME__| and e-mail addresses with \verb|__EMAIL_ADDRESS__|.
+      As the third task, I use an intent classification dataset created by Rasa, a start-up building open-source tools for conversational AI\footnote{For transparency: I did a Machine learning research internship with Rasa in the summer of 2019.}.
 
-      To stay consistent with the GLUE datasets for which test-set labels are not publicly available, I do not use the test portion of any of them when analysing the mistakes made by different models. Instead, I analyse the predictions on the evaluation set. This can be viewed as sheding light on the kind of model qualities that are actually optimised when choosing model parameters on this set.
+      The dataset is named Sara after the chatbot deployed on the company's website\footnote{See the bot in action at \url{https://rasa.com/docs/getting-started/}.}
+      The Sara chatbot is aimed for holding conversations with the website visitors on various topics, primarily answering common questions about Rasa and the tools that it develops (the same tools were used to build Sara).
+      To support diverse topics, Sara internally classifies each human message as one of 57 intents and then generates an appropriate response. The Sara dataset is a collection of human-generated message examples for each of the 57 intents, e.g.:
+      \begin{itemize}
+        \item \textit{what's the weather like where you are?} (ask\_weather)
+        \item \textit{what is rasa actually} (ask\_whatisrasa)
+        \item \textit{yes please!} (affirm)
+        \item \textit{i need help setting up} (install\_rasa)
+        \item \textit{where is mexico?} (out\_of\_scope)
+      \end{itemize}
+      \textbf{TO-DO: List of all intents with brief descriptions or representative examples? Perhaps in the appendix...}
+
+      In the early days of the chatbot, it supported fewer intents, and several artificial examples per intent were first hand-crafted by Rasa employees to train the initial version of Sara's intent classifier. After Sara was deployed, more examples were collected and annotated from conversations with the website's visitors\footnote{To get a consent for such use of the conversations, each visitor was shown the following before starting a conversation with Sara: ``Hi, I'm Sara! By chatting to me you agree to our privacy policy.'', with a link to \url{https://rasa.com/privacy-policy/}}. Inspired by the topics that people tended to ask about, new intent categories were added. Today, the dataset still evolves and can be found -- together with the implementation of Sara -- at \url{https://github.com/RasaHQ/rasa-demo} (accessed April 3, 2020). It contains both the original hand-crafted examples as well as the (much more abundant) ``real'' examples.
+
+      The Sara dataset version I use dates back to October 2019, when I obtained it from Rasa and pseudonymised the data\footnote{As a former employee (intern) of Rasa, I got access to the data under the NDA I had signed with the company.}. In particular, I removed any names of persons and e-mail addresses in any of the examples, replacing them with the special tokens \verb|__PERSON_NAME__| and \verb|__EMAIL_ADDRESS__|, respectively.      
+      The dataset comprises roughly 4,800 examples overall, and was originally split into 1,000 testing examples and 3,800 training examples. 
+      I further split the training partition into training and evaluation, with roughly 2,800 and 1,000 examples, respectively. All three partitions have the same class distribution.
+
+      In line with how the dataset is used for research at Rasa, I use as the main scoring metric the multi-class micro-averaged $F_1$ score. This variant of multi-class $F1$ considers all examples combined and is computed from the overall precision $P$ and recall $R$ in the usual way: $F_{1 micro} = \frac{2 P R}{P+R}$. Here, the overall $P$ and $R$ are calculated from the overall true-positives $TP$, false-positives $FP$ and false-negatives $FN$:
+      \begin{equation}
+        P = TP/(TP+FP),\ \ \ \ R = TP/(TP+FN)
+      \end{equation}
+      where $TP$ is in this case the total number of correctly predicted examples (hits $H$), and both $FN$ and $FP$ equal the number of incorrect predictions (misses $M$). Hence:
+      \begin{equation}
+        F_{1micro} = H/(H+M) = P = R = accuracy\ .
+      \end{equation}
+      Compared to another popular multi-class metric -- the macro-averaged $F1$, the $F_{1micro}$ score takes into account the sizes of different classes by looking at all examples in combination. This way, the overall score cannot be harshly pulled down just because of low recall or precision on some small, rare class.
     }
   }
 
-  \section{Data augmentation for generating large transfer sets}{
-    EXPLAIN what these data are used for.
-    As \citet{Tang_2019a} demonstrate, taking just the training sentences of a downstream task as the transfer set for knowledge distillation is not enough; especially for challenging tasks like CoLA where the training set comprises only several thousands of sentences (for results, see Table 1 in \citet{Tang_2019b} TO-DO: summarise results here so the reader doesn't neet to look at other papers). I adopt the approach that they found to work the best: Augmenting the training portion with additional sentences generated by a GPT-2 model \citep{Radford_2019}. The concrete steps for this augmentation are:
+  \section{Data augmentation for larger transfer datasets}{
+    \label{sec:augmentation}
+    As discussed in \autoref{sec:kd-nlp}, the transfer datasets in knowledge distillation often need to be augmented; if they are too small, they don't provide enough opportunity for the teacher to ``demonstrate its knowledge'' to the student, and the student learns little.
+
+    \citet{Tang_2019b} demonstrated on several GLUE tasks that using an augmented training portion for distillation leads to much better student performance than using just the original small training portion.
+    For CoLA in particular, using just the small training set led to very poor student performance (see Table~1 in \citeauthor{Tang_2019b}).
+    
+    I take the augmentation approach that \citeauthor{Tang_2019b} found to work the best: Generating additional sentences using a GPT-2 model \citep{Radford_2019} fine-tuned on the training set\footnote{I used the code for \citet{Tang_2019b} which is available at \url{https://github.com/castorini/d-bert}.}. The steps for creating the transfer dataset from the training portion are:
     \begin{enumerate}
-      \item Fine-tune the pre-trained GPT-2 model (the 345M-parameter version) on the training sentences for 1 epoch with the language-modelling objective, i.e. learning to predict the next subword token of a sentence given the true sequence of tokens so far.
-      \item Sample a large number of prefixes (subword tokens) from the observed distribution of sentence-initial subword tokens in the training sentences.
-      \item For each sampled prefix, generate a sentence starting with it: by sampling from the predicted next-token distribution of the GPT-2 model, starting with just the prefix and stopping when the special end-of-sentence token is generated or the desired maximum sequence length is reached (in this case 128 tokens).
-      \item Add the generated sentences to the original training sentences and use as the transfer set, i.e. append with teacher-generated logits and use to train the students.
+      \item Fine-tune the pre-trained GPT-2 model (the 345-million-parameter version) on the training portion for 1 epoch with the language-modelling objective (i.e. predicting the next subword token given the sequence of tokens so far).
+      \item Sample from the model a large number of tokens to be used as the beginnings (\textit{prefixes}) of the augmentation sentences. This sampling can be done as one-step next-token prediction given the special \verb|SOS| (start-of-sentence) token.
+      \item Starting from each sampled prefix, generate an entire sentence token by token by repeatedly predicting the next token using the GPT-2 model. The generation of a sentence stops when the special \verb|EOS| (end-of-sentence) token is generated or when the desired maximum sequence length is reached (in this case 128 tokens).
+      \item Add the generated augmentation sentences to the original training data, and generate the teacher logits for each sentence.
     \end{enumerate}
 
-    For consistency, I used the same number of augmentation sentences as \citet{Tang_2019a}: 800k for each downstream task. Hence, the transfer set comprises 808.5k sentences for CoLA, 867k sentences for SST-2, and 802.8k sentences for Sara.
+    In fine-tuning the GPT-2 model, I used the same training settings as \citeauthor{Tang_2019b}, in particular: the cross-entropy loss, the AdamW learning algorithm (Adam with weight decay, see \citet{Loshchilov_2019}) with learning rate $\eta=5\times10^{-5}$, weight decay $\lambda=1\times10^{-3}$, and the usual $\beta$ values $\beta_1=0.9,\ \beta_2=0.999$; with the linear learning rate annealing from 0 to the target value over the first 10\% training steps and decaying linearly to 0 over the remaining steps. The only parameter I chose differently from \citeauthor{Tang_2019b} was the batch size: They used batches of 48 whereas I used smaller batches of 16 examples to make the fine-tuning possible with the limited memory resource I had.
+
+    For consistency with \citet{Tang_2019b}, I added 800,000 augmentation sentences to the training data of each of the three downstream tasks, resulting in the transfer datasets comprising roughly 808,500, 867,000, and 802,800 sentences for CoLA, SST-2, and Sara, respectively.
   }
 
   \section{Probing tasks}{
-    EXPLAIN what these data are used for.
-    Briefly recap what probing tasks are.
+    The probing tasks (discussed in \autoref{sec:understanding-models}) I use after knowledge distillation to analyse the linguistic capabilities of the students and the teacher. In particular, I use the probing suite curated by \citet{Conneau_2018}, consisting of 10 tasks\footnote{The data, along with code for probing neural models, are publicly available as part of the SentEval toolkit for evaluating sentence representations \citep{SentEval-paper} at \url{https://github.com/facebookresearch/SentEval}.}.
 
-    For exploring the linguistic knowledge in the different teacher and student models, I use the probing task collection curated by \citet{Conneau_2018}.
-    The datasets, along with tools for applying probing to neural models, are publicly available as part of the SentEval toolkit \citet{SentEval-paper} for evaluating sentence representations.
-    The collection contains 10 tasks, each having 100k training, 10k evaluation and 10k testing sentences. These are used for training the probing classifier, choosing its hyperparameters, and computing the task-specific score, respectively.
+    Each task falls into one of three broad categories -- surface properties, syntax, and semantics -- and focuses on a different linguistic capability (for more details, see \citet{Conneau_2018}):
+    \begin{enumerate}
+      \item {Surface information:
+        \begin{itemize}
+          \item \textbf{Length} is about recovering the length of the sentence. The actual sentence lengths are grouped into 6 equal-width bins, making this task a 6-way classification.
+          \item \textbf{WordContent} is about identifying which words are present in the sentence. A collection of 1000 mid-frequency words was created, and sentences were sampled such that each contains exactly one of these words. The task is therefore 1000-way classification.
+        \end{itemize}
+      }
+      \item{Syntactic information:
+        \begin{itemize}
+          \item \textbf{Depth} is about classifying sentences by their syntactic parse tree depth, with depths ranging from 5 to 12 (hence 8-way classification).
+          \item \textbf{BigramShift} is about recognising sentences in which the order of two randomly chosen adjacent words has been swapped (binary classification).
+          \item \textbf{TopConstituents} is about recognising the top syntactic constituents -- the nodes found in the syntactic parse tree just below the S (sentence) node. This is framed as 20-way classification, choosing from 19 most common top-constituent sequences and the ``other'' option.
+        \end{itemize}
+      }
+      \item{Semantic information:
+        \begin{itemize}
+          \item \textbf{Tense} is binary classification, identifying the tense (present/past) of the main verb of the sentence (the verb in the main clause).
+          \item \textbf{SubjNumber} is about determining the number (singular/plural) of the sentence's subject, framed as binary classification.
+          \item \textbf{ObjNumber} is the same as SubjNumber, applied to the direct object of a sentence.
+          \item \textbf{OddManOut} is binary classification, detecting whether a random word (verb or noun) in a sentence was replaced with a different one (verb or noun) or not. To make this task more difficult, the replacement word is chosen such that the frequency of the bigrams in the sentence stays roughly the same.
+          \item \textbf{CoordinationInversion} works with sentences that contain two coordinate clauses whose order may have been artificially swapped. The binary classification is then about detecting which sentences are intact.
+        \end{itemize}
+      }
+    \end{enumerate}
 
-    Each of the 10 probing tasks -- grouped into three broad categories -- focuses on a different linguistic capability (for more details, see the original paper of \citet{Conneau_2018}):
-    
-    Surface information:
-    \begin{itemize}
-      \item \textbf{Length} is about recovering the length of the sentence. The actual sentence lengths are grouped into 6 equal-width bins, making this task a 6-way classification.
-      \item \textbf{WordContent} is about identifying which words are present in the sentence. A collection of 1000 mid-frequency words was created, and sentences were sampled such that each contains exactly one of these words. The task is therefore 1000-way classification.
-    \end{itemize}
-    Syntactic information:
-    \begin{itemize}
-      \item \textbf{Depth} is about classifying sentences by their syntactic parse tree depth, with depths ranging from 5 to 12 (hence 8-way classification).
-      \item \textbf{BigramShift} is about recognising sentences in which the order of two randomly chosen adjacent words has been swapped (binary classification).
-      \item \textbf{TopConstituents} is about recognising the top syntactic constituents -- the nodes found in the syntactic parse tree just below the S (sentence) node. This is framed as 20-way classification, choosing from 19 most common top-constituent sequences and the ``other'' option.
-    \end{itemize}
-    Semantic information:
-    \begin{itemize}
-      \item \textbf{Tense} is binary classification, identifying the tense (present/past) of the main verb of the sentence (the verb in the main clause).
-      \item \textbf{SubjNumber} is about determining the number (singular/plural) of the sentence's subject, framed as binary classification.
-      \item \textbf{ObjNumber} is the same as SubjNumber, applied to the direct object of a sentence.
-      \item \textbf{OddManOut} is binary classification, detecting whether a random word (verb or noun) in a sentence was replaced with a different one (verb or noun) or not. To make this task more difficult, the replacement word is chosen such that the frequency of the bigrams in the sentence stays roughly the same.
-      \item \textbf{CoordinationInversion} works with sentences that contain two coordinate clauses whose order may have been artificially swapped. The binary classification is then about detecting which sentences are intact.
-    \end{itemize}
+    Each task contains 100,000 training, 10,000 evaluation and 10,000 testing sentences. These are used for training the probing classifier, choosing its hyperparameters, and computing the task-specific score, respectively.
 
     Considering the findings of \citet{Tenney_2019b} (RECAP THEM!) about the NLP pipeline steps being implicitly captured inside BERT, choosing their approach to probing (together with the collection of tasks they curated) was an attractive option. However, the approach explores single-word representations, focuses primarily on more complex probing tasks (e.g. entity recognition, natural language inference, semantic roles) and the tasks are not open-sourced. In this sense, the SentEval toolkit is preferred as it was built for analysing sentence representations, the simpler surface and syntactic tasks have a better coverage, and the datasets are publicly available. In the future, however, the two collections of probing tasks could be used in combination.
   }
 }
 
 \chapter{Methods and Implementation}{
+
+  PUT SOMEWHERE: To stay consistent with the GLUE datasets for which test-set labels are not publicly available, I do not use the test portion of any of them when analysing the mistakes made by different models. Instead, I analyse the predictions on the evaluation set. This can be viewed as sheding light on the kind of model qualities that are actually optimised when choosing model parameters on this set.
+
   \label{chap:methods-implementation}
   % pytorch-transformers, d-bert, SentEval, Rasa. own pieces. architecture. choices made. initial hparams.
   \section{Existing implementations used}{
