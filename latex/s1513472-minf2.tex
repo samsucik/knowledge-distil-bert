@@ -555,33 +555,40 @@
   \section{Probing tasks}{
     The probing tasks (discussed in \autoref{sec:understanding-models}) I use after knowledge distillation to analyse the linguistic capabilities of the students and the teacher. In particular, I use the probing suite curated by \citet{Conneau_2018}, consisting of 10 tasks\footnote{The data, along with code for probing neural models, are publicly available as part of the SentEval toolkit for evaluating sentence representations \citep{SentEval-paper} at \url{https://github.com/facebookresearch/SentEval}.}.
 
-    Each task falls into one of three broad categories -- surface properties, syntax, and semantics -- and focuses on a different linguistic capability (for more details, see \citet{Conneau_2018}):
+    \begin{figure}[h!t]
+      \centering
+      \includegraphics[width=11cm]{graphics/probing-scheme}
+      \caption{A high-level diagram of the probing process.}
+      \label{fig:probing-scheme}
+    \end{figure}
+
+    Each probing task is a collection of 120,000 labelled sentences, split into training (100,000), evaluation (10,000) and test (10,000) set. The label refers to a property of the sentence, such as the sentence's length. The aim is to recover the property from an encoding of the sentence, produced by the model being probed. \autoref{fig:probing-scheme} shows the basic workflow. First, the model is used to produce an encoding of each sentence. Then, a light-weight classifier is trained, taking the training sentences' encodings as inputs and learning to produce the labels. The evaluation sentence encodings are used to optimise the hyperparameters of the classifier. Finally, a probing score (accuracy) is produced on the test encodings. The score quantifies how well the sentence property in question is recoverable (and thus present) in the encodings. This serves as a proxy measure of the linguistic knowledge tied to the property. If, for instance, the property to be recovered is the depth of a sentence's syntactic parse tree, the score hints at the model's (un)capability to understand (and parse) the syntax of input sentences.
+
+    As for the linguistic capabilities explored by the probing suite, each task falls into one of three broad categories -- surface properties, syntax, and semantics:
     \begin{enumerate}
       \item {Surface information:
         \begin{itemize}
-          \item \textbf{Length} is about recovering the length of the sentence. The actual sentence lengths are grouped into 6 equal-width bins, making this task a 6-way classification.
-          \item \textbf{WordContent} is about identifying which words are present in the sentence. A collection of 1000 mid-frequency words was created, and sentences were sampled such that each contains exactly one of these words. The task is therefore 1000-way classification.
+          \item \textbf{Length} is about recovering the length of the sentence. The labels are somewhat simplified: The actual sentence lengths grouped into 6 equal-width bins -- making this task a 6-way classification.
+          \item \textbf{WordContent} is about identifying which words are present in the sentence. A collection of 1000 mid-frequency words was curated, and sentences were chosen such that each contains exactly one of these words. The task is identify which one (1000-way classification).
         \end{itemize}
       }
       \item{Syntactic information:
         \begin{itemize}
           \item \textbf{Depth} is about classifying sentences by their syntactic parse tree depth, with depths ranging from 5 to 12 (hence 8-way classification).
-          \item \textbf{BigramShift} is about recognising sentences in which the order of two randomly chosen adjacent words has been swapped (binary classification).
-          \item \textbf{TopConstituents} is about recognising the top syntactic constituents -- the nodes found in the syntactic parse tree just below the S (sentence) node. This is framed as 20-way classification, choosing from 19 most common top-constituent sequences and the ``other'' option.
+          \item \textbf{BigramShift} is about sensitivity to (un)natural word order -- identifying sentences in which the order of two randomly chosen adjacent words has been swapped (binary classification).
+          \item \textbf{TopConstituents} is about recognising the top syntactic constituents -- the nodes found in the syntactic parse tree just below the S (sentence) node. This is framed as 20-way classification, choosing from 19 most common top-constituent groups + the option of ``other''.
         \end{itemize}
       }
       \item{Semantic information:
         \begin{itemize}
-          \item \textbf{Tense} is binary classification, identifying the tense (present/past) of the main verb of the sentence (the verb in the main clause).
-          \item \textbf{SubjNumber} is about determining the number (singular/plural) of the sentence's subject, framed as binary classification.
+          \item \textbf{Tense} is binary classification task, identifying the tense (present or past) of the sentence -- given by the main verb of the sentence (the verb in the main clause). At the first sight, this is mainly a morphological task (in English, most verbs have the past tense marked by the ``-d/ed'' suffix). However, the model first has to identify the main verb within a sentence, which makes this task also semantic.
+          \item \textbf{SubjNumber} is about determining the number (singular or plural) of the sentence's subject (binary classification). Similar to the previous task, this one (and the next one too) is arguably about both morphology and semantics.
           \item \textbf{ObjNumber} is the same as SubjNumber, applied to the direct object of a sentence.
-          \item \textbf{OddManOut} is binary classification, detecting whether a random word (verb or noun) in a sentence was replaced with a different one (verb or noun) or not. To make this task more difficult, the replacement word is chosen such that the frequency of the bigrams in the sentence stays roughly the same.
-          \item \textbf{CoordinationInversion} works with sentences that contain two coordinate clauses whose order may have been artificially swapped. The binary classification is then about detecting which sentences are intact.
+          \item \textbf{OddManOut} is binary classification, identifying sentences in which a randomly chosen verb or noun has been replaced with a different random verb or noun. Presumably, the random replacement in most cases makes the sentence semantically unusual or invalid (e.g. in ``He reached inside his persona and pulled out a slim, rectangular black case.'' the word ``persona'' is clearly odd). To make this task more difficult, the replacement word is chosen such that the frequency of the bigrams in the sentence stays roughly the same. (Otherwise, in many cases, the random replacement would create easy hints for the probing classifier, in the form of bigrams that are very unusual.)
+          \item \textbf{CoordinationInversion} works with sentences that contain two coordinate clauses (typically joined by a conjunction), e.g. ``\underline{I ran to my dad}, but \underline{he was gone}.'' In half of the sentences, the order of the two clauses was swapped, producing sentences like: ``\underline{He was gone}, but \underline{I ran to my dad}.'' The task is to identify the changed sentences (which are often semantically broken).
         \end{itemize}
       }
     \end{enumerate}
-
-    Each task contains 100,000 training, 10,000 evaluation and 10,000 testing sentences. These are used for training the probing classifier, choosing its hyperparameters, and computing the task-specific score, respectively.
 
     Considering the findings of \citet{Tenney_2019b} (RECAP THEM!) about the NLP pipeline steps being implicitly captured inside BERT, choosing their approach to probing (together with the collection of tasks they curated) was an attractive option. However, the approach explores single-word representations, focuses primarily on more complex probing tasks (e.g. entity recognition, natural language inference, semantic roles) and the tasks are not open-sourced. In this sense, the SentEval toolkit is preferred as it was built for analysing sentence representations, the simpler surface and syntactic tasks have a better coverage, and the datasets are publicly available. In the future, however, the two collections of probing tasks could be used in combination.
   }
