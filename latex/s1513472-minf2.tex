@@ -601,10 +601,35 @@
 }
 
 \chapter{Methods and Implementation}{
-
-  PUT SOMEWHERE: To stay consistent with the GLUE datasets for which test-set labels are not publicly available, I do not use the test portion of any of them when analysing the mistakes made by different models. Instead, I analyse the predictions on the evaluation set. This can be viewed as sheding light on the kind of model qualities that are actually optimised when choosing model parameters on this set.
-
   \label{chap:methods-implementation}
+
+  In this chapter, I re-iterate on the main objectives of this work, the approach I took, and go into detail in describing the design and implementation work underlying my experiments and analyses.
+
+  \section{Methods and objectives}{
+    \label{sec:methods}
+    % main aim: explore KD by exploring models (teacher, students). in the context of multiple tasks (for coverage)
+    My main aim is to explore knowledge distillation by using it. In particular, I use it on three different NLP tasks (CoLA, SST-2, Sara) and with two different student architectures (a recurrent LSTM student and a BERT student). I further analyse and compare the teacher and students on each task. I do not aim for beating someone else's reported scores or for finding the best hyperparameter values for a model; I aim to learn more about knowledge distillation
+
+    % naturally involves KD first and I did basic optimisation to arrive at students small but good
+    The most technical and time-demanding part of my work is setting up the system's implementation and using knowledge distillation to create small yet well-performing students for further analysis. Naturally, this involves optimisation of the student models' hyperparameters to make the students perform at least somewhat comparably with today's models like BERT. (There is little point in trying to get insights by analysing models that perform poorly in the first place.) However, I try to carry out only the essential optimisation, ending up with \textit{a} well-performing student instead of \textit{the} best one possible.
+
+    % initial optimisation done on CoLA, only minimal optimisation on SST-2 and Sara (to not end up in a rabbit hole)
+    In order to reasonably constrain the amount of time and work put into optimisation of students' hyper-parameters, I carry out a more thorough parameter exploration only on the CoLA task. Subsequently, I use the best found student parameters on the other two tasks, only adapting the most essential parameters -- like the student model size -- on each task separately.
+
+    % real work begins once students are trained: analysing what they learned well and what not, how they differ from teacher and from each other. trying to generalise across the tasks, but each task is different and can provide different insights.
+    Only once good students are trained, the most interesting part of this work begins. I analyse what the students learnt well and what they did not, how they differ from their teacher and from each other. Where possible, I try to generalise across the three datasets. However, some findings are simply specific to a particular downstream task, and each task can provide different insights.
+
+    % first probing (easier to carry out, quantitative)
+    As the first step of the analysis, I probe all models. This is relatively straightforward and produces clear, quantitative results. (Indeed, it may not be easy to draw clear conclusions from the results.)
+
+    % then prediction analysis (mostly qualitative), looking at both correctness and confidence. done on eval set because that one is labelled for GLUE
+    As the second step, I carry out a (mostly qualitative) analysis of the models' predictions on concrete sentences. This analysis is much more time-consuming and is not widely used. However, I still believe that it can provide some useful insights. In particular, I look at predictions both through correctness -- e.g. analysing sentences which were classified correctly by one model but not by another -- and through confidence -- which models are more confident, when are they (un)confident, how this relates to their (in)correctness...
+
+    Because of the unavailability of test portion labels in CoLA and SST-2, I carry out the prediction analysis on all three tasks on the evaluation sentences. This can be viewed as sheding light on the types of model qualities being optimised when one tunes a model's hyper-parameters on the evaluation portion. Ideally, however, the analysis could be carried out on a held-out set which is not used in training.
+
+    Finally, I try to combine the probing and prediction analysis results into overall conclusions, seeing whether the two methods agree or disagree with each other and whether they help to describe the same or different aspects of the models and of knowledge distillation.
+  }
+
   % pytorch-transformers, d-bert, SentEval, Rasa. own pieces. architecture. choices made. initial hparams.
   \section{Existing implementations used}{
     For finetuning BERT, I used \verb|transformers| \citep{Wolf_2019}\footnote{\url{https://github.com/huggingface/transformers}, accessed January 30, 2019} -- a popular open-source PyTorch library curating and presenting many successful Transformer-based models in a unified way.
