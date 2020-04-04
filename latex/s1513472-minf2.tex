@@ -29,7 +29,6 @@
 \captionsetup[table]{labelsep=period,font=captionfont,justification=centering}
 \captionsetup[figure]{labelsep=period,font=captionfont,justification=centering}
 
-
 %
 % TABLES
 %
@@ -58,20 +57,47 @@
 % For verbatim in footnotes
 \usepackage{fancyvrb}
 
+% Background colour for text
+\usepackage{xcolor}
+\definecolor{shadecolor}{RGB}{150,150,150}
+\def\reviewready{\colorbox{green}{[READY]}}
+
+% shortcuts for obscure, frequently used expressions
+\def\BERTT{BERT\textsubscript{T}}
+\def\BERTS{BERT\textsubscript{S}}
+\def\LSTMS{LSTM\textsubscript{S}}
+
+% Circled numbers in text
+\usepackage{tikz}
+\newcommand*\circled[1]{\tikz[baseline=(char.base)]{
+            \node[shape=circle,draw,inner sep=1pt] (char) {#1};}}
+
+% URLs without https://
+\newcommand\rurl[1]{%
+  \href{https://#1}{\nolinkurl{#1}}%
+}
+
+% TO-DO: Add access date to all URLs in footnotes.
 \begin{document}
 \VerbatimFootnotes
 
-\title{\vspace{-5.0cm} \centering{\includeshield} \vspace{1cm} \\ Teacher-student knowledge distillation from BERT\\for sentence classifiers}
+\title{
+  \vspace{-5.0cm} \centering{\includeshield} \vspace{1cm} \\ 
+  Teacher-student knowledge distillation from BERT\\
+  for sentence classifiers
+}
 
 \author{Sam Su\v{c}\'ik}
 
 \course{Master of Informatics}
-\project{\vspace{3cm}{\bf MInf Project (Part 2) Report}}
+\project{
+  \vspace{3cm}{\bf MInf Project (Part 2) Report}
+}
 
 \date{2020}
 
 \abstract{
-  
+  TO-DO
 }
 
 \maketitle
@@ -122,7 +148,7 @@
 }
 
 % Prerequisites: define NLP abbreviation
-\chapter{Background}{
+\chapter{Background \reviewready}{
   \label{ch:background}
 
   In this chapter, the Transformer models are introduced and set into the historical context; knowledge distillation is introduced, in particular its recent applications in NLP; and an overview of some relevant work in model understanding is given.
@@ -293,12 +319,12 @@
       \end{figure}
 
       % things beyond what was said about Transformers already: residual connections, GeLU?
-      To complete the picture of BERT, \autoref{fig:bert-encoder-layer} shows the internals of an encoder layer. Besides the multi-headed self-attention submodule, it also contains the fully-connected submodule, consisting of the intermediate fully-connected transformation with parameters $W_I$, and the layer output fully-connected transformation with parameters $W_O$. Each submodule is also by-passed by a residual connection (shown with dashed lines). The residual information is summed with the submodule's output, and layer normalisation is applied to the sum. Note that this structure is not new in BERT; it was used already by the original Transformer of \citet{Vaswani_2017}.
+      To complete the picture of BERT, \autoref{fig:bert-encoder-layer} shows the internals of an encoder layer. Besides the multi-headed self-attention submodule, it also contains the fully-connected submodule, consisting of the intermediate fully-connected transformation with parameters $W_I$, and the layer output fully-connected transformation with parameters $W_O$. Each submodule is also by-passed by a residual connection (shown with dashed lines). The residual information is summed with the submodule's output, and layer normalisation is applied to the sum. Note that this structure is not new in BERT; it was used already by the original Transformer of \citet{Vaswani_2017}. Conveniently, Transformers are designed such that all of the intermediate representations (especially the encoder inputs and outputs, and the self-attention layer inputs and outputs) have the same dimensionality $d_h$ -- this makes any residual by-passing and summing easy.
 
       \begin{figure}[h!t]
         \centering
         \includegraphics[width=6cm]{graphics/bert-encoder-layer}
-        \caption{The modules making up one encored layer in BERT; residual connections highlighted by using dashed lines.}
+        \caption{The modules making up one encoder layer in BERT; residual connections highlighted by using dashed lines.}
         \label{fig:bert-encoder-layer}
       \end{figure}
       
@@ -311,7 +337,7 @@
       Following the success of the early Transformers and BERT \citep{Vaswani_2017,Radford_2018,Devlin_2018}, many further model variants started emerging, including:
       \begin{itemize}
         \item The OpenAI team releasing GPT-2 \citep{Radford_2019}, a larger and improved version of their original, simple Transformer model GPT \citep{Radford_2018}.
-        \item \citep{Lample_2019} introducing XLM, which uses cross-lingual pre-training and is thus better suited for downstream tasks in different languages.
+        \item \citet{Lample_2019} introducing XLM, which uses cross-lingual pre-training and is thus better suited for downstream tasks in different languages.
         \item Transformer-XL \citep{Dai_2019}, which features an improved self-attention that can handle very long contexts (across multiple sentences/documents).
       \end{itemize}
 
@@ -443,7 +469,7 @@
   }
 }
 
-\chapter{Datasets}{
+\chapter{Datasets \reviewready}{
   \label{chap:datasets}
 
   In this chapter, I introduce the downstream tasks and how I augmented their data to create large transfer datasets. I also introduce the probing tasks used later for analysing the teacher and student models.
@@ -454,7 +480,7 @@
     Today, perhaps the most widely used collection of challenging NLP tasks\footnote{Challenging by the nature of the tasks and by the small dataset size.} is the GLUE benchmarking collection \citep{Wang_2018}. 
     This collection comprises 11 tasks which enable model benchmarking on a wide range of NLP tasks from sentiment analysis to detecting textual similarity, all framed as single-sentence or sentence-pair classification.
     Each task comes with an official scoring metric (such as accuracy or F1), labelled training and evaluation datasets, and a testing dataset with labels not released publicly.
-    The test-set score accumulated over all 11 tasks forms the basis for the popular GLUE leaderboard\footnote{\url{https://gluebenchmark.com/leaderboard}}.
+    The test-set score accumulated over all 11 tasks forms the basis for the popular GLUE leaderboard\footnote{\rurl{gluebenchmark.com/leaderboard}}.
     
     In this work, I use single-sentence classification tasks (i.e. not sentence-pair tasks). Therefore, only two GLUE tasks are suitable for my purposes -- the Corpus of Linguistic Acceptability (CoLA) and the Stanford Sentiment Treebank in its binary classification variant (SST-2). As the third task, I use an intent classification dataset called Sara, which is not part of the GLUE collection.
 
@@ -480,7 +506,7 @@
     \subsection{Stanford Sentiment Treebank}{
       \label{sec:datasets-SST-2}
 
-      The SST-2 dataset \citep{SST-paper} is considerably bigger than CoLA, with roughly 67,000 training examples, 900 evaluation and 1,800 testing examples. It contains sentences and phrases from movie reviews collected on \url{rottentomatoes.com}. The main SST dataset comes with human-created sentiment annotations on the continuous scale from very negative to very positive. SST-2 is a simplified version with neutral-sentiment phrases removed, only containing binary sentiment labels (positive and negative).
+      The SST-2 dataset \citep{SST-paper} is considerably bigger than CoLA, with roughly 67,000 training examples, 900 evaluation and 1,800 testing examples. It contains sentences and phrases from movie reviews collected on \rurl{rottentomatoes.com}. The main SST dataset comes with human-created sentiment annotations on the continuous scale from very negative to very positive. SST-2 is a simplified version with neutral-sentiment phrases removed, only containing binary sentiment labels (positive and negative).
 
       Unlike the hand-crafted examples in CoLA, many examples in SST-2 are not the best-quality examples. In particular, sentences are sometimes split into somewhat arbitrary segments\footnote{This is due to the use of an automated parser in creating the dataset.}, such as:
       \begin{itemize}
@@ -494,7 +520,7 @@
         \item \textit{you won't like roger, but you will quickly recognize him.} (negative)
       \end{itemize}
 
-      Despite the problematic examples, most are straightforward (e.g. ``delightfully cheeky'' or ``with little logic or continuity''), making this task a relatively easy one. With accuracy being the official metric, best models in the GLUE leaderboard score over 97\%, very close to the official human baseline of 97.8\%\footnote{See the GLUE leaderboard at \url{https://gluebenchmark.com/leaderboard}}.
+      Despite the problematic examples, most are straightforward (e.g. ``delightfully cheeky'' or ``with little logic or continuity''), making this task a relatively easy one. With accuracy being the official metric, best models in the GLUE leaderboard score over 97\%, very close to the official human baseline of 97.8\%\footnote{See the GLUE leaderboard at \rurl{gluebenchmark.com/leaderboard}}.
     }
 
     \subsection{Sara}{
@@ -502,7 +528,7 @@
 
       As the third task, I use an intent classification dataset created by Rasa, a start-up building open-source tools for conversational AI\footnote{For transparency: I did a Machine learning research internship with Rasa in the summer of 2019.}.
 
-      The dataset is named Sara after the chatbot deployed on the company's website\footnote{See the bot in action at \url{https://rasa.com/docs/getting-started/}.}
+      The dataset is named Sara after the chatbot deployed on the company's website\footnote{See the bot in action at \rurl{rasa.com/docs/getting-started/}.}
       The Sara chatbot is aimed for holding conversations with the website visitors on various topics, primarily answering common questions about Rasa and the tools that it develops (the same tools were used to build Sara).
       To support diverse topics, Sara internally classifies each human message as one of 57 intents and then generates an appropriate response. The Sara dataset is a collection of human-generated message examples for each of the 57 intents, e.g.:
       \begin{itemize}
@@ -514,7 +540,7 @@
       \end{itemize}
       \textbf{TO-DO: List of all intents with brief descriptions or representative examples? Perhaps in the appendix...}
 
-      In the early days of the chatbot, it supported fewer intents, and several artificial examples per intent were first hand-crafted by Rasa employees to train the initial version of Sara's intent classifier. After Sara was deployed, more examples were collected and annotated from conversations with the website's visitors\footnote{To get a consent for such use of the conversations, each visitor was shown the following before starting a conversation with Sara: ``Hi, I'm Sara! By chatting to me you agree to our privacy policy.'', with a link to \url{https://rasa.com/privacy-policy/}}. Inspired by the topics that people tended to ask about, new intent categories were added. Today, the dataset still evolves and can be found -- together with the implementation of Sara -- at \url{https://github.com/RasaHQ/rasa-demo} (accessed April 3, 2020). It contains both the original hand-crafted examples as well as the (much more abundant) ``real'' examples.
+      In the early days of the chatbot, it supported fewer intents, and several artificial examples per intent were first hand-crafted by Rasa employees to train the initial version of Sara's intent classifier. After Sara was deployed, more examples were collected and annotated from conversations with the website's visitors\footnote{To get a consent for such use of the conversations, each visitor was shown the following before starting a conversation with Sara: ``Hi, I'm Sara! By chatting to me you agree to our privacy policy.'', with a link to \rurl{rasa.com/privacy-policy/}}. Inspired by the topics that people tended to ask about, new intent categories were added. Today, the dataset still evolves and can be found -- together with the implementation of Sara -- at \rurl{github.com/RasaHQ/rasa-demo} (accessed April 3, 2020). It contains both the original hand-crafted examples as well as the (much more abundant) ``real'' examples.
 
       The Sara dataset version I use dates back to October 2019, when I obtained it from Rasa and pseudonymised the data\footnote{As a former employee (intern) of Rasa, I got access to the data under the NDA I had signed with the company.}. In particular, I removed any names of persons and e-mail addresses in any of the examples, replacing them with the special tokens \verb|__PERSON_NAME__| and \verb|__EMAIL_ADDRESS__|, respectively.      
       The dataset comprises roughly 4,800 examples overall, and was originally split into 1,000 testing examples and 3,800 training examples. 
@@ -539,7 +565,7 @@
     \citet{Tang_2019b} demonstrated on several GLUE tasks that using an augmented training portion for distillation leads to much better student performance than using just the original small training portion.
     For CoLA in particular, using just the small training set led to very poor student performance (see Table~1 in \citeauthor{Tang_2019b}).
     
-    I take the augmentation approach that \citeauthor{Tang_2019b} found to work the best: Generating additional sentences using a GPT-2 model \citep{Radford_2019} fine-tuned on the training set\footnote{I used the code for \citet{Tang_2019b} which is available at \url{https://github.com/castorini/d-bert}.}. The steps for creating the transfer dataset from the training portion are:
+    I take the augmentation approach that \citeauthor{Tang_2019b} found to work the best: Generating additional sentences using a GPT-2 model \citep{Radford_2019} fine-tuned on the training set\footnote{I used the code for \citet{Tang_2019b} which is available at \rurl{github.com/castorini/d-bert} (accessed April 4, 2020).}. The steps for creating the transfer dataset from the training portion are:
     \begin{enumerate}
       \item Fine-tune the pre-trained GPT-2 model (the 345-million-parameter version) on the training portion for 1 epoch with the language-modelling objective (i.e. predicting the next subword token given the sequence of tokens so far).
       \item Sample from the model a large number of tokens to be used as the beginnings (\textit{prefixes}) of the augmentation sentences. This sampling can be done as one-step next-token prediction given the special \verb|SOS| (start-of-sentence) token.
@@ -547,13 +573,11 @@
       \item Add the generated augmentation sentences to the original training data, and generate the teacher logits for each sentence.
     \end{enumerate}
 
-    In fine-tuning the GPT-2 model, I used the same training settings as \citeauthor{Tang_2019b}, in particular: the cross-entropy loss, the AdamW learning algorithm (Adam with weight decay, see \citet{Loshchilov_2019}) with learning rate $\eta=5\times10^{-5}$, weight decay $\lambda=1\times10^{-3}$, and the usual $\beta$ values $\beta_1=0.9,\ \beta_2=0.999$; with the linear learning rate annealing from 0 to the target value over the first 10\% training steps and decaying linearly to 0 over the remaining steps. The only parameter I chose differently from \citeauthor{Tang_2019b} was the batch size: They used batches of 48 whereas I used smaller batches of 16 examples to make the fine-tuning possible with the limited memory resource I had.
-
     For consistency with \citet{Tang_2019b}, I added 800,000 augmentation sentences to the training data of each of the three downstream tasks, resulting in the transfer datasets comprising roughly 808,500, 867,000, and 802,800 sentences for CoLA, SST-2, and Sara, respectively.
   }
 
   \section{Probing tasks}{
-    The probing tasks (discussed in \autoref{sec:understanding-models}) I use after knowledge distillation to analyse the linguistic capabilities of the students and the teacher. In particular, I use the probing suite curated by \citet{Conneau_2018}, consisting of 10 tasks\footnote{The data, along with code for probing neural models, are publicly available as part of the SentEval toolkit for evaluating sentence representations \citep{SentEval-paper} at \url{https://github.com/facebookresearch/SentEval}.}.
+    The probing tasks (discussed in \autoref{sec:understanding-models}) I use after knowledge distillation to analyse the linguistic capabilities of the students and the teacher. In particular, I use the probing suite curated by \citet{Conneau_2018}, consisting of 10 tasks\footnote{The data, along with code for probing neural models, are publicly available as part of the SentEval toolkit for evaluating sentence representations \citep{SentEval-paper} at \rurl{github.com/facebookresearch/SentEval} (accessed April 4, 2020).}.
 
     \begin{figure}[h!t]
       \centering
@@ -563,9 +587,6 @@
     \end{figure}
 
     Each probing task is a collection of 120,000 labelled sentences, split into training (100,000), evaluation (10,000) and test (10,000) set. The label refers to a property of the sentence, such as the sentence's length. The aim is to recover the property from an encoding of the sentence, produced by the model being probed. \autoref{fig:probing-scheme} shows the basic workflow. First, the model is used to produce an encoding of each sentence. Then, a light-weight classifier is trained, taking the training sentences' encodings as inputs and learning to produce the labels. The evaluation sentence encodings are used to optimise the hyperparameters of the classifier. Finally, a probing score (accuracy) is produced on the test encodings. The score quantifies how well the sentence property in question is recoverable (and thus present) in the encodings. This serves as a proxy measure of the linguistic knowledge tied to the property. If, for instance, the property to be recovered is the depth of a sentence's syntactic parse tree, the score hints at the model's (un)capability to understand (and parse) the syntax of input sentences.
-
-    \textbf{TO-DO: Move this to the implementation or experiments section?}
-    As for the probing classifier that \citeauthor{Conneau_2018} propose to use with their probing suite, it is a simple neural network with one hidden layer with the sigmoid activation function and dropout, followed by a linear layer projecting to the desired number of classes. The cross-entropy training loss is used, with the Adam learning algorithm with $\eta=0.001$, $\beta_1=0.9$ and $\beta_2=0.999$. Training uses minibatches of 64 examples and uses early stopping for when the accuracy does no improve over 5 consecutive iterations. For consistency with the exact method of \citeauthor{Conneau_2018}, I tune the dropout rate (choosing from [0.0, 0.1, 0.2]) and the hidden layer width (choosing from [50, 100, 200]) using the evaluation set.
 
     Regarding the linguistic capabilities explored by the probing suite, each task falls into one of three broad categories -- surface properties, syntax, and semantics:
     \begin{enumerate}
@@ -608,7 +629,9 @@
   \section{Methods and objectives}{
     \label{sec:methods}
     % main aim: explore KD by exploring models (teacher, students). in the context of multiple tasks (for coverage)
-    My main aim is to explore knowledge distillation by using it. In particular, I use it on three different NLP tasks (CoLA, SST-2, Sara) and with two different student architectures (a recurrent LSTM student and a BERT student). I further analyse and compare the teacher and students on each task. I do not aim for beating someone else's reported scores or for finding the best hyperparameter values for a model; I aim to learn more about knowledge distillation
+    My main aim is to explore knowledge distillation by using it. In particular, I use it on three different NLP tasks (CoLA, SST-2, Sara) and with two different student architectures (a bi-directional LSTM student and a BERT student). I further analyse and compare the teacher and students on each task. I do not aim for beating someone else's reported scores or for finding the best hyperparameter values for a model; I aim to learn more about knowledge distillation.
+
+    Because this work is heavily inspired by mi internship at Rasa on \textit{compressing} BERT\footnote{See \rurl{blog.rasa.com/compressing-bert-for-faster-prediction-2/} and \rurl{blog.rasa.com/pruning-bert-to-accelerate-inference/}, accessed April 4, 2020.}, I aim to produce student models as small as possible. Therefore, I take the approach of first fine-tuning a teacher model and then distilling only the fine-tuned knowledge into tiny students (see the discussion back in \autoref{sec:kd-nlp}).
 
     % naturally involves KD first and I did basic optimisation to arrive at students small but good
     The most technical and time-demanding part of my work is setting up the system's implementation and using knowledge distillation to create small yet well-performing students for further analysis. Naturally, this involves optimisation of the student models' hyperparameters to make the students perform at least somewhat comparably with today's models like BERT. (There is little point in trying to get insights by analysing models that perform poorly in the first place.) However, I try to carry out only the essential optimisation, ending up with \textit{a} well-performing student instead of \textit{the} best one possible.
@@ -617,44 +640,75 @@
     In order to reasonably constrain the amount of time and work put into optimisation of students' hyper-parameters, I carry out a more thorough parameter exploration only on the CoLA task. Subsequently, I use the best found student parameters on the other two tasks, only adapting the most essential parameters -- like the student model size -- on each task separately.
 
     % real work begins once students are trained: analysing what they learned well and what not, how they differ from teacher and from each other. trying to generalise across the tasks, but each task is different and can provide different insights.
-    Only once good students are trained, the most interesting part of this work begins. I analyse what the students learnt well and what they did not, how they differ from their teacher and from each other. Where possible, I try to generalise across the three datasets. However, some findings are simply specific to a particular downstream task, and each task can provide different insights.
+    Only once good students are trained, the key part of this work begins. I analyse what the students learnt well and what they did not, how they differ from their teacher and from each other. Where possible, I try to generalise across the three datasets. However, some findings are simply specific to a particular downstream task, and each task can provide different insights.
 
     % first probing (easier to carry out, quantitative)
     As the first step of the analysis, I probe all models. This is relatively straightforward and produces clear, quantitative results. (Indeed, it may not be easy to draw clear conclusions from the results.)
 
     % then prediction analysis (mostly qualitative), looking at both correctness and confidence. done on eval set because that one is labelled for GLUE
-    As the second step, I carry out a (mostly qualitative) analysis of the models' predictions on concrete sentences. This analysis is much more time-consuming and is not widely used. However, I still believe that it can provide some useful insights. In particular, I look at predictions both through correctness -- e.g. analysing sentences which were classified correctly by one model but not by another -- and through confidence -- which models are more confident, when are they (un)confident, how this relates to their (in)correctness...
-
-    Because of the unavailability of test portion labels in CoLA and SST-2, I carry out the prediction analysis on all three tasks on the evaluation sentences. This can be viewed as sheding light on the types of model qualities being optimised when one tunes a model's hyper-parameters on the evaluation portion. Ideally, however, the analysis could be carried out on a held-out set which is not used in training.
+    As the second step, I carry out a (mostly qualitative) analysis of the models' predictions on concrete sentences. This analysis is much more time-consuming and is not widely used. However, I still believe that it can provide some useful insights. In particular, I look at predictions both through correctness -- e.g. manually analysing sentences which were classified correctly by one model but not by another -- and through confidence -- which models are more confident, on what sentences are they (un)confident, how this relates to their (in)correctness...
 
     Finally, I try to combine the probing and prediction analysis results into overall conclusions, seeing whether the two methods agree or disagree with each other and whether they help to describe the same or different aspects of the models and of knowledge distillation.
+
+    \textit{Because of the unavailability of test labels in CoLA and SST-2, I carry out the prediction analysis on all three tasks on the evaluation sentences. This can be understood as sheding light on the model qualities being optimised when one tunes a model's hyper-parameters on the evaluation portion. Another option would be to carry out the analysis on a held-out set not used in training.}
   }
 
-  % pytorch-transformers, d-bert, SentEval, Rasa. own pieces. architecture. choices made. initial hparams.
-  \section{Existing implementations used}{
-    For finetuning BERT, I used \verb|transformers| \citep{Wolf_2019}\footnote{\url{https://github.com/huggingface/transformers}, accessed January 30, 2019} -- a popular open-source PyTorch library curating and presenting many successful Transformer-based models in a unified way.
-    My implementation of the distillation process is heavily based on the implementation accompanying DistilBERT \citep{Sanh_2019}, which is today part of \verb|transformers|\footnote{\url{https://github.com/huggingface/transformers/tree/master/examples/distillation}, accessed January 30, 2019}.
+  \section{System overview and adapted implementations}{
+    Because a lot of research around Transformers is open-sourced, I make use of existing works and implementations. \autoref{fig:pipeline} shows the high-level pipeline of my work. It is inspired by the best pipeline of \citet{Tang_2019b}, with the exception that they only used the recurrent bi-directional LSTM (BiLSTM) student and did not carry out probing or prediction analysis.
+  
+    \begin{figure}[h!t]
+      \makebox[\textwidth][c]{\includegraphics[width=16cm]{graphics/pipeline}}
+      \cprotect\caption{The main pipeline of this work: \circled{1} teacher fine-tuning, \circled{2} GPT-2 fine-tuning, \circled{3} generating augmentation sentences, \circled{4} adding teacher logits to the augmented training dataset, \circled{5} knowledge distillation into students, \circled{6} producing probing sentence encodings, \circled{7} training the probing classifier and producing probing scores, \circled{8} producing predictions on evaluation sentences.}
+      \label{fig:pipeline}
+    \end{figure}
 
-    The implementation of the BiLSTM student is based on the codebase accompanying the work of \citet{Tang_2019b}\footnote{\url{https://github.com/castorini/d-bert}, accessed January 30, 2019} (which was originally built using an early version of the \verb|transformers| library). The same codebase was used without many changes for fine-tuning the GPT-model and creating the augmentation sentences.
+    For most of my implementation, I use the \verb|transformers| open-source PyTorch library \citep{Wolf_2019}\footnote{\rurl{github.com/huggingface/transformers}, accessed April 4, 2020}, which provides tools for working with pre-trained Transformers like BERT. For knowledge distillation, I adapt the code of \citet{Sanh_2019}, which is today also part of \verb|transformers|\footnote{\rurl{github.com/huggingface/transformers/tree/master/examples/distillation}, accessed April 4, 2020}. (Note that they do knowledge distillation \textit{before} downstream fine-tuning.) For augmenting the training data using GPT-2 and for knowledge distillation with the BiLSTM student, I adapt the code of \citeauthor{Tang_2019b}\footnote{\rurl{github.com/castorini/d-bert}, accessed April 4, 2020}, which uses an early version of \verb|transformers|. For probing the two students, I use the SentEval framework \citep{SentEval-paper}\footnote{\rurl{github.com/facebookresearch/SentEval}}.
 
-    Finally, for probing, I adapted the SentEval toolkit \citep{SentEval-paper} to suit my needs.
-
-    In terms of implementation, the most of my own work is in having integrated the different tools. In particular, I have combined the codebases of \citet{Sanh_2019} and \citet{Tang_2019b} and adapted the combination to offer richer options (e.g. initialising the student's embedding layers with trained word or wordpiece embeddings), to work with both BERT and BiLSTM students and to be more easily extendable to other architectures.
+    In terms of implementation, the most of my own work lies in adapting and integrating the different codebases into one, and in adding the possibility for optimising various student parameters (see the next section). I also make the code more general compared to the original codebases, which in many cases contained hard-coded decisions relating to the respective studies (be it \citeauthor{Sanh_2019} or \citeauthor{Tang_2019b}). The core of my implementation can be found in my forked version of \verb|transformers| at \rurl{github.com/samsucik/pytorch-transformers/}, with code for running experiment and analyses, as well as results and reporting, found in the project-specific repository at \rurl{github.com/samsucik/knowledge-distil-bert}.
   }
-  \section{System overview}{    
-    Following \citet{Tang_2019b}, I used the large, case-insensitive (uncased) pre-trained BERT (340M params) as the teacher and finetuned it for 3 epochs using Adam optimizer with $\eta=5e-5$ with linear warm-up over the first 10\% of training steps, followed by linear decay, and with batch size $B=36$. I will refer to this model as $BERT_T$. Somewhat surprisingly, while the teacher converged within 3 epochs for CoLA and SST-2 (in terms of the dev-set score), for Sara, it converged much more slowly. I empirically chose 10 epochs as the smallest number after which $BERT_T$ would sufficiently converge on the Sara dataset.
 
-    As students, I used:
-    \begin{itemize}
-      \item a bi-directional LSTM same as the one used by \citet{Tang_2019b}: with one LSTM layer with 300 units, followed by a linear layer with 400 units and ReLU activation function, with a softmax classifier on top, with 2.41M non-embedding trainable parameters. I will refer to this model as $LSTM_S$.
-      \item a smaller version of the teacher BERT model, with all dimensions down-scaled 5x to roughly match the number of trainable non-embedding parameters: with 5 transformer layers, hidden dimension of 204, intermediate layers of size 750, and 3 attentional heads (amounting to 2.42M parameters). I will refer to this model as $BERT_S$.
-    \end{itemize}
+  \section{Implementation details}{
+    % teacher fine-tuning
+    Following \citet{Tang_2019b}, I use the case-insensitive pre-trained BERT\textsubscript{Large} (340 million parameters) as the teacher.
+    From now, I will refer to this model as \BERTT. The large BERT generally performs better than the 110-million-parameter BERT\textsubscript{Base} variant and is therefore more desirable, but also slower, with a greater incentive for compression (in this case using knowledge distillation).
+    For teacher fine-tuning on each downstream task, I also use the procedure of \citeauthor{Tang_2019b}:
+    3-epoch training with batch size $B=36$ on the training set, using the cross-entropy loss and the Adam optimizer with $\eta=5\times10^{-5}$ and the usual $\beta$ values ($\beta_1=0.9,\ \beta_2=0.999$).
+    The learning rate $\eta$ was linearly ``warmed up'' (annealed from 0 to the target value) over the first 10\% of the total training steps, and decayed linearly to 0 over the remaining steps.
+    Somewhat surprisingly, while the performance of \BERTT~converged (plateaued) within the 3-epoch budget on CoLA and SST-2 (as measured by the task-relevant metric on the evaluation set), the convergence was much slower for Sara. Hence, I empirically found a more suitable number of epochs within which the teacher would converge on Sara: 10. 
+    \textbf{TO-DO: add dev score plots}
 
+    % GPT-2 augmentation
+    In fine-tuning the GPT-2 model, I again repeat the procedure of \citeauthor{Tang_2019b}. In particular, the model is trained over 1 epoch using the cross-entropy loss, the AdamW learning algorithm (Adam with weight decay, see \citet{Loshchilov_2019}) with learning rate $\eta=5\times10^{-5}$, weight decay $\lambda=1\times10^{-3}$, and the usual $\beta$ values. The same linear scheduling is used as the one for fine-tuning \BERTT. The only parameter I choose differently from \citeauthor{Tang_2019b} is the batch size $B$: They used batches of 48 whereas I use smaller batches of 16 examples to make the fine-tuning possible with my limited memory resource.
+    \textbf{TO-DO: report the bpc or other scores}
+
+    % student architectures + default params
+    As the first student, I use the bi-directional LSTM from \citeauthor{Tang_2019b}, comprising one hidden LSTM layer with 300 units. The last hidden states for either of the two processing directions are concatenated and passed to a fully connected layer with output 400 units\footnote{Even though \citeauthor{Tang_2019b} tried also other, slightly different layer dimensions, these are the ones that worked the best on CoLA.}, the ReLU activation function and dropout. A final (linear) layer follows, projecting to the number of target classes, i.e. producing the logits. The model is topped with a softmax classifier for normalising the logits.
+    \textbf{TO-DO: add a diagram}
+    The original model was built to process sentences word by word, encoding each word using the pre-trained word2vec embeddings\footnote{The 300-dimensional version trained on Google News, see \rurl{code.google.com/archive/p/word2vec/}.} before passing it to the LSTM layer. Words for which there is no embedding (\textit{out-of-vocabulary} (OOV) words) are embedded using a vector initialised with random numbers drawn uniformly from [-0.25, 0.25]. The embedding layer supports three \textit{embedding modes}, based on \citet{Kim_2014}:
+    \begin{enumerate}
+      \item \textbf{Static}: the embedding parameters are frozen and do not change during training.
+      \item \textbf{Non-static}: the embedding parameters are allowed to be further changed (fine-tuned) during training.
+      \item \textbf{Multichannel}: two embedding instances are used in parallel, one is frozen, the other one is allowed to be fine-tuned. For each input word, the two embeddings produced are concatenated together for further processing. The multichannel mode is the one used by \citeauthor{Tang_2019b}.
+    \end{enumerate}
+    One significant change I made to this model is enabling the use of wordpiece embeddings (instead of word-level ones). This way, the fine-tuned embedding layer from \BERTT~can be plugged into the student, giving it some of the teacher's knowledge even before knowledge distillation begins.
+    In total, this model -- from now referred to as \LSTMS~-- has 2.41 million trainable parameters (excluding the embedding layer), making it 140x smaller than \BERTT.
+
+    For the second student, I use a smaller version of the teacher BERT model, with all dimensions down-scaled 5x to roughly match the number of trainable non-embedding parameters: with 5 transformer layers, hidden dimension of 204, intermediate layers of size 750, and 3 attentional heads (amounting to 2.42M parameters). I will refer to this model as $BERT_S$.
+
+    % knowledge distillation + default params 
+    % mention that KD is like normal training given the transfer set
     $LSTM_S$ was trained to minimise the mean squared loss (MSE) between the teacher-generated logits and student's logits. While the cross-entropy loss with configurable temperature is more popular and in essence a generalisation of the MSE loss (see \citet{Hinton_2015}), \citet{Tang_2019b} report that the MSE loss led to slightly better performance in their experiments. For $BERT_S$, I use the traditional cross-entropy loss with temeperature set to $T=3$ following the findings of \citet{Tsai_2019} who experimented with different temperatures (note that $T=3$ was used as the default also in the experiments of \citet{Tang_2019b}).
 
     Following preliminary experiments, I limited the number of training epochs to 30 for $LSTM_S$ (same budget was used by \citet{Tang_2019b}) and to 60 for $BERT_S$ as it was converging much slower than the recurrent student. I stick to this training budget throughout my experiments.
 
-    some overall visualisation of all the components and how they interact
+    % probing
+    As for the probing classifier that \citeauthor{Conneau_2018} propose to use with their probing suite, it is a simple neural network with one hidden layer with the sigmoid activation function and dropout, followed by a linear layer projecting to the desired number of classes. The cross-entropy training loss is used, with the Adam learning algorithm with $\eta=0.001$, $\beta_1=0.9$ and $\beta_2=0.999$. Training uses minibatches of 64 examples and uses early stopping for when the accuracy does no improve over 5 consecutive iterations. For consistency with the exact method of \citeauthor{Conneau_2018}, I tune the dropout rate (choosing from [0.0, 0.1, 0.2]) and the hidden layer width (choosing from [50, 100, 200]) using the evaluation set.
+
+    % prediction generation and analysis
+  }
+
+  \section{Computing environment}{
+
   }
 }
 
