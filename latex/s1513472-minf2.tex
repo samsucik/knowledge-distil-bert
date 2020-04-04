@@ -261,14 +261,14 @@
       Due to their parallel nature, self-attentional layers have no notion of an element's position within the input sequence. This means no sensitivity to word order. (Recurrent models sense this order quite naturally because they process input text word by word.) To alleviate this downside of self-attention, Transformers use \textit{positional embeddings}. These are artificially created numerical vectors added to each input word, different across input positions, thus enabling the model's layers to learn to be position- and order-sensitive.
 
       % multi-headedness
-      As an additional improvement of the self-attentional mechanism, \citeauthor{Vaswani_2017} introduce the concept of multiple self-attention heads. This is very similar to having multiple instances of the self-attention module in \autoref{fig:self-att} (each instance being one \textit{head}). The motivation behind multiple self-attention heads is to enable each head $h$ to learn different ``focusing skills'' by learning its own $W_{Q,h}$, $W_{K,h}$, $W_{V,h}$. Each head produces its own output:
+      As an additional improvement of the self-attentional mechanism, \citeauthor{Vaswani_2017} introduce the concept of multiple self-attention heads. This is very similar to having multiple instances of the self-attention module in \autoref{fig:self-att} (each instance being one \textit{head}). The motivation behind multiple self-attention heads is to enable each head $a$ to learn different ``focusing skills'' by learning its own $W_{Q,a}$, $W_{K,a}$, $W_{V,a}$. Each head produces its own output:
       \begin{equation}
-      O_{att,h} = \softmax(\frac{\bm{q}\bm{k^\top}}{\sqrt{d_k}})\bm{v} = \softmax(\frac{(\bm{h_l^\top}W_{Q,h})^\top(\bm{h_l^\top}W_{K,h})}{\sqrt{d_k}})(\bm{h_l^\top}W_{V,h})
+      O_{att,a} = \softmax(\frac{\bm{q}\bm{k^\top}}{\sqrt{d_k}})\bm{v} = \softmax(\frac{(\bm{h_l^\top}W_{Q,a})^\top(\bm{h_l^\top}W_{K,a})}{\sqrt{d_k}})(\bm{h_l^\top}W_{V,a})
       \end{equation}
       which matches \autoref{fig:self-att} (but notice the detail of the additional scaling by $\frac{1}{\sqrt{d_k}}$, introduced by \citeauthor{Vaswani_2017}, where $d_k$ is the dimensionality of the key).
-      The outputs of the $H$ individual heads are then concatenated and dimensionality reduced with a trainable linear transformation $W_{AO}$, to produce the final output, which replaces $\bm{h_{l+1}}$ in \autoref{fig:self-att}:
+      The outputs of the $A$ individual attentional heads are then concatenated and dimensionality reduced with a trainable linear transformation $W_{AO}$, to produce the final output, which replaces $\bm{h_{l+1}}$ in \autoref{fig:self-att}:
       \begin{equation}
-      O_{att} = [O_{att, 1},\ \ldots,\ O_{att, H}]W_{AO}\ .
+      O_{att} = [O_{att, 1},\ \ldots,\ O_{att, A}]W_{AO}\ .
       \end{equation}
       
       % \citet{Radford_2018} introduced the idea of generative LM pre-training and fine-tuning. This concept helps train much better models even for low-resource tasks with small datasets, by leveraging general language knowledge acquired by the model in the pre-training phase. Publishing pre-trained model instances makes the power of NLP much more accessible to anyone and has become a popular thing to do. (Also mention that subword tokens were used instead of words.)
@@ -319,7 +319,7 @@
       \end{figure}
 
       % things beyond what was said about Transformers already: residual connections, GeLU?
-      To complete the picture of BERT, \autoref{fig:bert-encoder-layer} shows the internals of an encoder layer. Besides the multi-headed self-attention submodule, it also contains the fully-connected submodule, consisting of the intermediate fully-connected transformation with parameters $W_I$, and the layer output fully-connected transformation with parameters $W_O$. Each submodule is also by-passed by a residual connection (shown with dashed lines). The residual information is summed with the submodule's output, and layer normalisation is applied to the sum. Note that this structure is not new in BERT; it was used already by the original Transformer of \citet{Vaswani_2017}. Conveniently, Transformers are designed such that all of the intermediate representations (especially the encoder inputs and outputs, and the self-attention layer inputs and outputs) have the same dimensionality $d_h$ -- this makes any residual by-passing and summing easy.
+      To complete the picture of BERT, \autoref{fig:bert-encoder-layer} shows the internals of an encoder layer. Besides the multi-headed self-attention submodule, it also contains the fully-connected submodule. This uses a very wide intermediate fully-connected transformation with parameters $W_I$, inflating the representations up to the dimensionality $d_I$, and the layer output fully-connected transformation with parameters $W_O$, which reduces the dimensionality. Each submodule is also by-passed by a residual connection (shown with dashed lines). The residual information is summed with the submodule's output, and layer normalisation is applied to the sum. Note that this structure is not new in BERT; it was used already by the original Transformer of \citet{Vaswani_2017}. Conveniently, Transformers are designed such that all of the intermediate representations (especially the encoder inputs and outputs, and the self-attention layer inputs and outputs) have the same dimensionality $d_h$ -- this makes any residual by-passing and summing easy.
 
       \begin{figure}[h!t]
         \centering
@@ -669,46 +669,93 @@
 
   \section{Implementation details}{
     % teacher fine-tuning
-    Following \citet{Tang_2019b}, I use the case-insensitive pre-trained BERT\textsubscript{Large} (340 million parameters) as the teacher.
-    From now, I will refer to this model as \BERTT. The large BERT generally performs better than the 110-million-parameter BERT\textsubscript{Base} variant and is therefore more desirable, but also slower, with a greater incentive for compression (in this case using knowledge distillation).
-    For teacher fine-tuning on each downstream task, I also use the procedure of \citeauthor{Tang_2019b}:
-    3-epoch training with batch size $B=36$ on the training set, using the cross-entropy loss and the Adam optimizer with $\eta=5\times10^{-5}$ and the usual $\beta$ values ($\beta_1=0.9,\ \beta_2=0.999$).
-    The learning rate $\eta$ was linearly ``warmed up'' (annealed from 0 to the target value) over the first 10\% of the total training steps, and decayed linearly to 0 over the remaining steps.
-    Somewhat surprisingly, while the performance of \BERTT~converged (plateaued) within the 3-epoch budget on CoLA and SST-2 (as measured by the task-relevant metric on the evaluation set), the convergence was much slower for Sara. Hence, I empirically found a more suitable number of epochs within which the teacher would converge on Sara: 10. 
-    \textbf{TO-DO: add dev score plots}
+    \subsection{Teacher fine-tuning}{
+      Following \citet{Tang_2019b}, I use the case-insensitive pre-trained BERT\textsubscript{Large} as the teacher. 
+      From now, I will refer to this model as \BERTT.
+      With $L=24$ encoder layers, $A=16$ self-attention heads, the hidden dimension $d_h=1024$ and the indermediate dimension $d_I=4096$, the model has 340 million trainable parameters (as discussed in more detail back in \autoref{sec:BERT}).
+      This large BERT generally performs better than the 110-million-parameter BERT\textsubscript{Base} variant and is therefore more desirable, but also slower, with a greater incentive for compression (in this case using knowledge distillation).
+      For teacher fine-tuning on each downstream task, I also use the procedure of \citeauthor{Tang_2019b}:
+      3-epoch training with batch size $B=36$ on the training set, using the cross-entropy loss and the Adam optimizer with $\eta=5\times10^{-5}$ and the usual $\beta$ values ($\beta_1=0.9,\ \beta_2=0.999$).
+      The learning rate $\eta$ was linearly ``warmed up'' (annealed from 0 to the target value) over the first 10\% of the total training steps, and decayed linearly to 0 over the remaining steps.
+      Somewhat surprisingly, while the performance of \BERTT~converged (plateaued) within the 3-epoch budget on CoLA and SST-2 (as measured by the task-relevant metric on the evaluation set), the convergence was much slower for Sara. Hence, I empirically found a more suitable number of epochs within which the teacher would converge on Sara: 10. 
+      \textbf{TO-DO: add dev score plots}
+    }
 
     % GPT-2 augmentation
-    In fine-tuning the GPT-2 model, I again repeat the procedure of \citeauthor{Tang_2019b}. In particular, the model is trained over 1 epoch using the cross-entropy loss, the AdamW learning algorithm (Adam with weight decay, see \citet{Loshchilov_2019}) with learning rate $\eta=5\times10^{-5}$, weight decay $\lambda=1\times10^{-3}$, and the usual $\beta$ values. The same linear scheduling is used as the one for fine-tuning \BERTT. The only parameter I choose differently from \citeauthor{Tang_2019b} is the batch size $B$: They used batches of 48 whereas I use smaller batches of 16 examples to make the fine-tuning possible with my limited memory resource.
-    \textbf{TO-DO: report the bpc or other scores}
+    \subsection{Augmentation with GPT-2}{
+      In fine-tuning the GPT-2 model, I again repeat the procedure of \citeauthor{Tang_2019b}. In particular, the model is trained over 1 epoch using the cross-entropy loss, the AdamW learning algorithm (Adam with weight decay, see \citet{Loshchilov_2019}) with learning rate $\eta=5\times10^{-5}$, weight decay $\lambda=1\times10^{-3}$, and the usual $\beta$ values. The same linear scheduling is used as the one for fine-tuning \BERTT. The only parameter I choose differently from \citeauthor{Tang_2019b} is the batch size $B$: They used batches of 48 whereas I use smaller batches of 16 examples to make the fine-tuning possible with my limited memory resource.
+      \textbf{TO-DO: report the bpc or other scores}
+    }
 
     % student architectures + default params
-    As the first student, I use the bi-directional LSTM from \citeauthor{Tang_2019b}, comprising one hidden LSTM layer with 300 units. The last hidden states for either of the two processing directions are concatenated and passed to a fully connected layer with output 400 units\footnote{Even though \citeauthor{Tang_2019b} tried also other, slightly different layer dimensions, these are the ones that worked the best on CoLA.}, the ReLU activation function and dropout. A final (linear) layer follows, projecting to the number of target classes, i.e. producing the logits. The model is topped with a softmax classifier for normalising the logits.
-    \textbf{TO-DO: add a diagram}
-    The original model was built to process sentences word by word, encoding each word using the pre-trained word2vec embeddings\footnote{The 300-dimensional version trained on Google News, see \rurl{code.google.com/archive/p/word2vec/}.} before passing it to the LSTM layer. Words for which there is no embedding (\textit{out-of-vocabulary} (OOV) words) are embedded using a vector initialised with random numbers drawn uniformly from [-0.25, 0.25]. The embedding layer supports three \textit{embedding modes}, based on \citet{Kim_2014}:
-    \begin{enumerate}
-      \item \textbf{Static}: the embedding parameters are frozen and do not change during training.
-      \item \textbf{Non-static}: the embedding parameters are allowed to be further changed (fine-tuned) during training.
-      \item \textbf{Multichannel}: two embedding instances are used in parallel, one is frozen, the other one is allowed to be fine-tuned. For each input word, the two embeddings produced are concatenated together for further processing. The multichannel mode is the one used by \citeauthor{Tang_2019b}.
-    \end{enumerate}
-    One significant change I made to this model is enabling the use of wordpiece embeddings (instead of word-level ones). This way, the fine-tuned embedding layer from \BERTT~can be plugged into the student, giving it some of the teacher's knowledge even before knowledge distillation begins.
-    In total, this model -- from now referred to as \LSTMS~-- has 2.41 million trainable parameters (excluding the embedding layer), making it 140x smaller than \BERTT.
+    \subsection{BiLSTM student model}{
+      As the first student, I use the bi-directional LSTM (BiLSTM) from \citeauthor{Tang_2019b}, comprising one hidden BiLSTM layer with 300 units. The last hidden states for either of the two processing directions are concatenated and passed to a fully connected layer with output 400 units\footnote{Even though \citeauthor{Tang_2019b} tried also other, slightly different layer dimensions, these are the ones that worked the best on CoLA.}, the ReLU activation function and dropout. A final (linear) layer follows, projecting to the number of target classes, i.e. producing the logits. The model is topped with a softmax classifier for normalising the logits.
+      \textbf{TO-DO: add a diagram}
 
-    For the second student, I use a smaller version of the teacher BERT model, with all dimensions down-scaled 5x to roughly match the number of trainable non-embedding parameters: with 5 transformer layers, hidden dimension of 204, intermediate layers of size 750, and 3 attentional heads (amounting to 2.42M parameters). I will refer to this model as $BERT_S$.
+      The original model was built to process sentences word by word, encoding each word using the pre-trained word2vec embeddings\footnote{The 300-dimensional version trained on Google News, see \rurl{code.google.com/archive/p/word2vec/}.} before passing it to the LSTM layer. Words for which there is no embedding (\textit{out-of-vocabulary} (OOV) words) are embedded using a vector initialised with random numbers drawn uniformly from [-0.25, 0.25]. The embedding layer supports three \textit{embedding modes}, based on \citet{Kim_2014}:
+      \begin{enumerate}
+        \item \textbf{Static}: the embedding parameters are frozen and do not change during training.
+        \item \textbf{Non-static}: the embedding parameters are allowed to be further changed (fine-tuned) during training.
+        \item \textbf{Multichannel}: two embedding instances are used in parallel, one is frozen, the other one is allowed to be fine-tuned. For each input word, the two embeddings produced are concatenated together for further processing. The multichannel mode is the one used by \citeauthor{Tang_2019b}.
+      \end{enumerate}
+
+      One significant change I made to this model is enabling the use of wordpiece embeddings (instead of word-level ones). This way, the fine-tuned embedding layer from \BERTT~can be plugged into the student, giving it some of the teacher's knowledge even before knowledge distillation begins.
+
+      In total, this model -- from now referred to as \LSTMS~-- has 2.41 million trainable parameters (excluding the embedding layer), making it 140x smaller than \BERTT.
+    }
+
+    \subsection{BERT student model}{
+      For the second student, I use a scaled-down version of BERT, matched for size with \LSTMS. In particular, I scaled all the dimensions of BERT\textsubscript{Large} down roughly by a factor of 5, ending up with a smaller BERT with $L=5$ encoder layers, hidden dimension $d_h=204$, intermediate dimension $d_I=750$ and $A=3$ attentional heads -- amounting to 2.42 million trainable parameters (embedding parameters excluded). I will refer to this model as \BERTS.
+    }
 
     % knowledge distillation + default params 
     % mention that KD is like normal training given the transfer set
-    $LSTM_S$ was trained to minimise the mean squared loss (MSE) between the teacher-generated logits and student's logits. While the cross-entropy loss with configurable temperature is more popular and in essence a generalisation of the MSE loss (see \citet{Hinton_2015}), \citet{Tang_2019b} report that the MSE loss led to slightly better performance in their experiments. For $BERT_S$, I use the traditional cross-entropy loss with temeperature set to $T=3$ following the findings of \citet{Tsai_2019} who experimented with different temperatures (note that $T=3$ was used as the default also in the experiments of \citet{Tang_2019b}).
+    \subsection{Knowledge distillation}{
+      During knowledge distillation, \BERTS~was trained using the usual cross-entropy loss. The softmax temperature I fixed at $T=3$.\footnote{Usual values are from 1 (no effect) to 3. For instance, \citet{Sanh_2019} use $T=2$. In a work that is much close to my situation, \citet{Tsai_2019} apply knowledge distillation from BERT\textsubscript{Base} into a 18-million-parameter smaller BERT, observing that from $T=\{1, 2, 3\}$ the best one was $T=3$.}
+      
+      \LSTMS~uses the mean squared error (MSE) loss, following \citeauthor{Tang_2019b} who compared this with the cross-entropy loss (with $T=3$) and report that MSE led to slightly better performance. Following preliminary experiments on CoLA, I set the training budget to be 30 epochs for \LSTMS~(same as \citeauthor{Tang_2019b}) as it enabled the evaluation-set score to comfortably converge. \BERTS, on the other hand, took longer to converge and I decided for a 60-epoch budget. Importantly, for each training, I observe the evaluation-set score and keep the best-performing parameters. This way, even if the student's performance eventually starts decreasing during training, I retain the best version for any further analysis and comparison.
 
-    Following preliminary experiments, I limited the number of training epochs to 30 for $LSTM_S$ (same budget was used by \citet{Tang_2019b}) and to 60 for $BERT_S$ as it was converging much slower than the recurrent student. I stick to this training budget throughout my experiments.
+      Originally, both students were initialised randomly from scratch before training, with the exception of the embedding layer of \LSTMS~(initalised from word2vec). Later, I explore different ways of initialising the embedding layers in both students.
+
+      The learning algorithm is Adam for \BERTS, with $\beta_1=0.9$ and $\beta_2=0.98$. The learning rate I initially set to $5\times10^{-4}$ and later optimise.
+      Following \citeauthor{Tang_2019b}, Adadelta \citep{Zeiler_2012} is used for \LSTMS, with $\eta=1.0$ and $\rho=0.95$.
+      Note that Adam is a generalised version of Adadelta and is much more widely used; later, I explore the use of Adam for \LSTMS. Originally, I do not anneal the learning rate for \LSTMS. For \BERTS, I originally anneal $\eta$ linearly from 0 over the first 10 epochs, and let it linearly decay to 0 during the remaining 50 epochs. Later, I explore other annealing schedules.
+
+      I use the original gradient norm clipping for \LSTMS, with the maximum norm constrained to 30. However, throughout my experiments, I never observe the norm to reach the limit, and I set a limit to the gradients of \BERTS~only symbolically, to make sure that the gradients in any case do not explode.
+
+      For regularisation, I use the standard dropout rate of 0.1 throughout all training -- this rate is used by \citet{Devlin_2018} for BERT and also by \citeauthor{Tang_2019b} for \LSTMS.
+
+      \citeauthor{Tang_2019b} observe that small batch sizes work well for the BiLSTM student, and I use their recommended value of $B=50$. For \BERTS, I start with somewhat larger batches: $B=256$. In any case, I explore various batch sizes later.
+
+      While LSTMs can process sequences of any lengths, Transformer models like BERT impose a maximum sequence length for practical reasons, with all sequences within a batch padded to the maximum length. While \BERTT~allows sequences of up to 512 wordpieces in length, extremely few sentences reach this length (especially in my case, when the inputs are single sentences, not pairs). Hence, to speed up training, I constrain sentences to be at most 128 token long for \BERTS.
+
+      \textbf{TO-DO: Make sure dropout is mentioned in BERT description.}
+    }
 
     % probing
-    As for the probing classifier that \citeauthor{Conneau_2018} propose to use with their probing suite, it is a simple neural network with one hidden layer with the sigmoid activation function and dropout, followed by a linear layer projecting to the desired number of classes. The cross-entropy training loss is used, with the Adam learning algorithm with $\eta=0.001$, $\beta_1=0.9$ and $\beta_2=0.999$. Training uses minibatches of 64 examples and uses early stopping for when the accuracy does no improve over 5 consecutive iterations. For consistency with the exact method of \citeauthor{Conneau_2018}, I tune the dropout rate (choosing from [0.0, 0.1, 0.2]) and the hidden layer width (choosing from [50, 100, 200]) using the evaluation set.
+    \subsection{Probing}{
+      For the light-weight probing classifier, \citet{Conneau_2018} use a simple neural network with one hidden layer with the sigmoid activation function and dropout, followed by a linear layer projecting to the desired number of classes. The cross-entropy training loss is used, with the Adam learning algorithm with $\eta=0.001$, $\beta_1=0.9$ and $\beta_2=0.999$. Training uses minibatches of 64 examples and employs early stopping for when the accuracy does no improve over 5 consecutive iterations.
+
+      For consistency with the exact method of \citeauthor{Conneau_2018}, I tune the dropout rate (choosing from [0.0, 0.1, 0.2]) and the hidden layer width (choosing from [50, 100, 200]) using the evaluation set. Each probing score is reported as the one for the best dropout and layer width values.
+
+      \textbf{TO-DO: explain different encoding extraction approaches and also why probing LSTM's lower layers doesn't work.}
+    }
 
     % prediction generation and analysis
+    \subsection{Prediction generation and analysis}{
+
+    }
+
+    \textbf{TO-DO: report rough runtimes for teacher, GPT-2, and students.}
   }
 
   \section{Computing environment}{
-
+    single GPU
+    30GB RAM
+    Slurm job managed
+    max. 20 jobs at once, hence experiments limited
+    UoE MSc teaching cluster
+    GeForce GTX TITAN X, 12212MiB    
   }
 }
 
