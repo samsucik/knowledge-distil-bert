@@ -10,6 +10,9 @@ experiments/**/
 !experiments/teacher-configs/
 !experiments/analysis/
 !experiments/analysis/logs
+!experiments/analysis/img
+experiments/analysis/img/*.png
+!experiments/analysis/img/*.pdf
 !experiments/analysis/probing
 !experiments/analysis/predictions
 !experiments/analysis/mistakes-hits
