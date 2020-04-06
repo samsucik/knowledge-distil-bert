@@ -6,6 +6,7 @@
 \usepackage{graphicx}
 
 \usepackage{textcomp} % for text tilde
+\def\mytilde{{\raise.17ex\hbox{$\scriptstyle\sim$}}}
 
 % bold in mah mode, making the needed fonts available
 \usepackage{amsmath}
@@ -59,8 +60,7 @@
 
 % Background colour for text
 \usepackage{xcolor}
-\definecolor{shadecolor}{RGB}{150,150,150}
-\def\reviewready{\colorbox{green}{[READY]}}
+\def\reviewready{\colorbox{yellow}{[READY FOR REVIEW]}}
 
 % shortcuts for obscure, frequently used expressions
 \def\BERTT{BERT\textsubscript{T}}
@@ -296,7 +296,7 @@
         The pre-training was carried out on text from books and from the English Wikipedia, totalling to 3,400 million words (for details see \citet{Devlin_2018}). The MLM and NSP tasks were both used throughout the pre-training, forcing the model to learn both at the same time.
         }
         \item The inputs are processed not word by word, but are broken down using a fixed vocabulary of sub-word units (\textit{wordpieces}, introduced by \citet{Wu_2016}). This way, BERT can better deal with rare words. (In word-level models, words that are not found in the model's vocabulary are replaced with a special \verb|UNKNOWN| token, which means disregarding any information carried by the words.) The tokeniser module of BERT uses the wordpiece vocabulary to tokenise (segment) the input text before it is further processed. \autoref{fig:bert-inputs} shows an example; notice how my surname (``Sucik'') gets split into three wordpieces whereas the other, much more common words are found in the wordpiece vocabulary.
-        \item To enable the different pre-training tasks as well as two-sentence inputs, BERT uses a special input sequence representation, illustrated in \autoref{fig:bert-inputs}. Given the two input sentences $S_A$, $S_B$, they are concatenated and separated by the special \verb|[SEP]| token. The overall sequence is prepended with the \verb|[CLS]| (classification) token. Then, for tasks like NSP, only the output representation of the \verb|[CLS]| token (i.e. $\bm{o_0}$) is used, whereas for token-level tasks like MLM the output vector from the desired position is used (in \autoref{fig:bert-inputs}, the MLM task would use $\bm{o_3}$ to predict the correct token at this position).
+        \item To enable the different pre-training tasks as well as two-sentence inputs, BERT uses a special input sequence representation, illustrated in \autoref{fig:bert-inputs}. Given the two input sentences $S_A$, $S_B$, they are concatenated and separated by the special \verb|[SEP]| token. The overall sequence is prepended with the \verb|[CLS]| (classification) token. To explicitly capture that certain tokens belong to $S_A$ and others to $S_B$, simple \textit{token type embeddings} (which only take on two different values) are added to the token embedding at each position. Then, for tasks like NSP, only the output representation of the \verb|[CLS]| token (i.e. $\bm{o_0}$) is used, whereas for token-level tasks like MLM the output vector from the desired position is used (in \autoref{fig:bert-inputs}, the MLM task would use $\bm{o_3}$ to predict the correct token at this position).
       \end{enumerate}
 
       \begin{figure}[h!t]
@@ -308,7 +308,7 @@
       % They also changed the pre-training to 2 tasks trained at the same time: masked language modelling to learn to understand words, and next sentence prediction to learn to reason about entire sentences (as the actual NLP tasks often require such reasoning). 
       % This is is how BERT was born, which then became extremely popular in the community, attracting a lot of work on improving it, analysing its capabilities, extending it to other languages, and even applying it to multi-modal tasks such as video captioning. 
       % TO-DO: elaborate more on BERT, also with a schematic picture.
-      The overall architecture of BERT is shown in \autoref{fig:bert-hl}. The tokeniser also adds the special tokens like \verb|[CLS]| and \verb|[SEP]| to the input, while the trainable token embedding layer also adds positional embeddings to the tokens. The pooler takes the appropriate model output (for sequence level classification the first output $\bm{o_0}$ as discussed above) and applies a fully-connected layer with the tanh activation function.
+      The overall architecture of BERT is shown in \autoref{fig:bert-hl}. The tokeniser also adds the special tokens like \verb|[CLS]| and \verb|[SEP]| to the input, while the trainable token embedding layer also adds the positional embedding and the token type embedding to the wordpiece embedding of each individual token. The pooler takes the appropriate model output (for sequence level classification the first output $\bm{o_0}$ as discussed above) and applies a fully-connected layer with the tanh activation function.
       The external classifier is often another fully-connected layer with the tanh activation, producing the logits\footnote{For a classifier, the logits are the (unnormalised) predicted class probabilities.}. These get normalised using softmax to produce a probability distribution over all classes. The most probable class is outputted as the model's prediction.
       
       \begin{figure}[h!t]
@@ -327,6 +327,8 @@
         \caption{The modules making up one encoder layer in BERT; residual connections highlighted by using dashed lines.}
         \label{fig:bert-encoder-layer}
       \end{figure}
+
+      When training BERT, artificial corruption of internal representations is done using dropout, which acts as a regulariser, making the training more robust. In particular, dropout is applied to the outputs of the embedding layer, to the computed attention weights, just before residual summation both to the self-attention layer output and to the fully connected layer output (see \autoref{fig:bert-encoder-layer} for the summation points), and to the output of the pooler module (before aplying the external classifier, see \autoref{fig:bert-hl}). The typical dropout rate used is 0.1.
       
       Originally, pre-trained BERT was released in two sizes: BERT\textsubscript{Base} with 110 million parameters, 12 encoder layers and 12-head self-attention, and BERT\textsubscript{Large} with 340 million parameters, 24 encoder layers and 16-head self-attention. The models quickly became popular, successfully applied to various tasks from document classification \citep{Adhikari_2019} to video captioning \citep{Sun_2019}. Further pre-trained versions were released too, covering, for example, the specific domain of biomedical text \citep{Lee_2019} or multilingual text \citep{Pires_2019}.
     }
@@ -621,7 +623,7 @@
   }
 }
 
-\chapter{Methods and Implementation}{
+\chapter{Methods and Implementation \reviewready}{
   \label{chap:methods-implementation}
 
   In this chapter, I re-iterate on the main objectives of this work, the approach I took, and go into detail in describing the design and implementation work underlying my experiments and analyses.
@@ -674,23 +676,36 @@
       From now, I will refer to this model as \BERTT.
       With $L=24$ encoder layers, $A=16$ self-attention heads, the hidden dimension $d_h=1024$ and the indermediate dimension $d_I=4096$, the model has 340 million trainable parameters (as discussed in more detail back in \autoref{sec:BERT}).
       This large BERT generally performs better than the 110-million-parameter BERT\textsubscript{Base} variant and is therefore more desirable, but also slower, with a greater incentive for compression (in this case using knowledge distillation).
+
       For teacher fine-tuning on each downstream task, I also use the procedure of \citeauthor{Tang_2019b}:
       3-epoch training with batch size $B=36$ on the training set, using the cross-entropy loss and the Adam optimizer with $\eta=5\times10^{-5}$ and the usual $\beta$ values ($\beta_1=0.9,\ \beta_2=0.999$).
       The learning rate $\eta$ was linearly ``warmed up'' (annealed from 0 to the target value) over the first 10\% of the total training steps, and decayed linearly to 0 over the remaining steps.
-      Somewhat surprisingly, while the performance of \BERTT~converged (plateaued) within the 3-epoch budget on CoLA and SST-2 (as measured by the task-relevant metric on the evaluation set), the convergence was much slower for Sara. Hence, I empirically found a more suitable number of epochs within which the teacher would converge on Sara: 10. 
-      \textbf{TO-DO: add dev score plots}
+      For regularisation, I use the standard dropout of 0.1 (see \autoref{sec:BERT} for an overview of where dropout is used inside BERT).
+
+      Somewhat surprisingly, while the performance of \BERTT~converged (plateaued) within the 3-epoch budget on CoLA and SST-2 (as measured by the task-relevant metric on the evaluation set), the convergence was much slower for Sara. Hence, I empirically found a more suitable number of epochs within which the teacher would converge on Sara: 10. See \autoref{fig:teacher-fine-tuning} for the evaluation-set performance of the teacher models and how they converge during fine-tuning.
+      \begin{figure}[h!t]
+        \centering
+        \makebox[\textwidth][c]{\includegraphics[width=15.5cm]{../experiments/analysis/img/teacher-fine-tuning}}
+        \caption{The evaluation-set performance of teacher models across fine-tuning. Unintentionally, I used different logging frequencies in fine-tuning the teachers, hence the SST-2 plot is dense (and appears more noisy) while the CoLA plot is sparse.}
+        \label{fig:teacher-fine-tuning}
+      \end{figure}
     }
 
     % GPT-2 augmentation
     \subsection{Augmentation with GPT-2}{
       In fine-tuning the GPT-2 model, I again repeat the procedure of \citeauthor{Tang_2019b}. In particular, the model is trained over 1 epoch using the cross-entropy loss, the AdamW learning algorithm (Adam with weight decay, see \citet{Loshchilov_2019}) with learning rate $\eta=5\times10^{-5}$, weight decay $\lambda=1\times10^{-3}$, and the usual $\beta$ values. The same linear scheduling is used as the one for fine-tuning \BERTT. The only parameter I choose differently from \citeauthor{Tang_2019b} is the batch size $B$: They used batches of 48 whereas I use smaller batches of 16 examples to make the fine-tuning possible with my limited memory resource.
-      \textbf{TO-DO: report the bpc or other scores}
+      \textbf{TO-DO: I did not note the perplexity numbers when fine-tuning GPT-2. Should I report these? Fine-tuning GPT-2 does not take long.}
     }
 
     % student architectures + default params
     \subsection{BiLSTM student model}{
-      As the first student, I use the bi-directional LSTM (BiLSTM) from \citeauthor{Tang_2019b}, comprising one hidden BiLSTM layer with 300 units. The last hidden states for either of the two processing directions are concatenated and passed to a fully connected layer with output 400 units\footnote{Even though \citeauthor{Tang_2019b} tried also other, slightly different layer dimensions, these are the ones that worked the best on CoLA.}, the ReLU activation function and dropout. A final (linear) layer follows, projecting to the number of target classes, i.e. producing the logits. The model is topped with a softmax classifier for normalising the logits.
-      \textbf{TO-DO: add a diagram}
+      As the first student, I use the bi-directional LSTM (BiLSTM) from \citeauthor{Tang_2019b}, see \autoref{fig:bilstm}, comprising in particulas one hidden BiLSTM layer with 300 units. The last hidden states for either of the two processing directions are concatenated and passed to a fully connected layer with 400 output units\footnote{Even though \citeauthor{Tang_2019b} tried also other, slightly different layer dimensions, these are the ones that worked the best on CoLA.}, the ReLU activation function and dropout. A final (linear) layer follows, projecting to the number of target classes, i.e. producing the logits. The model is topped with a softmax classifier for normalising the logits.
+      \begin{figure}[h!t]
+        \centering
+        \includegraphics[width=6.5cm]{graphics/bilstm}
+        \caption{The bi-directional LSTM student. Diagram adapted from Figure 1 of \citet{Tang_2019a}.}
+        \label{fig:bilstm}
+      \end{figure}
 
       The original model was built to process sentences word by word, encoding each word using the pre-trained word2vec embeddings\footnote{The 300-dimensional version trained on Google News, see \rurl{code.google.com/archive/p/word2vec/}.} before passing it to the LSTM layer. Words for which there is no embedding (\textit{out-of-vocabulary} (OOV) words) are embedded using a vector initialised with random numbers drawn uniformly from [-0.25, 0.25]. The embedding layer supports three \textit{embedding modes}, based on \citet{Kim_2014}:
       \begin{enumerate}
@@ -728,34 +743,47 @@
       \citeauthor{Tang_2019b} observe that small batch sizes work well for the BiLSTM student, and I use their recommended value of $B=50$. For \BERTS, I start with somewhat larger batches: $B=256$. In any case, I explore various batch sizes later.
 
       While LSTMs can process sequences of any lengths, Transformer models like BERT impose a maximum sequence length for practical reasons, with all sequences within a batch padded to the maximum length. While \BERTT~allows sequences of up to 512 wordpieces in length, extremely few sentences reach this length (especially in my case, when the inputs are single sentences, not pairs). Hence, to speed up training, I constrain sentences to be at most 128 token long for \BERTS.
-
-      \textbf{TO-DO: Make sure dropout is mentioned in BERT description.}
     }
 
     % probing
     \subsection{Probing}{
-      For the light-weight probing classifier, \citet{Conneau_2018} use a simple neural network with one hidden layer with the sigmoid activation function and dropout, followed by a linear layer projecting to the desired number of classes. The cross-entropy training loss is used, with the Adam learning algorithm with $\eta=0.001$, $\beta_1=0.9$ and $\beta_2=0.999$. Training uses minibatches of 64 examples and employs early stopping for when the accuracy does no improve over 5 consecutive iterations.
+      For the light-weight probing classifier, \citet{Conneau_2018} use a simple neural network with one hidden layer with the sigmoid activation function and dropout, followed by a linear layer projecting to the desired number of classes. The cross-entropy training loss is used, with the Adam learning algorithm with $\eta=0.001$, $\beta_1=0.9$ and $\beta_2=0.999$. Training uses minibatches of 64 examples and employs early stopping for when the accuracy does not improve over 5 consecutive iterations.
 
       For consistency with the exact method of \citeauthor{Conneau_2018}, I tune the dropout rate (choosing from [0.0, 0.1, 0.2]) and the hidden layer width (choosing from [50, 100, 200]) using the evaluation set. Each probing score is reported as the one for the best dropout and layer width values.
 
-      \textbf{TO-DO: explain different encoding extraction approaches and also why probing LSTM's lower layers doesn't work.}
+      When probing, an important design decision is how to extract sentence embeddings from the given model's layers.
+      The BiLSTM layer of \LSTMS~can produce two hidden states at each timestep (though only the last hidden state in each direction is used in training). \citeauthor{Conneau_2018} experiment with:
+      \begin{enumerate}
+        \item Creating a \textit{BiLSTM-max} encoding such that each of its elements is the maximum over the values for each timestep. (The encoding has the same dimensionality as the BiLSTM layer output.)
+        \item Creating a \textit{BiLSTM-last} encoding by simply taking the last hidden state in each direction -- the encoding is the same as the BiLSTM layer output.
+      \end{enumerate}
+      \citeauthor{Conneau_2018} report mixed results with BiLSTM-max encodings leading to better probing scores on some of the probing tasks. I am constrained to using BiLSTM-last since the PyTorch implementation of LSTMs does not give access to intermediate hidden states, only to the last one in each direction.
+
+      In \BERTS, I can access all of the hidden representations produced by each encoder layer. I try three different ways of combining these into a single encoding:
+      \begin{enumerate}
+        \item Maximum pooling, equivalent to BiLSTM-max, i.e. taking the maximum value for each element over all hidden representations.
+        \item Single-position encoding (the equivalent fo BiLSTM-last), i.e. taking the hidden representation that is used in the model for the final classification. While in BiLSTM, the last hidden state in each direction is used for further processing and classification, in BERT, it is the first hidden representation, corresponding to the \verb|[CLS]| input token.
+        \item Average pooling (not explored by \citeauthor{Conneau_2018}), which is similar to maximum pooling but instead of maximum takes the average of each element across all representations.
+      \end{enumerate}
+      After conducting simple preliminary probing experiments with \BERTT on each downstream task, I observed that the differences between the three approaches are mostly inconsistent and not large. However, in many cases, maximum pooling produced worse probing scores than the other two techniques, and average pooling slightly outperformed single-position representation overall. In all further probing experiments with \BERTT~and \BERTS, I use average pooling. \textbf{TO-DO: Should I include detailed results here? This is not a crucial design decision and the results don't show clearly interpretable differences between the three techniques.}
+
+      Inspired by \citet{Tenney_2019b}, I probe various encoder layers across the BERT models in order to see not just how well a certain kind of linguistic knowledge is captured in the model, but also how its concentration varies across the model layers.
     }
-
-    % prediction generation and analysis
-    \subsection{Prediction generation and analysis}{
-
-    }
-
-    \textbf{TO-DO: report rough runtimes for teacher, GPT-2, and students.}
   }
 
-  \section{Computing environment}{
-    single GPU
-    30GB RAM
-    Slurm job managed
-    max. 20 jobs at once, hence experiments limited
-    UoE MSc teaching cluster
-    GeForce GTX TITAN X, 12212MiB    
+  \section{Computing environment and runtimes}{
+    All major parts of my experiments -- teacher and GPT-2 fine-tuning, augmentation data sampling, teacher logits generation, knowledge distillation and probing -- are run in the environment of the University's Teaching cluster\footnote{\rurl{computing.help.inf.ed.ac.uk/teaching-cluster}.}
+
+    Each job uses its own one GPU -- mostly either GeForce GTX TITAN X or GeForce RTX 2080 Ti -- with 12-13GB of memory, and additional 30GB of RAM for use with the CPU.
+
+    The only processes that were parallelised were the augmentation data sampling and the teacher logit generation. Using 4 parallel processes, each with its own GPU with 6GB of memory, generating the 800,000 augmentation sentences took almost 17 hours for CoLA, 15 hours for SST-2, and 4 hours for Sara. (Following the original Sara training sentences being mostly short, the augmentation sentences are also short, which means they can be sampled faster.) Generating teacher logits in batches of 2048 examples, using four 12GB-memory GPUs, took slightly over 1 hour (measured on CoLA).
+    \textbf{TO-DO: I did not note the runtime of fine-tuning GPT-2. Should I re-run the fine-tuning to be able to report these numbers?}
+
+    Teacher-finetuning took only 0.5-1h for CoLA and Sara, and 4 hours for SST-2 (due to it having much more trainind examples than the other two tasks). Knowledge distillation runtimes were much higher for \BERTS~than for \LSTMS~(both in the \mytilde2.4-million-parameter variants). While \BERTS~took 15-26 hours to train, \LSTMS~took only 5-8 hours. In both cases, the training took the longest on SST-2 and the shortest on CoLA, due to different characteristic lengths of sentences in the augmentation data.
+
+    While the cluster was mostly unused by others during my experiments, in some cases, I ran multiple experiments in the same cluster node. This could have impacted the runtimes when the jobs had to share the CPU resources (even though each cluster node had as many as 32 or 20 CPU cores).
+
+    Because of the role restricions in the cluster, I could not run more than 20 jobs at the same time. This had a significant impact especially on the time it took to run the hyperparameter exploration experiments. It was also the main reason why I did not -- with a few exceptions -- run my experiments repeatedly with many different random seeds for more credible results. 
   }
 }
 

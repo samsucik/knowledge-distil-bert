@@ -7,6 +7,8 @@ parser.add_argument("--in_dir", default="CoLA.bak/distillation/logs", type=str, 
                     help="Directory where the experiment-specific log dirs are found.")
 parser.add_argument("--out_dir", default="analysis/logs", type=str, required=False,
                     help="Directory where the CSVs should be saved.")
+parser.add_argument("--task", default=None, type=str, required=False,
+                    help="The task, one of [cola, sst-2, sara].")
 args = parser.parse_args()
 
 def get_metric_name(task_name):
@@ -29,7 +31,7 @@ for log_dir in existing_log_dirs:
         print("Skipping", log_dir)
         continue
     print("Processing", log_dir)
-    task_name = get_task_name(log_dir)
+    task_name = args.task if args.task is not None else get_task_name(log_dir)
     metric_name = get_metric_name(task_name)
     metric_name_long = "eval_" + metric_name
     print("TASK_NAME: <{}>".format(task_name))
