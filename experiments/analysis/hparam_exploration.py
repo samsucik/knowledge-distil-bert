@@ -20,14 +20,14 @@ log_files = {
     },
     "wp": {
     # Warmup proportion and lr decay: wp=0, decay
-    "$0$, decay": ["distil-bert-CoLA-Jan18-12:47:13", "distil-bert-CoLA-Jan18-12:19:11", "distil-bert-CoLA-Jan18-12:19:25"],
     "$0$": ["distil-bert-CoLA-Jan17-23:27:02", "distil-bert-CoLA-Jan17-23:27:26", "distil-bert-CoLA-Jan17-23:27:48"],
-    "$5$, decay": ["distil-bert-CoLA-Jan18-12:21:09", "distil-bert-CoLA-Jan18-12:22:01", "distil-bert-CoLA-Jan18-12:22:39"],
+    "$0$, decay": ["distil-bert-CoLA-Jan18-12:47:13", "distil-bert-CoLA-Jan18-12:19:11", "distil-bert-CoLA-Jan18-12:19:25"],
     "$5$": ["distil-bert-CoLA-Jan18-12:23:19", "distil-bert-CoLA-Jan18-12:38:36", "distil-bert-CoLA-Jan18-12:38:46"],
-    "$10$, decay": ["distil-bert-CoLA-Jan18-12:28:34", "distil-bert-CoLA-Jan18-12:28:54", "distil-bert-CoLA-Jan18-17:39:44"],
+    "$5$, decay": ["distil-bert-CoLA-Jan18-12:21:09", "distil-bert-CoLA-Jan18-12:22:01", "distil-bert-CoLA-Jan18-12:22:39"],
     "$10$": ["distil-bert-CoLA-Jan18-17:40:29", "distil-bert-CoLA-Jan18-17:40:44", "distil-bert-CoLA-Jan18-17:41:16"],
-    "$15$, decay": ["distil-bert-CoLA-Jan18-17:42:14", "distil-bert-CoLA-Jan18-17:42:42", "distil-bert-CoLA-Jan18-17:45:26"],
+    "$10$, decay": ["distil-bert-CoLA-Jan18-12:28:34", "distil-bert-CoLA-Jan18-12:28:54", "distil-bert-CoLA-Jan18-17:39:44"],
     "$15$": ["distil-bert-CoLA-Jan18-17:45:54", "distil-bert-CoLA-Jan18-18:06:13", "distil-bert-CoLA-Jan18-18:09:09"],
+    "$15$, decay": ["distil-bert-CoLA-Jan18-17:42:14", "distil-bert-CoLA-Jan18-17:42:42", "distil-bert-CoLA-Jan18-17:45:26"],
     },
     "embed-cola": {
     # Embedding type: word multichannel
@@ -107,16 +107,16 @@ log_files = {
     },
     "wp-bert-scratch": {
     # Warmup proportion and lr decay: wp=20
-    "$0$, decay": ["distil-bert-CoLA-Jan18-11:57:08"],
     "$0$": ["distil-bert-CoLA-Jan18-11:57:42"],
-    "$5$, decay": ["distil-bert-CoLA-Jan18-11:58:22"],
+    "$0$, decay": ["distil-bert-CoLA-Jan18-11:57:08"],
     "$5$": ["distil-bert-CoLA-Jan18-11:59:07"],
-    "$10$, decay": ["distil-bert-CoLA-Jan17-16:10:36"],
+    "$5$, decay": ["distil-bert-CoLA-Jan18-11:58:22"],
     "$10$": ["distil-bert-CoLA-Jan18-12:08:07"],
-    "$15$, decay": ["distil-bert-CoLA-Jan18-11:59:56"],
+    "$10$, decay": ["distil-bert-CoLA-Jan17-16:10:36"],
     "$15$": ["distil-bert-CoLA-Jan18-12:00:26"],
-    "$20$, decay": ["distil-bert-CoLA-Jan18-12:02:52"],
+    "$15$, decay": ["distil-bert-CoLA-Jan18-11:59:56"],
     "$20$": ["distil-bert-CoLA-Jan18-12:12:15"],
+    "$20$, decay": ["distil-bert-CoLA-Jan18-12:02:52"],
     },
     "B-bert-scratch": {
     # Batch size: B=256
@@ -139,16 +139,16 @@ log_files = {
     },
     "wp-bert": {
     # Warmup proportion and lr decay: wp=15, decay
-    "$0$, decay": ["distil-bert-CoLA-Jan21-20:50:51",],
     "$0$": ["distil-bert-CoLA-Jan21-21:12:24",],
-    "$5$, decay": ["distil-bert-CoLA-Jan21-21:40:15",],
+    "$0$, decay": ["distil-bert-CoLA-Jan21-20:50:51",],
     "$5$": ["distil-bert-CoLA-Jan21-23:14:47",],
-    "$10$, decay": ["distil-bert-CoLA-Jan20-15:31:04"],
+    "$5$, decay": ["distil-bert-CoLA-Jan21-21:40:15",],
     "$10$": ["distil-bert-CoLA-Jan22-09:29:53",],
-    "$15$, decay": ["distil-bert-CoLA-Jan22-09:30:36",],
+    "$10$, decay": ["distil-bert-CoLA-Jan20-15:31:04"],
     "$15$": ["distil-bert-CoLA-Jan22-09:31:03",],
-    "$20$, decay": ["distil-bert-CoLA-Jan22-09:31:31",],
+    "$15$, decay": ["distil-bert-CoLA-Jan22-09:30:36",],
     "$20$": ["distil-bert-CoLA-Jan22-09:32:06",],
+    "$20$, decay": ["distil-bert-CoLA-Jan22-09:31:31",],
     },
     "B-bert": {
     # Batch size: B=128

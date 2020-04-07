@@ -818,7 +818,7 @@
 
       % \item Embedding mode -- one of static, non-static, and multi-channel (discussed in \autoref{sec:student-bilstm}).
 
-    Following on the discussion of implementation details in \autoref{sec:implementation-details}, the initial configurations of the parameters to be explored:
+    Following on the discussion of implementation details in \autoref{sec:implementation-details}, the initial configurations of the parameters to be explored are:
     \begin{itemize}
       \item For \BERTS: Adam with $\eta=5\times10^{-5}$, $B=256$, $E_{w}=10$ -- warmup over the first 10 epochs, followed by linear decay of $\eta$, and wordpiece embedding layer with the non-static mode.
       \item For \LSTMS: Adadelta with $\eta=1.0$, $B=50$, no $\eta$ warmup or decay, and the word-level embeddings with the multichannel mode.
@@ -862,12 +862,18 @@
         \label{fig:exploration-B-lstm}
       \end{figure}
 
+      Interestingly, as \autoref{fig:exploration-B-lstm} shows, \LSTMS~clearly does prefer small batch sizes. However, training with tiny minibatches takes very long -- compare \mytilde25min for $B=512$ with \mytilde7h for $B=32$. Hence, I do not explore batch sizes even smaller, and instead use $B=32$ for \LSTMS~in all further experiments.
+
       \begin{figure}[h!t]
         \centering
-        \makebox[\textwidth][c]{\includegraphics[width=14cm]{../experiments/analysis/img/exploration-schedule-bert}}
-        \caption{Comparing various warmup durations $E_w$ for \BERTS~on CoLA, with the optional learning rate decay to 0 over the remaining training epochs. Crosses mark the maximum scores. \sliding}
-        \label{fig:exploration-schedule-bert}
+        \makebox[\textwidth][c]{\includegraphics[width=14cm]{../experiments/analysis/img/exploration-schedule}}
+        \caption{Comparing various warmup durations $E_w$ on CoLA, with the optional learning rate decay to 0 over the remaining training epochs. Crosses mark the maximum scores. \sliding}
+        \label{fig:exploration-schedule}
       \end{figure}
+
+      \autoref{fig:exploration-schedule} shows the results of exploring various warmup durations for both students. Note that for \LSTMS, whose training budget is only 30 epochs, I did not try the long warmup duration of 20 epochs, only up to 15 epochs.
+
+      For \LSTMS, \autoref{fig:exploration-schedule} shows that the longer the warmup duration, the later the model converges. This is understandable because during warmup the model uses smaller learning rate and so the learning happens less aggressively (slower). More importantly, the graph shows that $\eta$ decay does not make a big difference, but it can help to prevent the model from slightly overfitting the training data (this is mose visible for $E_w=0$ where the model's evaluation-set performance starts to slowly decrease in the absence of $\eta$ decay). All in all, using the full target $\eta$ from the start helps \LSTMS~
 
       \begin{figure}[h!t]
         \centering
