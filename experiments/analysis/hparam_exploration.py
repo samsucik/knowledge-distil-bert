@@ -160,20 +160,20 @@ log_files = {
     },
     "embed-cola-bert": {
     # Embedding type: word multichannel
-    "wordpiece, non-static": ["distil-bert-CoLA-Jan23-09:48:13",],
-    "wordpiece, multichannel": ["distil-bert-CoLA-Jan25-09:42:35"],
-    "word, non-static": ["distil-bert-CoLA-Jan24-10:07:32"],
     "word, multichannel": ["distil-bert-CoLA-Jan24-10:07:52"],
+    "word, non-static": ["distil-bert-CoLA-Jan24-10:07:32"],
+    "wordpiece, multichannel": ["distil-bert-CoLA-Jan25-09:42:35"],
+    "wordpiece, non-static": ["distil-bert-CoLA-Jan23-09:48:13",],
     },
     "embed-sara-bert": {
     # Embedding type: wordpiece non-static
-    "wordpiece, non-static": ["distil-bert-Sara-Feb01-09:38:47"],
     "word, multichannel": ["distil-bert-Sara-Jan31-09:34:12"],
+    "wordpiece, non-static": ["distil-bert-Sara-Feb01-09:38:47"],
     },
     "embed-sst-2-bert": {
     # Embedding type: word multichannel
-    "wordpiece, non-static": ["distil-bert-SST-2-Feb01-19:44:54"],
     "word, multichannel": ["distil-bert-SST-2-Feb01-19:47:00"],
+    "wordpiece, non-static": ["distil-bert-SST-2-Feb01-19:44:54"],
     },
     "size-cola-bert": {
     # Size:
@@ -181,7 +181,7 @@ log_files = {
     "W=2, D=1": ["distil-bert-CoLA-Jan29-11:08:03"], # exploding distil-bert-CoLA-Jan25-10:02:01
     "W=3, D=1": ["distil-bert-CoLA-Jan29-11:17:12"], # exploding distil-bert-CoLA-Jan25-10:12:42
     "W=4, D=1": ["distil-bert-CoLA-Jan29-11:25:47"],
-    "W=5, D=1": ["distil-bert-CoLA-Feb02-10:42:58"], # exploding distil-bert-CoLA-Feb01-21:22:43
+    # "W=5, D=1": ["distil-bert-CoLA-Feb02-10:42:58"], # exploding distil-bert-CoLA-Feb01-21:22:43
     "W=1, D=2": ["distil-bert-CoLA-Jan25-10:50:54"],
     "W=2, D=2": ["distil-bert-CoLA-Jan29-11:09:47"], # exploding distil-bert-CoLA-Jan25-10:18:53
     "W=3, D=2": ["distil-bert-CoLA-Jan29-11:18:20"],
