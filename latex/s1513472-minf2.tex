@@ -80,6 +80,7 @@
 }
 
 % TO-DO: Add access date to all URLs in footnotes.
+% TO-DO: Change .png figures to .pdf.
 \begin{document}
 \VerbatimFootnotes
 
@@ -1016,7 +1017,57 @@
         \subsubsection{CoLA}{
           With the teacher's evaluation-set MCC of 0.599 being much higher than the student performance observed so far (around 0.4), I up-scale both students, aiming for 90\% of the teacher performance while keeping the student size smaller than the 340-million-parameter teacher.
 
+          As observed in preliminary experiments with large \BERTS~versions, their learning suffers from gradient explosion due to the learning rate being too large for the models. For an example, see \autoref{fig:exploding-grads} where the gradient explosion happens around epoch 7 and the model score (MCC) then falls to 0 and stays there.
 
+          \begin{figure}[h!t]
+            \centering
+            \makebox[\textwidth][c]{\includegraphics[width=12cm]{../experiments/analysis/img/exploding-grads.png}}
+            \caption{Gradient explosion in \BERTS~with $W=2$ and $D=2$. The MCC values have been smoothed with a 0.1-epoch-wide sliding average window.}
+            \label{fig:exploding-grads}
+          \end{figure}
+
+          Without further extensive exploration of optimal learning rate values for each \BERTS~size\footnote{This would be extremely time-consuming because the larger versions were taking over 3 days to train.}, I choose better learning rate values manually.
+          Because of the use of $\eta$ warmup, I can monitor the learning progress for varying $\eta$ values in the early training epochs, as shown in \autoref{fig:exploding-grads-choosing-lr}. I approximately identify the point in training beyond which the learning slows down (and later falls to 0) due to large gradients. This way, I approximately identify the largest learning rate that still leads to learning, not to gradient explosion. In the concrete example in \autoref{fig:exploding-grads-choosing-lr}, I choose the beginning of epoch 3, at which point the learning rate is approximately $\eta=8\times10^{-5}$, and use this learning rate with this concrete model size.
+          
+          \begin{figure}[h!t]
+            \centering
+            \makebox[\textwidth][c]{\includegraphics[width=12cm]{../experiments/analysis/img/exploding-grads-choosing-lr.png}}
+            \caption{Learning progress (MCC over time) vs $\eta$ for \BERTS~with $W=2$ and $D=2$ -- the model experiencing gradient explosion in \autoref{fig:exploding-grads}. The dashed line shows the approximate position I identify as the approximate latest point of training before the learning starts to slow down.
+            The MCC values have been smoothed with a 0.1-epoch-wide sliding average window.}
+            \label{fig:exploding-grads-choosing-lr}
+          \end{figure}
+
+
+          \begin{figure}[h!t]
+            \centering
+            \makebox[\textwidth][c]{\includegraphics[width=12cm]{../experiments/analysis/img/exploding-grads-choosing-lr.png}}
+            \caption{Learning progress (MCC over time) vs $\eta$ for \BERTS~with $W=2$ and $D=2$ -- the model experiencing gradient explosion in \autoref{fig:exploding-grads}. The dashed line shows the approximate position I identify as the approximate latest point of training before the learning starts to slow down.
+            The MCC values have been smoothed with a 0.1-epoch-wide sliding average window.}
+            \label{fig:exploding-grads-choosing-lr}
+          \end{figure}
+
+          With the manually estimated learning rates, none of the larger versions of \BERTS~experiences gradient explosion. The LSTM students all use the same learning rate as this does not lead to any issues. \autoref{fig:size-cola} presents the results. While some larger students outperform the original, 2.4-million-parameter ones, the trends are not consistent. For \LSTMS~in particular, there is no clear correlation between student width or depth and the performance. For \BERTS, which starts as a relatively deep model with 5 layers, making it wider rather than deeper is helpful. For \LSTMS~which originally has only 1 hidden LSTM layer, increasing both the width and the depth can lead to better-performing models. Overall, both student architectures reach the best evaluation score of \mytilde0.45, far from the teacher performance level of 0.599. 
+
+          \begin{figure}
+            \centering
+            \begin{subfigure}{.5\textwidth}
+              \centering
+              \includegraphics[width=7cm]{../experiments/analysis/img/size-cola-lstm-map}
+              \caption{Different sizes of \LSTMS.}
+              \label{fig:size-cola-lstm}
+            \end{subfigure}%
+            \begin{subfigure}{.5\textwidth}
+              \centering
+              \includegraphics[width=6.5cm]{../experiments/analysis/img/size-cola-bert-map}
+              \caption{Different sizes of \BERTS.}
+              \label{fig:size-cola-bert}
+            \end{subfigure}
+            \caption{Best evaluation-set performance for the different student sizes on CoLA.}
+            \label{fig:size-cola}
+          \end{figure}
+          
+          I refrain from exploring students even larger as the biggest students are already approching the teacher size: \LSTMS~with $W=5$, $D=5$ has \mytilde247 million parameters and takes over 60h to train, and \BERTS~with $W=4$, $D=3$ has \mytilde114 million parameters and takes over 6 days to train.
+          As the best-performing students, I establish \BERTS~with $W=4$, $D=1$, and \LSTMS~with $W=2$, $D=2$.
         }
 
         Model size has impact on other model hyperparameters -- in particular, larger models typically require smaller learning rates. In line with the hyperparameter exploration so far, I ignore these interactions.
@@ -1024,6 +1075,9 @@
         mention exploding gradients
 
         give concrete numbers (teacher vs students so far)
+
+
+        say something about Cola being difficult (students lag behind teacher, even huge students) vs other tasks being easy
 
       }
     }

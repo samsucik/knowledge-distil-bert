@@ -190,7 +190,7 @@ log_files = {
     "W=1, D=3": ["distil-bert-CoLA-Jan29-13:58:24"],
     "W=2, D=3": ["distil-bert-CoLA-Jan29-14:42:48"],
     "W=3, D=3": ["distil-bert-CoLA-Jan29-11:23:24"],
-    "W=4, D=3": ["distil-bert-CoLA-Jan29-11:38:51"],
+    "W=4, D=3": ["distil-bert-CoLA-Jan29-11:38:51"], 
     },
     "size-sara-bert": {
     "W=1, D=1": ["distil-bert-Sara-Feb01-09:38:47"],
