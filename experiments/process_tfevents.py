@@ -10,6 +10,8 @@ parser.add_argument("--out_dir", default="analysis/logs", type=str, required=Fal
                     help="Directory where the CSVs should be saved.")
 parser.add_argument("--task", default=None, type=str, required=False,
                     help="The task, one of [cola, sst-2, sara].")
+parser.add_argument("--force", action="store_true", required=False,
+                    help="Overwrite existing output CSV files.")
 args = parser.parse_args()
 
 
@@ -26,21 +28,26 @@ def get_task_name(s):
     raise ValueError(s)
 
 existing_csvs = [f for f in os.listdir(args.out_dir) if os.path.isfile(os.path.join(args.out_dir, f)) and f.endswith(".csv")]
-existing_log_dirs = [os.path.abspath(d) for d in os.listdir(args.in_dir) if os.path.isdir(os.path.join(args.in_dir, d))]
+existing_log_dirs = [os.path.abspath(os.path.join(args.in_dir, d)) 
+                     for d in os.listdir(args.in_dir) if os.path.isdir(os.path.join(args.in_dir, d))]
 if len(existing_log_dirs) == 0:
     print("Didn't find any log dirs inside {}, considering it to be a log dir itself.".format(args.in_dir))
     existing_log_dirs = [os.path.abspath(args.in_dir)]
 
 for log_dir in existing_log_dirs:
-    if "{}.csv".format(log_dir) in existing_csvs:
+    if "{}.csv".format(os.path.split(log_dir)[-1]) in existing_csvs and not args.force:
         print("Skipping", log_dir)
         continue
     print("Processing", log_dir)
-    task_name = args.task if args.task is not None else get_task_name(log_dir)
+    try:
+        task_name = args.task if args.task is not None else get_task_name(log_dir)
+    except Exception as e:
+        print("Failed: {}, {}".format(e, type(e)))
+        continue
     metric_name = get_metric_name(task_name)
     metric_name_long = "eval_" + metric_name
     columns_to_extract = [metric_name_long]
-    columns_to_extract = [metric_name_long, "grad_norm", "learning_rate/lr"]
+    # columns_to_extract = [metric_name_long, "grad_norm", "learning_rate/lr"]
     print("TASK_NAME: <{}>".format(task_name))
 
     log_files = list(glob.iglob(log_dir + '/**/events.out.*', recursive=True))
@@ -50,7 +57,9 @@ for log_dir in existing_log_dirs:
     log_file = log_files[0]
     stats = {k: [] for k in columns_to_extract}
     rows = [metric_name]
-    rows = [metric_name, "grad_norm", "lr"]
+    # rows = [metric_name, "grad_norm", "lr"]
+    model_size_embed = 0
+    model_size_other = 0
     times = []
     try:
         for e in tf.compat.v1.train.summary_iterator(log_file):
@@ -62,19 +71,23 @@ for log_dir in existing_log_dirs:
                     config = str(v.tensor.string_val[0])[12:-2].split(", ")
                     for l in config:
                         print(l)
+                        if "n_params_train_other" in l:
+                            model_size_other = l.split("=")[1]
+                        if "n_params_train_embed" in l:
+                            model_size_embed = l.split("=")[1]
         start_time = np.min(times)
         end_time = np.max(times)
         runtime = (end_time - start_time)/3600
         print("Runtime: {:.2f}h.".format(runtime))
 
         stats_to_write = list(itertools.zip_longest(*[stats[c] for c in columns_to_extract]))
-        print("Stats to write", stats_to_write[:10])
-        out_file = os.path.join(args.out_dir, log_dir + ".csv")
+        # print("Stats to write", stats_to_write[:10])
+        out_file = os.path.join(args.out_dir, os.path.split(log_dir)[-1] + ".csv")
         with open(out_file, "w", newline="") as f:
-            f.write("{}\n".format(runtime))
+            f.write("{},{},{}\n".format(runtime, model_size_embed, model_size_other))
             f.write("{}\n".format(",".join(rows)))
             writer = csv.writer(f)
             writer.writerows(stats_to_write)
-            # print(out_file)
+            print(out_file)
     except Exception as e:
         print("Failed: {}, {}".format(e, type(e)))
