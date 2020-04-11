@@ -604,7 +604,7 @@
       \item{Syntactic information:
         \begin{itemize}
           \item \textbf{Depth} is about classifying sentences by their syntactic parse tree depth, with depths ranging from 5 to 12 (hence 8-way classification).
-          \item \textbf{BigramShift} is about sensitivity to (un)natural word order -- identifying sentences in which the order of two randomly chosen adjacent words has been swapped (binary classification).
+          \item \textbf{BigramShift} is about sensitivity to (un)natural word order -- identifying sentences in which the order of two randomly chosen adjacent words has been swapped (binary classification). While syntactic cues may be sufficient to identify an unnatural word order, intuitively, broken semantics can be another useful signal -- thus making this task both syntactic and semantic.
           \item \textbf{TopConstituents} is about recognising the top syntactic constituents -- the nodes found in the syntactic parse tree just below the S (sentence) node. This is framed as 20-way classification, choosing from 19 most common top-constituent groups + the option of ``other''.
         \end{itemize}
       }
@@ -752,6 +752,7 @@
 
     % probing
     \subsection{Probing}{
+      \label{sec:implementation-details-probing}
       For the light-weight probing classifier, \citet{Conneau_2018} use a simple neural network with one hidden layer with the sigmoid activation function and dropout, followed by a linear layer projecting to the desired number of classes. The cross-entropy training loss is used, with the Adam learning algorithm with $\eta=0.001$, $\beta_1=0.9$ and $\beta_2=0.999$. Training uses minibatches of 64 examples and employs early stopping for when the accuracy does not improve over 5 consecutive iterations.
 
       For consistency with the exact method of \citeauthor{Conneau_2018}, I tune the dropout rate (choosing from [0.0, 0.1, 0.2]) and the hidden layer width (choosing from [50, 100, 200]) using the evaluation set. Each probing score is reported as the one for the best dropout and layer width values.
@@ -1137,8 +1138,8 @@
 
     \begin{table}[]
       \centering
-      \fontsize{9}{11} \selectfont 
-      \begin{tabular}{l|l|l|l|l|l|c|l|l}
+      \fontsize{10}{11} \selectfont 
+      \begin{tabular}{l|l|l|l|l|l|c|l}
        &
         model  &
         size &
@@ -1146,8 +1147,7 @@
         $L$ &
         $\eta$ \& scheduling &
         $B$ &
-        embeddings &
-        score \\
+        embeddings \\
         \hline
       \multirow{2}{*}{\rotatebox[origin=c]{90}{CoLA}} &
         \BERTS &
@@ -1156,9 +1156,8 @@
         5 &
         \begin{tabular}{@{}l@{}}$\eta=7\times10^{-5}$, \\$E_w=15$, decay\end{tabular} &
         128 &
-        \begin{tabular}{@{}l@{}}word2vec,\\multichannel\end{tabular} &
-        45.0 \\
-        \cline{2-9}
+        \begin{tabular}{@{}l@{}}word2vec,\\multichannel\end{tabular} \\
+        \cline{2-8}
        &
         \LSTMS &
         15.4M &
@@ -1166,8 +1165,7 @@
         2 &
         \begin{tabular}{@{}l@{}}$\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
         32 &
-        \begin{tabular}{@{}l@{}}word2vec,\\multichannel\end{tabular} &
-        44.8 \\
+        \begin{tabular}{@{}l@{}}word2vec,\\multichannel\end{tabular} \\
         \hline
       \multirow{2}{*}{\rotatebox[origin=c]{90}{SST-2}} &
         \BERTS &
@@ -1176,9 +1174,8 @@
         5 &
         \begin{tabular}{@{}l@{}}$\eta=5\times10^{-4}$, \\$E_w=15$, decay\end{tabular} &
         128 &
-        \begin{tabular}{@{}l@{}}word2vec,\\multichannel\end{tabular} &
-        89.2 \\
-        \cline{2-9}
+        \begin{tabular}{@{}l@{}}word2vec,\\multichannel\end{tabular} \\
+        \cline{2-8}
        &
         \LSTMS &
         2.4M &
@@ -1186,8 +1183,7 @@
         1 &
         \begin{tabular}{@{}l@{}}$\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
         32 &
-        \begin{tabular}{@{}l@{}}word2vec,\\multichannel\end{tabular} &
-        91.9 \\
+        \begin{tabular}{@{}l@{}}word2vec,\\multichannel\end{tabular} \\
         \hline
       \multirow{2}{*}{\rotatebox[origin=c]{90}{Sara}} &
         \BERTS &
@@ -1196,9 +1192,8 @@
         5 &
         \begin{tabular}{@{}l@{}}$\eta=5\times10^{-4}$, \\$E_w=15$, decay\end{tabular} &
         128 &
-        \begin{tabular}{@{}l@{}}wordpiece,\\non-static\end{tabular} &
-        87.1 \\
-        \cline{2-9}
+        \begin{tabular}{@{}l@{}}wordpiece,\\non-static\end{tabular} \\
+        \cline{2-8}
        &
         \LSTMS &
         2.4M &
@@ -1206,18 +1201,75 @@
         1 &
         \begin{tabular}{@{}l@{}}$\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
         32 &
-        \begin{tabular}{@{}l@{}}wordpiece,\\multichannel\end{tabular} &
-        86.5
+        \begin{tabular}{@{}l@{}}wordpiece,\\multichannel\end{tabular} \\
       \end{tabular}
       \caption{Configuration for the best students on each task. The model size denotes the number of trainable, non-embedding parameters.}
       \label{tab:best-students}
     \end{table}
 
-    \autoref{tab:best-students} summarises the parameters of best students on each task. These 6 students, together with their teachers, I will use for further analysis.
+    \begin{figure}[h!tb]
+      \centering
+      \includegraphics[width=13cm]{../experiments/analysis/img/best-models-scores.pdf}
+      \caption{Evaluation-set scores of the teacher and the best students for each downstream task.}
+      \label{fig:best-models-scores}
+    \end{figure}
+
+    \autoref{tab:best-students} summarises the parameters of best students on each task. These 6 students, together with their teachers, I will use for further analysis. \autoref{fig:best-models-scores} compares the best students with the teacher in terms of the evaluation-set score.
   }
 }
 
 \chapter{Analysing the models}{
+  In this chapter, I use probing and prediction analysis to analyse, interpret and compare the teacher and the best student models for each downstream task. In doing so, I produce insights into the nature of the downstream tasks, the models, and knowledge distillation.
+
+  \section{Probing}{
+    % typical pipeline (Tenney)
+    \citet{Tenney_2019b} recently showed that a typical text processing pipeline can be identified in BERT. The early layers specialise in extracting simple properties like word classes (POS tags).
+    Later layers extract more sophisticated information like dependencies (identifying the subject, object, and others).
+    The last layers are capable of extracting complex semantic information such as real-world relations (predicting the relation between ``Mary'' and ``work'' in ``Mary is walking to work.'' to be of type \verb|Entity-Destination|\footnote{Example borrowed from \citet[p. 4]{Tenney_2019a}.}).
+    
+    % how the pipeline maps onto these probing tasks
+    In the probing suite of \citet{Conneau_2018}, which I use, the pipeline steps are represented from the simplest ones to the most complex ones; from extracting surface properties like sentence length (\verb|Length|) and concrete input words (\verb|WordContent|), through extracting syntactic structure (\verb|Depth|, \verb|TopConstituents|), to identifying the subject, object and the main verb of a sentence and their properties (\verb|Tense|, \verb|SubjNumber|, \verb|ObjNumber|), to detecting broken semantics (\verb|OddManOut|, \verb|CoordinationInversion|).
+
+    % observing the knowledge flow: pretrained > fine-tuned > distilled
+    The probing suite itself is a tool which can be used in various ways. I use it primarily to trace language knowledge, to observe how the pre-trained knowledge of BERT is retained or changed in teacher fine-tuning, and subsequently distilled into student models.
+    % measuring total amount AND localising
+    While \citeauthor{Conneau_2018} apply probing only to the final representations extracted from various sentence encoders, I adopt the approach of \citeauthor{Tenney_2019b} and probe models at different layers. Thus, I not only quantify the linguistic knowledge, but also localise it within a given model\footnote{As discussed in \autoref{sec:implementation-details-probing}, in the case of \LSTMS, I am only able to probe the final representations due to the way LSTMs are implemented in PyTorch.}.
+    
+    % differences across models: tells something about KD into different architctures and what students don't learn
+    By analysing the differences in lingustic knowledge between \BERTT, \BERTS, and \LSTMS~on a particular downstream task, I explore the effects of different student architectures as well as the kinds of knowledge that is easy or difficult for the students to learn.
+    % differences across tasks: what linguistic capabilities are useful
+    By observing differences between models trained on different downstream tasks, I explore the possibility of characterising a downstream task by the kinds of linguistic knowledge it does or does not require.
+
+    \subsection{Probing teacher models}{
+      \autoref{fig:probing-teachers} compares the probing results of the pre-trained BERT and of BERT further fine-tuned on different downstream tasks.
+      % pre-trained similar to fine-tuned
+      First of all, the results are mostly very similar across all the models, which means that fine-tuning on downstream tasks did not change the models too drastically.
+
+      % all models deviate in late layers (most fine-tuning happens there, early layers are universal feature extractors and perhaps could be frozen)
+      The models's results deviate especially for the last layers while for early layers fine-tuning does not lead to any changes. In other words, only the last model layers get fine-tuned to the particular tasks, while the early layers effectively act as extractors of univerally usable features. (It is therefore likely that the teacher models could be fine-tuned well even with the early layers frozen or only allowed to change during a small portion of the fine-tuning steps, thus making the fine-tuning faster.)
+
+      % fine-tuned knowledge replaces pre-trained when not needed: evident with CoLA which doesn't throw linguistic knowledge away (Sara does, and SST-2 does even more so)
+      Another way of thinking about the teacher fine-tuning is that the pre-trained language knowledge is ``replaced'' by downstream task-specific skills. If the downstream task relies on the linguistic skills, then they are retained.
+      This effect is clear in \autoref{fig:probing-teachers} when comparing the CoLA teacher with the SST-2 and Sara ones. As a task about linguistic acceptability, CoLA requires models to be sensitive to a wide range of linguistic principles and their violations. Therefore, very little of the pre-trained language knowledge is lost in fine-tuning -- on the \verb|BigramShift| task, the CoLA \BERTT~even outperforms the pre-trained model. Sentiment classification, on the other hand, requires capabilities very different from typical linguistic skills, leading to the last layers of the SST-2 \BERTT~retaining little of the pre-trained skills. Intent classification leads to retaining some of the pre-trained knowledge; arguably, skills like distinguishing between greetings, statements, commands and questions, or understanding that two sentences are semantically equivalent, are desirable for a task like Sara.
+
+      Interestingly, on \verb|WordContent|, the CoLA teacher ``forgets'' more than the Sara teacher. I explain this in terms of certain Sara intents strongly linked to specific words -- for example, examples of the intent \verb|affirm| mostly identified by their use of ``yes'' or ``okay''. Therefore, a good model for Sara will likely ``remember'' the exact input words even in higher layers.
+
+      \begin{figure}[h!tb]
+        \centering
+        \makebox[\textwidth][c]{\includegraphics[width=17cm]{../experiments/analysis/img/probing_teachers.pdf}}
+        \caption{Probing results for the pre-trained BERT and the teacher BERT models. Probing was applied to encoder layers 1, 6, 12, 18, and 24, and to the embeddings (layer ``E'') extracted just before the first encoder layer. The two baselines, bounding the expected model performance from below and from above, are the majority-class baseline and the human performance baseline as reported by \citet{Conneau_2018}.}
+        \label{fig:probing-teachers}
+      \end{figure}
+
+      % tasks localised mostly nicely and as expected (length, WC, depth and TC, SOMO and CI). BS also semantic! tense, SN, ON possible since E layer (morphology), syntax slightly improves.
+      Last but not least, the curves for each probing task in \autoref{fig:probing-teachers} show how different linguistic skills are localised in the usual way. The two surface property skill (\verb|Length|, \verb|WordContent|) are localised in the first layers which have access to the input. The syntactic skills -- \verb|Depth| and \verb|TopConstituents| -- are localised in the middle layers. Finally, the semantic tasks -- \verb|OddManOut| and \verb|CoordinationInversion| are best handled by the last layers.
+      
+      An interesting case is the \verb|BigramShift| task which, as previously discussed, is both syntactic and semantic, because disturbing the word order in a sentence typically disrupts both the meaning and the sentence structure structure. As a result, this probing task is handled well by the middle layers as well as the later ones.
+      
+      As for \verb|Tense|, \verb|SubjNumber| and \verb|ObjNumber|, they are handled well by all layers, but by the later ones in particular. I hypothesise that the overall good performance is due to the morphological component of the tasks. Statistically, in most cases, the tense of the main verb in English can be determined just by checking if a word in the sentence ends with ``-d/-ed'' (the regular-verb past tense marker) or not. Similarly, the number of the subject or object can be guessed just from knowing if any word ends in ``-s'' (the plural marker). Since morphological knowledge is known to be contained in pre-trained embeddings, even the embedding layer output performs well on these tasks. Minor improvements can be made by considering semantic and syntactic knowledge in cases where it is important to know which word of the sentence is the object, subject or main verb, or in cases where the markers are unusual (irregular verbs, unusual plural forms or singular forms ending in ``-s''). This is in line with the later layers performing slightly better than the early ones.
+    }
+  }
+
   % analysing mistakes, probing
   \section{Analysing the models' predictions}{
     This will involve for each downstream task:
