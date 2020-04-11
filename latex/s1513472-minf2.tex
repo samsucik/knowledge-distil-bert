@@ -587,7 +587,7 @@
     \begin{figure}[h!t]
       \centering
       \includegraphics[width=11cm]{graphics/probing-scheme}
-      \caption{A high-level diagram of the probing process.}
+      \caption{A high-level diagram of the probing process. \textbf{TO-DO: frame around ``probing scores''.}}
       \label{fig:probing-scheme}
     \end{figure}
 
@@ -1267,6 +1267,10 @@
       An interesting case is the \verb|BigramShift| task which, as previously discussed, is both syntactic and semantic, because disturbing the word order in a sentence typically disrupts both the meaning and the sentence structure structure. As a result, this probing task is handled well by the middle layers as well as the later ones.
       
       As for \verb|Tense|, \verb|SubjNumber| and \verb|ObjNumber|, they are handled well by all layers, but by the later ones in particular. I hypothesise that the overall good performance is due to the morphological component of the tasks. Statistically, in most cases, the tense of the main verb in English can be determined just by checking if a word in the sentence ends with ``-d/-ed'' (the regular-verb past tense marker) or not. Similarly, the number of the subject or object can be guessed just from knowing if any word ends in ``-s'' (the plural marker). Since morphological knowledge is known to be contained in pre-trained embeddings, even the embedding layer output performs well on these tasks. Minor improvements can be made by considering semantic and syntactic knowledge in cases where it is important to know which word of the sentence is the object, subject or main verb, or in cases where the markers are unusual (irregular verbs, unusual plural forms or singular forms ending in ``-s''). This is in line with the later layers performing slightly better than the early ones.
+    }
+
+    \subsection{Probing student models}{
+
     }
   }
 
