@@ -721,6 +721,13 @@
 
       One significant change I made to this model is enabling the use of wordpiece embeddings (instead of word-level ones). This way, the fine-tuned embedding layer from \BERTT~can be plugged into the student, giving it some of the teacher's knowledge even before knowledge distillation begins.
 
+      When the word2vec embeddings are used, the embedding matrix of the LSTM is constructed in the following way:
+      \begin{enumerate}
+        \item A vocabulary of all distinct words present in the transfer dataset is made.
+        \item Only the word2vec vectors corresponding to these words are taken and put together to create the embedding matrix.
+      \end{enumerate}
+      This way, even though the full word2vec collection covers 3,000,000 words, the word-level embedding matrix (whether used by the LSTM student or the BERT student) has fewer entries. For the particular transfer datasets I use, the vocabulary has 243,120 words for CoLA, 284,273 words for SST-2, and 172,183 words for Sara.
+
       In total, this model -- from now referred to as \LSTMS~-- has 2.41 million trainable parameters (excluding the embedding layer), making it 140x smaller than \BERTT.
     }
 
@@ -1221,7 +1228,7 @@
 \chapter{Analysing the models}{
   In this chapter, I use probing and prediction analysis to analyse, interpret and compare the teacher and the best student models for each downstream task. In doing so, I produce insights into the nature of the downstream tasks, the models, and knowledge distillation.
 
-  \section{Probing}{
+  \section{Probing \reviewready}{
     % typical pipeline (Tenney)
     \citet{Tenney_2019b} recently showed that a typical text processing pipeline can be identified in BERT. The early layers specialise in extracting simple properties like word classes (POS tags).
     Later layers extract more sophisticated information like dependencies (identifying the subject, object, and others).
@@ -1270,7 +1277,82 @@
     }
 
     \subsection{Probing student models}{
+      \autoref{fig:probing-students} shows the results of probing the best \LSTMS~and \BERTS~for each downstream task. To put the scores into perspective, I also include results achieved by probing the students' embeddings \textit{before} student training: This means pre-trained word2vec embeddings for CoLA and SST-2\footnote{As previously discussed, only the embeddings corresponding to words found in the transfer dataset are taken.}, and wordpiece embeddings from \BERTT~for Sara.
+      
+      \begin{figure}[h!tb]
+        \centering
+        \makebox[\textwidth][c]{\includegraphics[width=17.5cm]{../experiments/analysis/img/probing_students.pdf}}
+        \caption{Probing results for the best student models. For comparison, results achieved just by using embeddings are shown as well (labelled ``embed.''). While for \LSTMS, the probing encodings were extracted only after the last LSTM layer, for \BERTS, I extracted encodings after each of the 5 encoder layers and embedding encodings from before the first layer (labelled ``E''). Bounding the expected model performance from below and from above are again the majority-class baseline and the human performance baseline, same as in \autoref{fig:probing-teachers}.}
+        \label{fig:probing-students}
+      \end{figure}
 
+      % comparing students with teacher:
+      % - student takes much knowledge from embeddings whereas entire teacher is pre-trained: hence, in student probing scores typically go down from E to last layer whereas in teacher only in last layers there's a drop
+      % - similar teacher-bert end points: Length (except CoLA), Depth, TC, 
+      % - bert student worse: BS, Tense, ONum, SNum, SOMO, CI
+      The first significant difference when comparing \autoref{fig:probing-students} with \autoref{fig:probing-teachers} is the progressive decrease in probing scores of \BERTS~from earlier to later layers (in \BERTT, the scores only fall in the last layers). This is mostly visible in \autoref{fig:probing-students} for \verb|Length|, \verb|WordContent|, \verb|Tense|, \verb|SubjNumber| and \verb|ObjNumber|. 
+      The decreasing scores reflect the different ways in which \BERTT~and \BERTS~are initialised. The teacher starts with all layers pre-trained (i.e. containing general language knowledge). During teacher fine-tuning, it is the last layer through which feedback enters the model. Therefore, the language knowledge is disturbed mostly in the last layers.
+      The students, on the other hand, start with pre-trained knowledge ``injected'' only from the bottom -- in the embedding layer. During student training (knowledge distillation), learning feedback enters from the top (in the last layer), but, at the same time, the embedding knowledge propagates up, affecting the earliest layers the most.
+      Thus, the decreasing probing scores can be interpreted as markers of linguistic knowledge which was present in the initial embeddings, but the model did not retain it in the later layers. Either the knowledge was not needed for the downstream task, or the knowledge was only useful in creating more general representations in the first layers.
+      % Lesson: trace the initial knowledge, it's important!
+
+      In general, both students perform worse than the respective teachers on all probing tasks. This is not surprising as the students are smaller and lack the pre-trained knowledge that the teachers contain before fine-tuning. The students underperform especially on three tasks: \verb|BigramShift|, \verb|OddManOut|, and \verb|CoordinationInversion|. These are difficult tasks, not solvable just using embeddings (in \autoref{fig:probing-students}, the embeddings perform at the bottom baseline level). In other words, the students need to learn these linguistic skills by themselves, which they do with mixed success; in particular, all students fail to recognise semantically disturbed sentences in \verb|OddManOut|.
+      % Lesson: Students naturally underperform; focus on bits they can successfully learn by themselves.
+
+      % comparing same student across tasks:
+      % - small differences in LSTM (interesting; could mean that LSTM being shallower is a more universal feature extractor and the FC hat is task-specific); only exception BS for CoLA -- crucial, as observed with teachers
+      % - CoLA BERT clearly says that Depth, TC, BS, Tense, SNum, ONum and CI are important for CoLA
+      % - as previously, SST-2 loses language knowledge the most
+      Comparing the probing scores of one student architecture trained on different downstream tasks, there are several important observations.
+      Firstly, different instances of \LSTMS~perform similarly. This is likely due to the student being shallow, therefore the LSTM layer(s) producing relatively similar, task-agnostic representations, and only the fully-connected layer being heavily task-specific.
+      Secondly, the CoLA task clearly encourages \BERTT~to learn a wide range of linguistic knowledge (much more strongly than for SST-2 and Sara): be it syntax (\verb|Depth|, \verb|TopConstituents|, \verb|BigramShift|), morphology and dependencies (\verb|Tense|, \verb|SubjNumber|, \verb|ObjNumber|), or semantics (\verb|BigramShift|, \verb|CoordinationInversion|).
+      Thirdly, as previously observed for different teachers, SST-2 requires the least linguistic knowledge and typically leads to the lowest probing scores.
+      % Lesson: shallow models focus on general features. CoLA requires various linguistic skills.
+
+      % comparing two students:
+      % - LSTM comparable with last BERT layer: BS, SOMO, WC
+      % - LSTM comparable with middle layers: Length, Depth, Tense,
+      % - LSTM just worse: TC
+      When comparing the two student architectures trained on the same downstream tasks, it is difficult to observe any clear trends.
+      \LSTMS~performs comparably with the last \BERTS~layers (\verb|BigramShift|, \verb|WordContent|, \verb|OddmanOut|), on some other tasks \LSTMS~roughly compares to the middle layers of \BERTS~(\verb|Length|, \verb|Depth|, \verb|Tense|), and still other times \LSTMS~performs much worse than any layers of \BERTS~(\verb|TopConstituents| for CoLA and Saras).
+      On \verb|WordContent|, \LSTMS~fails altogether, compared with \BERTS. This may be due to the residual connections in BERT, which enable easy copying of input tokens across layers, while LSTM has no such bypass mechanism.
+      Overall, only in few cases, \LSTMS~outperforms any of \BERTS's layers. This happens on most probing tasks in the case of SST-2, where the last layers of \BERTS~lose practically all linguistic knowledge.
+      Interestingly, in the case of SST-2 and Sara, \LSTMS~outperforms \BERTS~on \verb|BigramShift| and \verb|CoordinationInversion| -- the two probing tasks that require sensitivity to word and clause order. It may be due to the recurrent nature of \LSTMS~which makes such order sensitivity an inherent property of the model. The recurrent student is also more sensitive to overall input length.
+      % Lesson: Hard to tell if LSTM is worse than BERT but often it is. LSTM does well on order and length tasks because of its architecture.
+
+      % comparing students with embed:
+      % - LSTM worse on embedding tasks: WC, Tense, SubNum, ObjNum
+      % - BERT E roughly at embed level (understandable, not much changes to embeddings during KD), Length and WC being only exceptions
+      Relative to the probing results of the embeddings taken before knowledge distillation (see ``embed.'' in \autoref{fig:probing-students}), the students sometimes perform better and other times worse. In the morphology-oriented tasks which use a lot of embeding knowledge (\verb|Tense|, \verb|SubjNumber|, \verb|ObjNumber|), \LSTMS~understandably performs worse than the embeddings and similar to the last layers of \BERTS. The embeddings from the trained \BERTS~achieve mostly comparable probing results, signalling that they did not change much during the student training (in line with the argument that the top layers change the most).
+      % Lesson: Nothing too important, knowledge propagates from embeddings.
+      
+      % localisation: may be hard because many skills seemingly localised before first layer (just because embeddings!): Length, WC, Tense, SNum, ONum.
+      % - true localisation: non-embedding skills (>= 1 layer of precessing): Depth, TC, BS, CI; in late layers: Depth, TC, BS, SNum, ONum, CI
+      Localising different linguistic knowledge is possible in \BERTS\footnote{Because I probed only one layer of \LSTMS, there, localising knowledge is not possible.}. Many skills are, at the first sight, concentrated in and before for first layer (\verb|Length|, \verb|WordContent|, \verb|Tense|, \verb|SubjNumber|, \verb|ObjNumber|), but in most cases this is likely an artifact of the embeddings being the initial source of this knowledge. In other cases, knowledge in \BERTS~is clearly concentrated in higher layers (for CoLA on tasks \verb|TopConstituents|, \verb|BigramShift|, \verb|SubjNumber|, \verb|ObjNumber|, \verb|CoordinationInversion|). Interesting is the syntactic task \verb|TopConstituents|, where going from the ``E'' layer to layer 1 in all \BERTS~students increases the probing score significantly. In other words, the trained embeddings contain the necessary knowledge, but at least one model layer is required to aggregate and combine the knowledge across input tokens into sentence-level structural knowledge needed for the task.
+    }
+
+    \subsection{What can students learn from scratch}{
+      In the previous section, I observed how language knowledge enters student models from the provided pre-trained embeddings. Naturally, such ``intruder'' knowledge makes it difficult to interpret probing scores of students. In particular, does a high score mean that the student acquired the skill in question during training, or was the knowledge merely present in the injected embeddings?
+
+      To control for the initial knowledge present in a student, I probe students trained from scratch, i.e. with embeddings initialised randomly the same way as the rest of the models. In general, the probing results do not differ much from those of students initialised with pre-trained embeddings. In particular, the differences are very small for \LSTMS, which is understandable -- I probe the model after its last LSTM layer, whereas injecting pre-trained knowledge tends to affect the first layers. For \BERTS, the variant initialised from scratch often performs slightly worse, which is again understandable given the lack of initial knowledge.
+
+      \begin{figure}[h!tb]
+        \centering
+        \makebox[\textwidth][c]{\includegraphics[width=9.5cm]{../experiments/analysis/img/probing_students_scratch_selected.pdf}}
+        \caption{Probing results for selected downstream and probing tasks, comparing studentss initialised in the standard way (with embeddings from word2vec) with students initialised randomly and trained from scratch. Bounding the expected model performance from below and from above are again the majority-class baseline and the human performance baseline, same as in \autoref{fig:probing-teachers}.}
+        \label{fig:probing-students-scratch-selected}
+      \end{figure}
+
+      In \autoref{fig:probing-students-scratch-selected} I show the most striking differences (for full results see \autoref{chap:A-probing}). Namely, for \BERTS~trained on CoLA and SST-2, on the three probing tasks which I previously described as morphology-oriented and to a great extent relying on embedding knowledge: \verb|Tense|, \verb|SubjNumber|, and \verb|ObjNumber|.
+      Without pre-trained embeddings, all layers of the CoLA \BERTS~perform much worse on these probing tasks. While these linguistic skills are arguably important for a task like CoLA, it is clear that the student is unable to learn them well without the embedding knowledge provided beforehand.
+      In the case of the SST-2 student, the original probing scores show progressive decay of performance from earlier to later layers. This, as I previously discussed, can be attributed to the relevant knowledge propagating form the pre-trained embeddings up through the model during training. When the pre-trained knowledge is initially absent, as \autoref{fig:probing-students-scratch-selected} shows, the decay effect is weak or not present at all. Instead, all layers alike achieve low probing scores. This is a strong signal that the morphology-oriented skills were not needed for the Sara task, and so \BERTS~did not learn them well.
+
+      All in all, this simple experiment showed that probing results should be interpreted very carefully. In particular, if a model achieves a high probing score, it may be due to different reasons:
+      \begin{itemize}
+        \item The model as such was pre-trained, with language knowledge present before the task-specific training (like in the case of \BERTT).
+        \item The model may have received the knowledge (or a large part of it) when its embedding layer was initialised with trained parameters.
+        \item The knowledge may be needed for the task the model is trained to do, and the model actively acquired the knowledge from the data during its training.
+      \end{itemize}
     }
   }
 
@@ -1287,23 +1369,6 @@
     My aim is to make at least some observations describable in human-understandable terms about how the models compare: how the 2 architecturally different students compare, and how their predicting behaviour compares to that of their teacher.
     Ideally, I will be also able to form some (even if weak) hypotheses that are further testable using probing tasks.
   }
-
-  \section{Probing the models for linguistic knowledge}{
-    Here, I will for each downstream task:
-    \begin{itemize}
-      \item probe each of the 3 models in different layers (e.g. the 24-layer $BERT_T$ in layers 1, 6, 12, 18, 24) to see how much linguistic knowledge and where is present in each model
-      \item probe also the pre-trained BERT (not finetund on any downstream task) and look at how knowledge is preserved/thrown away when the teacher gets finetuned vs when students with little prior knowledge are trained during distillation
-      \item compare how knowledge is present in the two architecturally different students, try to relate this to other differences noticed when analysing the students' predictions
-    \end{itemize}
-
-    For now, I have one graph summarising the results of probing just the teacher models, see \autoref{fig:probing-master}.
-    \begin{figure}[h!t]
-      \centering
-      \includegraphics[width=12.5cm]{graphics/probing_master.png}
-      \caption{Probing the 3 finetuned teachers and the pre-trained one. The dotted line shows baseline accuracy levels achieved by majority-class guessing, the dashed line shows human performance.}
-      \label{fig:probing-master}
-    \end{figure}
-  }
 }
 
 \chapter{Overall discussion and conclusions}{
@@ -1318,5 +1383,14 @@
 \bibliography{s1513472-minf2}
 
 \appendix
+\chapter{Probing}{
+  \label{chap:A-probing}
+  \begin{figure}[h!tb]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=13.5cm]{../experiments/analysis/img/probing_students_scratch.pdf}}
+    \caption{Probing results comparing studentss initialised in the standard way (with embeddings from word2vec) with students initialised randomly and trained from scratch. Bounding the expected model performance from below and from above are again the majority-class baseline and the human performance baseline, as reported by \citet{Conneau_2018}.}
+    \label{fig:probing-students-scratch}
+  \end{figure}
+}
 
 \end{document}
