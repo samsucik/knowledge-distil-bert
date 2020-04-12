@@ -21,6 +21,7 @@ experiments/analysis/img/*.png
 latex/*.cpt
 latex/*-annotated.pdf
 latex/*-comments.pdf
+latex/*-commented.pdf
 nohup.out
 .ipynb_checkpoints
 *.zip

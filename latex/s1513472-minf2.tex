@@ -13,6 +13,8 @@
 \usepackage{lmodern}
 \usepackage{bm}
 
+\usepackage{wasysym}
+
 % additional keywords in math mode
 \DeclareMathOperator{\softmax}{softmax}
 
@@ -61,6 +63,7 @@
 % Background colour for text
 \usepackage{xcolor}
 \def\reviewready{\colorbox{yellow}{[READY FOR REVIEW]}}
+\def\reviewed{\colorbox{green}{[REVIEWED]}}
 
 
 % shortcuts for obscure, frequently used expressions
@@ -86,8 +89,7 @@
 
 \title{
   \vspace{-5.0cm} \centering{\includeshield} \vspace{1cm} \\ 
-  Teacher-student knowledge distillation from BERT\\
-  for sentence classifiers
+  Teacher-student knowledge distillation from BERT
 }
 
 \author{Sam Su\v{c}\'ik}
@@ -151,7 +153,7 @@
 }
 
 % TO-DO: as a prerequisite define NLP abbreviation
-\chapter{Background \reviewready}{
+\chapter{Background \reviewed}{
   \label{ch:background}
 
   In this chapter, the Transformer models are introduced and set into the historical context; knowledge distillation is introduced, in particular its recent applications in NLP; and an overview of some relevant work in model understanding is given.
@@ -160,7 +162,7 @@
   \section{NLP before Transformers}{
     \label{sec:pre-transformer-nlp}
     % NLP is all about sequences of variable lengths: sentences, sentence pairs, documents, speech segments...
-    By the very nature of the natural language, its processing has always meant processing sequences of variable length: be it written phrases or sentences, words (sequences of characters), spoken utterances, sentence pairs, or entire documents.
+    By the very nature of natural language, its processing has always meant processing sequences of variable length: be it written phrases or sentences, words (sequences of characters), spoken utterances, sentence pairs, or entire documents.
     % NLP tasks are typically about making simple predictions about sequences: classifying sentences based on their intent or language, scoring a document's level of formality, predicting whether two sentences form a coherent question-answer pair or not, predicting the next word of a sentence...
     Very often, NLP tasks boil down to making simple decisions about such sequences: classifying sentences based on their intent or language, assigning a score to a document based on its formality, deciding whether two given sentences form a meaningful question-answer pair, or predicting the next word of an unfinished sentence.
 
@@ -172,22 +174,28 @@
     
     One key step in the development of neural sequence encoder models has been the idea of \textit{word embeddings}: rich, dense, fixed-length numerical representations of words. When viewed as a lookup table -- one vector per each supported word -- such embeddings can be used to ``translate'' input words into vectors which are then processed further.
     % Word2vec \citet{Mikolov_2013} made embedding learning much more efficient (and made learning the embedings the main aim!), using CBOW and skip-grams.
-    \citet{Mikolov_2013} introduced an efficient and improved way of learning high-quality word embeddings: \textit{word2vec}. The embeddings are learnt as part of a larger neural network, which is trained to predict the next word given several previous words, and the previous words given the current word\footnote{These are the so-called Continuous bag-of-words (CBOW) and Skip-gram (SG) tasks, respectively.}. Such training can easily leverage large amounts of unlabelled text data and the embeddings learn to capture various properties from a word's morphology to its semantics. Released word2vec embeddings became very popular due to their easy use and performance improvements in many NLP tasks.
-    \textbf{TO-DO: Add a simple illustration of learning word2vec.}
+    \citet{Mikolov_2013} introduced an efficient and improved way of learning high-quality word embeddings: \textit{word2vec}. The embeddings are learnt as part of the parameters of a larger neural network. The network is forced to learn two tasks: 1) given an incomplete sentence, predicting its next word, and 2) given a word from a sentence, predicting the words preceding the given one in the same sentence\footnote{These are the so-called Continuous bag-of-words (CBOW) and Skip-gram (SG) tasks, respectively.}. Such training can easily leverage large amounts of unlabelled text data and the embeddings learn to capture various properties from a word's morphology to its semantics. The released word2vec embeddings became very popular due to their easy use and good performance (influential work using word2vec includes \citet{Lample_2016,Kiros_2015,Dos_2014,Kusner_2015}).
 
-    % \textbf{(TO-DO: Maybe mention TDNNs? They kind of fit here although they process speech, not text...)}
-    
     % RNN- and later LSTM-based encoder architectures were dominating the area for a long time as they were naturally suited for processing sequences of any length.
-    While word embeddings were a breakthrough, they themselves do not address the issue of encoding a sequence of words into a fixed-size representation. This is where Recurrent neural networks (RNNs) \citep{Rumelhart_1986} and later their improved variant -- Long Short-Term Memory neural networks (LSTMs) \citep{Hochreiter_Schmidhuber_1997} -- come into play. Although originally proposed long ago, they became popular in NLP, and in text processing in particular, only later (see e.g. \citet{Mikolov_2010} and \citet{Graves_2013}). These recurrent encoders process one word at a time (see \autoref{fig:RNN}) while updating an internal (``hidden'') fixed-size representation of the text seen so far. Once the entire sequence is processed, the hidden representation (also called ``hidden state'') is outputted and used make a simple prediction.
+    While word embeddings were a breakthrough, they themselves do not address the issue of encoding a sequence of words into a fixed-size representation. This is where Recurrent neural networks (RNNs) \citep{Rumelhart_1986} come into play.
+    Recurrent models process one word at a time (see \autoref{fig:RNN}) while updating an internal (``hidden'') fixed-size representation of the text seen so far.
+    Once the entire sequence is processed, the hidden representation (also called ``hidden state'') can be output and used to make a simple prediction.
     \begin{figure}[h!t]
       \centering
       \includegraphics[width=6cm]{graphics/rnn}
       \caption{A recurrent neural network (RNN) consumes at each timestep one input word. Then, it produces a single vector representation of the inputs.}
       \label{fig:RNN}
     \end{figure}
+    A common downside of RNNs is that they ``forget'' over longer sequences. This issue is addressed by introducing learnable \textit{gates}, an idea which soon led to a recurrent model called the Long Short-Term Memory network (LSTM) \citep{Hochreiter_Schmidhuber_1997}. An LSTM unit has a memory cell and learns to selectively add parts of the input into the memory, forget parts of the memory, and output parts of it (see \autoref{fig:rnn-lstm}). Long after being proposed in 1997, LSTMs gained popularity in NLP -- especially in text processing (see e.g. \citet{Mikolov_2010} and \citet{Graves_2013}). 
+    \begin{figure}[h!t]
+      \centering
+      \includegraphics[width=13cm]{graphics/rnn-lstm}
+      \caption{Comparing the internals of a vanilla RNN and an LSTM. The latter has three gates (shown as $\bigotimes$) -- the forget gate $F$, the update gate $U$, and the output gate $O$. $\bm{h}$ is the internal (hidden) state which can be used as the output at any timestep, $\bm{c}$ is the memory cell. With $\CIRCLE$ is shown a learnable non-linear transformation.}
+      \label{fig:rnn-lstm}
+    \end{figure}
 
     % A major breakthrough came when \citet{Kalchbrenner_2013} and \citet{Sutskever_2014} developed the encoder-decoder architecture for machine translation and other sequence-to-sequence tasks such as paraphrasing or parsing.
-    As various recurrent models started dominating NLP, one particularly influential architecture emerged, addressing tasks such as machine translation, where the output is a new sequence rather than a simple decision. This was the \textit{encoder-decoder} architecture \citep{Kalchbrenner_2013,Sutskever_2014}, see \autoref{fig:encoder-decoder}. It uses a recurrent encoder to turn an input sentence into a single vector, and a recurrent decoder to generate an output sequence based on the vector.
+    As various recurrent models started dominating NLP, one particularly influential architecture emerged, addressing tasks such as machine translation, where the output is a new sequence rather than a simple decision. This was the \textit{encoder-decoder} architecture (first described by \citet{Hinton_1994}, later re-introduced in the NLP context by \citet{Kalchbrenner_2013} and \citet{Sutskever_2014}), see \autoref{fig:encoder-decoder}. It uses a recurrent encoder to turn an input sentence into a single vector, and a recurrent decoder to generate an output sequence based on the vector.
     \begin{figure}[h!t]
       \centering
       \includegraphics[width=11.5cm]{graphics/encoder-decoder}
@@ -196,12 +204,12 @@
     \end{figure}
 
     % \citet{Bahdanau_2014} improved things by introducing attention, enabling the recurrent encoders to learn to selectively attend or ignore parts of the input sequence.
-    \citet{Bahdanau_2014} improved encoder-decoder models by introducing the concept of \textit{attention}. The attention module helps the decoder produce better output by selectively focusing on the most relevant parts of the input at each decoder timestep. This is depicted in \autoref{fig:encoder-decoder-att}, showing the decoder just about to output the second word (``est\'as''). The steps (as numbered in the diagram) are:
+    \citet{Bahdanau_2014} improved encoder-decoder models by introducing the concept of \textit{attention}. The attention module helps the decoder produce better output by selectively focusing on the most relevant encoder hidden states at each decoder timestep. This is depicted in \autoref{fig:encoder-decoder-att}, showing the decoder just about to output the second word (``est\'as''). The steps (as numbered in the diagram) are:
     \begin{enumerate}
       \item the decoder's hidden state passed to the attention module,
       \item the intermediate hidden states of the encoder also passed to the attention module,
       \item the attention module, based on information from the decoder's state, selecting relevant information from the encoder's hidden states and combining it into the attentional \textit{context vector},
-      \item the decoder combining the last outputted word (``c\'omo'') with the context vector and consuming this information to better decide which word to output next. 
+      \item the decoder combining the last output word (``c\'omo'') with the context vector and consuming this information to better decide which word to output next. 
     \end{enumerate}
 
     \begin{figure}[h!t]
@@ -211,25 +219,25 @@
       \label{fig:encoder-decoder-att}
     \end{figure}
     
-    The attention can be described more formally\footnote{My description does not exactly follow the original works of \citet{Bahdanau_2014} and \citet{Luong_2015}. Instead, I introduce concepts that will be useful in later sections of this work.}: First, the decoder state $\bm{h_D}$ is processed into a \textit{query} $\bm{q}$ using
+    The attention can be described more formally\footnote{My description does not exactly follow the original works of \citet{Bahdanau_2014} and \citet{Luong_2015}. Instead, I introduce concepts that will be useful in later sections of this work.}: First, the decoder state $\bm{h}_D$ is processed into a \textit{query} $\bm{q}$ using a learnable weight matrix $W_Q$:
     \begin{equation}
-    \bm{q}=\bm{h_D}W_Q
+    \bm{q}=\bm{h}_DW_Q
     \end{equation}
-    and each encoder state $\bm{h_{E}^{(i)}}$ is used to produce the \textit{key} and \textit{value} vectors, $\bm{k^{(i)}}$ and $\bm{v^{(i)}}$:
+    and each encoder state $\bm{h}_E^{(i)}$ ($i$ being the input position or encoder timestep) is used to produce the \textit{key} and \textit{value} vectors, $\bm{k^{(i)}}$ and $\bm{v^{(i)}}$:
     \begin{equation}
-    \bm{k^{(i)} = h_{E}^{(i)}W_K},\ \ \ \bm{v^{(i)} = h_{E}^{(i)}W_V}\ .
+    \bm{k}^{(i)} = \bm{h}_E^{(i)}W_K,\ \ \ \bm{v}^{(i)} = \bm{h}_E^{(i)}W_V\ .
     \end{equation}
-    Then, the selective focus of the attention is computed as an \textit{attention weight} $w^{(i)}$ for each encoder state \textit{i}, by combining the query with the $i$-th key:
+    Then, the selective focus of the attention is computed as an \textit{attention weight} $w^{(i)}$ for each input position \textit{i}, by combining the query with the $i$-th key:
     \begin{equation}
-    w^{(i)}=\bm{q^\top}\bm{k^{(i)}}\ .
+    w^{(i)}=\bm{q}^\top\bm{k}^{(i)}\ .
     \end{equation}
     The weights are normalised using softmax and used to create the context vector $c$ as a weighted average of the values:
     \begin{equation}
-    \bm{c}=\sum_{i}a^{(i)}\bm{v^{(i)}}\ \ \ \textrm{where}\ \ \ a^{(i)}=\softmax(w^{(i)})=\frac{\exp{(w^{(i)})}}{\sum_{j}\exp{(w^{(j)})}}\ .
+    \bm{c}=\sum_{i}a^{(i)}\bm{v}^{(i)}\ \ \ \textrm{where}\ \ \ a^{(i)}=\softmax(w^{(i)})=\frac{\exp{(w^{(i)})}}{\sum_{j}\exp{(w^{(j)})}}\ .
     \end{equation}
     Note that $W_Q$, $W_K$, $W_V$ are matrices of learnable parameters, optimised in training the model. This way, the attention's ``informed selectivity'' improves over time.
     
-    For years, recurrent models with attention were the state of the art in many NLP tasks. However, as we will see, the potential of attention reached far beyond recurrent models.
+    For about 4 years, recurrent models with attention were the state of the art in many NLP tasks. However, as we will see, the potential of attention reached far beyond recurrent models.
   }
 
   \section{Transformer-based NLP}{
@@ -237,36 +245,36 @@
     \subsection{Transformers}{
       \label{sec:Transformers}
       % \citet{Vaswani_2017} introduced Transformer. Main idea: process tokens in parallel, not sequentially, with sequentiality represented by positional markers (embeddings). Self-attention is used to pool from the context of the entire sequence, leading to evolving rich contextualised representations of each token in the higher layers.
-      We saw how the attention mechanism can selectively focus on parts of a sequence to extract relevant information from it. This raises the question of whether processing the inputs in a sequential fashion with the recurrent encoder is still needed. In particular, RNN models are slow as a results of this sequentiality, with no room for parallelisation. In their influential work, \citet{Vaswani_2017} proposed an encoder-decoder model based solely on attention and fully parallelised: the \textit{Transformer}. The core element of the model is the \textit{self-attention} mechanism, used to process all input words in parallel.
+      We saw how the attention mechanism can selectively focus on parts of a sequence to extract relevant information from it. This raises the question of whether processing the inputs in a sequential fashion with the recurrent encoder is still needed. In particular, RNN models are slow as a result of this sequentiality, and are hard to parallelise. In their influential work, \citet{Vaswani_2017} proposed an encoder-decoder model based solely on attention and fully parallelised: the \textit{Transformer}. The core element of the model is the \textit{self-attention} mechanism, used to process all input words in parallel.
 
       In particular, a Transformer model typically has multiple self-attention layers, each layer processing separate representations of all input words. Continuing with the three-word input example from \autoref{fig:encoder-decoder-att}, a high-level diagram of the workings of a self-attention layer is shown in \autoref{fig:self-att-layer}. Importantly, the input word representations evolve from lower to higher layers such that they consider not just the one input word, but also all other words -- the representation becomes \textit{contextual} (also referred to as a \textit{contextual embedding} of the word within the input sentence).
 
       \begin{figure}[h!t]
         \centering
-        \includegraphics[width=7cm]{graphics/self-att-layer}
+        \includegraphics[width=8cm]{graphics/self-att-layer}
         \cprotect\caption{A high-level diagram of the application of self-attention in Transformer models. Three hidden states are shown for consistency with the length of the input shown in \autoref{fig:encoder-decoder-att}; in general, the input length can vary.}
         \label{fig:self-att-layer}
       \end{figure}
 
-      As for the internals of self-attention, the basic principle is very similar to standard attention. Self-attention too is used to focus on and gather relevant information from a sequence of elements, given a query. However, to produce a richer contextual embedding $\bm{h_{l+1}^{(i)}}$ in layer $l+1$ of the $i$-th input word, self-attention uses the incoming representation $\bm{h_l^{(i)}}$ for the query, and considers focusing on all representations in layer $l$, including $\bm{h_l^{(i)}}$ itself. \autoref{fig:self-att} shows this in detail for input position $i=0$. Query $\bm{q^{(0)}}$ is produced and matched with every key in layer $l$ (i.e. $\bm{k^{(0)}},\ldots,\ \bm{k^{(2)}}$) to produce the attention weights. These weights quantify how relevant each representation $\bm{h_l^{(i)}}$ is with respect to position $i=0$. Then, the new contextual embedding $\bm{h_{l+1}^{(i)}}$ is constructed as a weighted sum of the values $\bm{v^{(0)}},\ldots,\ \bm{v^{(2)}}$ (same as constructing the context vector in standard attention).
+      As for the internals of self-attention, the basic principle is very similar to standard attention. Self-attention too is used to focus on and gather relevant information from a sequence of elements, given a query. However, to produce a richer contextual embedding $\bm{h}_{l+1}^{(i)}$ in layer $l+1$ of the $i$-th input word, self-attention uses the incoming representation $\bm{h}_l^{(i)}$ for the query, and considers focusing on all representations in layer $l$, including $\bm{h}_l^{(i)}$ itself. \autoref{fig:self-att} shows this in detail for input position $i=0$. Query $\bm{q}^{(0)}$ is produced and matched with every key in layer $l$ (i.e. $\bm{k}^{(0)},\ldots,\ \bm{k}^{(2)}$) to produce the attention weights. These weights quantify how relevant each representation $\bm{h}_l^{(i)}$ is with respect to position $i=0$. Then, the new contextual embedding $\bm{h}_{l+1}^{(i)}$ is constructed as a weighted sum of the values $\bm{v}^{(0)},\ldots,\ \bm{v}^{(2)}$ (same as constructing the context vector in standard attention).
 
       \begin{figure}[h!t]
         \centering
-        \includegraphics[width=8cm]{graphics/self-att}
-        \cprotect\caption{The internals of self-attention, illustrated on creating the next-layer hidden representation of the input position $i=0$, given all representations in the current layer. Note that $\otimes$ stands for multiplication (where the multiplication involves a learnable matrix like $W_K$, this is written next to the $\otimes$), and $\oplus$ denotes summation.}
+        \includegraphics[width=12cm]{graphics/self-att}
+        \cprotect\caption{The internals of self-attention, illustrated on creating the next-layer hidden representation of the input position $i=1$, given all representations in the current layer (previous, current, and following). Note that $\otimes$ stands for multiplication (where the multiplication involves a learnable matrix like $W_K$, this is written next to the $\otimes$), and $\oplus$ denotes summation.}
         \label{fig:self-att}
       \end{figure}
 
       % parallel nature
-      Notice that, even though each contextual embedding considers all input positions, the next-layer contextual embeddings $\bm{h_{l+1}^{(0)}},\ldots,\ \bm{h_{l+1}^{(2)}}$ can be computed all at the same time, in parallel: First, the keys, queries and values for all input positions are computed; then, the attention weights with respect to each position are produced; finally, all the new representations are produced. It is this parallelism that allows Transformer models to run faster. As a result, they can be much bigger (and hence create richer input representations) than recurrent models while taking the same time to train.
+      Notice that, even though each contextual embedding considers all input positions, the next-layer contextual embeddings $\bm{h}_{l+1}^{(0)},\ldots,\ \bm{h}_{l+1}^{(2)}$ can be computed all at the same time, in parallel: First, the keys, queries and values for all input positions are computed; then, the attention weights with respect to each position are produced; finally, all the new representations are produced. It is this parallelism that allows Transformer models to run faster. As a result, they can be much bigger (and hence create richer input representations) than recurrent models while taking the same time to train.
 
       % positional embeddings
       Due to their parallel nature, self-attentional layers have no notion of an element's position within the input sequence. This means no sensitivity to word order. (Recurrent models sense this order quite naturally because they process input text word by word.) To alleviate this downside of self-attention, Transformers use \textit{positional embeddings}. These are artificially created numerical vectors added to each input word, different across input positions, thus enabling the model's layers to learn to be position- and order-sensitive.
 
       % multi-headedness
-      As an additional improvement of the self-attentional mechanism, \citeauthor{Vaswani_2017} introduce the concept of multiple self-attention heads. This is very similar to having multiple instances of the self-attention module in \autoref{fig:self-att} (each instance being one \textit{head}). The motivation behind multiple self-attention heads is to enable each head $a$ to learn different ``focusing skills'' by learning its own $W_{Q,a}$, $W_{K,a}$, $W_{V,a}$. Each head produces its own output:
+      As an additional improvement of the self-attentional mechanism, \citeauthor{Vaswani_2017} introduce the concept of multiple self-attention heads. This is very similar to having multiple instances of the self-attention module in \autoref{fig:self-att}, each instance being one \textit{head} and computing its own queries, keys and values. The motivation behind multiple self-attention heads is to enable each head $a$ to learn different ``focusing skills'' by learning its own $W_{Q,a}$, $W_{K,a}$, $W_{V,a}$. Each head produces its own output:
       \begin{equation}
-      O_{att,a} = \softmax(\frac{\bm{q}\bm{k^\top}}{\sqrt{d_k}})\bm{v} = \softmax(\frac{(\bm{h_l^\top}W_{Q,a})^\top(\bm{h_l^\top}W_{K,a})}{\sqrt{d_k}})(\bm{h_l^\top}W_{V,a})
+      O_{att,a} = \softmax(\frac{\bm{q}\bm{k}^\top}{\sqrt{d_k}})\bm{v} = \softmax(\frac{(\bm{h}_l^\top{W_{Q,a}})^\top(\bm{h}_l^\top{W_{K,a}})}{\sqrt{d_k}})(\bm{h}_l^\top{W_{V,a}})
       \end{equation}
       which matches \autoref{fig:self-att} (but notice the detail of the additional scaling by $\frac{1}{\sqrt{d_k}}$, introduced by \citeauthor{Vaswani_2017}, where $d_k$ is the dimensionality of the key).
       The outputs of the $A$ individual attentional heads are then concatenated and dimensionality reduced with a trainable linear transformation $W_{AO}$, to produce the final output, which replaces $\bm{h_{l+1}}$ in \autoref{fig:self-att}:
@@ -288,7 +296,7 @@
     \subsection{BERT}{
       \label{sec:BERT}
       % \citet{Devlin_2018} improved the concept by pre-training the model bi-directionally (leading to language modelling based on left \textit{and} right context).
-      Perhaps the most popular Transformer model today is BERT (Bidirectional Encoder Representations from Transformers), proposed by \citet{Devlin_2018}. Architecturally, it is a sequence encoder, hence suited for sequence classification tasks. While being heavily based on the original Transformer \citep{Vaswani_2017}, BERT adds a few further tricks:
+      Perhaps the most popular Transformer model today is BERT (Bidirectional Encoder Representations from Transformers), proposed by \citet{Devlin_2018}. Architecturally, it is a sequence encoder, hence suited for sequence classification tasks. While being heavily based on the original Transformer \citep{Vaswani_2017}, BERT also utilises a number of further ideas:
       \begin{enumerate}
         \item The model learns bidirectional representations: It can be trained on language modelling that is not next-word prediction (prediction given left context), but word prediction given both the left and the right context.
         \item {It uses two very different pre-training classification tasks:
@@ -298,7 +306,7 @@
         \end{enumerate}
         The pre-training was carried out on text from books and from the English Wikipedia, totalling to 3,400 million words (for details see \citet{Devlin_2018}). The MLM and NSP tasks were both used throughout the pre-training, forcing the model to learn both at the same time.
         }
-        \item The inputs are processed not word by word, but are broken down using a fixed vocabulary of sub-word units (\textit{wordpieces}, introduced by \citet{Wu_2016}). This way, BERT can better deal with rare words. (In word-level models, words that are not found in the model's vocabulary are replaced with a special \verb|UNKNOWN| token, which means disregarding any information carried by the words.) The tokeniser module of BERT uses the wordpiece vocabulary to tokenise (segment) the input text before it is further processed. \autoref{fig:bert-inputs} shows an example; notice how my surname (``Sucik'') gets split into three wordpieces whereas the other, much more common words are found in the wordpiece vocabulary.
+        \item The inputs are processed not word by word, but are broken down using a fixed vocabulary of sub-word units called \textit{wordpieces} (conceptually introduced by \citet{Sennrich_2016}, this particular variant created by \citet{Wu_2016}). This way, BERT can better deal with rare words -- by assembling them from pieces\footnote{In word-level models, words that are not found in the model's vocabulary are replaced with a special \verb|UNKNOWN| token, which means disregarding any information carried by the words.}. The tokeniser module of BERT uses the wordpiece vocabulary of \citeauthor{Wu_2016} to tokenise (segment) the input text before it is further processed. \autoref{fig:bert-inputs} shows an example; notice how my surname (``Sucik'') gets split into three wordpieces whereas the other, much more common words are found in the wordpiece vocabulary.
         \item To enable the different pre-training tasks as well as two-sentence inputs, BERT uses a special input sequence representation, illustrated in \autoref{fig:bert-inputs}. Given the two input sentences $S_A$, $S_B$, they are concatenated and separated by the special \verb|[SEP]| token. The overall sequence is prepended with the \verb|[CLS]| (classification) token. To explicitly capture that certain tokens belong to $S_A$ and others to $S_B$, simple \textit{token type embeddings} (which only take on two different values) are added to the token embedding at each position. Then, for tasks like NSP, only the output representation of the \verb|[CLS]| token (i.e. $\bm{o_0}$) is used, whereas for token-level tasks like MLM the output vector from the desired position is used (in \autoref{fig:bert-inputs}, the MLM task would use $\bm{o_3}$ to predict the correct token at this position).
       \end{enumerate}
 
@@ -312,7 +320,7 @@
       % This is is how BERT was born, which then became extremely popular in the community, attracting a lot of work on improving it, analysing its capabilities, extending it to other languages, and even applying it to multi-modal tasks such as video captioning. 
       % TO-DO: elaborate more on BERT, also with a schematic picture.
       The overall architecture of BERT is shown in \autoref{fig:bert-hl}. The tokeniser also adds the special tokens like \verb|[CLS]| and \verb|[SEP]| to the input, while the trainable token embedding layer also adds the positional embedding and the token type embedding to the wordpiece embedding of each individual token. The pooler takes the appropriate model output (for sequence level classification the first output $\bm{o_0}$ as discussed above) and applies a fully-connected layer with the tanh activation function.
-      The external classifier is often another fully-connected layer with the tanh activation, producing the logits\footnote{For a classifier, the logits are the (unnormalised) predicted class probabilities.}. These get normalised using softmax to produce a probability distribution over all classes. The most probable class is outputted as the model's prediction.
+      The external classifier is often another fully-connected layer with the tanh activation, producing the logits\footnote{For a classifier, the logits are the (unnormalised) predicted class probabilities.}. These get normalised using softmax to produce a probability distribution over all classes. The most probable class get output as the model's prediction.
       
       \begin{figure}[h!t]
         \centering
@@ -372,7 +380,7 @@
       \end{equation}
       where $C$ is the number of classes and $z_t$, $z_s$ are the the teacher's and student's logits.
       \citet{Hinton_2015} proposed a more general approach, addressing the issue of overconfident teachers with very sharp logit distributions. The issue with such distributions is that they carry little additional information beyond the hard label (since the winning class has a huge probability and all others have negligibly small probabilities).
-      To ``soften'' such sharp distributions, \citeauthor{Hinton_2015} proposed using the \textit{cross-entropy loss} \autoref{eq:E_CE} in combination with softmax with temperature \autoref{eq:softmax-temperature} (instead of the standard softmax) in training both the teacher and the student.
+      To ``soften'' such sharp distributions, \citeauthor{Hinton_2015} proposed using the \textit{cross-entropy loss} \autoref{eq:E_CE} in combination with \textit{softmax with temperature} \autoref{eq:softmax-temperature} (instead of the standard softmax) in training both the teacher and the student.
       \begin{equation}
         E_{CE}=\sum_{c=1}^{C}{z_t^{(c)} \log{z_s^{(c)}}}
         \label{eq:E_CE}        
@@ -401,16 +409,16 @@
       % KD in NLP: sequence-level KD \citep{Kim_2016}, then basically straight to distilling from BERT?
         % In the NLP literature, it has previously been used in neural machine translation (Kim and Rush, 2016) and language modeling (Yu et al., 2018).
       % In natural language processing, research on knowledge distillation was rare for a long time. One notable work was the adaptation of distillation for sequence-to-sequence machine translation models -- whose outputs are no longer simple classification scores -- by \citet{Kim_2016}. Another pioneering study compressed a recurrent neural language model for use on mobile devices \citep{Yu_2018}.
-      In NLP, the (recurrent) models were moderately sized for a long time, not attracting much research in model compression. Still, one early notable work was on adapting knowledge distillation for sequence-to-sequence models \citep{Kim_2016}, while another pioneering study \citep{Yu_2018} distilled a recurrent model into en even smaller one -- to make it suitable for running on mobile devices.
+      In NLP and in text processing in particular, the (recurrent) models were moderately sized for a long time, not attracting much research in model compression. Still, one early notable work was on adapting knowledge distillation for sequence-to-sequence models \citep{Kim_2016}, while another pioneering study \citep{Yu_2018} distilled a recurrent model into an even smaller one -- to make it suitable for running on mobile devices.
 
       Understandably, the real need for model compression started very recently, when the large pre-trained Transformer models became popular. Large size and low speed seemed to be the only downside of these -- otherwise very successful and accessible -- models.
 
       % When distilling knowledge from big, pre-trained Transformer models, the main decision is whether to distil before or after fine-tuning on a concrete downstream task. Each option has its pros and cons.
-      Perhaps the first decision to make when distilling large pre-trained models is at which point to distill. In particular, one can distill the general knowledge from a pre-trained teacher and use such general student by fine-tuning it on downstream tasks, or one can fine-tune the pre-trained teacher on a task and then distill this specialised knowledge into a student model meant for the one task only. Each of these approaches has its advantages and disadvantages.
+      Perhaps the first decision to make when distilling large pre-trained models is at which point to distill. In particular, one can distill the general knowledge from a pre-trained teacher and use such a general student by fine-tuning it on downstream tasks, or one can fine-tune the pre-trained teacher on a task and then distill this specialised knowledge into a student model meant for the one task only. Each of these approaches has its advantages and disadvantages.
 
-      In the first scenario (distilling pre-trained knowledge), a major advantage is that the distillation happens once and the small student can be fine-tuned fast for various downstream tasks.
+      In the first scenario (distilling pre-trained knowledge), a major advantage is that the distillation happens once and the small student can be fine-tuned quickly for various downstream tasks.
       Since the distillation can be done on the same data that the teacher was pre-trained on -- large unlabelled text corpora --, lack of transfer data is not a concern.
-      A possible risk is that the large amount of general pre-trained language knowledge will not ``fit'' into the small student, requiring the student itself to be considerably large. \citet{Sanh_2019} took this approach and, while their student is successfully fine-tuned for a wide range of tasks, it is only 40\% smaller than the BERT\textsubscript{Base} teacher.
+      A possible risk is that the large amount of general pre-trained language knowledge will not ``fit'' into the small student, requiring the student itself to be relatively large. \citet{Sanh_2019} took this approach and, while their student is successfully fine-tuned for a wide range of tasks, it is only 40\% smaller than the BERT\textsubscript{Base} teacher.
 
       % Distilling beforeinto a small student and subsequently finetuning it on any downstream task means easy 
       %   pros: have flexible model that's easy to finetune for any downstream task. lots of transfer data to work with.
@@ -418,7 +426,7 @@
       %   Sanh tried and only got to making BERT 60\% smaller??? (# of params).
 
       % CAREFUL NOT TO MIX IN OWN METHODOLOGY HERE!!!
-      In the second scenario, only the task-specific knowledge needs to be transferred to the student -- potentially allowing very small students.
+      In the second scenario, only the task-specific knowledge needs to be transferred to the student -- potentially allowing smaller students.
       However, teacher fine-tuning and distillation have to be done anew for each task and this is resource-hungry.
       Additionally, there may be a lack of transfer data if the downstream task dataset is small.
       Various ways of addressing this issue by \textit{augmenting} small datasets have been proposed, with mixed success. 
@@ -433,17 +441,17 @@
     }
   }
   
-  \section{Understanding NLP models}{
+  \section{Interpreting NLP models}{
     \label{sec:understanding-models}
     % NNs are black boxes and (not) understanding the models is a serious issue.
     Neural models are by their very nature opaque or even black boxes, and (not) really understanding the models is a serious concern.
     % performance is typically more important than transparence, but recently the demand for explainable AI (XAI) has been increasing. additionally, understanding is opportunity for further improvements of the mdels and techniques.
-    Despite the typical preferrence of performance over transparence, recently, the demand for explainable artificial intelligence (XAI) has been increasing, as neural models become widely used.
+    Despite the typical preferrence of performance over transparence, recently, the demand for explainable artificial intelligence (XAI) has been increasing, as neural models become widely used. (Besides the DARPA XAI program\footnote{\rurl{www.darpa.mil/program/explainable-artificial-intelligence}}, conferences like the International Joint Conference on Artificial Intelligence (IJCAI), the SIGKDD Conference on Knowledge Discovery and Data Mining (KDD), and the Conference on Computer Vision and Pattern Recognition (CVPR) now feature dedicated XAI workshops\footnote{See \rurl{sites.google.com/view/xai2019/home}, \rurl{xai.kdd2019.a.intuit.com/}, \rurl{explainai.net/}.}.)
 
     % in image processing, interpretability is easy thanks to visualising things. (somewhat similarly music.) notable works: maximising activation, visualising neurons' output for given input, maximum activation samples.
-    The area of image processing has seen the most attempts at interpreting neural models, partly because reasoning about images is easy for humans. Various techniques shed light into the workings of image classifiers, e.g. creating images that maximally excite certain neurons \citep{Simonyan_2013} or highlighting those parts of an image that a particular neuron ``focuses'' on \citep{Zeiler_2013}. 
+    The area of image processing has seen the most attempts at interpreting neural models and their behaviour. One reason being that vision tasks are often doable and easy to reason about for researchers and for humans in general. Various techniques shed light into the behaviour of image classifiers; for instance, techniques for creating images that maximally excite certain neurons \citep{Simonyan_2013}, or highlighting those parts of an image that a particular neuron ``focuses'' on \citep{Zeiler_2013}. 
     
-    In NLP, interpreting is more difficult and historically came with a delay similar to the delay with which large neural models became popular for NLP tasks.
+    In NLP, interpretation is more difficult. Additionally, most research in interpreting NLP models started only relatively recently, after large neural models became widely used.
     % hard to do maximising activation or visualising single units. BUT types of information preserved in internal input representations can be well explored: probing!
     In their review, \citet{Belinkov_2018} observe that many methods for analysing and interpreting models are simply adapted from image processing, in particular the approach of visualising a single neuron's focus, given an input.
     In attentional sequence-to-sequence models, the attention maps can be visualised to explore the soft alignments between input and output words (see, e.g., \citet{Strobelt_2018}). However, these methods are mostly qualitative and suitable for exploring individual input examples, thus not well suited for drawing statistically backed conclusions or for model comparison.
@@ -455,7 +463,7 @@
     More recently, \citet{Conneau_2018} curated a set of 10 probing tasks ranging from easy surface properties (e.g. sentence length) through syntactic (e.g. the depth of the syntactic parse tree) to semantic ones (e.g. identifying semantically disrupted sentences).
     Focusing on Transformers, \citet{Tenney_2019a} proposed a set of \textit{edge probing} tasks, examining how much contextual knowledge about an entire input sentence is captured within the contextual representation of one of its words.
     Their tasks correspond to the typical steps of a text processing pipeline -- from part-of-speech (POS) tagging to identifying dependencies and entities to semantic role labelling. 
-    \citet{Tenney_2019b} managed to localise the layers of BERT most important for each of these ``skills''. They showed that the ordering of these ``centres of expertise'' within BERT's encoder matches the usual low- to high-level order: from simple POS tagging in the earlier layers to the most complex semantic tasks in the last layers.
+    \citet{Tenney_2019b} managed to localise the layers of BERT most important for each of these ``skills''. They showed that the ordering of these ``centres of expertise'' within BERT's encoder matches the usual low- to high-level order: from simple POS tagging in the earlier layers to more complex semantic tasks in the last layers.
 
     While the discussed approaches provide valuable insights, they merely help us intuitively describe or quantify the kinds of internal knowledge/expertise present in the models. 
     \citet{Gilpin_2018} call this level of model understanding \textit{interpretability} -- comprehending what a model does. 
@@ -472,17 +480,35 @@
     % Further, I describe how different student model architectures influence how linguistic knowledge is distilled from a teacher and stored in the student, and what the effect on the student's confidence is. 
     % Finally, I try to relate the observed effects to the method of knowledge distillation itself.
   }
+
+  \section{Conclusions \reviewready}{
+    % deep neural models widely used in NLP
+    Since around 2013, the area of NLP has been taking advantage of deep neural models.
+    % recently even larger Transformer models -- accessible but slow
+    With the introduction of Transformers, the models became even deeper and more powerful.
+    Today's pre-trained Transformer-based models like BERT make state-of-the-art NLP relatively accessible, but the models are often too large and slow for practical applications.
+    % compression (KD) revival
+    Compressing such models has become an active research area, with knowledge distillation being a particularly successful compression technique.
+    % better understanding of new models as well as techniques desired
+    However, the self-attentional, Transformer-based models, as well as compressing them, are still relatively young concepts.
+    More research is needed to better interpret the behaviour of models like BERT, and to better understand the nature of the knowledge transfer from large Transformers into smaller, compressed ones.
+  }
 }
 
 \chapter{Datasets \reviewready}{
   \label{chap:datasets}
 
-  In this chapter, I introduce the downstream tasks and how I augmented their data to create large transfer datasets. I also introduce the probing tasks used later for analysing the teacher and student models.
+  In this chapter, I introduce the different datasets used throughout the work:
+  \begin{enumerate}
+    \item To later experiment with models in the context of a wide range of NLP tasks, I use different small \textbf{downstream task datasets} on which I train large Transformer models.
+    \item For knowledge distillation from the large into smaller models, large \textbf{transfer datasets} are used, created from the downstream datasets using data augmentation.
+    \item Finally, \textbf{probing datasets} are used for analysing the linguistic capabilities of the large and the small models.
+  \end{enumerate}
 
   \section{Downstream tasks}{
     The downstream task datasets I use to fine-tune the teacher model. The tasks are chosen to be diverse so that the knowledge distillation analysis later in this work is set in a wide NLP context. At the same time, all the datasets are rather small and therefore well representing the type of use case where pre-trained models like BERT are desirable due to the lack of labelled fine-tuning data.
 
-    Today, perhaps the most widely used collection of challenging NLP tasks\footnote{Challenging by the nature of the tasks and by the small dataset size.} is the GLUE benchmarking collection \citep{Wang_2018}. 
+    Today, perhaps the most widely used collection of challenging NLP tasks\footnote{Challenging by the nature of the tasks and by the small dataset size.} is the GLUE benchmarking collection \citep{Wang_2018}.
     This collection comprises 11 tasks which enable model benchmarking on a wide range of NLP tasks from sentiment analysis to detecting textual similarity, all framed as single-sentence or sentence-pair classification.
     Each task comes with an official scoring metric (such as accuracy or F1), labelled training and evaluation datasets, and a testing dataset with labels not released publicly.
     The test-set score accumulated over all 11 tasks forms the basis for the popular GLUE leaderboard\footnote{\rurl{gluebenchmark.com/leaderboard}}.
