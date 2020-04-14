@@ -24,6 +24,14 @@ glue_task_colours = {
 }
 glue_task_colours = {name: np.array(c)/255 for name, c in glue_task_colours.items()}
 
+def add_to_legend(ax, additional_handles=[], **kwargs):
+    handles, labels = ax.get_legend_handles_labels()
+    # n_handles_orig = len(handles)
+    handles += additional_handles
+    for h in additional_handles:
+        labels.append(h.get_label())
+    ax.legend(handles, labels, **kwargs)
+
 def unify_legend_outside(fig, axs, alternate_lws=[leg_lw], legcols=1, position="right", additional_handles=[]):
     ax = fig.add_subplot(1, 1, 1)
     ax.set_axis_off()
@@ -83,7 +91,10 @@ def colour_subplot_gaps(fig, c="black"):
     return ax
 
 def make_latex_label(model="BERT", role="student"):
-    return "$\\text{" + model + "}_{\\text{" + ("S" if role == "student" else "T") + "}}$"
+    if model == "teacher":
+        return "$\\text{BERT}_{\\text{T}}$"
+    else:
+        return "$\\text{" + model + "}_{\\text{" + ("S" if role == "student" else "T") + "}}$"
 
 def new_legend_entry(c="black", label="label", marker=None, markersize=5, lw=3):
     handle = mlines.Line2D([], [], color=c, marker=marker,

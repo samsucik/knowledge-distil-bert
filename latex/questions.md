@@ -1,0 +1,7 @@
+- should I write "accessed on" to all links (including footnotes)?
+- should I put the concluding sentences of each chapter under a Conclusions section?
+- should I evaluate all students and teachers on the test set and report this?
+- is it alright to cite myself (the rasa blog posts)?
+- should I include the analysed sentences (pred. analysis) in the appendix?
+- mention use of CoLA annotations in prediction analysis? they weren't useful at all
+- should I show probing baseline results of Conneau et al?
