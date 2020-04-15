@@ -292,7 +292,7 @@ Computer Science}}
     {\if@twoside
         \geometry{a4paper,left=2.5cm,top=2cm,right=2.5cm,bottom=4cm,twoside}
      \else
-        \geometry{a4paper,left=4cm,top=2cm,right=2.5cm,bottom=4cm}
+        \geometry{a4paper,left=2.5cm,top=2cm,right=2.5cm,bottom=4cm}
     \fi}
 
 %% We should make pages created by "cleardoublepage" be

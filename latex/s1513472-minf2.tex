@@ -1,4 +1,4 @@
-\documentclass[bsc,frontabs,twoside,singlespacing,parskip,deptreport]{infthesis}
+\documentclass[bsc,frontabs,singlespacing,parskip,deptreport]{infthesis}
 
 \usepackage[round]{natbib}
 \usepackage[hidelinks,colorlinks,allcolors=blue]{hyperref}
@@ -84,7 +84,6 @@
   \href{https://#1}{\nolinkurl{#1}}%
 }
 
-% TO-DO: Add access date to all URLs in footnotes.
 % TO-DO: Change .png figures to .pdf.
 \begin{document}
 \VerbatimFootnotes
@@ -103,6 +102,7 @@
 
 \date{2020}
 
+\pagenumbering{roman}
 \abstract{
   TO-DO
 }
@@ -121,6 +121,8 @@
 }
 
 \chapter{Introduction}{
+  \pagenumbering{arabic}
+  \setcounter{page}{1}
   % what's the problem, 
   \section{Motivation}{
   %   \begin{itemize}
@@ -159,8 +161,7 @@
   }
 }
 
-% TO-DO: as a prerequisite define NLP abbreviation
-\chapter{Background \reviewed}{
+\chapter{Background}{
   \label{ch:background}
 
   In this chapter, the Transformer models are introduced and set into the historical context; knowledge distillation is introduced, in particular its recent applications in NLP; and an overview of some relevant work in model understanding is given.
@@ -230,7 +231,7 @@
     \begin{equation}
     \bm{q}=\bm{h}_DW_Q
     \end{equation}
-    and each encoder state $\bm{h}_E^{(i)}$ ($i$ being the input position or encoder timestep) is used to produce the \textit{key} and \textit{value} vectors, $\bm{k^{(i)}}$ and $\bm{v^{(i)}}$:
+    and each encoder state $\bm{h}_E^{(i)}$ ($i$ being the input position or encoder timestep) is used to produce the \textit{key} and \textit{value} vectors, $\bm{k}^{(i)}$ and $\bm{v}^{(i)}$:
     \begin{equation}
     \bm{k}^{(i)} = \bm{h}_E^{(i)}W_K,\ \ \ \bm{v}^{(i)} = \bm{h}_E^{(i)}W_V\ .
     \end{equation}
@@ -284,7 +285,7 @@
       O_{att,a} = \softmax(\frac{\bm{q}\bm{k}^\top}{\sqrt{d_k}})\bm{v} = \softmax(\frac{(\bm{h}_l^\top{W_{Q,a}})^\top(\bm{h}_l^\top{W_{K,a}})}{\sqrt{d_k}})(\bm{h}_l^\top{W_{V,a}})
       \end{equation}
       which matches \autoref{fig:self-att} (but notice the detail of the additional scaling by $\frac{1}{\sqrt{d_k}}$, introduced by \citeauthor{Vaswani_2017}, where $d_k$ is the dimensionality of the key).
-      The outputs of the $A$ individual attentional heads are then concatenated and dimensionality reduced with a trainable linear transformation $W_{AO}$, to produce the final output, which replaces $\bm{h_{l+1}}$ in \autoref{fig:self-att}:
+      The outputs of the $A$ individual attentional heads are then concatenated and dimensionality reduced with a trainable linear transformation $W_{AO}$, to produce the final output, which replaces $\bm{h}_{l+1}$ in \autoref{fig:self-att}:
       \begin{equation}
       O_{att} = [O_{att, 1},\ \ldots,\ O_{att, A}]W_{AO}\ .
       \end{equation}
@@ -494,7 +495,7 @@
     % Finally, I try to relate the observed effects to the method of knowledge distillation itself.
   }
 
-  \section{Summary \reviewready}{
+  \section{Summary}{
     % deep neural models widely used in NLP
     Since around 2013, the area of NLP has been taking advantage of deep neural models.
     % recently even larger Transformer models -- accessible but slow
@@ -508,7 +509,7 @@
   }
 }
 
-\chapter{Datasets \reviewed}{
+\chapter{Datasets}{
   \label{chap:datasets}
 
   In this chapter, I introduce the different datasets used throughout the work:
@@ -568,7 +569,7 @@
       Despite the problematic examples, most are straightforward (e.g. ``delightfully cheeky'' or ``with little logic or continuity''), making this task a relatively easy one. With accuracy being the official metric, best models in the GLUE leaderboard score over 97\%, very close to the official human baseline of 97.8\%\footnote{See the GLUE leaderboard at \rurl{gluebenchmark.com/leaderboard}}.
     }
 
-    \subsection{Sara \reviewready}{
+    \subsection{Sara}{
       \label{sec:datasets-Sara}
 
       As the third task, I use an intent classification dataset created by Rasa, a start-up building open-source tools for conversational AI\footnote{For transparency: My co-supervisor for this work -- Vladimir Vlasov -- is a Rasa employee, and he also supervised me during my Machine learning research internship with Rasa in the summer of 2019.}.
@@ -670,7 +671,7 @@
     One interesting direction for future work is to use both of these probing suites, compare the results they lead to (in particular their agreement), and explore the extent to which the different probing approaches complement each other.
   }
 
-  \section{Summary \reviewready}{
+  \section{Summary}{
     I have introduced the three different types of data used in this work. These types also define the skeleton of my experiments and analyses:
     \begin{enumerate}
       \item First, I train one teacher model for each of the three downstream datasets.
@@ -683,7 +684,7 @@
   }
 }
 
-\chapter{Methods and Implementation \reviewed}{
+\chapter{Methods and Implementation}{
   \label{chap:methods-implementation}
 
   This chapter elaborates on the main objectives of this work, the knowledge distillation and model analysis approaches I took, and goes into detail in describing the design and implementation work underlying my experiments.
@@ -970,7 +971,7 @@
     % Sara: end of epoch 1 | loss 0.94 | ppl 111.48 | bpc 1.363 | 00:55
   }
 
-  \section{Summary \reviewready}{
+  \section{Summary}{
     % aims: insights, nt numbers
     In this chapter, I presented the high-level set up as well as the implementation details of all experiments.
     % implementation: work of others
@@ -985,7 +986,7 @@
   }
 }
 
-\chapter{Training student models \reviewready}{
+\chapter{Training student models}{
   % - aims: small, good, 90\% of teacher's score
   In this chapter, I use knowledge distillation to train student models \BERTS~and \LSTMS~from the fine-tuned teacher \BERTT~on each of the three downstream tasks.
   My aim is to end up with students that are small but perform well. Ideally, the student size will stay at the initial 2.4 millions of trainable non-embedding parameters while the evaluation-set performance will be above 90\% of the teacher's performance.
@@ -1410,7 +1411,7 @@
   }
 }
 
-\chapter{Analysing the models \reviewready}{
+\chapter{Analysing the models}{
   In this chapter, probing and prediction analysis are used to analyse, interpret and compare the teacher and the student models for each downstream task. 
   The aim is to produce insights into the nature of the downstream tasks, the models, and knowledge distillation.
 
