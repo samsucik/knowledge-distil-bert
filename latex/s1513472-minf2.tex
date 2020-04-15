@@ -125,22 +125,30 @@
   \setcounter{page}{1}
   % what's the problem, 
   \section{Motivation}{
-  %   \begin{itemize}
-  %     \item After the deep learning hype started, NLP went through an era of LSTMs. Since 2017, the area has been becoming dominated by Transformer models pre-trained on large unlabelled corpora.
-  Natural language processing (NLP) is concerned with using computational techniques to process and analyse human language: for instance, to automatically compute various grammatical properties of a sentence or to analyse its meaning.
-  Since the early 2010s, this area has seen significant improvements due to using powerful machine learning methods, especially artificial neural networks.
+    %   \begin{itemize}
+    %     \item After the deep learning hype started, NLP went through an era of LSTMs. Since 2017, the area has been becoming dominated by Transformer models pre-trained on large unlabelled corpora.
+    Natural language processing (NLP) is concerned with using computational techniques to process and analyse human language: for instance, to automatically compute various grammatical properties of a sentence or to analyse its meaning.
+    Since the early 2010s, this area has seen significant improvements due to using powerful machine learning methods, especially artificial neural networks.
 
-  In 2017, a new family of neural models was proposed: Transformers \citep{Vaswani_2017}. Since then, numerous Transformer variants were proposed \citep{Radford_2018,Devlin_2018,Lan_2019,Liu_2019,Lample_2019} -- many of them improving the state-of-the-art results on various NLP tasks\footnote{See the leaderboard of the popular GLUE benchmark \citep{Wang_2018} at \rurl{gluebenchmark.com/leaderboard}, accessed April 15, 2020.}.
-  %     \item As newer and bigger Transformer-based models were proposed in 2018 and 2019, improving on the SOTA, it was becoming clearer that their big size and low speed was rendering them difficult to use (both train and deploy) in practice outside of research labs.
-  However, these successful models are large (with hundreds of millions of learnable parameters), which makes then computationally expensive and slow both in the learning phase and when deployed.
+    In 2017, a new family of neural models was proposed: Transformers \citep{Vaswani_2017}. Since then, numerous Transformer variants were proposed \citep{Radford_2018,Devlin_2018,Lan_2019,Liu_2019,Lample_2019} -- many of them improving the state-of-the-art results on various NLP tasks\footnote{See the leaderboard of the popular GLUE benchmark \citep{Wang_2018} at \rurl{gluebenchmark.com/leaderboard}, accessed April 15, 2020.}.
+    %     \item As newer and bigger Transformer-based models were proposed in 2018 and 2019, improving on the SOTA, it was becoming clearer that their big size and low speed was rendering them difficult to use (both train and deploy) in practice outside of research labs.
+    However, these successful models are large (with hundreds of millions of learnable parameters), which makes then computationally expensive and slow both in the learning phase and when deployed.
 
-  %     \item Recently, we've seen various early attempts at making Transformers -- in particular BERT \citep{Devlin_2018} -- smaller by removing attentional heads \citep{Michel_2019}, quantisation and pruning \citep{Cheong_2019, Sucik_2019}. In terms of actually down-sizing and accelerating the models, knowledge transfer using teacher-student knowledge distillation has led to the most attractive results \citep{Mukherjee_2019,Tang_2019a,Jiao_2019,Sanh_2019}.
-  In an effort to address this downside, a recent stream of research has focused on making Transformers -- especially the widely used BERT model \citep{Devlin_2018} -- smaller and faster \citep{Michel_2019,Cheong_2019}.
-  Primarily, variations on the \textit{knowledge distillation} approach \citep{Bucila_2006} have been used \citep{Sun_2019a,Mukherjee_2019,Tang_2019a,Tang_2019b,Jiao_2019,Sanh_2019}.
-  %     \item However, these studies focus only on using knowledge distillation as a tool. Important questions about the nature of this technique and how it interacts with properties of the teacher and student models remain generally unexplored.
-      
-  %     \item In line with the increasing demand for explainable AI (TOO BOLD, TALK ABOUT INTERPRETABILITY), it is desirable that, for the beginning, at least the researchers better understand the tools they use, in this case distillation of NLP knowledge from Transformer models. Indeed, such understanding is also useful for overcoming the limitations and designing new variants of this method for smaller and better classifiers.
-  %   \end{itemize}
+    %     \item Recently, we've seen various early attempts at making Transformers -- in particular BERT \citep{Devlin_2018} -- smaller by removing attentional heads \citep{Michel_2019}, quantisation and pruning \citep{Cheong_2019, Sucik_2019}. In terms of actually down-sizing and accelerating the models, knowledge transfer using teacher-student knowledge distillation has led to the most attractive results \citep{Mukherjee_2019,Tang_2019a,Jiao_2019,Sanh_2019}.
+    In an effort to address this downside, a recent stream of research has focused on making Transformers -- especially the widely used BERT model \citep{Devlin_2018} -- smaller and faster \citep{Michel_2019,Cheong_2019}.
+    Primarily, variations on the \textit{teacher-student knowledge distillation} approach \citep{Bucila_2006} have been used \citep{Sun_2019a,Mukherjee_2019,Tang_2019a,Tang_2019b,Jiao_2019,Sanh_2019}.
+    A large, trained model is used as a teacher, and a smaller student model learns by observing and trying to mimic the teacher's prediction patterns.
+    
+    %     \item However, these studies focus only on using knowledge distillation as a tool. Important questions about the nature of this technique and how it interacts with properties of the teacher and student models remain generally unexplored.
+    
+    Using knowledge distillation, BERT can be made several times smaller without significant loss of accuracy.
+    While numerous variants of this technique have been successfully developed, there is little understanding of the nature of knowledge distillation: 
+    How and what kinds of the large model's knowledge are best learned by the student, and how this depends on the architecture of the teacher and student models.
+    This gap in understanding is in contrast with the lot of research in understanding the linguistic capabilities of BERT \citep{Ganesh_2019,Tenney_2019b,Kovaleva_2019,Lin_2019}.
+    Arguably, it is important to also have a good understanding of knowledge distillation and of the smaller models eventually produced by applying knowledge distillation to BERT.
+        
+    %     \item In line with the increasing demand for explainable AI (TOO BOLD, TALK ABOUT INTERPRETABILITY), it is desirable that, for the beginning, at least the researchers better understand the tools they use, in this case distillation of NLP knowledge from Transformer models. Indeed, such understanding is also useful for overcoming the limitations and designing new variants of this method for smaller and better classifiers.
+    %   \end{itemize}
   }
   
   % what I tried to address, 

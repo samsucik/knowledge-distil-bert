@@ -4,7 +4,7 @@
 - is it alright to cite myself (the rasa blog posts)? YES
 - should I include the analysed sentences (pred. analysis) in the appendix?
 - mention use of CoLA annotations in prediction analysis? they weren't useful at all. NO
-- should I show probing baseline results of Conneau et al? YES
+- should I show probing baseline results of Conneau et al? YES also Ganesh_2019 has results for BERT_Base
 - should I mention concrete scripts which I wrote? NO
 - should I report prediction speed (on CPU)? YES, in 5.3
 - should I include the publisher in all article references? and age numbers in proceedings? VENUE OF PUBLICATION, ideally page numbers
