@@ -2,6 +2,57 @@
 %% 2019
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
+@inproceedings{Sun_2019a,
+  author    = {Siqi Sun and
+               Yu Cheng and
+               Zhe Gan and
+               Jingjing Liu},
+  title     = {Patient Knowledge Distillation for {BERT} Model Compression},
+  booktitle = {EMNLP/IJCNLP},
+  pages     = {4322--4331},
+  publisher = {Association for Computational Linguistics},
+  year      = {2019},
+}
+
+@article{Liu_2019,
+  author    = {Yinhan Liu and
+               Myle Ott and
+               Naman Goyal and
+               Jingfei Du and
+               Mandar Joshi and
+               Danqi Chen and
+               Omer Levy and
+               Mike Lewis and
+               Luke Zettlemoyer and
+               Veselin Stoyanov},
+  title     = {{RoBERTa}: {A} Robustly Optimized {BERT} Pretraining Approach},
+  journal   = {arXiv},
+  volume    = {abs/1907.11692},
+  year      = {2019},
+}
+
+@article{Lan_2019,
+  author    = {Zhenzhong Lan and
+               Mingda Chen and
+               Sebastian Goodman and
+               Kevin Gimpel and
+               Piyush Sharma and
+               Radu Soricut},
+  title     = {{ALBERT:} {A} Lite {BERT} for Self-supervised Learning of Language
+               Representations},
+  journal   = {arXiv},
+  volume    = {abs/1909.11942},
+  year      = {2019},
+}
+
+@inproceedings{Clark_2019,
+  title={What Does {BERT} Look at? An Analysis of {BERT}'s Attention},
+  author={Clark, Kevin and Khandelwal, Urvashi and Levy, Omer and Manning, Christopher D},
+  booktitle={ACL Workshop BlackboxNLP: Analyzing and Interpreting Neural Networks for NLP},
+  pages={276--286},
+  year={2019}
+}
+
 @inproceedings{Loshchilov_2019,
   title={Decoupled Weight Decay Regularization},
   author={Ilya Loshchilov and Frank Hutter},
@@ -9,34 +60,39 @@
   year={2019}
 }
 
-@misc{Sun_2019,
-    title={{VideoBERT}: A Joint Model for Video and Language Representation Learning},
-    author={Chen Sun and Austin Myers and Carl Vondrick and Kevin Murphy and Cordelia Schmid},
-    year={2019},
-    eprint={1904.01766},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
+@inproceedings{Sun_2019,
+  author    = {Chen Sun and
+               Austin Myers and
+               Carl Vondrick and
+               Kevin Murphy and
+               Cordelia Schmid},
+  title     = {{VideoBERT}: A Joint Model for Video and Language Representation Learning},
+  booktitle = {IEEE International Conference on Computer Vision ({ICCV})},
+  pages     = {7463--7472},
+  publisher = {{IEEE}},
+  year      = {2019},
 }
 
-@misc{Adhikari_2019,
+
+@article{Adhikari_2019,
     title={{DocBERT}: {BERT} for Document Classification},
     author={Ashutosh Adhikari and Achyudh Ram and Raphael Tang and Jimmy Lin},
     year={2019},
-    eprint={1904.08398},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
+    journal={{arXiv}},
+    volume={abs/1904.08398},
 }
 
 @article{Lee_2019,
    title={{BioBERT}: a pre-trained biomedical language representation model for biomedical text mining},
+   journal={Bioinformatics},
+   year={2019},
+   
    ISSN={1460-2059},
    url={http://dx.doi.org/10.1093/bioinformatics/btz682},
    DOI={10.1093/bioinformatics/btz682},
-   journal={Bioinformatics},
    publisher={Oxford University Press},
    author={Lee, Jinhyuk and Yoon, Wonjin and Kim, Sungdong and Kim, Donghyeon and Kim, Sunkyu and So, Chan Ho and Kang, Jaewoo},
    editor={Wren, JonathanEditor},
-   year={2019},
    month={Sep}
 }
 
@@ -51,7 +107,7 @@
 @inproceedings{Tenney_2019a,
   title={What do you learn from context? Probing for sentence structure in contextualized word representations},
   author={Tenney, Ian and Xia, Patrick and Chen, Berlin and Wang, Alex and Poliak, Adam and McCoy, R Thomas and Kim, Najoung and Van Durme, Benjamin and Bowman, Samuel and Das, Dipanjan and others},
-  booktitle={7th International Conference on Learning Representations, ICLR 2019},
+  booktitle={ICLR},
   year={2019}
 }
 
@@ -69,10 +125,9 @@
                Hassan Ghasemzadeh},
   title     = {Improved Knowledge Distillation via Teacher Assistant: Bridging the
                Gap Between Student and Teacher},
-  journal   = {CoRR},
-  volume    = {abs/1902.03393},
-  url       = {http://arxiv.org/abs/1902.03393},
   year      = {2019},
+  journal   = {arXiv},
+  volume    = {abs/1902.03393},
 }
 
 @inproceedings{Tsai_2019,
@@ -82,7 +137,7 @@
   year={2019}
 }
 
-@misc{Mukherjee_2019,
+@article{Mukherjee_2019,
     title={Distilling Transformers into Simple Neural Networks with Unlabeled Transfer Data},
     abstract={Distilling into BiLSTM like Ralph, but with various loss functions and staged distillation. 
               26x smaller students match BERT large performance, but just on sentiment/topic classification.
@@ -90,9 +145,8 @@
               like Ralph did).},
     author={Subhabrata Mukherjee and Ahmed Hassan Awadallah},
     year={2019},
-    eprint={1910.01769},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
+    volume={abs/1910.01769},
+    journal={arXiv},
 }
 
 @inproceedings{Sanh_2019,
@@ -102,24 +156,23 @@
   year={2019}
 }
 
-@misc{Jiao_2019,
+@article{Jiao_2019,
     title={{TinyBERT}: Distilling {BERT} for Natural Language Understanding},
     author={Xiaoqi Jiao and Yichun Yin and Lifeng Shang and Xin Jiang and Xiao Chen and Linlin Li and Fang Wang and Qun Liu},
     abstract={Smaller BERT (9x smaller BERT Base), trained to match teacher's embedding, hidden and attention 
               representations in 2 stages (general and task-specific training). Interesting data augmentation 
               using BERT and word embeddings (see appendix).},
     year={2019},
-    eprint={1909.10351},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
+    volume={abs/1909.10351},
+    journal={arXiv},
 }
 
-@misc{Michel_2019,
+@inproceedings{Michel_2019,
     title={Are Sixteen Heads Really Better than One?},
     author={Paul Michel and Omer Levy and Graham Neubig},
+    booktitle={NeurIPS},
+    pages= {14014--14024},
     year={2019},
-    eprint={1905.10650},
-    archivePrefix={arXiv},
 }
 
 @misc{Sucik_2019,
@@ -130,23 +183,22 @@
   organization={Rasa},
   date={September 5, 2019},
   howpublished = "\url{https://blog.rasa.com/pruning-bert-to-accelerate-inference/}",
-  urldate={2020-01-22}
+  urldate={2020-01-22},
+  note={Accessed April 15, 2020.}
 }
 
 @misc{Cheong_2019,
   author={Cheong, R. and Daniel, R.},
   year={2019},
   title={{transformers.zip}: Compressing Transformers with Pruning and Quantization},
-  url={http://web.stanford.edu/class/cs224n/reports/custom/15763707.pdf}
+  howpublished = "\url{http://web.stanford.edu/class/cs224n/reports/custom/15763707.pdf}",
+  note={Accessed April 15, 2020.}
 }
 
 @article{Radford_2019,
   title={Language models are unsupervised multitask learners},
   author={Radford, Alec and Wu, Jeffrey and Child, Rewon and Luan, David and Amodei, Dario and Sutskever, Ilya},
   journal={OpenAI Blog},
-  volume={1},
-  number={8},
-  pages={9},
   year={2019}
 }
 
@@ -155,7 +207,6 @@
   author={Raphael Tang and Yao Lu and Linqing Liu and Lili Mou and Olga Vechtomova and Jimmy Lin},
   journal={{arXiv}},
   volume={abs/1903.12136},
-  url={http://arxiv.org/abs/1903.12136},
   year={2019},
 }
 
@@ -164,13 +215,8 @@
     author = "Tang, Raphael  and
       Lu, Yao  and
       Lin, Jimmy",
-    booktitle = "Proceedings of the 2nd Workshop on Deep Learning Approaches for Low-Resource NLP (DeepLo 2019)",
-    month = nov,
+    booktitle = "EMNLP/IJCNLP Workshop on Deep Learning Approaches for Low-Resource NLP",
     year = "2019",
-    address = "Hong Kong, China",
-    publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/D19-6122",
-    doi = "10.18653/v1/D19-6122",
     pages = "202--208",
 }
 
@@ -181,24 +227,32 @@
   year={2019}
 }
 
-@article{Lample_2019,
-  title={Cross-lingual language model pretraining},
-  author={Lample, Guillaume and Conneau, Alexis},
-  journal={arXiv preprint arXiv:1901.07291},
-  year={2019}
+@inproceedings{Lample_2019,
+  author    = {Alexis Conneau and
+               Guillaume Lample},
+  title     = {Cross-lingual Language Model Pretraining},
+  booktitle = {NeurIPS},
+  pages     = {7057--7067},
+  year      = {2019},
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% 2018
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-@misc{Strobelt_2018,
-    title={Seq2Seq-Vis: A Visual Debugging Tool for Sequence-to-Sequence Models},
-    author={Hendrik Strobelt and Sebastian Gehrmann and Michael Behrisch and Adam Perer and Hanspeter Pfister and Alexander M. Rush},
-    year={2018},
-    eprint={1804.09299},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
+@article{Strobelt_2018,
+  author    = {Hendrik Strobelt and
+               Sebastian Gehrmann and
+               Michael Behrisch and
+               Adam Perer and
+               Hanspeter Pfister and
+               Alexander M. Rush},
+  title     = {{Seq2seq-Vis}: A Visual Debugging Tool for Sequence-to-Sequence Models},
+  journal   = {{IEEE} Trans. Vis. Comput. Graph.},
+  volume    = {25},
+  number    = {1},
+  pages     = {353--363},
+  year      = {2019},
 }
 
 @inproceedings{Wang_2018,
@@ -209,13 +263,9 @@
       Hill, Felix  and
       Levy, Omer  and
       Bowman, Samuel",
-    booktitle = "Proceedings of the 2018 {EMNLP} Workshop {B}lackbox{NLP}: Analyzing and Interpreting Neural Networks for {NLP}",
-    month = nov,
+    booktitle = "{EMNLP} Workshop BlackboxNLP: Analyzing and Interpreting Neural Networks for {NLP}",
     year = "2018",
-    address = "Brussels, Belgium",
     publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/W18-5446",
-    doi = "10.18653/v1/W18-5446",
     pages = "353--355",
 }
 
@@ -226,6 +276,27 @@
     eprint={1806.00069},
     archivePrefix={arXiv},
     primaryClass={cs.AI}
+}
+
+@inproceedings{Gilpin_2018,
+  author    = {Leilani H. Gilpin and
+               David Bau and
+               Ben Z. Yuan and
+               Ayesha Bajwa and
+               Michael Specter and
+               Lalana Kagal},
+  editor    = {Francesco Bonchi and
+               Foster J. Provost and
+               Tina Eliassi{-}Rad and
+               Wei Wang and
+               Ciro Cattuto and
+               Rayid Ghani},
+  title     = {Explaining Explanations: An Overview of Interpretability of Machine
+               Learning},
+  booktitle = {{IEEE} International Conference on Data Science and Advanced Analytics ({DSAA})},
+  pages     = {80--89},
+  publisher = {{IEEE}},
+  year      = {2018},
 }
 
 @article{Belinkov_2018,
@@ -243,12 +314,9 @@
       Kulkarni, Nilesh  and
       Lee, Haejun  and
       Kim, Jihie",
-    booktitle = "Proceedings of the 27th International Conference on Computational Linguistics: System Demonstrations",
-    month = aug,
+    booktitle = {International Conference on Computational Linguistics (COLING)},
     year = "2018",
-    address = "Santa Fe, New Mexico",
     publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/C18-2028",
     pages = "128--131",
 }
 
@@ -259,6 +327,7 @@
   year={2018}
 }
 
+
 @article{Heo_2018,
   author    = {Byeongho Heo and
                Minsik Lee and
@@ -266,9 +335,8 @@
                Jin Young Choi},
   title     = {Knowledge Transfer via Distillation of Activation Boundaries Formed
                by Hidden Neurons},
-  journal   = {CoRR},
+  journal   = {arXiv},
   volume    = {abs/1811.03233},
-  url       = {http://arxiv.org/abs/1811.03233},
   year      = {2018},
 }
 
@@ -280,32 +348,43 @@
   title     = {{YASENN:} Explaining Neural Networks via Partitioning Activation Sequences},
   journal   = {{arXiv}},
   volume    = {abs/1811.02783},
-  url       = {http://arxiv.org/abs/1811.02783},
   year      = {2018},
 }
 
-@misc{Devlin_2018,
-  title={{BERT}: Pre-training of Deep Bidirectional Transformers for Language Understanding},
-  author={Jacob Devlin and Ming-Wei Chang and Kenton Lee and Kristina Toutanova},
-  year={2018},
-  eprint={1810.04805},
-  archivePrefix={arXiv},
-  primaryClass={cs.CL}
+@inproceedings{Devlin_2018,
+  author    = {Jacob Devlin and
+               Ming{-}Wei Chang and
+               Kenton Lee and
+               Kristina Toutanova},
+  editor    = {Jill Burstein and
+               Christy Doran and
+               Thamar Solorio},
+  title     = {{BERT:} Pre-training of Deep Bidirectional Transformers for Language
+               Understanding},
+  booktitle = {{NAACL-HLT}},
+  pages     = {4171--4186},
+  publisher = {Association for Computational Linguistics},
+  year      = {2019},
 }
 
-@misc{Pires_2019,
-    title={How multilingual is Multilingual {BERT}?},
-    author={Telmo Pires and Eva Schlinger and Dan Garrette},
-    year={2019},
-    eprint={1906.01502},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
+@inproceedings{Pires_2019,
+  author    = {Telmo Pires and
+               Eva Schlinger and
+               Dan Garrette},
+  editor    = {Anna Korhonen and
+               David R. Traum and
+               Llu{\'{\i}}s M{\`{a}}rquez},
+  title     = {How Multilingual is Multilingual {BERT}?},
+  booktitle = {ACL},
+  pages     = {4996--5001},
+  publisher = {Association for Computational Linguistics},
+  year      = {2019},
 }
 
 @article{Radford_2018,
   title={Improving language understanding by generative pre-training},
   author={Radford, Alec and Narasimhan, Karthik and Salimans, Tim and Sutskever, Ilya},
-  journal={URL https://s3-us-west-2. amazonaws. com/openai-assets/researchcovers/languageunsupervised/language understanding paper. pdf},
+  howpublished="\url{https://cdn.openai.com/research-covers/language-unsupervised/language_understanding_paper.pdf}",
   year={2018}
 }
 
@@ -313,21 +392,39 @@
 %% 2017
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-@misc{Goyal_2017,
+@article{Lin_2017,
+  title={A structured self-attentive sentence embedding},
+  author={Lin, Zhouhan and Feng, Minwei and Santos, Cicero Nogueira dos and Yu, Mo and Xiang, Bing and Zhou, Bowen and Bengio, Yoshua},
+  journal={arXiv},
+  volume={abs/1703.03130},
+  year={2017}
+}
+
+@inproceedings{Kim_2017,
+  title={Interpretability Beyond Feature Attribution: Quantitative Testing with Concept Activation Vectors ({TCAV})},
+  author={Been Kim and Martin Wattenberg and Justin Gilmer and Carrie J. Cai and James Wexler and Fernanda B. Vi{\'e}gas and Rory Sayres},
+  booktitle={ICML},
+  year={2017}
+}
+
+@article{Goyal_2017,
     title={Accurate, Large Minibatch {SGD}: Training {ImageNet} in 1 Hour},
     author={Priya Goyal and Piotr Dollár and Ross Girshick and Pieter Noordhuis and Lukasz Wesolowski and Aapo Kyrola and Andrew Tulloch and Yangqing Jia and Kaiming He},
     year={2017},
-    eprint={1706.02677},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
+    volume={abs/1706.02677},
+    journal={arXiv},
 }
 
-@article{Adi_2017,
-  title={Fine-grained Analysis of Sentence Embeddings Using Auxiliary Prediction Tasks},
-  author={Yossi Adi and Einat Kermany and Yonatan Belinkov and Ofer Lavi and Yoav Goldberg},
-  journal={ICLR},
-  year={2017},
-  volume={abs/1608.04207}
+@inproceedings{Adi_2017,
+  author    = {Yossi Adi and
+               Einat Kermany and
+               Yonatan Belinkov and
+               Ofer Lavi and
+               Yoav Goldberg},
+  title     = {Fine-grained Analysis of Sentence Embeddings Using Auxiliary Prediction
+               Tasks},
+  booktitle = {ICLR},
+  year      = {2017},
 }
 
 @article{Huang_2017,
@@ -335,14 +432,13 @@
   title     = {Like What You Like: Knowledge Distill via Neuron Selectivity Transfer},
   journal   = {{arXiv}},
   volume    = {abs/1707.01219},
-  url       = {http://arxiv.org/abs/1707.01219},
   year      = {2017},
 }
 
 @inproceedings{Vaswani_2017,
   title={Attention is all you need},
   author={Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, {\L}ukasz and Polosukhin, Illia},
-  booktitle={Advances in neural information processing systems},
+  booktitle={NIPS},
   pages={5998--6008},
   year={2017}
 }
@@ -354,7 +450,8 @@
 @inproceedings{Sennrich_2016,
   title={Neural Machine Translation of Rare Words with Subword Units},
   author={Sennrich, Rico and Haddow, Barry and Birch, Alexandra},
-  booktitle={Proceedings of the 54th Annual Meeting of the Association for Computational Linguistics (Volume 1: Long Papers)},
+  booktitle={ACL},
+  publisher = {The Association for Computer Linguistics},
   pages={1715--1725},
   year={2016}
 }
@@ -362,7 +459,7 @@
 @inproceedings{Lample_2016,
   title={Neural Architectures for Named Entity Recognition},
   author={Lample, Guillaume and Ballesteros, Miguel and Subramanian, Sandeep and Kawakami, Kazuya and Dyer, Chris},
-  booktitle={Proceedings of the 2016 Conference of the North American Chapter of the Association for Computational Linguistics: Human Language Technologies},
+  booktitle={NAACL-HLT},
   pages={260--270},
   year={2016}
 }
@@ -372,23 +469,19 @@
     author = "Shi, Xing  and
       Padhi, Inkit  and
       Knight, Kevin",
-    booktitle = "Proceedings of the 2016 Conference on Empirical Methods in Natural Language Processing",
-    month = nov,
+    booktitle = "EMNLP",
     year = "2016",
-    address = "Austin, Texas",
     publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/D16-1159",
-    doi = "10.18653/v1/D16-1159",
     pages = "1526--1534",
 }
 
-@article{Kim_2016,
+@inproceedings{Kim_2016,
   author    = {Yoon Kim and
                Alexander M. Rush},
   title     = {Sequence-Level Knowledge Distillation},
-  journal   = {{arXiv}},
-  volume    = {abs/1606.07947},
-  url       = {http://arxiv.org/abs/1606.07947},
+  booktitle = {EMNLP},
+  publisher = {The Association for Computational Linguistics},
+  pages     = {1317--1327},
   year      = {2016},
 }
 
@@ -398,17 +491,15 @@
   title     = {Deep Model Compression: Distilling Knowledge from Noisy Teachers},
   journal   = {{arXiv}},
   volume    = {abs/1610.09650},
-  url       = {http://arxiv.org/abs/1610.09650},
   year      = {2016},
 }
 
-@misc{Wu_2016,
+@article{Wu_2016,
     title={Google's Neural Machine Translation System: Bridging the Gap between Human and Machine Translation},
     author={Yonghui Wu and Mike Schuster and Zhifeng Chen and Quoc V. Le and Mohammad Norouzi and Wolfgang Macherey and Maxim Krikun and Yuan Cao and Qin Gao and Klaus Macherey and Jeff Klingner and Apurva Shah and Melvin Johnson and Xiaobing Liu and Łukasz Kaiser and Stephan Gouws and Yoshikiyo Kato and Taku Kudo and Hideto Kazawa and Keith Stevens and George Kurian and Nishant Patil and Wei Wang and Cliff Young and Jason Smith and Jason Riesa and Alex Rudnick and Oriol Vinyals and Greg Corrado and Macduff Hughes and Jeffrey Dean},
     year={2016},
-    eprint={1609.08144},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
+    volume={abs/1609.08144},
+    journal={arXiv},
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -418,7 +509,7 @@
 @inproceedings{Kusner_2015,
   title={From word embeddings to document distances},
   author={Kusner, Matt and Sun, Yu and Kolkin, Nicholas and Weinberger, Kilian},
-  booktitle={International conference on machine learning},
+  booktitle={ICML},
   pages={957--966},
   year={2015}
 }
@@ -426,7 +517,7 @@
 @inproceedings{Kiros_2015,
   title={Skip-thought vectors},
   author={Kiros, Ryan and Zhu, Yukun and Salakhutdinov, Russ R and Zemel, Richard and Urtasun, Raquel and Torralba, Antonio and Fidler, Sanja},
-  booktitle={Advances in neural information processing systems},
+  booktitle={NIPS},
   pages={3294--3302},
   year={2015}
 }
@@ -443,7 +534,7 @@
 @article{Hinton_2015,
   title={Distilling the Knowledge in a Neural Network},
   author={Geoffrey E. Hinton and Oriol Vinyals and Jeffrey Dean},
-  journal={ArXiv},
+  journal={arXiv},
   year={2015},
   volume={abs/1503.02531}
 }
@@ -456,7 +547,7 @@
                Carlo Gatta and
                Yoshua Bengio},
   title     = {{FitNets}: Hints for Thin Deep Nets},
-  booktitle   = {In Proceedings of ICLR},
+  booktitle   = {ICLR},
   year = {2015}
 }
 
@@ -465,25 +556,24 @@
     author = "Luong, Thang  and
       Pham, Hieu  and
       Manning, Christopher D.",
-    booktitle = "Proceedings of the 2015 Conference on Empirical Methods in Natural Language Processing",
-    month = sep,
+    booktitle = "EMNLP",
     year = "2015",
-    address = "Lisbon, Portugal",
     publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/D15-1166",
-    doi = "10.18653/v1/D15-1166",
     pages = "1412--1421",
 }
 
-@incollection{Dai_2015,
-  title = {Semi-supervised Sequence Learning},
-  author = {Dai, Andrew M and Le, Quoc V},
-  booktitle = {Advances in Neural Information Processing Systems 28},
-  editor = {C. Cortes and N. D. Lawrence and D. D. Lee and M. Sugiyama and R. Garnett},
-  pages = {3079--3087},
-  year = {2015},
-  publisher = {Curran Associates, Inc.},
-  url = {http://papers.nips.cc/paper/5949-semi-supervised-sequence-learning.pdf}
+@inproceedings{Dai_2015,
+  author    = {Andrew M. Dai and
+               Quoc V. Le},
+  editor    = {Corinna Cortes and
+               Neil D. Lawrence and
+               Daniel D. Lee and
+               Masashi Sugiyama and
+               Roman Garnett},
+  title     = {Semi-supervised Sequence Learning},
+  booktitle = {NIPS},
+  pages     = {3079--3087},
+  year      = {2015},
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -493,14 +583,14 @@
 @inproceedings{Kingma_2014,
   title={Adam: A method for stochastic optimization},
   author={Kingma, Diederik P and Ba, Jimmy},
-  booktitle={Proceedings of the 3rd International Conference on Learning Representations (ICLR)},
+  booktitle={ICLR},
   year={2015}
 }
 
 @inproceedings{Dos_2014,
   title={Deep convolutional neural networks for sentiment analysis of short texts},
   author={Dos Santos, Cicero and Gatti, Maira},
-  booktitle={Proceedings of COLING 2014, the 25th International Conference on Computational Linguistics: Technical Papers},
+  booktitle={International Conference on Computational Linguistics (COLING)},
   pages={69--78},
   year={2014}
 }
@@ -508,30 +598,26 @@
 @inproceedings{Sutskever_2014,
   title={Sequence to sequence learning with neural networks},
   author={Sutskever, Ilya and Vinyals, Oriol and Le, Quoc V},
-  booktitle={Advances in neural information processing systems},
+  booktitle={NIPS},
   pages={3104--3112},
   year={2014}
 }
 
-@misc{Bahdanau_2014,
-    title={Neural Machine Translation by Jointly Learning to Align and Translate},
-    author={Dzmitry Bahdanau and Kyunghyun Cho and Yoshua Bengio},
-    year={2014},
-    eprint={1409.0473},
-    archivePrefix={arXiv},
-    primaryClass={cs.CL}
+@inproceedings{Bahdanau_2014,
+  author    = {Dzmitry Bahdanau and
+               Kyunghyun Cho and
+               Yoshua Bengio},
+  title     = {Neural Machine Translation by Jointly Learning to Align and Translate},
+  booktitle = {ICLR},
+  year      = {2015},
 }
 
 @inproceedings{Kim_2014,
     title = "Convolutional Neural Networks for Sentence Classification",
     author = "Kim, Yoon",
-    booktitle = "Proceedings of the 2014 Conference on Empirical Methods in Natural Language Processing ({EMNLP})",
-    month = oct,
+    booktitle = "EMNLP",
     year = "2014",
-    address = "Doha, Qatar",
     publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/D14-1181",
-    doi = "10.3115/v1/D14-1181",
     pages = "1746--1751",
 }
 
@@ -539,22 +625,25 @@
 %% 2013
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-@misc{Simonyan_2013,
-    title={Deep Inside Convolutional Networks: Visualising Image Classification Models and Saliency Maps},
-    author={Karen Simonyan and Andrea Vedaldi and Andrew Zisserman},
-    year={2013},
-    eprint={1312.6034},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
+@inproceedings{Simonyan_2013,
+  author    = {Karen Simonyan and
+               Andrea Vedaldi and
+               Andrew Zisserman},
+  title     = {Deep Inside Convolutional Networks: Visualising Image Classification
+               Models and Saliency Maps},
+  booktitle = {ICLR},
+  year      = {2014},
 }
 
-@misc{Zeiler_2013,
-    title={Visualizing and Understanding Convolutional Networks},
-    author={Matthew D Zeiler and Rob Fergus},
-    year={2013},
-    eprint={1311.2901},
-    archivePrefix={arXiv},
-    primaryClass={cs.CV}
+@inproceedings{Zeiler_2013,
+  author    = {Matthew D. Zeiler and
+               Rob Fergus},
+  title     = {Visualizing and Understanding Convolutional Networks},
+  booktitle = {ECCV},
+  volume    = {8689},
+  pages     = {818--833},
+  publisher = {Springer},
+  year      = {2014},
 }
 
 @inproceedings{Mikolov_2013,
@@ -562,53 +651,45 @@
                Kai Chen and
                Greg Corrado and
                Jeffrey Dean},
-  editor    = {Yoshua Bengio and
-               Yann LeCun},
   title     = {Efficient Estimation of Word Representations in Vector Space},
-  booktitle = {1st International Conference on Learning Representations, {ICLR} 2013,
-               Scottsdale, Arizona, USA, May 2-4, 2013, Workshop Track Proceedings},
+  booktitle = {ICLR},
   year      = {2013},
-  url       = {http://arxiv.org/abs/1301.3781},
-  timestamp = {Thu, 25 Jul 2019 14:25:36 +0200},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-1301-3781.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
 }
 
 @inproceedings{Ba_2013,
   title={Do Deep Nets Really Need to be Deep?},
   author={Jimmy Ba and Rich Caruana},
   booktitle={NIPS},
+  pages     = {2654--2662},
   year={2014}
 }
 
 @inproceedings{Kalchbrenner_2013,
   title={Recurrent continuous translation models},
   author={Kalchbrenner, Nal and Blunsom, Phil},
-  booktitle={Proceedings of the 2013 Conference on Empirical Methods in Natural Language Processing},
+  booktitle={EMNLP},
   pages={1700--1709},
   year={2013}
 }
 
-@misc{Graves_2013,
+@article{Graves_2013,
   title={Generating Sequences With Recurrent Neural Networks},
   author={Alex Graves},
   year={2013},
-  eprint={1308.0850},
-  archivePrefix={arXiv},
-  primaryClass={cs.NE}
+  volume={abs/1308.0850},
+  journal={arXiv},
 }
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %% OLDER THAN 2013
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-@misc{Zeiler_2012,
+@article{Zeiler_2012,
     title={{ADADELTA}: An Adaptive Learning Rate Method},
     author={Matthew D. Zeiler},
     year={2012},
-    eprint={1212.5701},
-    archivePrefix={arXiv},
-    primaryClass={cs.LG}
+    volume={1212.5701},
+    journal={arXiv},
 }
 
 @inproceedings{Krizhevsky_2012,
@@ -619,55 +700,64 @@
 }
 
 @article{Collobert_Weston_2011,
-  author = {Collobert, Ronan and Weston, Jason and Bottou, L\'{e}on and Karlen, Michael and Kavukcuoglu, Koray and Kuksa, Pavel},
-  title = {Natural Language Processing (Almost) from Scratch},
-  year = {2011},
-  issue_date = {February 2011},
-  publisher = {JMLR.org},
-  volume = {12},
-  number = {null},
-  issn = {1532-4435},
-  journal = {J. Mach. Learn. Res.},
-  month = nov,
-  pages = {2493–2537},
-  numpages = {45}
+  author    = {Ronan Collobert and
+               Jason Weston and
+               L{\'{e}}on Bottou and
+               Michael Karlen and
+               Koray Kavukcuoglu and
+               Pavel P. Kuksa},
+  title     = {Natural Language Processing (Almost) from Scratch},
+  journal   = {J. Mach. Learn. Res.},
+  volume    = {12},
+  pages     = {2493--2537},
+  year      = {2011},
 }
 
 @inproceedings{Mikolov_2010,
-  title={Recurrent neural network based language model},
-  author={Tom\'a\v{s} Mikolov and Martin Karafi{\'a}t and Luk{\'a}s Burget and Jan \v{C}ernock{\'y} and Sanjeev Khudanpur},
-  booktitle={INTERSPEECH},
-  year={2010}
+  author    = {Tomas Mikolov and
+               Martin Karafi{\'{a}}t and
+               Luk{\'{a}}s Burget and
+               Jan \v{C}ernock{\'{y}} and
+               Sanjeev Khudanpur},
+  title     = {Recurrent neural network based language model},
+  booktitle = {{INTERSPEECH}},
+  pages     = {1045--1048},
+  publisher = {{ISCA}},
+  year      = {2010},
 }
 
 @inproceedings{Nair_2010,
-  title={Rectified Linear Units Improve Restricted Boltzmann Machines},
-  author={Vinod Nair and Geoffrey E. Hinton},
-  booktitle={ICML},
-  year={2010}
+  author    = {Vinod Nair and
+               Geoffrey E. Hinton},
+  editor    = {Johannes F{\"{u}}rnkranz and
+               Thorsten Joachims},
+  title     = {Rectified Linear Units Improve Restricted Boltzmann Machines},
+  booktitle = {ICML},
+  pages     = {807--814},
+  publisher = {Omnipress},
+  year      = {2010},
 }
 
 @inproceedings{Collobert_Weston_2008,
   author = {Collobert, Ronan and Weston, Jason},
   title = {A Unified Architecture for Natural Language Processing: Deep Neural Networks with Multitask Learning},
   year = {2008},
-  isbn = {9781605582054},
   publisher = {Association for Computing Machinery},
   address = {New York, NY, USA},
-  url = {https://doi.org/10.1145/1390156.1390177},
-  doi = {10.1145/1390156.1390177},
-  booktitle = {Proceedings of the 25th International Conference on Machine Learning},
-  pages = {160–167},
+  booktitle = {ICML},
+  pages = {160--167},
   numpages = {8},
-  location = {Helsinki, Finland},
-  series = {ICML 2008}
 }
 
 @inproceedings{Bucila_2006,
-  title={Model compression},
-  author={Cristian Bucila and Rich Caruana and Alexandru Niculescu-Mizil},
-  booktitle={KDD '06},
-  year={2006}
+  author    = {Cristian Bucila and
+               Rich Caruana and
+               Alexandru Niculescu{-}Mizil},
+  title     = {Model compression},
+  booktitle = {{ACM} {SIGKDD} International Conference on Knowledge Discovery and Data Mining (KDD)},
+  pages     = {535--541},
+  publisher = {{ACM}},
+  year      = {2006},
 }
 
 @article{Hochreiter_Schmidhuber_1997,
@@ -683,15 +773,14 @@
   url = {https://doi.org/10.1162/neco.1997.9.8.1735},
   doi = {10.1162/neco.1997.9.8.1735},
   journal = {Neural Comput.},
-  month = nov,
-  pages = {1735–1780},
+  pages = {1735--1780},
   numpages = {46}
 }
 
 @inproceedings{Hinton_1994,
   title={Autoencoders, minimum description length and {Helmholtz} free energy},
   author={Hinton, Geoffrey E and Zemel, Richard S},
-  booktitle={Advances in neural information processing systems},
+  booktitle={NIPS},
   pages={3--10},
   year={1994}
 }
@@ -703,8 +792,8 @@
   isbn = {026268053X},
   publisher = {MIT Press},
   address = {Cambridge, MA, USA},
-  booktitle = {Parallel Distributed Processing: Explorations in the Microstructure of Cognition, Vol. 1: Foundations},
-  pages = {318–362},
+  booktitle = {Parallel Distributed Processing: Explorations in the Microstructure of Cognition},
+  pages = {318--362},
   numpages = {45}
 }
 
@@ -740,13 +829,27 @@
  address = {New York, NY, USA},
 } 
 
-@article{SentEval-paper,
-  title={{SentEval}: An Evaluation Toolkit for Universal Sentence Representations},
-  author={Alexis Conneau and Douwe Kiela},
-  journal={{arXiv}},
-  url={http://arxiv.org/abs/1803.05449},
-  volume={abs/1803.05449},
-  year={2018},
+@inproceedings{SentEval-paper,
+  author    = {Alexis Conneau and
+               Douwe Kiela},
+  editor    = {Nicoletta Calzolari and
+               Khalid Choukri and
+               Christopher Cieri and
+               Thierry Declerck and
+               Sara Goggi and
+               K{\^{o}}iti Hasida and
+               Hitoshi Isahara and
+               Bente Maegaard and
+               Joseph Mariani and
+               H{\'{e}}l{\`{e}}ne Mazo and
+               Asunci{\'{o}}n Moreno and
+               Jan Odijk and
+               Stelios Piperidis and
+               Takenobu Tokunaga},
+  title     = {{SentEval}: An Evaluation Toolkit for Universal Sentence Representations},
+  booktitle = {LREC},
+  publisher = {European Language Resources Association {(ELRA)}},
+  year      = {2018},
 }
 
 @inproceedings{SciCite-paper,
@@ -783,6 +886,8 @@
   title={Recursive Deep Models for Semantic Compositionality Over a Sentiment Treebank},
   author={Richard Socher and Alex Perelygin and Jean Wu and Jason Chuang and Christopher D. Manning and Andrew Y. Ng and Christopher Potts},
   booktitle={EMNLP},
+  pages     = {1631--1642},
+  publisher = {{Association for Computational Linguistics}},
   year={2013}
 }
 
@@ -791,15 +896,16 @@
                Amanpreet Singh and
                Samuel R. Bowman},
   title     = {Neural Network Acceptability Judgments},
-  journal   = {{arXiv}},
-  volume    = {abs/1805.12471},
-  url       = {http://arxiv.org/abs/1805.12471},
-  year      = {2018},
+  journal   = {Trans. Assoc. Comput. Linguistics},
+  volume    = {7},
+  pages     = {625--641},
+  year      = {2019},
 }
 
 @article{CoLA-grammatical,
     title={Grammatical Analysis of Pretrained Sentence Encoders with Acceptability Judgments},
     author={Warstadt, Alex and Bowman, Samuel R},
-    journal={arXiv preprint arXiv:1901.03438},
+    journal={arXiv},
+    volume={abs/1901.03438},
     year={2019}
 }

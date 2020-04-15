@@ -5,3 +5,6 @@
 - should I include the analysed sentences (pred. analysis) in the appendix?
 - mention use of CoLA annotations in prediction analysis? they weren't useful at all
 - should I show probing baseline results of Conneau et al?
+- should I mention concrete scripts which I wrote?
+- should I report prediction speed (on CPU)?
+- should I include the publisher in all article references? and age numbers in proceedings?
