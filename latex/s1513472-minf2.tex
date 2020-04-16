@@ -128,24 +128,24 @@
     %   \begin{itemize}
     %     \item After the deep learning hype started, NLP went through an era of LSTMs. Since 2017, the area has been becoming dominated by Transformer models pre-trained on large unlabelled corpora.
     Natural language processing (NLP) is concerned with using computational techniques to process and analyse human language: for instance, to automatically compute various grammatical properties of a sentence or to analyse its meaning.
-    Since the early 2010s, this area has seen significant improvements due to using powerful machine learning methods, especially artificial neural networks.
+    Since the early 2010s, this area has seen significant improvements due to using powerful machine learning methods, especially large artificial neural networks.
 
-    In 2017, a new family of neural models was proposed: Transformers \citep{Vaswani_2017}. Since then, numerous Transformer variants were proposed \citep{Radford_2018,Devlin_2018,Lan_2019,Liu_2019,Lample_2019} -- many of them improving the state-of-the-art results on various NLP tasks\footnote{See the leaderboard of the popular GLUE benchmark \citep{Wang_2018} at \rurl{gluebenchmark.com/leaderboard}, accessed April 15, 2020.}.
+    In 2017, a new type of neural model was proposed: the Transformer \citep{Vaswani_2017}. Since then, numerous Transformer variants were developed \citep{Radford_2018,Devlin_2018,Lan_2019,Liu_2019,Lample_2019} -- many of them improving the state-of-the-art results on various NLP tasks\footnote{See the leaderboard of the popular GLUE benchmark \citep{Wang_2018} at \rurl{gluebenchmark.com/leaderboard}, accessed April 15, 2020.}.
     %     \item As newer and bigger Transformer-based models were proposed in 2018 and 2019, improving on the SOTA, it was becoming clearer that their big size and low speed was rendering them difficult to use (both train and deploy) in practice outside of research labs.
-    However, these successful models are large (with hundreds of millions of learnable parameters), which makes then computationally expensive and slow both in the learning phase and when deployed.
+    However, these successful models are very large (with hundreds of millions of learnable parameters), which makes them computationally expensive and slow. This limits applications of such models outside of research, in scenarios like real-time sentence processing for human-bot conversations\footnote{Take an automated customer support system -- a bot. Each customer message gets processed. If the processing model is slow, multiple model instances have to be deployed in order to handle a large number of conversations at once, which in turn requires more resources.}.
 
     %     \item Recently, we've seen various early attempts at making Transformers -- in particular BERT \citep{Devlin_2018} -- smaller by removing attentional heads \citep{Michel_2019}, quantisation and pruning \citep{Cheong_2019, Sucik_2019}. In terms of actually down-sizing and accelerating the models, knowledge transfer using teacher-student knowledge distillation has led to the most attractive results \citep{Mukherjee_2019,Tang_2019a,Jiao_2019,Sanh_2019}.
-    In an effort to address this downside, a recent stream of research has focused on making Transformers -- especially the widely used BERT model \citep{Devlin_2018} -- smaller and faster \citep{Michel_2019,Cheong_2019}.
-    Primarily, variations on the \textit{teacher-student knowledge distillation} approach \citep{Bucila_2006} have been used \citep{Sun_2019a,Mukherjee_2019,Tang_2019a,Tang_2019b,Jiao_2019,Sanh_2019}.
-    A large, trained model is used as a teacher, and a smaller student model learns by observing and trying to mimic the teacher's prediction patterns.
+    In an effort to address this downside, a recent stream of research has focused on making Transformers -- especially the widely used BERT model \citep{Devlin_2018} -- smaller and faster \citep{Michel_2019,Cheong_2019}. This includes my own work \citep{Sucik_2019}.
+    Primarily, variations on the \textit{teacher-student knowledge distillation} approach \citep{Bucila_2006} have been used to sucessfully compress BERT, see \citet{Sun_2019a,Mukherjee_2019,Tang_2019a,Tang_2019b,Jiao_2019,Sanh_2019}.
+    In knowledge distillation, a large, trained model is used as a \textit{teacher}, and a smaller \textit{student} model learns by observing and trying to mimic the teacher's prediction patterns.
     
     %     \item However, these studies focus only on using knowledge distillation as a tool. Important questions about the nature of this technique and how it interacts with properties of the teacher and student models remain generally unexplored.
     
     Using knowledge distillation, BERT can be made several times smaller without significant loss of accuracy.
     While numerous variants of this technique have been successfully developed, there is little understanding of the nature of knowledge distillation: 
     How and what kinds of the large model's knowledge are best learned by the student, and how this depends on the architecture of the teacher and student models.
-    This gap in understanding is in contrast with the lot of research in understanding the linguistic capabilities of BERT \citep{Ganesh_2019,Tenney_2019b,Kovaleva_2019,Lin_2019}.
-    Arguably, it is important to also have a good understanding of knowledge distillation and of the smaller models eventually produced by applying knowledge distillation to BERT.
+    This gap in understanding is in contrast with the lot of research in understanding the internal properties and linguistic capabilities of BERT \citep{Ganesh_2019,Tenney_2019b,Kovaleva_2019,Lin_2019}.
+    I argue that it is also important to have a good understanding of knowledge distillation as a tool, and of the smaller and faster models eventually produced by applying this tool to BERT.
         
     %     \item In line with the increasing demand for explainable AI (TOO BOLD, TALK ABOUT INTERPRETABILITY), it is desirable that, for the beginning, at least the researchers better understand the tools they use, in this case distillation of NLP knowledge from Transformer models. Indeed, such understanding is also useful for overcoming the limitations and designing new variants of this method for smaller and better classifiers.
     %   \end{itemize}
@@ -153,13 +153,22 @@
   
   % what I tried to address, 
   \section{Aims}{
-    I aim to better understand knowledge distillation by exploring its use for knowledge transfer from BERT into different student architectures on various NLP tasks.
+    In this work, I try to better understand knowledge distillation by exploring its use for knowledge transfer from BERT into architecturally different students, on various NLP tasks.
 
-    This can be further broken down into three aims:
+    This is further broken down into three aims:
     \begin{itemize}
-      \item Explore the effectiveness of knowledge distillation in very different NLP tasks. To cover a broad variety of tasks, I use sentence classification datasets ranging from binary sentiment classification to 57-way intent classification to linguistic acceptability.
-      \item Explore how distilling knowledge from a Transformer varies with different student architectures. I limit myself to using the extremely popular BERT model \citep{Devlin_2018} as the teacher architecture. As students, I use two different architectures: a BiLSTM, building on the successful work of Ralph Tang \citep{Tang_2019a,Tang_2019b}, and a down-scaled BERT architecture.
-      \item Explore how successfully can different types of NLP knowledge and capabilities be distilled. Since NLP tasks are often possible for humans to reason about, I analyse the models' behaviour (e.g. the mistakes they make) to learn more about knowledge distillation. I also probe the models for different linguistical capabilities, inspired by previous successful probing studies \citep{Conneau_2018,Tenney_2019b}.
+      \item{
+        Explore the effectiveness of knowledge distillation for very different NLP tasks. 
+        The chosen tasks focus on identifying the sentiment, intent, and linguistic acceptability of single sentences.
+        }
+      \item{
+        Explore how distilling knowledge from BERT varies when using different student architectures.
+        In particular, I use a down-scaled BERT student architecturally similar to the teacher, and a BiLSTM student used previously by \citet{Tang_2019a,Tang_2019b}, very different from the teacher.
+        }
+      \item{
+        Explore the linguistic knowledge present in the teacher and how successfully it is learned by the students.
+        First, I quantitatively measure and localise different types of knowledge inside the teacher and student models (building on \citet{Conneau_2018,Tenney_2019b}).
+        Then, I qualitatively inspect the models' predictions on concrete sentences, focusing on correctness as well as confidence.
     \end{itemize}
   }
   
