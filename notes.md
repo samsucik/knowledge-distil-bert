@@ -63,6 +63,34 @@ correct_bias (in AdamW): False
 Parallelised sampling of 800K sents (MSL=128) from GPT-2 medium on CoLA with 4 GPUs (each with 6GB of memory) and 20GB RAM took 16:39h.
 Parallelised generating logits with large BERT for 800K sents (MSL=128, in batches of 2048) on 4 GPUs (12GB memory each) took 1:10h.
 
+evaluation runtimes (B=256)
+CoLA (1043)
+teacher: 778
+lstm: 2.37
+bert: 106
+SST-2 (872)
+teacher: 651
+lstm: 0.877
+bert: 10.6
+Sara (970)
+teacher: 730
+lstm: 0.655
+bert: 11.0
+
+## Test-set scores
+CoLA
+lstm: 27.9
+bert: 29.8
+teacher: 
+SST-2
+lstm: 92.2
+bert: 87.8
+teacher: 
+Sara
+lstm: 86.4
+bert: 86.4
+teacher: 88.3
+
 ## Student sizes
 ### BERT
 	theory

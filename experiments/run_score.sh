@@ -17,11 +17,17 @@ else
 fi
 
 student_type=BERT
+student_type=LSTM
 score_with_teacher=false
 score_with_student=true
-trained_model_dir=best-models/student-${task}-${student_type}-s48
-# trained_model_dir=teacher-$task
-teacher_dir=teacher-$task
+trained_model_dir=best-models/student-${task}-${student_type}
+
+# student_type=BERT
+# score_with_teacher=true
+# score_with_student=false
+# teacher_dir=teacher-$task
+# trained_model_dir=teacher-${task}
+
 source $cfg
 trained_model_dir=$(pwd)/$trained_model_dir
 
@@ -50,6 +56,9 @@ python distil_from_finetuned.py \
   --teacher_name $TEACHER_DIR \
   --n_gpu $n_gpu \
   --no_cuda "$no_cuda" \
+  --per_gpu_eval_batch_size 256 \
+  --use_test_set false \
+  --own_dev_dataset_name "own" \
   --force
 
 popd > /dev/null

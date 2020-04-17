@@ -169,6 +169,7 @@
         Explore the linguistic knowledge present in the teacher and how successfully it is learned by the students.
         First, I quantitatively measure and localise different types of knowledge inside the teacher and student models (building on \citet{Conneau_2018,Tenney_2019b}).
         Then, I qualitatively inspect the models' predictions on concrete sentences, focusing on correctness as well as confidence.
+      }
     \end{itemize}
   }
   
@@ -1757,11 +1758,73 @@
 }
 
 \chapter{Overall discussion and conclusions}{
+  MAIN FINDINGS
   
+  training models (TO-DO: mention different model sizes on different taks due to different vocab sizes!)
+  - distillation works well with both students (140x smaller than teacher)
+  - smaller student -> worse accuracy. larger students needed for difficult tasks (also see Bert Base vs Large!), tiny ones sufficient for > 95\% of teacher easy tasks (SST: lstm [w=1/64, 24,360, 13,957x], bert [W=1/2, D=1, 607,757, 559x], Sara: lstm [w=1/2, 2,711,657, 125x], bert [W=1/3, D=1/2, 168,699, 2015x])
+  - model width crucial (BERT has to be comparably wide (LSTM[600,800], BERT[816]) to perform on par with LSTM)
+  - pre-trained knowledge can be chosen to suit the task (embeddings of different kinds), BUT both embedding types found to work quite well with both models
+  - extensive parameter tuning not essential for good results (param values transfer across tasks). moreover, similar params work well for both students, except B.
+  - distillation takes long, but large inference speed up can be achieved (provide numbers)
+  limitations:
+  - lr tuning on CoLA different BERT sizes but not for LSTM
+  - limiting the vocab may not be good idea (arguably fallback to pre-trained embeddings better than to no embeddings at test time!)
+
+  probing
+  - generally useful, knowledge can be quantified and localised
+  - teacher has more knowledge than students
+  - BUT: probing results depend on how pretrained knowledge is provided: whole model vs embedding layer vs none
+  - knowledge (skills) heavily vary across tasks (unsurpsiringly CoLA requires most language knowledge). especially in the deep BERT, while the shallower LSTM is more like a general feature extractor
+  - generally no big differences between students, but LSTM better at order and length things
+  limitations:
+  - different vocabularies (uneven starting conditions for probing, especially for WordContent)
+  - some probing tasks: unclear what they examine -- morpho-tasks categorised as semantic but actually also utilise syntactic and morphological information
+  - could contain tasks aimed at morphology (TO-DO: create simple morphological baselines!)
+
+  prediction analysis
+  - models confident and correct on easy examples, unconfident on difficult examples, and incorrect on tricky examples
+  - teachers show better capabilites in dealing with tricky examples, students rely on simpler tricks
+  - LSTM found to better copy teacher across tasks (and even in confidence patterns, on SST-2) -- due to shallowness, or why?
+  - interesting: on Sara both students learn to copy teacher much better. unclear why.
+  limitations:
+  - biggest issue in qualitative analysis: not knowing why a sentence was classfied (in)correctly (indeed, self-explained decisions would be nice, right?). 
+  - at least knowing focus would help: easy to do with attention models, could be done differently (masking out words) for any kind of model
+  - should analyse more sentences, not just samples. but it's very time-consuming.
+
+  CONCLUSIONS
+  % This is further broken down into three aims:
+  %   \begin{itemize}
+  %     \item{
+  %       Explore the effectiveness of knowledge distillation for very different NLP tasks. 
+  %       The chosen tasks focus on identifying the sentiment, intent, and linguistic acceptability of single sentences.
+  %       }
+  KD for different tasks
+  - task-specific adjustments should be made in terms of student size, otherwise general setup works well
+  - successful compression by XX\% and speedup by XX\%
+
+  %     \item{
+  %       Explore how distilling knowledge from BERT varies when using different student architectures.
+  %       In particular, I use a down-scaled BERT student architecturally similar to the teacher, and a BiLSTM student used previously by \citet{Tang_2019a,Tang_2019b}, very different from the teacher.
+  %       }
+  KD with different students
+  - works well, no big differences. rather than difference architectures, difference in width may be crucial
+  - recurrent models may be slightly better for order/length but this should be further verified
+  %     \item{
+  %       Explore the linguistic knowledge present in the teacher and how successfully it is learned by the students.
+  %       First, I quantitatively measure and localise different types of knowledge inside the teacher and student models (building on \citet{Conneau_2018,Tenney_2019b}).
+  %       Then, I qualitatively inspect the models' predictions on concrete sentences, focusing on correctness as well as confidence.
+  %     }
+  Exploring knowledge transferred
+  - both probing and pred. analysis helpful and complementary
+  - probing good also for general knowledge flow tracking because easy to apply; pred. analysis can discover all kinds of things, not limited to 10 tasks
+  - considering confidence (not just correctness) is a promising thing
+  %   \end{itemize}
 }
 
 \chapter{Future work}{
   prediction analysis with important words highlighted by self-attention (much like in the original self-atention work of \citet{Lin_2017} but somehow aggregate over multiple heads or visualise all of them?
+  prediction analysis considering sentence parts (words, phrases) to see how the belief in model evolves (when RNN processes words) or how it differs for components of sentences (especially in things like compositional sentiment for which there are labels)
   explore Tenney's probing w.r.t. pre-trained knowledge
   extend this work to sentence-pair tasks (perhaps starting with GLUE sp tasks)
   explore the effect of augmentation data:
