@@ -16,6 +16,7 @@
 \usepackage{wasysym}
 \usepackage{listings}
 \usepackage{spverbatim}
+\usepackage{hhline}
 
 % additional keywords in math mode
 \DeclareMathOperator{\softmax}{softmax}
@@ -1350,71 +1351,111 @@
     \begin{table}[h!bt]
       \centering
       \fontsize{10}{11} \selectfont 
-      \begin{tabular}{l|l|l|l|l|l|c|l}
+      \begin{tabular}{|l|l|l|l|l|c|l|c|c|}
+        \hline
        &
         model  &
+        dimensions &
+        training &
+        embed. &
         size &
-        width &
-        $L$ &
-        $\eta$ \& scheduling &
-        $B$ &
-        embeddings \\
-        \hline
-      \multirow{2}{*}{\rotatebox[origin=c]{90}{CoLA}} &
+        speed &
+        eval &
+        test \\
+        % \hline
+        \hhline{|=|=|=|=|=|=|=|=|=|}
+      \multirow{5}{*}{\rotatebox[]{90}{\centering CoLA}} &
+        \BERTT &
+        \begin{tabular}{@{}l@{}}$L=24$, $d_h=1024$, \\$d_I=4096$, $A=16$ \end{tabular} &
+        \begin{tabular}{@{}l@{}}$B=36$, $\eta=5\times10^{-5}$, \\$E_w=0.3$, decay\end{tabular} &
+        \begin{tabular}{@{}l@{}}piece\end{tabular} &
+        340 &
+        750ms &
+        59.9 &
+        XX \\
+        \cline{2-9}
+       &
         \BERTS &
-        76.4M &
-        \begin{tabular}{@{}l@{}}$d_h=816$, \\$d_I=3000$, $A=12$ \end{tabular} &
-        5 &
-        \begin{tabular}{@{}l@{}}$\eta=7\times10^{-5}$, \\$E_w=15$, decay\end{tabular} &
-        128 &
-        \begin{tabular}{@{}l@{}}word2vec,\\multichannel\end{tabular} \\
-        \cline{2-8}
+        \begin{tabular}{@{}l@{}}$L=5$, $d_h=816$, \\$d_I=3000$, $A=12$ \end{tabular} &
+        \begin{tabular}{@{}l@{}}$B=128$, $\eta=7\times10^{-5}$, \\$E_w=15$, decay\end{tabular} &
+        \begin{tabular}{@{}l@{}}word,\\multi\end{tabular} &
+        76.4 &
+        100ms &
+        45.0 &
+        29.8 \\
+        \cline{2-9}
        &
         \LSTMS &
-        15.4M &
-        \begin{tabular}{@{}l@{}}$d_{LSTM}=600$,\\$d_{FC}=800$\end{tabular} &
-        2 &
-        \begin{tabular}{@{}l@{}}$\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
-        32 &
-        \begin{tabular}{@{}l@{}}word2vec,\\multichannel\end{tabular} \\
+        \begin{tabular}{@{}l@{}}$L=2$, $d_{LSTM}=600$,\\$d_{FC}=800$\end{tabular} &
+        \begin{tabular}{@{}l@{}}$B=32$, $\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
+        \begin{tabular}{@{}l@{}}word,\\multi\end{tabular} &
+        15.4 &
+        2.3ms &
+        44.2 &
+        27.9 \\
         \hline
-      \multirow{2}{*}{\rotatebox[origin=c]{90}{SST-2}} &
+      \multirow{5}{*}{\rotatebox[origin=c]{90}{SST-2}} &
+        \BERTT &
+        \begin{tabular}{@{}l@{}}$L=24$, $d_h=1024$, \\$d_I=4096$, $A=16$ \end{tabular} &
+        \begin{tabular}{@{}l@{}}$B=36$, $\eta=5\times10^{-5}$, \\$E_w=0.3$, decay\end{tabular} &
+        \begin{tabular}{@{}l@{}}piece\end{tabular} &
+        340 &
+        750ms &
+        91.5 &
+        XX \\
+        \cline{2-9}
+       &
         \BERTS &
-        2.4M &
-        \begin{tabular}{@{}l@{}}$d_h=204$,\\$d_I=750$, $A=3$\end{tabular} &
-        5 &
-        \begin{tabular}{@{}l@{}}$\eta=5\times10^{-4}$, \\$E_w=15$, decay\end{tabular} &
-        128 &
-        \begin{tabular}{@{}l@{}}word2vec,\\multichannel\end{tabular} \\
-        \cline{2-8}
+        \begin{tabular}{@{}l@{}}$L=5$, $d_h=204$,\\$d_I=750$, $A=3$\end{tabular} &
+        \begin{tabular}{@{}l@{}}$B=128$, $\eta=5\times10^{-4}$, \\$E_w=15$, decay\end{tabular} &
+        \begin{tabular}{@{}l@{}}word,\\multi\end{tabular} &
+        2.42 &
+        12ms &
+        89.3 &
+        87.8 \\
+        \cline{2-9}
        &
         \LSTMS &
-        2.4M &
-        \begin{tabular}{@{}l@{}}$d_{LSTM}=300$,\\$d_{FC}=400$\end{tabular} &
-        1 &
-        \begin{tabular}{@{}l@{}}$\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
-        32 &
-        \begin{tabular}{@{}l@{}}word2vec,\\multichannel\end{tabular} \\
+        \begin{tabular}{@{}l@{}}$L=1$, $d_{LSTM}=300$,\\$d_{FC}=400$\end{tabular} &
+        \begin{tabular}{@{}l@{}}$B=32$, $\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
+        \begin{tabular}{@{}l@{}}word,\\multi\end{tabular} &
+        2.41 &
+        1.0ms &
+        91.2 &
+        92.2 \\
         \hline
-      \multirow{2}{*}{\rotatebox[origin=c]{90}{Sara}} &
+      \multirow{5}{*}{\rotatebox[origin=c]{90}{Sara}} &
+        \BERTT &
+        \begin{tabular}{@{}l@{}}$L=24$, $d_h=1024$, \\$d_I=4096$, $A=16$ \end{tabular} &
+        \begin{tabular}{@{}l@{}}$B=36$, $\eta=5\times10^{-5}$, \\$E_w=0.3$, decay\end{tabular} &
+        \begin{tabular}{@{}l@{}}piece\end{tabular} &
+        340 &
+        750ms &
+        87.5 &
+        88.3 \\
+        \cline{2-9}
+       &
         \BERTS &
-        2.4M &
-        \begin{tabular}{@{}l@{}}$d_h=204$,\\$d_I=750$, $A=3$\end{tabular} &
-        5 &
-        \begin{tabular}{@{}l@{}}$\eta=5\times10^{-4}$, \\$E_w=15$, decay\end{tabular} &
-        128 &
-        \begin{tabular}{@{}l@{}}wordpiece,\\non-static\end{tabular} \\
-        \cline{2-8}
+        \begin{tabular}{@{}l@{}}$L=5$, $d_h=204$,\\$d_I=750$, $A=3$\end{tabular} &
+        \begin{tabular}{@{}l@{}}$B=128$, $\eta=5\times10^{-4}$, \\$E_w=15$, decay\end{tabular} &
+        \begin{tabular}{@{}l@{}}piece\end{tabular} &
+        2.43 &
+        11ms &
+        87.1 &
+        86.4 \\
+        \cline{2-9}
        &
         \LSTMS &
-        2.4M &
-        \begin{tabular}{@{}l@{}}$d_{LSTM}=300$,\\$d_{FC}=400$\end{tabular} &
-        1 &
-        \begin{tabular}{@{}l@{}}$\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
-        32 &
-        \begin{tabular}{@{}l@{}}wordpiece,\\multichannel\end{tabular} \\
+        \begin{tabular}{@{}l@{}}$L=1$, $d_{LSTM}=300$,\\$d_{FC}=400$\end{tabular} &
+        \begin{tabular}{@{}l@{}}$B=32$, $\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
+        \begin{tabular}{@{}l@{}}piece,\\multi\end{tabular} &
+        5.90 &
+        0.68ms &
+        86.5 &
+        86.4 \\
+      \hline
       \end{tabular}
-      \caption{Configuration for the best students on each task. The model size denotes the number of trainable, non-embedding parameters.}
+      \caption{Configuration for the best students on each task. The model size is in millions of trainable non-embedding parameters. The embedding type (``embed.'') is ``word'' (word2vec) or ``piece'' (wordpiece), the mode is either ``multi'' (multichannel), or the default non-static mode where not explicitly stated. The inference speed is calculated by measuring the time for processing the entire evaluation set in batches of 256, then turned into time per single example and reported. Evaluation-set (``eval'') and test-set (``test'') scores are reported using the appropriate metric (accuracy, MCC, $\text{F1}_{micro}$).}
       \label{tab:best-students}
     \end{table}
 

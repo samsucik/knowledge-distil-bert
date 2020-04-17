@@ -65,17 +65,17 @@ Parallelised generating logits with large BERT for 800K sents (MSL=128, in batch
 
 evaluation runtimes (B=256)
 CoLA (1043)
-teacher: 778
-lstm: 2.37
-bert: 106
-SST-2 (872)
-teacher: 651
-lstm: 0.877
-bert: 10.6
-Sara (970)
-teacher: 730
-lstm: 0.655
-bert: 11.0
+teacher: 778 (746ms)
+lstm: 2.37 (2.3ms)
+bert: 106  (102ms)
+SST-2 (872) 
+teacher: 651 (747ms)
+lstm: 0.877 (1.0ms)
+bert: 10.6 (12.1ms)
+Sara (970) 
+teacher: 730 (752ms)
+lstm: 0.655 (0.68ms)
+bert: 11.0 (11.3ms)
 
 ## Test-set scores
 CoLA
