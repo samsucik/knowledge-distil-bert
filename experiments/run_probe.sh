@@ -4,8 +4,9 @@ task=$1
 cfg=$2
 out_dir=$3
 
-#model_type=embedding_word
-model_type=LSTM
+# model_type=NaiveTenseGuesser
+model_type=NaiveNumberGuesser
+# model_type=LSTM
 #model_dir=$(pwd)/teacher-$task
 model_dir=$(pwd)/student-${task}-${model_type}-hard-logits
 is_student=true

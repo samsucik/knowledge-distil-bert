@@ -3,6 +3,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import matplotlib
 import matplotlib.lines as mlines
+from matplotlib import colors
 
 leg_lw = 7
 
@@ -23,6 +24,7 @@ glue_task_colours = {
     "pre-trained": (10, 10, 10),
 }
 glue_task_colours = {name: np.array(c)/255 for name, c in glue_task_colours.items()}
+grid_colour = np.array([1.0, 1.0, 1.0, 1.0])*0.85
 
 def add_to_legend(ax, additional_handles=[], **kwargs):
     handles, labels = ax.get_legend_handles_labels()
@@ -96,25 +98,38 @@ def make_latex_label(model="BERT", role="student"):
     else:
         return "$\\text{" + model + "}_{\\text{" + ("S" if role == "student" else "T") + "}}$"
 
-def new_legend_entry(c="black", label="label", marker=None, markersize=5, lw=3):
+def new_legend_entry(c="black", label="label", marker=None, markersize=5, lw=3, ls="-"):
     handle = mlines.Line2D([], [], color=c, marker=marker,
-                         markersize=markersize, label=label, linewidth=lw)
+                         markersize=markersize, label=label, linewidth=lw, ls=ls)
     return handle
 
+def modify_cl(cl, modifier):
+    cl = cl*modifier
+    return np.array([max(0, min(c, 1.0)) for c in cl])
+
+probing_baseline_colours = {"human": np.array(colors.to_rgb("paleturquoise")), 
+                    "majority": np.array(colors.to_rgb("papayawhip")),
+                    "morpho": np.array(colors.to_rgb("grey")),}
+probing_baselines = {"majority": [20.0, 0.5, 17.9, 5.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0],
+             "human": [100, 100, 84.0, 84.0, 98.0, 85.0, 88.0, 86.5, 81.2, 85.0],
+             "conneau-best": [99.3, 88.8, 63.8, 89.6, 83.6, 91.5, 95.1, 95.1, 73.6, 76.2],
+             "morpho-guessers": [None, None, None, None, None, 72.4, 62.52, 70.27, None, None]}
+probing_task_names = ['Length', 'WordContent', 'Depth', 'TopConstituents', 'BigramShift', 'Tense', 'SubjNumber', 
+              'ObjNumber', 'OddManOut', 'CoordinationInversion']
 def make_probing_axis(ax, probing_task="Length"):
     yticks_major = np.arange(6)*20
     yticks_minor = np.arange(10)*10
-    probing_task_idx = task_names.index(probing_task)
+    probing_task_idx = probing_task_names.index(probing_task)
     ax.set_yticks(yticks_major, minor=False)
     ax.set_yticks(yticks_minor, minor=True)
     ax.set_ylim(0, 100)
     xs_baseline = ax.get_xlim()
-    ax.fill_between(xs_baseline, 0, baselines["majority"][probing_task_idx], 
-                    facecolor=baseline_colours["majority"], zorder=0)
-    ax.fill_between(xs_baseline, baselines["human"][probing_task_idx], 100, 
-                    facecolor=baseline_colours["human"], zorder=0)
+    ax.fill_between(xs_baseline, 0, probing_baselines["majority"][probing_task_idx], 
+                    facecolor=probing_baseline_colours["majority"], zorder=0)
+    ax.fill_between(xs_baseline, probing_baselines["human"][probing_task_idx], 100, 
+                    facecolor=probing_baseline_colours["human"], zorder=0)
     for b in ["majority", "human"]:
-        ax.axhline(baselines[b][probing_task_idx], c=modify_cl(baseline_colours[b], 0.9), zorder=0)
+        ax.axhline(probing_baselines[b][probing_task_idx], c=modify_cl(probing_baseline_colours[b], 0.9), zorder=0)
     ax.set_xlim(*xs_baseline)
     ax.grid(axis="y", color=grid_colour, which="both", zorder=1)
     ax.set_axisbelow(True)

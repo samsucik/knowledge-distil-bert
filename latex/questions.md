@@ -14,7 +14,6 @@
 explain moving avg and crosses in tuning hparams, maybe show raw score and compare with avg
 
 ch5: explain methodoogy (chronology) but then jump to outcomes (all best hparams). put details of intermediate results into appendix. summary will likely become much shorter. add teacher params in table 5.3 and also eval-set scores.
-\label{tab:initial-configs}
 
 ch6: make descriptions shorter
 pred-anal: mention in intro also the main findings
