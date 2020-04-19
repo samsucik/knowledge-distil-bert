@@ -290,9 +290,9 @@ Computer Science}}
 \ifthenelse{\boolean{draftthesis}}
     {\geometry{a4paper,margin=2cm,twoside}}
     {\if@twoside
-        \geometry{a4paper,left=2.5cm,top=2cm,right=2.5cm,bottom=4cm,twoside}
+        \geometry{a4paper,left=2.5cm,top=2.5cm,right=2.5cm,bottom=3cm,twoside}
      \else
-        \geometry{a4paper,left=2.5cm,top=2cm,right=2.5cm,bottom=4cm}
+        \geometry{a4paper,left=2.5cm,top=2.5cm,right=2.5cm,bottom=3cm}
     \fi}
 
 %% We should make pages created by "cleardoublepage" be

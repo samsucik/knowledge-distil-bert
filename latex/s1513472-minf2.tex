@@ -16,15 +16,26 @@
 \usepackage{wasysym}
 \usepackage{listings}
 \usepackage{spverbatim}
-\usepackage{hhline}
+
+% Fancy things in tables
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}} % left-aligned, fixed-width table cells
+\usepackage{hhline} % double hline
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{color, colortbl} % coloured background in tables
+\definecolor{CoLA}{RGB}{0, 173, 118}
+\definecolor{SST-2}{RGB}{191, 115, 0}
+\definecolor{Sara}{RGB}{90, 23, 238}
 
 % additional keywords in math mode
 \DeclareMathOperator{\softmax}{softmax}
 
 % Nice references including the words Figure, Section, etc
-\renewcommand*{\chapterautorefname}{Chapter}
-\renewcommand*{\sectionautorefname}{Section}
-\renewcommand*{\subsectionautorefname}{Section}
+\renewcommand*{\chapterautorefname}{Chap.}
+\renewcommand*{\sectionautorefname}{Sec.}
+\renewcommand*{\subsectionautorefname}{Sec.}
+\renewcommand*{\subsubsectionautorefname}{Sec.}
 \renewcommand*{\figureautorefname}{Fig.}
 \renewcommand*{\tableautorefname}{Tab.}
 \newcommand{\algorithmautorefname}{Alg.}
@@ -64,7 +75,6 @@
 \usepackage{fancyvrb}
 
 % Background colour for text
-\usepackage{xcolor}
 \def\reviewready{\colorbox{yellow}{[READY FOR REVIEW]}}
 \def\reviewed{\colorbox{green}{[REVIEWED]}}
 
@@ -87,6 +97,10 @@
 
 % TO-DO: Change .png figures to .pdf.
 \begin{document}
+  \colorlet{CoLA-l}{white!80!CoLA}
+  \colorlet{SST-2-l}{white!80!SST-2}
+  \colorlet{Sara-l}{white!80!Sara}
+
 \VerbatimFootnotes
 
 \title{
@@ -605,7 +619,7 @@
       \end{itemize}
       \textit{For a list of all intents, explained and accompanied with real examples from the dataset, see \autoref{tab:sara-intent-list} in \autoref{chap:A-Sara}.}
 
-      In the early days of the chatbot, it supported fewer intents, and several artificial examples per intent were first hand-crafted by Rasa employees to train the initial version of Sara's intent classifier. After Sara was deployed, more examples were collected and annotated from conversations with the website's visitors\footnote{To get a consent for such use of the conversations, each visitor was shown the following before starting a conversation with Sara: ``Hi, I'm Sara! By chatting to me you agree to our privacy policy.'', with a link to \rurl{rasa.com/privacy-policy/}}. Inspired by the topics that people tended to ask about, new intent categories were added. Today, the dataset still evolves and can be found -- together with the implementation of Sara -- at \rurl{github.com/RasaHQ/rasa-demo} (accessed April 3, 2020). It contains both the original hand-crafted examples as well as the (much more abundant) ``real'' examples.
+      In the early days of the chatbot, it supported fewer intents, and several artificial examples per intent were first hand-crafted by Rasa employees to train the initial version of Sara's intent classifier. After Sara was deployed, more examples were collected and annotated from conversations with the website's visitors\footnote{To get a consent for such use of the conversations, each visitor was shown the following before starting a conversation with Sara: ``Hi, I'm Sara! By chatting to me you agree to our privacy policy.'', with a link to \rurl{rasa.com/privacy-policy/}}. Inspired by the topics that people tended to ask about, new intent categories were added. Today, the dataset still evolves and can be found -- together with the implementation of Sara -- at \rurl{github.com/RasaHQ/rasa-demo}. It contains both the original hand-crafted examples as well as the (much more abundant) ``real'' examples.
 
       The Sara dataset version I use dates back to October 2019, when I obtained it from Rasa and pseudonymised the data\footnote{As a former employee of Rasa, I got access to the data under the NDA I had signed with the company. I had a permission from Rasa to use the pseudonymised data for this project; the use complied with the ethical approval process of Rasa.}. In particular, I removed any names of persons and e-mail addresses in any of the examples, replacing them with the special tokens \verb|__PERSON_NAME__| and \verb|__EMAIL_ADDRESS__|, respectively.      
       The dataset comprises roughly 4,800 examples overall, and was originally split into 1,000 testing examples and 3,800 training examples. 
@@ -634,7 +648,7 @@
     \citet{Tang_2019b} demonstrated on several GLUE tasks that using an augmented training portion for distillation leads to much better student performance than using just the original small training portion.
     For CoLA in particular, using just the small original training set led to very poor student performance (see Table~1 in \citeauthor{Tang_2019b}).
     
-    I take the augmentation approach that \citeauthor{Tang_2019b} found to work the best: Generating additional sentences using a GPT-2 model \citep{Radford_2019} fine-tuned on the training set\footnote{I used the code for \citet{Tang_2019b} which is available at \rurl{github.com/castorini/d-bert} (accessed April 4, 2020).}. The steps for creating the transfer dataset from the training portion are:
+    I take the augmentation approach that \citeauthor{Tang_2019b} found to work the best: Generating additional sentences using a GPT-2 model \citep{Radford_2019} fine-tuned on the training set\footnote{I used the code for \citet{Tang_2019b} which is available at \rurl{github.com/castorini/d-bert}.}. The steps for creating the transfer dataset from the training portion are:
     \begin{enumerate}
       \item Fine-tune the pre-trained GPT-2 model (the 345-million-parameter version) on the training portion for 1 epoch (where an epoch is one complete pass through all training examples) with the language-modelling objective (i.e. predicting the next subword token given the sequence of tokens so far).
       \item Sample from the model a large number of tokens to be used as the beginnings (\textit{prefixes}) of the augmentation sentences. This sampling can be done as one-step next-token prediction given the special \verb|SOS| (start-of-sentence) token.
@@ -646,7 +660,7 @@
   }
 
   \section{Probing tasks}{
-    The probing tasks (discussed in \autoref{sec:understanding-models}) I use after knowledge distillation to analyse the linguistic capabilities of the students and the teacher. In particular, I use the probing suite curated by \citet{Conneau_2018}, consisting of 10 tasks\footnote{The data, along with code for probing neural models, are publicly available as part of the SentEval toolkit for evaluating sentence representations \citep{SentEval-paper} at \rurl{github.com/facebookresearch/SentEval} (accessed April 4, 2020).}.
+    The probing tasks (discussed in \autoref{sec:understanding-models}) I use after knowledge distillation to analyse the linguistic capabilities of the students and the teacher. In particular, I use the probing suite curated by \citet{Conneau_2018}, consisting of 10 tasks\footnote{The data, along with code for probing neural models, are publicly available as part of the SentEval toolkit for evaluating sentence representations \citep{SentEval-paper} at \rurl{github.com/facebookresearch/SentEval}.}.
 
     \begin{figure}[h!t]
       \centering
@@ -714,7 +728,7 @@
     The main aim is to explore the use of knowledge distillation. In particular, it is used on three different NLP tasks (CoLA, SST-2, Sara) and with two different student architectures: a bi-directional LSTM student and a BERT student. An analysis stage follows, where I look at and compare the teacher and students on each task. 
     Note that the focus is not on improving previously reported scores or on finding the best hyperparameter configurations; I aim to learn more about knowledge distillation.
 
-    Being inspired by my internship at Rasa on compressing BERT\footnote{See \rurl{blog.rasa.com/compressing-bert-for-faster-prediction-2/} and \rurl{blog.rasa.com/pruning-bert-to-accelerate-inference/}, accessed April 4, 2020.}, this work aims to produce student models as small as possible.
+    Being inspired by my internship at Rasa on compressing BERT\footnote{See \rurl{blog.rasa.com/compressing-bert-for-faster-prediction-2/} and \rurl{blog.rasa.com/pruning-bert-to-accelerate-inference/}.}, this work aims to produce student models as small as possible.
     Therefore, I take the approach of first fine-tuning a teacher model and then distilling the fine-tuned knowledge into small students (for the other option, refer back to the discussion in \autoref{sec:kd-nlp}).
 
     % naturally involves KD first and I did basic optimisation to arrive at students small but good
@@ -752,7 +766,7 @@
       \label{fig:pipeline}
     \end{figure}
 
-    For most of the implementation, the \verb|transformers| open-source PyTorch library \citep{Wolf_2019}\footnote{\rurl{github.com/huggingface/transformers}, accessed April 4, 2020}, is used, which provides tools for working with pre-trained Transformers like BERT. For knowledge distillation, I adapt the code of \citet{Sanh_2019}, which is today also part of \verb|transformers|\footnote{\rurl{github.com/huggingface/transformers/tree/master/examples/distillation}, accessed April 4, 2020}. (Note that the authors apply knowledge distillation \textit{before} downstream fine-tuning.) For augmenting the training data using GPT-2 and for knowledge distillation with the BiLSTM student, I adapt the code of \citeauthor{Tang_2019b}\footnote{\rurl{github.com/castorini/d-bert}, accessed April 4, 2020}, which uses an early version of \verb|transformers|. For probing the two students, the SentEval framework \citep{SentEval-paper}\footnote{\rurl{github.com/facebookresearch/SentEval}} is used.
+    For most of the implementation, the \verb|transformers| open-source PyTorch library \citep{Wolf_2019}\footnote{\rurl{github.com/huggingface/transformers}}, is used, which provides tools for working with pre-trained Transformers like BERT. For knowledge distillation, I adapt the code of \citet{Sanh_2019}, which is today also part of \verb|transformers|\footnote{\rurl{github.com/huggingface/transformers/tree/master/examples/distillation}}. (Note that the authors apply knowledge distillation \textit{before} downstream fine-tuning.) For augmenting the training data using GPT-2 and for knowledge distillation with the BiLSTM student, I adapt the code of \citeauthor{Tang_2019b}\footnote{\rurl{github.com/castorini/d-bert}}, which uses an early version of \verb|transformers|. For probing the two students, the SentEval framework \citep{SentEval-paper}\footnote{\rurl{github.com/facebookresearch/SentEval}} is used.
 
     My own contributions to the implementation lie primarily in adapting and integrating the different codebases into one, and in adding the possibility for optimising a range of student hyperparameters. I also make the code more flexible, relative to the original codebases which encode numerous fixed design decisions made by \citeauthor{Sanh_2019} and \citeauthor{Tang_2019b}. The core of my implementation is open-sourced as a fork of the \verb|transformers| library at \rurl{github.com/samsucik/pytorch-transformers/}, while the implementation needed for individual experiemnts, analyses, and reporting, resides at \rurl{github.com/samsucik/knowledge-distil-bert}.
   }
@@ -767,20 +781,21 @@
 
       \begin{table}[h!t]
       \centering
-      \begin{tabular}{m{0.22\textwidth}|m{0.47\textwidth}}
-      \hline
+      \footnotesize
+      \begin{tabular}{m{0.22\textwidth}m{0.4\textwidth}}
+      \toprule
       loss function & cross-entropy \\
       \hline
       learning algorithm & Adam ($\eta=5\times10^{-5}$, $\beta_1=0.9$, $\beta_2=0.999$) \\
       \hline
       training budget & 3 epochs \\
       \hline
-      $\eta$ scheduling & linear warm-up (first 10\% of training), then linear decay \\
+      $\eta$ scheduling & linear warm-up (first 10\% of training), then linear decay (see \autoref{fig:teacher-fine-tuning}) \\
       \hline
       batch size & 36 \\
       \hline
       dropout rate & 0.1 \\
-      \hline
+      \bottomrule
       \end{tabular}
       \caption{The fine-tuning configuration of the teacher BERT model.}
       \label{tab:initial-config-teacher}
@@ -791,7 +806,7 @@
       \begin{figure}[h!t]
         \centering
         \makebox[\textwidth][c]{\includegraphics[width=17cm]{../experiments/analysis/img/teacher-fine-tuning}}
-        \caption{The evaluation-set performance of teacher models across fine-tuning. Unintentionally, I used different logging frequencies in fine-tuning the teachers, hence the SST-2 plot is dense (and appears more noisy) while the CoLA plot is sparse.}
+        \caption{The evaluation-set performance of teacher models across fine-tuning, together with an illustration of the learning rate scheduling for \BERTT~on Sara. Unintentionally, I used different logging frequencies in fine-tuning the teachers, hence the SST-2 plot is dense (and appears more noisy) while the CoLA plot is sparse.}
         \label{fig:teacher-fine-tuning}
       \end{figure}
     }
@@ -803,8 +818,9 @@
 
       \begin{table}[h!t]
       \centering
-      \begin{tabular}{m{0.22\textwidth}|m{0.48\textwidth}}
-      \hline
+      \footnotesize
+      \begin{tabular}{m{0.22\textwidth}m{0.33\textwidth}}
+      \toprule
       loss function & cross-entropy \\
       \hline
       learning algorithm & AdamW ($\eta=5\times10^{-5}$, $\beta_1=0.9$, $\beta_2=0.999$, $\lambda=1\times10^{-3}$) \\
@@ -816,7 +832,7 @@
       batch size & 16 \\
       \hline
       dropout rate & 0.1 \\
-      \hline
+      \bottomrule
       \end{tabular}
       \caption{The fine-tuning configuration of the GPT-2 model.}
       \label{tab:config-gpt-2}
@@ -850,10 +866,11 @@
       \end{enumerate}
       This way, even though the full word2vec collection covers 3,000,000 words, the word-level embedding matrix (whether used by the LSTM student or the BERT student) has fewer entries. For the particular transfer datasets I use, the vocabulary has 243,120 words for CoLA, 284,273 words for SST-2, and 172,183 words for Sara.
 
-      In total, this model -- from now referred to as \LSTMS~-- has 2.41 million trainable parameters (excluding the embedding layer), making it 140x smaller than \BERTT.
+      In total, this model -- from now referred to as \LSTMS~-- has 2.41 million trainable parameters (excluding the embedding layer -- this is how model sizes are reported everywhere further in this work\footnote{In line with how the number of model parameters is reported by others, for instance in \citet{Tang_2019b,Tang_2019a}, but also in the GLUE benchmark leaderbord. One reason for this is that the number of embedding parameters is not directly related to the model size and mostly depends on the type of embeddings used -- the embedding vocabulary size and the dimensionality of each embedding.}), making it 140x smaller than \BERTT.
     }
 
     \subsection{BERT student model}{
+      \label{sec:student-bert}
       For the second student, a down-scaled version of BERT\textsubscript{Large} is used, matched for size with \LSTMS. In particular, I scale all the dimensions of BERT\textsubscript{Large} down by a factor of \mytilde5, leading to a smaller BERT with $L=5$ encoder layers, the hidden dimension $d_h=204$, the intermediate dimension $d_I=750$, and $A=3$ self-attentional heads -- amounting to 2.42 million trainable parameters (embedding parameters excluded). This model is from now referred to as \BERTS.
     }
 
@@ -881,21 +898,23 @@
 
       \begin{table}[h!tb]
       \centering
-      \begin{tabular}{m{0.22\textwidth}|m{0.32\textwidth}|m{0.35\textwidth}}
+      \footnotesize
+      \begin{tabular}{P{0.18\textwidth} m{0.3\textwidth} m{0.3\textwidth} }
+      \toprule
       & \LSTMS & \BERTS \\
-      \hline
+      \toprule
       loss function & mean square error & cross-entropy, $T=3$ \\
       \hline
       learning algorithm & Adadelta ($\eta=1.0$, $\rho=0.95$) &  Adam ($\eta=5\times10^{-4}$, $\beta_1=0.9$, $\beta_2=0.98$) \\
       \hline
       training budget & 30 epochs & 60 epochs \\
       \hline
-      $\eta$ scheduling &  & linear warm-up (10 epochs), then linear decay \\
+      $\eta$ scheduling & none & linear warm-up (10 epochs), then linear decay \\
       \hline
       batch size & 50 & 256 \\
       \hline
       embedding layer initialisation & word2vec & wordpiece, from \BERTT \\
-      \hline
+      \bottomrule
       \end{tabular}
       \caption{The initial parameters of both student models.}
       \label{tab:initial-configs}
@@ -913,8 +932,9 @@
        % The cross-entropy loss is used, with the Adam learning algorithm with $\eta=0.001$, $\beta_1=0.9$ and $\beta_2=0.999$. 
       \begin{table}[h!t]
       \centering
-      \begin{tabular}{m{0.21\textwidth}|m{0.47\textwidth}}
-      \hline
+      \footnotesize
+      \begin{tabular}{m{0.19\textwidth} m{0.4\textwidth}}
+      \toprule
       loss function & cross-entropy \\
       \hline
       learning algorithm & Adam ($\eta=1\times10^{-3}$, $\beta_1=0.9$, $\beta_2=0.999$) \\
@@ -924,7 +944,7 @@
       batch size & 64 \\
       \hline
       dropout rate &  [0.0, 0.1, 0.2]\\
-      \hline
+      \bottomrule
       \end{tabular}
       \caption{The training configuration of the probing classifier.}
       \label{tab:config-probing-classifier}
@@ -957,10 +977,11 @@
 
     \begin{table}[h!t]
     \centering
-    \begin{tabular}{m{0.32\textwidth}|c|c|c}
-    % \hline
+    \footnotesize
+    \begin{tabular}{m{0.27\textwidth}ccc}
+    \toprule
     & CoLA & SST-2 & Sara \\
-    \hline
+    \toprule
     teacher fine-tuning & $\sim$30min & $\sim$4h & $\sim$55min \\
     \hline
     GPT-2 fine-tuning & 3min & 31min & 1min \\
@@ -972,7 +993,7 @@
     \LSTMS~training & $\sim$5h & $\sim$8h & $\sim$6h \\
     \hline
     \BERTS~training & $\sim$15h & $\sim$26h & $\sim$22h \\
-    \hline
+    \bottomrule
     \end{tabular}
     \caption{The runtimes for all steps of knowledge distillation with augmented transfer datasets.}
     \label{tab:runtimes}
@@ -1006,351 +1027,74 @@
 }
 
 \chapter{Training student models}{
-  % - aims: small, good, 90\% of teacher's score
-  In this chapter, I use knowledge distillation to train student models \BERTS~and \LSTMS~from the fine-tuned teacher \BERTT~on each of the three downstream tasks.
-  My aim is to end up with students that are small but perform well. Ideally, the student size will stay at the initial 2.4 millions of trainable non-embedding parameters while the evaluation-set performance will be above 90\% of the teacher's performance.
+  In this chapter, knowledge distillation is used to teach (train) student models \BERTS~and \LSTMS~from the fine-tuned teacher \BERTT. This is done separately on each of the three downstream tasks -- CoLA, SST-2, and Sara.
+  The objective is to obtain students which are small but perform well -- relative to the teacher. Where possible, the student size is not increased above the initial dimensions outlined in \autoref{sec:student-bilstm} (\LSTMS) and \autoref{sec:student-bert} (\BERTS), which corresponds to keeping the number of trainable parameters at \mytilde2.4 million.
 
-  As discussed in \autoref{sec:methods}, my aim is not to find the best possible student hyperparameters, but I still explore some of them to gain an intuition for the reasonable ranges of values and for their behaviour in knowledge distillation.
-  In particular, I find a well-performing configuration of each student on CoLA, looking for good evaluation-set score and fast convergence. Then, on the remaining tasks, I use the same configuration, only tailoring a small number of parameters to the need of the concrete dataset at hand. Most importantly, I adjust the size of each student separately for each task because some tasks are known to be more or less difficult than others, requiring the students to be more or less complex.
+  As discussed in \autoref{sec:methods}, my aim is not to find all the best possible student hyperparameters, but I still briefly explore some of them to gain an intuition for the reasonable ranges of values and for their behaviour in knowledge distillation.
+  In particular, I find a well-performing training configuration of each student on CoLA, choosing based on the model's evaluation-set score. Then, on the remaining tasks, I use the same configuration, only tailoring a small number of parameters to the need of the concrete dataset at hand. (Most importantly, the student size is adjusted separately for each task because more difficult tasks may require larger (more complex) models for decent accuracy levels.)
 
-  After obtaining well-performing students for each task, I compare them with one another and with the respective teacher and discuss my observations.
+  After obtaining well-performing students for each task, these are briefly compared with the respective teacher in terms of model size, inference speed, as well as evaluation- and test-set scores.
 
-  \section{General hyperparameter exploration on CoLA}{
+  \section{Hyperparameter exploration}{
     \label{sec:hparam-general}
 
-    I restrict myself to exploring the following essential hyperparameters (in both students):
+    The initial exploration conducted on CoLA is restricted to these following essential hyperparameters in both students:
     \begin{enumerate}
-      \item $\eta$ -- the learning rate. Additionally, for \LSTMS, I compare the original Adadelta learning algorithm with the more general Adam.
-      \item Learning rate scheduling, more concretely the warmup duration (in epochs) $E_{w}$ of gradual warmup of the learning rate \citep{Goyal_2017}, and the optional use of linear decay following the warmup.
+      \item $\eta$ -- the learning rate. For \LSTMS, also the choice of a learning algorithm (the originally used Adadelta vs the more general Adam).
+      \item Learning rate scheduling: the warmup duration (in epochs) $E_{w}$ of gradual warmup of $\eta$ \citep{Goyal_2017}, and the optional use of linear decay of $\eta$ following after the warmup period.
       \item $B$ -- the minibatch size.
-      \item Embedding type -- word-level vs wordpiece.
+      \item Embedding type and mode -- word-level (initialised from word2vec) vs wordpiece (initialised from the respective \BERTT\footnote{Initially, I experimented with \LSTMS~using word2vec embeddings (as in \citet{Tang_2019b,Tang_2019a}) while the embedding layer of \BERTS~was randomly initialised.
+      However, this poses a disadvantage for \BERTS~-- it starts with no initial knowledge, unlike the BiLSTM student.
+      To eliminate this disparity, \BERTS's wordpiece embeddings were initialised with the teacher's wordpiece embedding parameters, and a trainable linear layer was added in the student to project these (high-dimensional) teacher embeddings to the smaller hidden dimensionality of the student $d_h=204$.
+      (Note that the token type embeddings and positional embeddings are not initialised from the teacher and hence do not require the linear transform for dimensionality reduction.
+      Instead, these embeddings are added to the wordpiece embeddings inside \BERTS~after the wordpiece embeddings are dimensionality-reduced.)
+      Even though the idea of initialising one model with another one's parameters is not new, to the best of my knowledge, I am the first one to initialise a BERT student in knowledge distillation in this way.}), non-static vs multichannel\footnote{The static mode (frozen embeddings, not allowed to be trained) was not tried, following preliminary experiments where freezing the parameters led to very poor performance.}.
     \end{enumerate}
 
-      % \item Embedding mode -- one of static, non-static, and multi-channel (discussed in \autoref{sec:student-bilstm}).
-    Following on the discussion of implementation details in \autoref{sec:implementation-details}, the initial configurations of the parameters to be explored are:
-    \begin{itemize}
-      \item For \BERTS: Adam with $\eta=5\times10^{-5}$, $B=256$, $E_{w}=10$ -- warmup over the first 10 epochs, followed by linear decay of $\eta$, and wordpiece embedding layer with the non-static mode.
-      \item For \LSTMS: Adadelta with $\eta=1.0$, $B=50$, no $\eta$ warmup or decay, and the word-level embeddings with the multichannel mode.
-    \end{itemize}
-    Note that the embedding mode is explored separately for each task in the next section.
+    The parameters are optimised one at a time, in the order they are enumerated above. At each step, the best value of one parameter is found and kept in all further steps. The explored values as well as the initial values (see \autoref{sec:implementation-details}) and the discovered best values are shown in \autoref{tab:hparam-exploration}. Note that the embedding type and mode is explored also later, separately for each task.
+    For more details on how the individual parameters were chosen, see \autoref{sec:A-hparam-exploration-cola} in \autoref{chap:A-student-training}.
 
-    Initially, \BERTS~was initialised entirely from scratch, including the embedding layer. 
-    This may pose a disadvantage for \BERTS~because the BiLSTM student starts with embeddings initialised from the pre-trained word2vec. To eliminate this disparity, I initialise \BERTS's wordpiece embeddings using the parameters from the fine-tuned \BERTT. 
-    Because the teacher's embeddings are high-dimensional (1024-D), a trainable linear layer is used inside \BERTS~to project them to $d_h=204$ dimensions\footnote{The token type and positional embeddings are not initialised from the teacher and hence do not require dimensionality reduction. They are added to the wordpiece embeddings after these are dimensionality-reduced.}.
-    Even though the idea of initialising one model with another one's parameters is not new, to the best of my knowledge, I am the first one to initialise a student in knowledge distillation from Transformers in this way.
-    In exploring the parameters of \BERTS, I report results for the variant with the teacher's embedding knowledge. Results for the variant initialised entirely from scratch are in \textbf{TO-DO: APPENDIX X}.
-    In general, the difference is not large, but the version initialised from scratch performs slightly worse.
+    Most importantly, the LSTM student outperforms \BERTS~and converges much faster. Additionally, the LSTM prefers small batches (in line with the findings of \citet{Tang_2019a}) and does not benefit from learning rate warmup (unlike \BERTS). Otherwise, the optimal training configuration seems to be similar in both students.
+
+    \begin{table}[h!t]
+    \centering
+    \footnotesize
+    \begin{tabular}{lP{5.7cm}P{5.8cm}}
+    \toprule
+    & \multicolumn{2}{c}{explored values} \\
+    \cmidrule(lr){2-3} parameter & \multicolumn{1}{c}{\LSTMS} & \multicolumn{1}{c}{\BERTS} \\
+    \toprule
+    $\eta$ 
+      & \textbf{Adadelta ($\bm{\eta=1.0}$)}, \underline{Adam} with $\eta\in$ [$5\times10^{-3}$, $1.5\times10^{-3}$, \underline{$5\times10^{-4}$}, $1.5\times10^{-4}$, $5\times10^{-5}$, $1.5\times10^{-5}$, $5\times10^{-6}$] 
+      & \textbf{\underline{Adam}} with $\eta\in$ [$5\times10^{-3}$, $1.5\times10^{-3}$, \underline{$\bm{5\times10^{-4}}$}, $1.5\times10^{-4}$, $5\times10^{-5}$, $1.5\times10^{-5}$, $5\times10^{-6}$] \\
+    \hline
+    $\eta$ scheduling & $E_w\in$ [\underline{\textbf{0}}, 5, 10, 15] + \underline{decay}/\textbf{no decay} & $E_w\in$ [0, 5, \textbf{10}, \underline{15}, 20] + \underline{\textbf{decay}}/no decay \\
+    \hline
+    $B$ & [\underline{32}, \textbf{50}, 128, 256, 512] & [32, 50, \underline{128},  \textbf{256}, 512] \\
+    \hline
+    embeddings & \textbf{word-level}/wordpiece + non-static/\textbf{multichannel} & word-level/\textbf{wordpiece} + \textbf{non-static}/multichannel \\
+    \bottomrule
+    \end{tabular}
+    \caption{The hyperparameter values explored on CoLA, one at a time, from top to bottom. In bold are shown the initial values. Underlined are the best values (for embedding mode and type, the best configuration is chosen separately for each task and is summarised elsewhere).}
+    \label{tab:hparam-exploration}
+    \end{table}
+
+    Following the initial hyperparameter exploration, the best embedding mode and type configuration is identified for each task. Observing the performance gap between the two students, I hypothesise that this may be due to the word-level embeddings in \LSTMS~being more suitable than the wordpiece embeddings in \BERTS.
     
-    \subsection{Choosing learning algorithm and learning rate}{
-      Because \citet{Tang_2019b} report not tuning their BiLSTM hyperparameters, I verify their choices.
-      In particular, the use of the Adam learning algorithm is explored -- a widely used and improved version of the Adadelta algorithm which is used originally.
+    The results of trying each embedding type combined with each embedding mode show that the multichannel mode is generally preferred\footnote{I.e. it is helpful to use an additional embedding matrix which is frozen during student training.}, and that the best embedding type depends on the task (more details in \autoref{sec:A-exploration-embed} in \autoref{chap:A-student-training}). 
+    In particular, word2vec embeddings work slightly better for CoLA and SST-2, but are not preferred for Sara. This is likely due to Sara examples containing many mistyped words like ``yesyesyes'', which are treated as the general \verb|UNKNOWN| word in word2vec, but are successfuly broken down into smaller, meaningful units when using wordpieces. Thus, it may be preferable to use word2vec (or similar word-level embeddings) where the language is expected to be mostly clean, free of unusual or mistyped words (formal and semi-formal domains), while wordpieces provide a fallback alternative for informal domains.
 
-      For both students, I try a wide range of $\eta$ values with Adam: $5\times10^{-3},\ 1.5\times10^{-3},\ 5\times10^{-4},\ 1.5\times10^{-4},\ 5\times10^{-5},\ 1.5\times10^{-5},\ 5\times10^{-6}$.
-      
-      \begin{figure}[h!t]
-        \centering
-        \makebox[\textwidth][c]{\includegraphics[width=14.8cm]{../experiments/analysis/img/exploration-lr}}
-        \caption{Comparing various $\eta$ values on CoLA. Crosses mark the maximum scores. \sliding}
-        \label{fig:exploration-lr}
-      \end{figure}
+    While both of the 2.4-million parameter students perform very well on SST-2 and Sara (on par with the teacher), there continues to be a gap on CoLA: the teacher being far ahead, and \LSTMS~outperforming \BERTS.
+    To reduce this gap and to explore the effect of different student dimensions in general, I systematically vary the width and depth of each student -- that is, the dimensionality of the hidden layers and internal representations, and the number of layers (encoder layers in \BERTS, BiLSTM layers in \LSTMS).
+    On CoLA, the \BERTS~is made up to 4x wider and 3x deeper, and \LSTMS~is made up to 5x wider and deeper. On SST-2 and Sara, to explore how small the students can be to still achieve over 90\% of their teachers' score, \BERTS~is made up to 16x slimmer and 4x shallower, and \LSTMS~is made up to 32x slimmer (originally with just one BiLSTM layer, it cannot be more shallow). (For details of the explored dimensions, see \autoref{tab:sizes-bert} and \autoref{tab:sizes-lstm} in \autoref{chap:A-student-training}; in particular, note that I had to manually reduce the learning rate for large \BERTS~models to prevent gradient explosion.)
 
-      \autoref{fig:exploration-lr} shows that for all students the ideal $\eta$ is around $5\times10^{-4}$. Much larger and much smaller values leading to poor learning, in particular the largest $\eta=5\times10^{-3}$ ``kills'' the learning of \BERTS~entirely due to gradient explosion.
-      As expected, \BERTS~initialised from scratch performs worse than when initialised from the wordpiece embeddings of \BERTT. However, the differences are not large.
-
-      As discussed previously, \BERTS~converges much slower than \LSTMS, hence the 30-epoch and 60-epoch training budgets for \LSTMS~and \BERTS, respectively. Additionally, it is apparent that \LSTMS~performs significantly better than \BERTS~even though the sizes of the models are comparable.
-
-      In the case of \LSTMS, the Adadelta algorithm is outperformed by Adam. From now onwards, I use Adam with both students, in all cases with $\eta=5\times10^{-4}$.
-    }
-
-    \subsection{Choosing learning rate scheduling and batch size}{
-      \citet{Tang_2019a} use no learning rate scheduling, but they report small batch sizes ($B=50$) to work better than the usual, larger batches. Hence, for \LSTMS~I first verify their claims and subsequently move on to $\eta$ scheduling. For \BERTS, inspired by \citet{Sanh_2019} who take advantage of scheduling (both in terms of warmup and decay), I explore $\eta$ scheduling first (as a continuation from exploring $\eta$ values), and then look at various $B$ values.
-
-      \begin{figure}[h!t]
-        \centering
-        \makebox[\textwidth][c]{\includegraphics[width=14cm]{../experiments/analysis/img/exploration-B-lstm}}
-        \caption{Comparing various batch sizes for \LSTMS~on CoLA. Crosses mark the maximum scores. \sliding}
-        \label{fig:exploration-B-lstm}
-      \end{figure}
-
-      As \autoref{fig:exploration-B-lstm} shows, \LSTMS~clearly does prefer small batch sizes. However, training with tiny minibatches takes very long -- compare \mytilde25min for $B=512$ with \mytilde7h for $B=32$. Hence, I restrain from trying even smaller batch sizes and use $B=32$ for \LSTMS~in all further experiments.
-
-      \begin{figure}[h!t]
-        \centering
-        \makebox[\textwidth][c]{\includegraphics[width=13.5cm]{../experiments/analysis/img/exploration-schedule}}
-        \caption{Comparing warmup durations $E_w$ on CoLA, with the optional learning rate decay to 0 over the remaining training epochs. Crosses mark the maximum scores. \sliding}
-        \label{fig:exploration-schedule}
-      \end{figure}
-
-      \autoref{fig:exploration-schedule} shows the results of exploring various warmup durations for both students. Note that for \LSTMS, whose training budget is only 30 epochs, I did not try the long warmup duration of 20 epochs, only up to 15 epochs.
-
-      In the case of \LSTMS, \autoref{fig:exploration-schedule} shows that the longer the warmup duration, the slower the model converges. This is understandable because during warmup, learning happens less aggressively -- and hence more slowly -- due to the smaller learning rate. More importantly, the graph shows that $\eta$ decay does not significantly affect training, but it can help to prevent the model from overfitting the training data. This is most visible for $E_w=0$ where \LSTMS's performance starts to slowly decrease after 20 epochs in the absence of $\eta$ decay. All in all, using the full $\eta$ from the beginning of training is the best option, and $\eta$ decay can only improve things. $E_w=0$ with decay is used for \LSTMS~in all further experiments.
-
-      In the case of \BERTS, the only clear result visible from \autoref{fig:exploration-schedule} is that \BERTS~performs poorly without $\eta$ warmup. For non-zero warmup durations, there are no significant differences in the best-performance points (marked by crosses) or in the convergence speed. In all further experiments with \BERTS, I use $E_w=15$ and $\eta$ decay -- the configuration which shows the highest stable performance level in \autoref{fig:exploration-schedule} in later epochs (beyond epoch 35).
-
-      \begin{figure}[h!t]
-        \centering
-        \makebox[\textwidth][c]{\includegraphics[width=14cm]{../experiments/analysis/img/exploration-B-bert}}
-        \caption{Comparing various batch sizes for \BERTS~on CoLA. Crosses mark the maximum scores. \sliding}
-        \label{fig:exploration-B-bert}
-      \end{figure}
-
-      The batch size exploration in \autoref{fig:exploration-B-bert} shows that \BERTS~performs best with mid-sized batches of 128-256 examples. Too large batch size ($B=512$) as well as very small batches of 32-64 make \BERTS~underperform (with tiny batches of 32 being particularly detrimental).
-      In all further experiments, $B=128$ is used with \BERTS.
-    }
+    The results of the student size exploration (details in \autoref{sec:A-student-size}) show that model width is, on these three tasks, more important than model depth. In particular, the performance gap between \LSTMS~and \BERTS~on CoLA is closed by increasing the width of the latter student (to roughly match the \LSTMS's layer width). On SST-2 and Sara, making the models slimmer affects their performance more than making them shallower. However, the results on CoLA suggest that \LSTMS~may be too shallow for this difficult task and that using 2 and more hidden BiLSTM layers is beneficial (compare with \BERTS, which uses 5 hidden layers by default, and further increasing this does not help).
   }
 
-  \section{Optimising students for each downstream task}{
-    In this section, I explore different ways of initialising student models with language knowledge, and the effect of model size, separately for each downstream task.
-
-    \subsection{Choosing embedding type and mode}{
-      In the previous section, \LSTMS~consistently outperformed \BERTS. This can be due to different model architectures or due to different embedding types and modes -- while \LSTMS~has its word-level embedding layer initialised using word2vec and uses the multichannel mode\footnote{I.e. uses two parallel embedding table instances, one frozen and the other one allowed to further change in training.}, \BERTS~uses wordpiece-level embeddings from the fine-tuned \BERTT~in the non-static mode\footnote{This is the usual case where a single embedding table instance is used and allowed to change during training.}.
-
-      I explore combinations of the two embedding types and of different embedding modes. Following preliminary experiments, I do not use the static (embedding freezing) mode as it has detrimental effects on student learning. Left for exploration are the two modes that do allow embedding parameters to be tuned during training: the multichannel and non-static modes.
-
-      \begin{figure}[h!t]
-        \centering
-        \makebox[\textwidth][c]{\includegraphics[width=14cm]{../experiments/analysis/img/exploration-embed-cola}}
-        \caption{Comparing embedding types and modes on CoLA. Crosses mark the maximum scores. \sliding}
-        \label{fig:exploration-embed-cola}
-      \end{figure}
-
-      \autoref{fig:exploration-embed-cola} shows how different type and mode combinations affect knowledge distillation on CoLA. With \LSTMS, the multichannel mode is preferred to non-static and word2vec embeddings are preferred to wordpieces; hence, I use the multichannel mode with word2vec in further experiments (same as \citet{Tang_2019b}). For \BERTS, the differences are smaller, yet it is clear that word-level embeddings benefit from using the frozen and unfrozen versions provided by the multichannel mode. In further experiments, the multichannel mode combined with word-level word2vec embeddings is used.
-
-      For SST-2, I only compare the best word-level and the best wordpiece-level combination for each model as observed from \autoref{fig:exploration-embed-cola}. The results are shown in \autoref{fig:exploration-embed-sst-2}. Notice the scale of the y axis: In particular, the students perform roughly the same (unlike on CoLA) and any relative differences observed in \autoref{fig:exploration-embed-sst-2} are much smaller than the differences observed on CoLA in \autoref{fig:exploration-embed-cola}. Hence, I refrain from making conclusions about which embedding type and mode works better; I merely choose to use the word-level embeddings with the multichannel mode in all further experiments on SST-2 (my decision is based on the best evaluation scores marked by crosses in \autoref{fig:exploration-embed-sst-2}).
-
-      \begin{figure}[h!t]
-        \centering
-        \makebox[\textwidth][c]{\includegraphics[width=14cm]{../experiments/analysis/img/exploration-embed-sst-2}}
-        \caption{Comparing embedding types and modes on SST-2. Crosses mark the maximum scores. \sliding}
-        \label{fig:exploration-embed-sst-2}
-      \end{figure}
-
-      Results on Sara are shown in \autoref{fig:exploration-embed-sara}. Here again, the relative differences in performance are small, but using wordpieces helps both students converge faster and reach slightly better performance levels. This can be a result of the word2vec vocabulary not capturing well the conversational language in Sara examples, for instance the utterance ``yesyesyes'' would be treated simply as one out-of-vocabulary word, whereas wordpieces have the potential to encode it as the word ``yes'' repeated 3x. In all further experiments on Sara I use the wordpiece embeddings, using the multichannel mode in \LSTMS~and the non-static mode in \BERTS.
-
-      \begin{figure}[h!t]
-        \centering
-        \makebox[\textwidth][c]{\includegraphics[width=14cm]{../experiments/analysis/img/exploration-embed-sara}}
-        \caption{Comparing embedding types and modes on Sara. Crosses mark the maximum scores. \sliding}
-        \label{fig:exploration-embed-sara}
-      \end{figure}
-
-      All in all, the multichannel mode seems to be generally superior to the non-static mode which lacks the frozen version of embeddings. Initialisation from the word-level word2vec embeddings also works better than wordpieces where examples tend to contain legitimate English (CoLA and SST-2). As for the performance gap between \LSTMS~and \BERTS, I conclude that it cannot be explained by differences in embedding type/mode, and is most likely a consequence of different student architectures.
-
-      While wordpiece embeddings have the advantage of being fine-tuned on the particular downstream task (as part of teacher fine-tuning), word2vec contains more general knowledge stored at the word level.
-      Importantly, the wordpiece vocabulary contains the most frequent words in their entirety; only the less frequent ones are split into pieces.
-      Thus, for frequent words, their word2vec and wordpiece embeddings will differ only in the way they are trained.
-      Naturally, since the wordpiece vocabulary has only 30,522 tokens while word2vec has 3,000,000, there are many words covered by word2vec for which the wordpiece embeddings have to be assembled from multiple pieces. On these words -- frequent enough to be in the word2vec vocabulary, but not the most frequent ones -- word2vec could have an advantage.
-      Once we move beyond the words covered by word2vec to rare tokens like ``yesyesyes'', wordpieces become the preferred approach.
-      Clearly, no one approach is generally the best, and the decision should ideally be made individually for each downstream task.
-    }
-
-    \subsection{Choosing student size}{
-      As the last parameter, I explore the size of each student. In particular, I try to reduce the performance gap on CoLA between \BERTT~and both students by making the students larger. On SST-2 and Sara, the 2.4-million-parameter students already achieve scores very close to those of the teacher, and I refrain from exploring larger students -- instead, I explore smaller student sizes.
-
-      There are two main ways of increasing the student size: By increasing the model ``width'' and the ``depth''. By width, I mean the dimensionality of the model's layers and internal representations. Depth means adding more layers. While larger width allows the models to extract and maintain richer token representations, adding layers adds more steps to the models' processing pipelines, allowing for more abstract and task-specific representations to be extracted in the end.
-
-      In \BERTS, I manipulate width by increasing by a set factor $W$ the hidden dimensionality $d_h$, the intermediate dimensionality $d_I$, and the number of self-attentional heads $A$. Depth is manipulated by changing the number of encoder layers $L$ by the factor $D$.
-      In \LSTMS, I change model width by scaling by $W$ the LSTM layer width $d_{LSTM}$ and the fully-connected layer width $d_{FC}$, which are originally set to 300 and 400, respectively. Depth is changed by increasing the number of LSTM layers (originally just one) by the factor $D$.
-      The concrete dimensions of up- and down-scaled students are shown in \autoref{tab:sizes-bert} (\BERTS) and in \autoref{tab:sizes-lstm} (\LSTMS).
-
-      \begin{table}[h!t]
-      \centering
-      \begin{tabular}{c|ccc}
-      \hline
-      $W$ & $d_h$           & $d_I$               & $A$ \\ 
-      \hline
-      1/16& 13              & 47                  & 1   \\
-      1/8 & 26              & 94                  & 1   \\
-      1/4 & 51              & 188                 & 1   \\
-      1/3 & 68              & 250                 & 1   \\
-      1/2 & 102             & 375                 & 2   \\
-      1   & 204             & 750                 & 3   \\
-      2   & 408             & 1500                & 6   \\
-      3   & 612             & 2250                & 9   \\
-      4   & 816             & 3000                & 12  \\
-      % 5   & 1020            & 3750                & 15  \\
-      \hline
-      \end{tabular}
-      \quad \quad \quad \quad
-      \begin{tabular}{c|c}
-      \hline
-      $D$ & $L$ \\
-      \hline
-      1/4 & 1   \\
-      1/3 & 2   \\
-      1/2 & 3   \\
-      1   & 5   \\
-      2   & 10  \\
-      3   & 15  \\
-      \hline
-      \end{tabular}
-      \caption{\BERTS~dimensions for different width scalings (left) and depth scalings (right). The default size with 2.4 million parameters corresponds to $W=1$, $D=1$.}
-      \label{tab:sizes-bert}
-      \end{table}
-
-      \begin{table}[h!t]
-      \centering
-      \begin{tabular}{c|cc}
-      \hline
-      $W$ & $d_{LSTM}$  & $d_{FC}$\\ 
-      \hline
-      1/32& 9           & 13 \\
-      1/16& 19          & 25 \\
-      1/8 & 37          & 50 \\
-      1/4 & 75          & 100 \\
-      1/2 & 150         & 200 \\
-      1   & 300         & 400 \\
-      2   & 600         & 800 \\
-      3   & 900         & 1200 \\
-      4   & 1200        & 1600 \\
-      5   & 1500        & 2000 \\
-      \hline
-      \end{tabular}
-      \quad \quad \quad \quad
-      \begin{tabular}{c|c}
-      \hline
-      $D$ & $L$ \\
-      \hline
-      1   & 1  \\
-      2   & 2  \\
-      3   & 3  \\
-      4   & 4  \\
-      5   & 5  \\
-      \hline
-      \end{tabular}
-      \caption{\LSTMS~dimensions for different width scalings (left) and depth scalings (right). The default size with 2.4 million parameters corresponds to $W=1$, $D=1$.}
-      \label{tab:sizes-lstm}
-      \end{table}
-
-      \subsubsection{CoLA}{
-        With the teacher's evaluation-set MCC of 59.9 being much higher than the student performance observed so far (around 40), I up-scale both students, aiming for 90\% of the teacher performance while keeping the student size smaller than the 340-million-parameter teacher.
-
-        As observed in preliminary experiments with large \BERTS~versions, their learning suffers from gradient explosion due to the learning rate being too large for the models. For an example, see \autoref{fig:exploding-grads} where the gradient explosion happens around epoch 7 and the model score (MCC) then falls to 0 and stays there.
-
-        \begin{figure}[h!t]
-          \centering
-          \makebox[\textwidth][c]{\includegraphics[width=12cm]{../experiments/analysis/img/exploding-grads.png}}
-          \caption{Gradient explosion in \BERTS~with $W=2$ and $D=2$. The MCC values have been smoothed with a 0.1-epoch-wide sliding average window.}
-          \label{fig:exploding-grads}
-        \end{figure}
-
-        Without further extensive exploration of optimal learning rate values for each \BERTS~size\footnote{This would be extremely time-consuming because the larger versions take over 3 days to train.}, I choose better learning rate values manually.
-        Because of the use of $\eta$ warmup, I can monitor the learning progress for varying $\eta$ values in the early training epochs, as shown in \autoref{fig:exploding-grads-choosing-lr}. I approximately identify the point in training beyond which the learning slows down (and later degrades altogether) due to large gradients. This way, I approximately identify the largest learning rate that still leads to learning, not to gradient explosion. In the concrete example in \autoref{fig:exploding-grads-choosing-lr}, I choose the point in training after 2.5 epochs, where the learning rate is approximately $\eta=8\times10^{-5}$, and use this value with the concrete model size.
-        
-        \begin{figure}[h!t]
-          \centering
-          \makebox[\textwidth][c]{\includegraphics[width=12cm]{../experiments/analysis/img/exploding-grads-choosing-lr.png}}
-          \caption{Learning progress (MCC over time) vs $\eta$ for \BERTS~with $W=2$ and $D=2$ -- the model experiencing gradient explosion in \autoref{fig:exploding-grads}. The dashed lines show the position I identify as the approximate latest point of training before the learning starts to slow down, and the learning rate at that position.
-          The MCC values have been smoothed with a 0.1-epoch-wide sliding average window.}
-          \label{fig:exploding-grads-choosing-lr}
-        \end{figure}
-
-        With the new learning rates manually estimated individually for each student size, none of the larger versions of \BERTS~experiences gradient explosion. The LSTM students all use the same learning rate as this does not lead to any issues. \autoref{fig:size-cola} presents the results. While some larger students outperform the original, 2.4-million-parameter ones, the trends are not consistent. For \LSTMS~in particular, there is no clear correlation between student width or depth and the performance. For \BERTS, which starts as a relatively deep model with 5 layers, making it wider rather than deeper is helpful. For \LSTMS~which originally has only 1 hidden LSTM layer, increasing both the width and the depth can lead to better-performing models. Overall, both student architectures reach the best evaluation score of \mytilde45, far below the teacher performance level of 59.9. 
-
-        \begin{figure}
-          \centering
-          \begin{subfigure}{.5\textwidth}
-            \centering
-            \includegraphics[width=7cm]{../experiments/analysis/img/size-cola-lstm-map}
-            \caption{Different sizes of \LSTMS.}
-            \label{fig:size-cola-lstm}
-          \end{subfigure}%
-          \begin{subfigure}{.5\textwidth}
-            \centering
-            \includegraphics[width=6.5cm]{../experiments/analysis/img/size-cola-bert-map}
-            \caption{Different sizes of \BERTS.}
-            \label{fig:size-cola-bert}
-          \end{subfigure}
-          \caption{Best evaluation-set performance for the different student sizes on CoLA.}
-          \label{fig:size-cola}
-        \end{figure}
-        
-        I refrain from exploring students even larger as the biggest students are already approching the teacher size: \LSTMS~with $W=5$, $D=5$ has \mytilde247 million parameters and takes over 60h to train, and \BERTS~with $W=4$, $D=3$ has \mytilde114 million parameters and takes over 6 days to train.
-        As the best-performing students, I establish \BERTS~with $W=4$, $D=1$, and \LSTMS~with $W=2$, $D=2$.
-      }
-
-      \subsubsection{SST-2}{
-        As previously observed, on SST-2, even the default 2.4-million-parameter students perform on par with the teacher. With no reason to try larger student sizes, I limit myself to exploring smaller student architectures, with the aim of keeping student accuracy above 90\% of the teacher's score. With \BERTT~achieving 91.5\% accuracy, the 90\% lower bound is at \mytilde82\% accuracy.
-
-        \autoref{fig:size-sst-2} shows that accuracy stays high even for very small students. 
-        The smallest tried LSTM student ($W=1/64$, 24,360 non-embedding parameters, \mytilde14,000x smaller than \BERTT) still achieves 89.1\% accuracy (\mytilde97\% of the teacher's performance).
-        The smallest tried BERT student ($W=1/16$, $D=1/4$, 2272 non-embedding parameters, \mytilde150,000x smaller than \BERTT) achieves 83.5\% accuracy (\mytilde91\% of \BERTT's performance).
-        What these results mean is that the SST-2 task is relatively easy. 
-        For good accuracy levels, a very minimalistic classifier is sufficient on top of the pre-trained embeddings -- the representations obtained simply by encoding each word using word2vec already contain most of the knowledge needed to make good sentiment predictions.
-
-        \begin{figure}
-        \makebox[\linewidth][c]{%
-          \centering
-          \begin{subfigure}{.61\textwidth}
-            \centering
-            \includegraphics[width=9cm]{../experiments/analysis/img/size-sst-2-lstm-map}
-            \caption{Different sizes of \LSTMS.}
-            \label{fig:size-sst-2-lstm}
-          \end{subfigure}%
-          \begin{subfigure}{.5\textwidth}
-            \centering
-            \includegraphics[width=7.5cm]{../experiments/analysis/img/size-sst-2-bert-map}
-            \caption{Different sizes of \BERTS.}
-            \label{fig:size-sst-2-bert}
-          \end{subfigure}
-        }
-        \caption{Best evaluation-set performance for the different student sizes on SST-2.}
-        \label{fig:size-sst-2}
-        \end{figure}
-        Another insight from \autoref{fig:size-sst-2-bert} is that making \BERTS~shallower affects the performance much less than making it slimmer. In other words, the 2.4-million-parameter \BERTS~may be unnecessarily deep for the task, but it is not unnecessarily wide.
-      }
-
-      \subsubsection{Sara}{
-        Similar to SST-2, Sara is an easy task. With \BERTT~achieving $F_{1 micro}=87.5$, the 2.4-million-parameter \BERTS~and \LSTMS~already achieve 87.1 and 86.5, respectively.
-        I further down-scale the students, see \autoref{fig:size-sara}. Similar to the results on SST-2, both students can be made much smaller while achieving over 90\% of \BERTT's performance.
-        The second smallest tried \LSTMS~($W=1/4$) is 262x smaller than the teacher while retaining almost 95\% of its performance.
-        The \BERTS~with $W=1/2$ and $D=1/4$, being 2500x smaller than \BERTT, retains \mytilde93\% of its performance.
-
-        Also similarly to SST-2, making \BERTS~shallower has much weaker effect on the performance than making it thinner. In other words, the Sara task does not require very deep models, and keeping the representation dimensionality above certain level (in this case around 128 or above, corresponding to $W\geq1/2$) is more important.
-        \begin{figure}
-        \makebox[\linewidth][c]{%
-          \centering
-          \begin{subfigure}{.61\textwidth}
-            \centering
-            \includegraphics[width=5.4cm]{../experiments/analysis/img/size-sara-lstm-map}
-            \caption{Different sizes of \LSTMS.}
-            \label{fig:size-sara-lstm}
-          \end{subfigure}%
-          \begin{subfigure}{.5\textwidth}
-            \centering
-            \includegraphics[width=5cm]{../experiments/analysis/img/size-sara-bert-map}
-            \caption{Different sizes of \BERTS.}
-            \label{fig:size-sara-bert}
-          \end{subfigure}
-        }
-        \caption{Best evaluation-set performance for the different student sizes on Sara.}
-        \label{fig:size-sara}
-        \end{figure}
-      }
-    }
-  }
-
-  \section{Summary}{
-    % - tuning params on CoLA
-    % - tuning task-secific params
-    % - results: comparing best students and teachers
-    By conducting a brief exploration of the students' hyper-parameters, I produced well-performing \BERTS~and \LSTMS~for each of the three downstream tasks, and gained insights into the nature of the parameters, tasks and models.
-
-    CoLA is much more difficult of a task than SST-2 and Sara. Even with students having over 100 million parameters, they do not achieve more than 75\% of the teacher's score. Moreover, in general, \BERTS~requires more parameters than \LSTMS~for the same performance level. This can be attributed to the smaller initial width of BERT's internal representations: 204 (compare with the 300- and 400-unit layers of \LSTMS).
-
-    There is further evidence of model width being more important than depth: In particular, the 5-layer \BERTS~can be made shallower on both SST-2 and Sara without significant performance drops. I conclude that Transformer models like the 12- and 24-layer BERTs are unnecessarily deep for tasks like intent classification or even grammatical acceptability, and making then shallower is a promising way to accelerate the models. After all, this idea is in line with \citet{Sanh_2019} who created well-performing BERT students shallower but not thinner than the teacher.
-
-    There are several differences between \BERTS~and \LSTMS. Notably, the LSTM student converges much faster. Additionally, the much deeper BERT student is more sensitive to the learning rate values and these need to be significantly reduced for larger \BERTS~sizes. While \LSTMS~trains much faster, it works best with smaller minibatches -- if larger batch sizes worked well, the training could be sped up even further.
-
-    The usual direction of knowledge flow into a student during knowledge distillation is top-down: Matching the teacher's logits happens at the top of the students, and gradients trickle down into the lower student layers.
-    Opposite and complementary to this is the provision of trained embeddings to the early layer of a student (knowledge injected at the bottom can trickle up during further training).
-    I showed that both word-level word2vec embeddings and fine-tuned wordpiece embeddings taken from \BERTT~work well with both student architectures. Importantly, certain downstream tasks like CoLA and SST-2 benefit from higher-quality word-level representations while others like Sara can benefit from the flexibility of wordpiece embeddings. It would be interesting to see how well word-level embeddings fine-tuned as part of the teacher model would perform.
-
-    Besides leaving the embedding layer to be further trained during knowledge distillation, I observe the usefulness of keeping another -- frozen -- copy of the embeddings which reflects the initial knowledge injected before student training\footnote{This corresponds to the multichannel embedding mode.}
-
+  \section{Discussion and summary}{
     \begin{table}[h!bt]
       \centering
-      \fontsize{10}{11} \selectfont 
+      \footnotesize
       \begin{tabular}{|l|l|l|l|l|c|l|c|c|}
         \hline
        &
@@ -1362,9 +1106,9 @@
         speed &
         eval &
         test \\
-        % \hline
         \hhline{|=|=|=|=|=|=|=|=|=|}
-      \multirow{5}{*}{\rotatebox[]{90}{\centering CoLA}} &
+      \rowcolor{CoLA-l}
+        &
         \BERTT &
         \begin{tabular}{@{}l@{}}$L=24$, $d_h=1024$, \\$d_I=4096$, $A=16$ \end{tabular} &
         \begin{tabular}{@{}l@{}}$B=36$, $\eta=5\times10^{-5}$, \\$E_w=0.3$, decay\end{tabular} &
@@ -1372,9 +1116,10 @@
         340 &
         750ms &
         59.9 &
-        XX \\
-        \cline{2-9}
-       &
+        54.6 \\
+      \hhline{~--------}
+      \rowcolor{CoLA-l}
+        &
         \BERTS &
         \begin{tabular}{@{}l@{}}$L=5$, $d_h=816$, \\$d_I=3000$, $A=12$ \end{tabular} &
         \begin{tabular}{@{}l@{}}$B=128$, $\eta=7\times10^{-5}$, \\$E_w=15$, decay\end{tabular} &
@@ -1383,8 +1128,9 @@
         100ms &
         45.0 &
         29.8 \\
-        \cline{2-9}
-       &
+      \hhline{~--------}
+      \rowcolor{CoLA-l}
+      \multirow{-5}{*}{\rotatebox[]{90}{\centering CoLA}}  &
         \LSTMS &
         \begin{tabular}{@{}l@{}}$L=2$, $d_{LSTM}=600$,\\$d_{FC}=800$\end{tabular} &
         \begin{tabular}{@{}l@{}}$B=32$, $\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
@@ -1394,7 +1140,7 @@
         44.2 &
         27.9 \\
         \hline
-      \multirow{5}{*}{\rotatebox[origin=c]{90}{SST-2}} &
+      \rowcolor{SST-2-l} &
         \BERTT &
         \begin{tabular}{@{}l@{}}$L=24$, $d_h=1024$, \\$d_I=4096$, $A=16$ \end{tabular} &
         \begin{tabular}{@{}l@{}}$B=36$, $\eta=5\times10^{-5}$, \\$E_w=0.3$, decay\end{tabular} &
@@ -1402,9 +1148,10 @@
         340 &
         750ms &
         91.5 &
-        XX \\
-        \cline{2-9}
-       &
+        93.1 \\
+      \hhline{~--------}
+      \rowcolor{SST-2-l}
+        &
         \BERTS &
         \begin{tabular}{@{}l@{}}$L=5$, $d_h=204$,\\$d_I=750$, $A=3$\end{tabular} &
         \begin{tabular}{@{}l@{}}$B=128$, $\eta=5\times10^{-4}$, \\$E_w=15$, decay\end{tabular} &
@@ -1413,8 +1160,9 @@
         12ms &
         89.3 &
         87.8 \\
-        \cline{2-9}
-       &
+      \hhline{~--------}
+      \rowcolor{SST-2-l}
+      \multirow{-5}{*}{\rotatebox[origin=c]{90}{SST-2}} &
         \LSTMS &
         \begin{tabular}{@{}l@{}}$L=1$, $d_{LSTM}=300$,\\$d_{FC}=400$\end{tabular} &
         \begin{tabular}{@{}l@{}}$B=32$, $\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
@@ -1424,17 +1172,18 @@
         91.2 &
         92.2 \\
         \hline
-      \multirow{5}{*}{\rotatebox[origin=c]{90}{Sara}} &
-        \BERTT &
+      \rowcolor{Sara-l}
+        & \BERTT &
         \begin{tabular}{@{}l@{}}$L=24$, $d_h=1024$, \\$d_I=4096$, $A=16$ \end{tabular} &
-        \begin{tabular}{@{}l@{}}$B=36$, $\eta=5\times10^{-5}$, \\$E_w=0.3$, decay\end{tabular} &
+        \begin{tabular}{@{}l@{}}$B=36$, $\eta=5\times10^{-5}$, \\$E_w=1$, decay\end{tabular} &
         \begin{tabular}{@{}l@{}}piece\end{tabular} &
         340 &
         750ms &
         87.5 &
         88.3 \\
-        \cline{2-9}
-       &
+      \hhline{~--------}
+        \rowcolor{Sara-l}
+        &
         \BERTS &
         \begin{tabular}{@{}l@{}}$L=5$, $d_h=204$,\\$d_I=750$, $A=3$\end{tabular} &
         \begin{tabular}{@{}l@{}}$B=128$, $\eta=5\times10^{-4}$, \\$E_w=15$, decay\end{tabular} &
@@ -1443,8 +1192,9 @@
         11ms &
         87.1 &
         86.4 \\
-        \cline{2-9}
-       &
+      \hhline{~--------}
+      \rowcolor{Sara-l}
+      \multirow{-5}{*}{\rotatebox[origin=c]{90}{Sara}} &
         \LSTMS &
         \begin{tabular}{@{}l@{}}$L=1$, $d_{LSTM}=300$,\\$d_{FC}=400$\end{tabular} &
         \begin{tabular}{@{}l@{}}$B=32$, $\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
@@ -1455,18 +1205,29 @@
         86.4 \\
       \hline
       \end{tabular}
-      \caption{Configuration for the best students on each task. The model size is in millions of trainable non-embedding parameters. The embedding type (``embed.'') is ``word'' (word2vec) or ``piece'' (wordpiece), the mode is either ``multi'' (multichannel), or the default non-static mode where not explicitly stated. The inference speed is calculated by measuring the time for processing the entire evaluation set in batches of 256, then turned into time per single example and reported. Evaluation-set (``eval'') and test-set (``test'') scores are reported using the appropriate metric (accuracy, MCC, $\text{F1}_{micro}$).}
+      \caption{Essential information about the students and teachers on each downstream task. The model size is in millions of trainable non-embedding parameters. The embedding type (``embed.'') is ``word'' (word2vec) or ``piece'' (wordpiece), the mode is either ``multi'' (multichannel), or the default non-static mode where not explicitly stated. The inference speed is calculated by measuring the time for processing the entire evaluation set in batches of 256 (previously transformed from text into numerical form), then turned into time per single example and reported. Evaluation-set (``eval'') and test-set (``test'') scores are reported using the appropriate metric (accuracy, MCC, $\text{F1}_{micro}$). The student size differs between SST-2 and Sara due to the higher dimensionality of wordpiece embeddings (1024) compared to word2vec (300).}
       \label{tab:best-students}
     \end{table}
 
-    \autoref{tab:best-students} summarises the parameters of best students on each task. These 6 students, together with their teachers, I will use for further analysis. \autoref{fig:best-models-scores} compares the best students with the teacher in terms of the evaluation-set score.
+    \autoref{tab:best-students} summarises the hyperparameters chosen for each student on each task, and compares all models in terms of their size, prediction speed and score.
+    Clearly, CoLA is more difficult of a task than SST-2 and Sara: In the student size exploration, even models with over 100 million parameters achieve only below 75\% of the teacher's score. As a compromise between accuracy and model size, I choose for analysis students that are 4.5x (\BERTS) and 22x (\LSTMS) smaller than the teacher.
+    On SST-2 and Sara, on the other hand, the 2.4-million-parameter students, being 140x smaller than \BERTT, reach comparable accuracy. The students can be even smaller while staying above 95\% of the teacher's score: E.g. \LSTMS~on SST-2 can be 14,000x smaller (64x slimmer than the 2.4-million-parameter version), and \BERTS~can be 2000x smaller (3x slimmer and 2x shallower than the 2.4-million-parameter version).
+    The students are also much faster than the teacher models, with \LSTMS~being particularly fast\footnote{\LSTMS~may be faster than \BERTS~partly due to different input feeding strategies; while for \BERTS~all input examples are padded to the model's maximum sequence length of 128, for \LSTMS, I only pad all examples within a batch to the length of the longest example, which leads to more compact batches.} -- up to 1100x faster than \BERTT.
+    
+    There is evidence of model width being the key dimension, with small model depths being sufficient for decent performance levels.
+    Possibly, models like the 12- and 24-layer BERTs released by \citet{Devlin_2018} are unnecessarily deep for tasks like intent classification or even grammatical acceptability. Thus, making the models shallower is one way of compressing and accelerating them (in line with \citet{Sanh_2019} who created well-performing BERT student shallower but not slimmer than BERT\textsubscript{Base}).
 
-    \begin{figure}[h!tb]
-      \centering
-      \includegraphics[width=13cm]{../experiments/analysis/img/best-models-scores.pdf}
-      \caption{Evaluation-set scores of the teacher and the best students for each downstream task.}
-      \label{fig:best-models-scores}
-    \end{figure}
+    There are several differences between \BERTS~and \LSTMS. Notably, the LSTM student converges much faster, but works best with smaller minibatches, which makes training slower compared to large batches. The BERT student is more sensitive to the learning rate values and these need to be significantly reduced for larger \BERTS~sizes.
+    Otherwise, the models are not too sensitive to hyperparameter choices, and the configuration chosen on CoLA works well when used in students trained on SST-2 and Sara.
+
+    In knowledge distillation, the teacher's knowledge enters the student in the top layer (where feedback is received during training, with error gradients ``trickling down'' into the lower student layers).
+    The provision of trained embeddings to a student creates the opposite (and complementary) flow of knowledge: from the bottom up, as the knowledge captured in the embeddings propagates into the rest of the model.
+    I showed that while both word-level and wordpiece embeddings work well with both student architectures, certain downstream tasks (here CoLA and SST-2) benefit from the higher-quality word-level representations while others like Sara need the flexibility of wordpiece embeddings.
+    It would be interesting to see how well word-level embeddings fine-tuned as part of the teacher model would perform.
+
+    Besides leaving the embedding layer to be further trained during knowledge distillation, I observe the usefulness of keeping another -- frozen -- copy of the embeddings\footnote{This corresponds to the multichannel embedding mode.}. In other words, the student benefits from having access both to the original embeddings and to the embeddings trained as the student learns.
+
+    The 9 models described in \autoref{tab:best-students} -- one teacher and two students for each task -- are further analysed in the remainder of this work.
   }
 }
 
@@ -2019,6 +1780,11 @@
     \label{tab:sara-intent-list}
     \end{longtable}
   \end{center}
+}
+
+\chapter{Student hyperparameter exploration}{
+  \label{chap:A-student-training}
+  \include{hparam-exploration}
 }
 
 \chapter{Probing}{
