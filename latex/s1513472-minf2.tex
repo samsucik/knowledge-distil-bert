@@ -8,7 +8,7 @@
 \usepackage{textcomp} % for text tilde
 \def\mytilde{{\raise.17ex\hbox{$\scriptstyle\sim$}}}
 
-% bold in mah mode, making the needed fonts available
+% bold in math mode, making the needed fonts available
 \usepackage{amsmath}
 \usepackage{lmodern}
 \usepackage{bm}
@@ -17,16 +17,10 @@
 \usepackage{listings}
 \usepackage{spverbatim}
 
-% Fancy things in tables
-\usepackage{booktabs}
-\usepackage{array}
-\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}} % left-aligned, fixed-width table cells
-\usepackage{hhline} % double hline
-\usepackage[usenames,dvipsnames]{xcolor}
-\usepackage{color, colortbl} % coloured background in tables
-\definecolor{CoLA}{RGB}{0, 173, 118}
-\definecolor{SST-2}{RGB}{191, 115, 0}
-\definecolor{Sara}{RGB}{90, 23, 238}
+% cross and tick symbols
+\usepackage{pifont}% http://ctan.org/pkg/pifont
+\newcommand{\cmark}{\ding{51}}%
+\newcommand{\xmark}{\ding{55}}%
 
 % additional keywords in math mode
 \DeclareMathOperator{\softmax}{softmax}
@@ -42,14 +36,24 @@
 \def\equationautorefname~#1\null{(#1)\null}
 
 % Change font family and size in captions
+\usepackage[labelfont=bf,justification=justified,format=plain]{caption}
 \DeclareCaptionFont{captionfont}{\small\fontseries{n}\fontfamily{phv}\selectfont}
-\captionsetup[table]{labelsep=period,font=captionfont,justification=centering}
-\captionsetup[figure]{labelsep=period,font=captionfont,justification=centering}
+\captionsetup[table]{font=captionfont}
+\captionsetup[figure]{font=captionfont}
 
 %
 % TABLES
 %
-
+% Fancy things in tables
+\usepackage{booktabs}
+\usepackage{array}
+\newcolumntype{P}[1]{>{\raggedright\arraybackslash}p{#1}} % left-aligned, fixed-width table cells
+\usepackage{hhline} % double hline
+\usepackage[usenames,dvipsnames]{xcolor}
+\usepackage{color, colortbl} % coloured background in tables
+\definecolor{CoLA}{RGB}{0, 173, 118}
+\definecolor{SST-2}{RGB}{191, 115, 0}
+\definecolor{Sara}{RGB}{90, 23, 238}
 \usepackage{multirow} % multi-row and multi-column table cells
 \usepackage{makecell} % line breaks inside cells with \thead{} and \makecell{}
 \usepackage{longtable} % allow table to span multiple pages
@@ -1027,7 +1031,7 @@
   }
 }
 
-\chapter{Training student models}{
+\chapter{Training student models \reviewready}{
   In this chapter, knowledge distillation is used to teach (train) student models \BERTS~and \LSTMS~from the fine-tuned teacher \BERTT. This is done separately on each of the three downstream tasks -- CoLA, SST-2, and Sara.
   The objective is to obtain students which are small but perform well -- relative to the teacher. Where possible, the student size is not increased above the initial dimensions outlined in \autoref{sec:student-bilstm} (\LSTMS) and \autoref{sec:student-bert} (\BERTS), which corresponds to keeping the number of trainable parameters at \mytilde2.4 million.
 
@@ -1237,7 +1241,7 @@
   The aim is to produce insights into the nature of the downstream tasks, the models, and knowledge distillation.
   Only the important findings are presented here; for a more detailed account, see \autoref{chap:A-model-analysis}.
 
-  \section{Probing}{
+  \section{Probing \reviewready}{
     \citet{Tenney_2019b} recently showed that a typical text processing pipeline can be identified in BERT.    
     In the probing suite used here \citep{Conneau_2018}, the pipeline steps are represented from the simplest ones to the most complex ones; from extracting surface properties of input such as sentence length (probing task \verb|Length|) to detecting broken semantics (tasks \verb|OddManOut| and \verb|CoordinationInversion|); re-visit \autoref{sec:probing-tasks} for more details on each probing task.
     Here, probing is used to trace language knowledge which enters models in various ways -- as pre-trained knowledge (in the teacher BERT before fine-tuning), via trained embedding parameters (in both students), or the knowledge flow from \BERTT~into students during knowledge distillation.
@@ -1291,70 +1295,50 @@
   }
 
   \section{Analysing the models' predictions}{
-    % looking at predictions: correctness, confidence
-    The second way of analysing the student and teacher models is based only on inspecting their predictions on the evaluation sets of the downstream tasks.
-    Because I am not aware of established structured methods in this area, all of the proposed structure is my own.
-    The models' predictions are analysed in terms of their correctness, and in terms of the cofidence with which they are made -- certainly, a confident incorrect prediction should be viewed differently from a very unconfident decision which happens to be incorrect.
+    The second model analysis approach is based on inspecting evaluation-set predictions on the downstream tasks,
+    considering both correctness and cofidence (a confident incorrect prediction is not the same as a very unconfident decision which also happens to be incorrect).
+    Here, I define the confidence of a prediction as the probability assigned to the predicted class\footnote{For binary classification, the minumum confidence is 0.5 and the maximum is 1.0. A possible limitation of this definition is that confidence may be generally lower on tasks with many classes, because softmax-produced probabilities are always above-zero for every single class.}.
+    While the analysis comprises mostly qualitative, manual inspection of sentences accompanied by predicted labels and prediction confidences (see \autoref{fig:prediction-analysis-example}), where possible, quantitative, aggregated results are also presented.
 
-    % 3 main angles: individual models, model comparison, KD
-    The main objective is to gain insights in three areas: 
-    characterising the teacher and student models individually;
-    characterising the differences between the models;
-    and characterising knowledge distillation through its limitations.
-    Each area is broken down into several concrete points of focus, as presented in \autoref{tab:prediction-analysis-structure}. Note that each point of focus translates directly to a small analysis task.
-    % each angle: several questions
-    % individual models
-    % - correct/incorrect
-    % - average confidence (overall/hits/mistakes)
-    % - confident/unconfident hits/mistakes
-    % model (student) comparison
-    % - comparing average confidence
-    % - one student right, another wrong
-    % - one student confident, another one unconfident
-    % - aggregated mistake overlap (incl. teacher)
-    % KD
-    % - teacher right, students wrong
-    % - teacher confident, students unconfident
+    Because I am not aware of established structured methods in this area, I propose these three objectives, each realised as a number of analysis tasks (see \autoref{tab:prediction-analysis-structure}):
+    1) characterising the teacher and student models individually;
+    2) characterising the differences between the models;
+    and 3) characterising knowledge distillation through its limitations.
+
     \begin{table}[h!t]
-    \centering
-    \begin{tabular}{|m{2.5cm}|m{8.9cm}|m{3.5cm}|}
-    \hline
-     & \textbf{point of focus} & \textbf{rationale} \\ \hline
-    \multirow{3}{2.5cm}{\textbf{individual models}} &
-      P1: individual examples predicted correctly (hits) and incorrectly (mistakes); separately the most confident and unconfident cases &
-      \multirow{3}{3.5cm}[0.5em]{understanding the individual students' strengths and weaknesses} \\ 
-    \cline{2-2} & P2: average confidence: overall, separately on mistakes and hits & \\
-    % \cline{2-2} & P3: confident and unconfident individual predictions: separately hits and mistakes & \\ 
-    \hline
-    \multirow{4}{2.5cm}[-1em]{\textbf{model differences}} &
-      P3: comparing average confidence levels of models &
-      \multirow{4}{3.5cm}[-1em]{understanding the differences between the students in terms of their skills and confidence characteristics} \\ \cline{2-2}
-     &
-      P4: individual examples predicted correctly by only one student (incorrectly by the other one) &
-       \\ \cline{2-2}
-     &
-      P5: individual examples predicted confidently by only one student (unconfidently by the other one) &
-       \\ \cline{2-2}
-     &
-      P6: average overlap of the mistakes and hits of different models &
-       \\ \hline
-    \multirow{2}{2.5cm}{\textbf{knowledge distillation}} &
-      P7: individual examples predicted correctly by the teacher and incorrectly by both students &
-      \multirow{2}{3.5cm}{understanding the skills not learned via distillation} \\ \cline{2-2}
-     &
-      P8: individual examples predicted confidently by the teacher and unconfidently by both students &
-   \\ \hline
-    \end{tabular}
-    \caption{The structure of the prediction analysis: The points of focus for each of the three main areas in which insights are mined from the model predictions.}
-    \label{tab:prediction-analysis-structure}
+      \centering
+      \footnotesize
+      \makebox[\textwidth][c]{\begin{tabular}{|m{2cm}|m{10cm}|m{3.3cm}|}
+      \hline
+       & \textbf{point of focus} & \textbf{rationale} \\ 
+      \hhline{|=|=|=|}
+      \multirow{1}{2cm}{\textbf{individual models}} &
+        P1: individual examples predicted correctly (hits) and incorrectly (mistakes); separately the most confident and unconfident cases &
+        \multirow{3}{3.5cm}[0.5em]{understanding individual students' strengths/weaknesses} \\ 
+      \cline{2-2} & P2: average confidence: overall, separately on mistakes and hits & \\
+      \hline
+      \multirow{4}{2cm}[-1em]{\textbf{model differences}} &
+        P3: comparing average confidence levels of models &
+        \multirow{4}{3.5cm}[-1em]{understanding differences between students in terms of their skills and confidence patterns} \\ \cline{2-2}
+       &
+        P4: individual examples predicted correctly by only one student (incorrectly by the other one) &
+         \\ \cline{2-2}
+       &
+        P5: individual examples predicted confidently by only one student (unconfidently by the other one) &
+         \\ \cline{2-2}
+       &
+        P6: average overlap of the mistakes and hits of different models &
+         \\ \hline
+      \multirow{3}{2cm}{\textbf{knowledge distillation}} &
+        P7: individual examples predicted correctly by the teacher and incorrectly by both students &
+        \multirow{2}{3.5cm}{understanding the skills not learned via distillation} \\ \cline{2-2}
+       &
+        P8: individual examples predicted confidently by the teacher and unconfidently by both students &
+     \\ \hline
+      \end{tabular}}
+      \caption{The structure of the prediction analysis: The points of focus for each of the three main areas in which insights are mined from the model predictions.}
+      \label{tab:prediction-analysis-structure}
     \end{table}
-
-    The concept of correctness of a prediction is undisputable, given the gold-standard labels provided for the downstream datasets. The concept of confidence is more flexible. I define the confidence of a prediction as the probability assigned to the predicted class. Hence, for binary classification, the minumum confidence is 0.5 and the maximum is 1.0. \textit{Notice one limitation of this definition: By the nature of softmax, each class is assigned some non-zero probability. Therefore, in a task with many classes like Sara, the predicted class is likely to have a lower confidence as a result of more probability mass being used for all the other classes.}
-
-    % quantitative where possible, but mostly qualitative (example of table interface). for time reasons subsampling (10 sentences either top cases or random samples).
-    As for inspecting the model predictions, most of the points of focus translate into qualitative tasks which involve looking at individual examples\footnote{That is, sentences accompanied by the gold-standard labels, the predicted labels, and the prediction confidences}, noticing what they have in common, and describing these trends. \autoref{fig:prediction-analysis-example} shows what this looks like in practice.
-    In a few cases, the analysis is based on quantitative results -- when looking at averaged statistics (points P2, P4, and P7 in \autoref{tab:prediction-analysis-structure}).
-    When inspecting individual examples, to reasonably constrain the amount of time and labour required, I look only at 10 examples in each separate category. For instance, for task P1 alone, this means inspecting 360 sentences: For each downstream task and each teacher and student, the 10 most confident hits and mistakes, as well as the 10 most unconfident hits and mistakes.
 
     \begin{figure}[h!tb]
       \centering
@@ -1363,82 +1347,95 @@
       \label{fig:prediction-analysis-example}
     \end{figure}
     
-    % eliminating unclear, slight observations, and only keeping the clear ones.
-    As a matter of fact, most of the produced observations are not easy to interpret and turn into clear conclusions.
-    As such, I try to report only the cases where clear trends, correlations and differences are observed; in the remaining cases, the opposite should be assumed.
-    % looking at each downstream task separately but trying to see trends that generalise
-    Although the predictions are inspected separately for each downstream task, I attempt to generalise by conclusions over all tasks, and, where possible, relate them to the results of the probing analysis.
-    % where possible, trying to relate to probing results
+    \begin{figure}[h!tb]
+      \centering
+      \makebox[\textwidth][c]{\includegraphics[width=12cm]{../experiments/analysis/img/confidence-correlation}}
+      \caption{Correlation between the prediction confidences of different models, measured as the Pearson correlation coefficient $R$. The ``*'' marks statistically significant correlation (for $p < 0.05$).}
+      \label{fig:confidence-correlation}
+    \end{figure}
 
-    In what follows, findings in each of the three areas from \autoref{tab:prediction-analysis-structure} are presented and discussed.
-    
+    \begin{figure}[h!tb]
+      \centering
+      \makebox[\textwidth][c]{\includegraphics[width=15.5cm]{../experiments/analysis/img/average-confidence}}
+      \caption{The average confidence of evaluation-set predictions. Standard deviation errorbars are shown.}
+      \label{fig:prediction-analysis-avg-confidence}
+    \end{figure}
+
+    \begin{table}[h!tb]
+      \centering
+      \footnotesize
+      \makebox[\textwidth][c]{\begin{tabular}{|c|m{15cm}|}
+      \hline
+      P1 &
+      Confident hits: Easy examples from dominant classes (acceptable for CoLA, enter\_data for Sara).
+      Unconfident hits/mistakes: Difficult examples; mixed positive and negative words (SST-2); without characteristic keywords (Sara). 
+      Confident mistakes: Examples with questionable labels, strong words opposing the overal sentiment (SST-2); misleading keywords characteristic of an incorrect intent (Sara); examples where recognising unacceptability requires semantic understanding (CoLA).
+      \\ \hline
+      P2 &
+      On average, models are more confident on hits than on mistakes (see \autoref{fig:prediction-analysis-avg-confidence}).
+      \\ \hline
+      P3 &
+      On average, \BERTT~is slightly more confident than either student (may be due to scoring more of the confident hits, especially on CoLA) (see \autoref{fig:prediction-analysis-avg-confidence}).
+      \\ \hline
+      P4 &
+      All examples are long and difficult, \BERTT~is unconfident as well as one or both students (not necessarilly the incorrect one).
+      On Sara, several examples where \BERTT~better understands meaning and is not mislead by keywords, but one student is.
+      \\ \hline
+      P5 & 
+      All the examples are difficult, with all models often unconfident or even mistaken.
+      On SST-2, the \LSTMS~is unconfident often when the teacher is unconfident (the same correlation is not observed for \BERTS). \autoref{fig:confidence-correlation} quantitatively confirms this and shows moderate correlation between all model pairs' confidences on Sara (and mostly weak correlation on other downstream tasks).
+      \\ \hline
+      P6 &
+      Students are relatively unique in their mistakes: On CoLA and SST-2, \mytilde60-70\% of their mistakes are shared by both students. On Sara, this sharing is above 80\%.
+      The architecturally different \LSTMS~learns to copy \BERTT's behaviour more closely than the BERT student (mostly in terms of copying the teacher's mistakes).
+      [For detailed quantitative results, see \autoref{fig:hits-mistakes-overlap-all} in \autoref{chap:A-model-analysis}.]
+      \\ \hline
+      P7 &
+      Very difficult examples; classified unconfidently (and mostly incorrectly) by both students, and mostly correctly by \BERTT.
+      Overall, they demonstrate the teacher's superiority on challenging sentences, e.g. recognising \textit{bill's story about sue and max's about kathy both amazed me.} as acceptable (CoLA) or \textit{you live around here?} as ask\_wherefrom (Sara).
+      \\ \hline
+      P8 &
+      Similar to P7; complicated examples that require understanding of semantics (CoLA, Sara) and of mild sentiment possibly expressed in metaphors (SST-2), e.g.
+      \textit{my heart is pounding me} (CoLA, unacceptable), \textit{fuck yeah!} (Sara, affirm; misclassified by both students as handleinsult).
+      \\ \hline
+      \end{tabular}}
+      \caption{Main observations from prediction analysis, individually for each analysis task from \autoref{tab:prediction-analysis-structure}.}
+      \label{tab:prediction-analysis-findings}
+    \end{table}
+
+    When choosing examples for inspection, I select the most extreme cases, i.e. taking the most/least confident hits in P1 or the examples with largest confidence gap between the relevant models (P5, P8).
+    Where such sorting is not possible, examples are selected randomly from all suitable ones (P4, P7).
+    In all cases, 10 examples are selected for inspection in order to reasonably constrain the task\footnote{This still means inspecting 360 sentences for P1: For each downstream task and each model, the 10 most confident hits and mistakes, as well as the 10 most unconfident hits and mistakes.}.
+    In P4, examples are selected such that they are classified correctly by \BERTT\footnote{This is used as an indicator of the particular example being not too difficult to classify correctly, meaning that both students have a reasonable chance of being correct, even though one of them still makes an incorrect prediction.}.
+
     % 1 subsection per angle
     \textbf{TO-DO: add class distribution graphs for all datasets.}
-    \subsection{Characterising individual student models}{
-      First, the most confident hits and mistakes, and the most unconfident hits and mistakes are inspected for each teacher and student and each downstream task. 
-      Generally, the observations do not differ across different models, with a few exceptions.
-      
-      The most confident hits are, across all downstream tasks, very simple examples. In the datasets with class imbalance, this includes primarily examples from the dominant classes: acceptable sentences like \textit{the witch poisoned the children.} for CoLA and the enter\_data intent examples for Sara. On the latter, both students confidently succeed when examples include keywords frequently found in the enter\_data examples (such as language names in utterances like \textit{the bot speaks spanish}).
-      For SST-2, this includes sentences with strongly positive or negative words: \textit{a gorgeous, witty, seductive movie}.
-      
-      Confident mistakes across all models are of different kinds on each task: On SST-2, these are mostly examples with questionable or wrong gold-standard labels, and examples where the strong sentiment of a single word opposes the true overall sentiment, e.g. ``failure'' in \textit{if steven soderbergh's 'solaris' is a failure it is a glorious failure}. On Sara, unclear examples are classified as the dominant enter\_data and out\_of\_scope intents; aditionally, keywords characteristic of an incorrect intent ``confuse'' the models, e.g. \textit{ok let's start} is misclassified as how\_to\_get\_started due to ``start''. On CoLA, confident mistakes are mostly difficult unacceptable examples like \textit{Mary wonders that Bill will come.} where the model has to recognise that ``wonder'' cannot be used in this way (unlike the similar verb ``think''). Notably, \LSTMS~fails to predict examples with imperatives and incorrect reflexive pronouns of the form \textit{wash you!} as unacceptable.
-
-      As for unconfident predictions, the mistakes and hits are similar. On CoLA, these are difficult and confusing examples of various kinds. On SST-2, these are sentences with mixed positive and negative words (\textit{hilariously inept and ridiculous}), without clear strong sentiment, or with sentiment hidden in metaphors or idioms like ``like a breath of fresh air'' in: \textit{in a way, the film feels like a breath of fresh air, but only to those that allow it in}. On Sara, all the examples require the models to actually comprehend the meaning, due to the absence of any keywords characteristic for an intent. Interestingly, there is evidence of pre-trained knowledge in \BERTT: it incorectly predicts \textit{i want to know current situtation in pakistan} as ask\_wherefrom, likely due to possessing an association between ``pakistan'' and ``country'', the latter word being characteristic of the intent's examples.
-
-      \begin{figure}[h!tb]
-        \centering
-        \makebox[\textwidth][c]{\includegraphics[width=15.5cm]{../experiments/analysis/img/average-confidence}}
-        \caption{The average confidence of evaluation-set predictions. Standard deviation errorbars are shown.}
-        \label{fig:prediction-analysis-avg-confidence}
-      \end{figure}
-      Finally, the average confidence levels for each model and task as shown in \autoref{fig:prediction-analysis-avg-confidence}. Notably, correct predictions are in general more confident than incorrect ones. Additionally, the overall confidence is highest on average for SST-2 -- an effect likely related to the high overall accuracy on this task (i.e. many -- on average confident -- hits).
-
-      All in all, most of the observed trends hold for all models. In particular, models are confidently correct on simple examples, and found to be misled (mostly by keywords) on confident mistakes. Unconfident decisions are common on non-trivial sentences which require models to understand the true meaning or metaphors. Especially student models seem to depend on the frequent keywords as easy cues.
-    }
     
-    \subsection{Characterising the differences between models}{
-      Following up on the average confidence levels discussed previously, these show only very small differences between different models. In general, \BERTT~is slightly more confident than either student. Moreover, this comparison can be affected by differences in performance -- especially for CoLA, where the teacher overperforms both students by a large margin and is thus likely to have the overall confidence score high due to many (confident) hits.
+    \autoref{tab:prediction-analysis-findings} summarises the observations from each analysis task. In general, examples referred to as ``easy'' are mostly simple sentences on CoLA (\textit{the witch poisoned the children.}), sentences with clear sentiment on SST-2 (\textit{a gorgeous, witty, seductive movie.}), and sentences with clear keywords on Sara (\textit{the bot speaks \textbf{spanish}}\footnote{Names of several languages appear extremely often in the enter\_data intent examples.}). Difficult examples may require detailed understanding, e.g. recognising the broken semantics in \textit{my heart is pounding me.} (CoLA).
 
-      For inspecting the examples predicted correctly by one student and incorrectly by the other, for each downstream task, 10 examples are sampled randomly for inspection from all such examples.
-      Additionally, these examples are chosen such that they were classified correctly by the teacher\footnote{This is used as an indicator of the particular example being not too difficult to classify correctly, meaning that both students have a reasonable chance of being correct, even though one of them still makes an incorrect prediction.}.
-      The main finding is that all these examples are long and difficult ones, and even the teacher model is unconfident in its predictions (especially on CoLA and SST-2), with one or both students also being very unconfident (not necessarilly the incorrect one). Interestingly, on Sara, there are many examples where the teacher is not mislead by keywords, but one student is; for instance, \textit{alexa, order 5 tons of natrium chloride} is misclassified by \BERTT~as ask\_faq\_voice (likely because the voice assistant Alexa is frequently mentioned in ask\_faq\_voice examples \textit{how can i use rasa with alexa}).
-      
-      \begin{figure}[h!tb]
-        \centering
-        \makebox[\textwidth][c]{\includegraphics[width=12cm]{../experiments/analysis/img/confidence-correlation}}
-        \caption{Correlation between the prediction confidences of different models, measured as the Pearson correlation coefficient $R$. The ``*'' marks statistically significant correlation (for $p < 0.05$).}
-        \label{fig:confidence-correlation}
-      \end{figure}
+    In order to aid my understanding of predictions on CoLA, lastly, I employ an experimental approach: I let all models classify numerous perturbed variants of 21 interesting CoLA sentences which were originally predicted correctly by \BERTT~but incorrectly by both students.
+    This produces further and cleared evidence of students not being sensitive to valid/broken sentence semantics, see \autoref{tab:pred-anal-cola-case-studies}.
+    In addition to ``allowing'' John to be a tree, the students are also found to be sensitive to concrete word choices where these should not matter, e.g. \textit{most of the fruit is ripened.} is classified differently from \textit{most of the fruit is spoiled.}.
 
-      In order to analyse examples on which one student was confident and the other one was not, examples are sorted by the difference in confidences and the top 10 examples are taken for each student being the more confident one.
-      All the examples are difficult ones, as indicated by not just one student but also the teacher often being unconfident or even mistaken.
-      While there are no clear links between the student confidence and correctness, I observe that on CoLA and Sara \LSTMS~is mostly correct (when being the unconfident student), but the same is not true for \BERTS.
-      On SST-2, the teacher is often unconfident when \LSTMS~is unconfident, but the same does not hold for \BERTS~being the unconfident student; possibly, the recurrent student learns to mimic the teacher's behaviour more closely, including the confidence levels.
-      To confront this possibility with quantitative results, \autoref{fig:confidence-correlation} presents the correlation levels between each pair of models on each downstream task. While the \LSTMS~correlated with the teacher more strongly (on SST-2), the correlation is generally weak. Interestingly, all models have their confidences weakly correlated on CoLA and SST-2, but moderately correlated on Sara.
-
-      Finally, I turn to exploring the extent to which the different models make the same hits and mistakes, or, on the other hand, have them unique.
-      For the complete results, see \autoref{fig:hits-mistakes-overlap-all} in \autoref{chap:A-model-analysis}, here I summarise the important findings. 
-      Across all downstream tasks, the students are relatively unique in the mistakes they make: On CoLA and SST-2, \mytilde60-70\% of the mistakes made by one student are also made by the other. On Sara, this share is higher -- above 80\%.
-      Somewhat counterintuitively, the architecturally different LSTM student learns to copy the teacher's behaviour more closely than the BERT student.
-      In particular, \LSTMS~repeats more of the teacher's mistakes while \BERTS~makes more of its own mistakes -- even though the difference is only \mytilde5\% of the total number of mistakes made, the finding is consistent across all downstream tasks. Unsurprisingly, when a student is correct, the teacher is also correct -- with less than 2-7\% of each student's hits being the respective teacher's mistakes.
-
-      All in all, the qualitative analysis provides little insight into the models' differences, but confirms the teacher as being more capable of classifying examples based on overall understanding rather than on the relatively easy but naiive keyword cues.
-      Additionally, the LSTM student is observed to better copy the teacher's behaviour in terms of correct and incorrect predictions, and in the case of SST-2 also in terms of confidence patterns. 
-      Compared to the other two downstream tasks, on Sara, the students behave much more similarly: their confidences are more correlated and the overlap between their mistakes is also significantly higher.
-    }
-    
-    \subsection{Characterising knowledge distillation}{
-      To conclude the prediction analysis, I attempt to characterise the knowledge that a teacher possesses but its students do not.
-      In particular, for each downstream task, 1) the top 10 examples are inspected on which the gap between the teacher's and the students' confidences is the largest\footnote{The total difference is computed as the average of the differences between the teacher confidence and each of the students' confidences.}, and 2) randomly chosen 10 examples are inspected, which are predicted correctly by the teacher but incorrectly by both students.
-
-      All the examples with the largest confidence gap are found to be also very difficult and predicted both very unconfidently and mostly incorrectly by both students across all tasks.
-      With the teacher being mostly correct but often with below-average confidence, these examples demonstrate well the superiority of the teacher model. In particular, it can correctly classify unusual but acceptable CoLA sentences like \textit{bill's story about sue and max's about kathy both amazed me.}, as well as very rare wordings of various Sara intents: \textit{are you bilingual?} (ask\_languagesbot) and \textit{you live around here?} (ask\_wherefrom).
-
-      Similarly, the sentences classified correctly by \BERTT~but incorrectly by both students are challenging, complicated examples often requiring good understanding of semantics (CoLA), of mild sentiment or sentiment expressed in metaphors (SST-2), and of wordings without characteristic keywords (Sara).
-      For instance, the unacceptability of \textit{my heart is pounding me} is determined correctly by \BERTT~(note that the sentence is structurally well-formed); and \textit{fuck yeah!} is correctly identified as the affirm intent, whereas both students miclassify it as the handleinsult intent due to the misleading keyword.
-
-      Put together, the above examples illustrate how the students fail to learn bits of the teachers' most expert knowledge.
-    }
+    \begin{table}[h!tb]
+      \centering
+      \footnotesize
+      \begin{tabular}{lcccc}
+      \toprule
+      & label & \BERTT & \BERTS & \LSTMS \\
+      \toprule
+      \textit{my heart is pounding me. }& \xmark & \xmark~0.89 & \cmark~0.96 & \cmark~0.88 \\
+      \textit{my heart is pounding.    }& \cmark & \cmark~0.98 & \cmark~0.97 & \cmark~0.98 \\
+      \textit{my heart is beating me.  }& \xmark & \xmark~0.92 & \cmark~0.93 & \cmark~0.98 \\
+      \textit{my heart is beating.     }& \cmark & \cmark~0.98 & \cmark~0.93 & \cmark~0.98 \\
+      \textit{we believed john to be a fountain in the park.}  &\xmark & \xmark~0.92 & \cmark~0.97 & \cmark~0.98 \\
+      \textit{we believed john to be a bench in the park.   }  &\xmark & \xmark~0.93 & \cmark~0.96 & \cmark~0.98 \\
+      \textit{we believed john to be a musician in the park.}  &\cmark & \cmark~0.98 & \cmark~0.98 & \cmark~0.98 \\
+      \bottomrule
+      \end{tabular}
+      \caption{Two example CoLA sentences, each followed by my own perturbed variants. \cmark~= acceptable, \xmark~= unaceptable. Confidences are shown next to model predictions.}
+      \label{tab:pred-anal-cola-case-studies}
+    \end{table}
   }
 
   \section{Summary}{

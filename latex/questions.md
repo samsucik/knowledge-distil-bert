@@ -8,10 +8,10 @@
 - // should I report prediction speed (on CPU)? YES, in 5.3
 - // should I include the publisher in all article references? and age numbers in proceedings? VENUE OF PUBLICATION, ideally page numbers
 - // are huge graphs understandable? YES
-- should I show probing baseline results of Conneau et al? YES also Ganesh_2019 has results for BERT_Base
+- // should I show probing baseline results of Conneau et al? YES also Ganesh_2019 has results for BERT_Base
 
 
-explain moving avg and crosses in tuning hparams, maybe show raw score and compare with avg
+// explain moving avg and crosses in tuning hparams, maybe show raw score and compare with avg
 
 ch5: explain methodoogy (chronology) but then jump to outcomes (all best hparams). put details of intermediate results into appendix. summary will likely become much shorter. add teacher params in table 5.3 and also eval-set scores.
 
