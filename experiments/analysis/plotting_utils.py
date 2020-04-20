@@ -109,7 +109,8 @@ def modify_cl(cl, modifier):
 
 probing_baseline_colours = {"human": np.array(colors.to_rgb("paleturquoise")), 
                     "majority": np.array(colors.to_rgb("papayawhip")),
-                    "morpho": np.array(colors.to_rgb("grey")),}
+                    "morpho": np.array(colors.to_rgb("grey")),
+                    "conneau-best": np.array(colors.to_rgb("firebrick"))}
 probing_baselines = {"majority": [20.0, 0.5, 17.9, 5.0, 50.0, 50.0, 50.0, 50.0, 50.0, 50.0],
              "human": [100, 100, 84.0, 84.0, 98.0, 85.0, 88.0, 86.5, 81.2, 85.0],
              "conneau-best": [99.3, 88.8, 63.8, 89.6, 83.6, 91.5, 95.1, 95.1, 73.6, 76.2],
