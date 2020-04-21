@@ -138,7 +138,7 @@
   \tableofcontents
 }
 
-\chapter{Introduction}{
+\chapter{Introduction \reviewready}{
   \pagenumbering{arabic}
   \setcounter{page}{1}
   % what's the problem, 
@@ -191,9 +191,25 @@
     \end{itemize}
   }
   
-  % what I did
   \section{Contributions}{
-    My actual findings. To be added later.
+    \begin{enumerate}
+      \item{
+        I show that the specific knowledge distillation approach of \citet{Tang_2019b} can be used to distill BERT into extremely small students -- several thousand times smaller and up to 1100x faster -- on two of the NLP tasks.
+        No essential differences between the two student architectures are found; both students can be of the same size and use similar hyperparameter configurations.
+        As a novel way of initialising the student models, I explore the use of trained wordpiece embedding parameters extracted from the teacher model.
+      }
+    
+      \item{
+        By analysing the trained models, for each NLP task, I characterise the examples that are easy and difficult for the models to classify, and I describe the teacher's capabilities which are not learnt well by the students (in general, these are the most sophisticated of the teacher's skills).
+        Additionally, I characterise each of the NLP tasks in terms of the linguistic capabilities it requires, and explain the gap between the teacher's and the students' accuracy on the most difficult task.
+        Finally, by focusing on the confidence with which individual decisions are made by the models (both teacher and student ones), I am able to measure how similarly two models behave, and conclude that while each model behaves relatively uniquely on the linguistic acceptability task, all models behave similarly on the intent classification task.
+      }
+
+      \item{
+        I demonstrate how the model probing tool proposed by \citet{Conneau_2018} can be used not just to quantify the amount of certain language knowledge in a particular part of a model's architecture, but also to investigate the sources of the knowledge.
+        In particular, a model can possess a certain linguistic skill due to different reasons: Sometimes a particular task requires the model to learn the skill; sometimes the necessary knowledge is present in the model before training (whether in the particular model part or in a different part); or it can be a combination of both.
+      }
+    \end{enumerate}
   }
 }
 
@@ -362,7 +378,6 @@
       \end{figure}
       % They also changed the pre-training to 2 tasks trained at the same time: masked language modelling to learn to understand words, and next sentence prediction to learn to reason about entire sentences (as the actual NLP tasks often require such reasoning). 
       % This is is how BERT was born, which then became extremely popular in the community, attracting a lot of work on improving it, analysing its capabilities, extending it to other languages, and even applying it to multi-modal tasks such as video captioning. 
-      % TO-DO: elaborate more on BERT, also with a schematic picture.
       The overall architecture of BERT is shown in \autoref{fig:bert-hl}. The tokeniser also adds the special tokens like \verb|[CLS]| and \verb|[SEP]| to the input, while the trainable token embedding layer also adds the positional embedding and the token type embedding to the wordpiece embedding of each individual token. The pooler takes the appropriate model output (for sequence level classification the first output $\bm{o_0}$ as discussed above) and applies a fully-connected layer with the tanh activation function.
       The external classifier is often another fully-connected layer with the tanh activation, producing the logits\footnote{For a classifier, the logits are the (unnormalised) predicted class probabilities.}. These get normalised using softmax to produce a probability distribution over all classes. The most probable class get output as the model's prediction.
       
