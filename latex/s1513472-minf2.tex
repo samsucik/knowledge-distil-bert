@@ -82,7 +82,6 @@
 \def\reviewready{\colorbox{yellow}{[READY FOR REVIEW]}}
 \def\reviewed{\colorbox{green}{[REVIEWED]}}
 
-
 % shortcuts for obscure, frequently used expressions
 \def\BERTT{BERT\textsubscript{T}}
 \def\BERTS{BERT\textsubscript{S}}
@@ -163,7 +162,7 @@
     Using knowledge distillation, BERT can be made several times smaller without significant loss of accuracy.
     While numerous variants of this technique have been successfully developed, there is little understanding of the nature of knowledge distillation: 
     How and what kinds of the large model's knowledge are best learned by the student, and how this depends on the architecture of the teacher and student models.
-    This gap in understanding is in contrast with the lot of research in understanding the internal properties and linguistic capabilities of BERT \citep{Ganesh_2019,Tenney_2019b,Kovaleva_2019,Lin_2019}.
+    This gap in understanding is in contrast with the lot of research in understanding the internal properties and linguistic capabilities of BERT \citep{Ganesh_2019,Tenney_2019b,Kovaleva_2019,Lin_2019,Rogers_2020}.
     I argue that it is also important to have a good understanding of knowledge distillation as a tool, and of the smaller and faster models eventually produced by applying this tool to BERT.
         
     %     \item In line with the increasing demand for explainable AI (TOO BOLD, TALK ABOUT INTERPRETABILITY), it is desirable that, for the beginning, at least the researchers better understand the tools they use, in this case distillation of NLP knowledge from Transformer models. Indeed, such understanding is also useful for overcoming the limitations and designing new variants of this method for smaller and better classifiers.
@@ -1236,11 +1235,11 @@
   }
 }
 
-\chapter{Analysing the models}{
+\chapter{Analysing the models \reviewready}{
   In this chapter, probing and prediction analysis are used to analyse, interpret and compare the teacher and the student models for each downstream task. 
   The aim is to produce insights into the nature of the downstream tasks, the models, and knowledge distillation.
 
-  \section{Probing \reviewready}{
+  \section{Probing}{
     By probing, in this section, I find that model initialisation plays a key role in student learning; localise different linguistic skills in the models; and point out possible limitations of the probing suite.
 
     \citet{Tenney_2019b} recently showed that a typical text processing pipeline can be identified in BERT.    
@@ -1451,81 +1450,107 @@
   }
 }
 
-\chapter{Overall discussion and conclusions}{
-  MAIN FINDINGS
-  
-  training models (TO-DO: mention different model sizes on different taks due to different vocab sizes!)
-  - distillation works well with both students (140x smaller than teacher)
-  - smaller student -> worse accuracy. larger students needed for difficult tasks (also see Bert Base vs Large!), tiny ones sufficient for > 95\% of teacher easy tasks (SST: lstm [w=1/64, 24,360, 13,957x], bert [W=1/2, D=1, 607,757, 559x], Sara: lstm [w=1/2, 2,711,657, 125x], bert [W=1/3, D=1/2, 168,699, 2015x])
-  - model width crucial (BERT has to be comparably wide (LSTM[600,800], BERT[816]) to perform on par with LSTM)
-  - pre-trained knowledge can be chosen to suit the task (embeddings of different kinds), BUT both embedding types found to work quite well with both models
-  - extensive parameter tuning not essential for good results (param values transfer across tasks). moreover, similar params work well for both students, except B.
-  - distillation takes long, but large inference speed up can be achieved (provide numbers)
-  limitations:
-  - lr tuning on CoLA different BERT sizes but not for LSTM
-  - limiting the vocab may not be good idea (arguably fallback to pre-trained embeddings better than to no embeddings at test time!)
+\chapter{Overall discussion, conclusions and future work \reviewready}{
+  \section{Distilling BERT into tiny models}{
+    With no doubt, knowledge distillation is an effective and flexible tool for compressing pre-trained Transformer models like BERT.
+    However, when assessing the results of different works that distill BERT's knowledge, one should bear in mind the different motivations.
+    In particular, I identify one stream of work which aims to retain practically all of BERT's accuracy \citep{Sanh_2019,Sun_2019a,Jiao_2019}, and another stream of work which aims at compressing BERT as much as possible \citep{Tang_2019a,Tang_2019b}. While the first stream leads to high-quality students, they are only several times smaller and faster than BERT. For many practical applications, the second stream of work is more interesting, which explores the limits of extreme model compression using knowledge distillation (at the cost of losing some of BERT's accuracy). My work belongs to the second stream, as it originated from previous research driven by the need to heavily accelerate BERT \citep{Sucik_2019}. Moreover, instead of proposing a universally well-performing student model, I adopt a more applied mindset and instead focus on how the distillation process can be tailored for individual tasks.
+    While I observe that extensive hyperparameter tuning is not necessary and one configuration can work well across several downstream tasks, some decisions are best made on a case-by-case basis, as discussed in what follows.
 
-  probing
-  - generally useful, knowledge can be quantified and localised
-  - teacher has more knowledge than students
-  - BUT: probing results depend on how pretrained knowledge is provided: whole model vs embedding layer vs none
-  - knowledge (skills) heavily vary across tasks (unsurpsiringly CoLA requires most language knowledge). especially in the deep BERT, while the shallower LSTM is more like a general feature extractor
-  - generally no big differences between students, but LSTM better at order and length things
-  limitations:
-  - different vocabularies (uneven starting conditions for probing, especially for WordContent)
-  - some probing tasks: unclear what they examine -- morpho-tasks categorised as semantic but actually also utilise syntactic and morphological information
-  - could contain tasks aimed at morphology (TO-DO: create simple morphological baselines!)
 
-  prediction analysis
-  - models confident and correct on easy examples, unconfident on difficult examples, and incorrect on tricky examples
-  - teachers show better capabilites in dealing with tricky examples, students rely on simpler tricks
-  - LSTM found to better copy teacher across tasks (and even in confidence patterns, on SST-2) -- due to shallowness, or why?
-  - interesting: on Sara both students learn to copy teacher much better. unclear why.
-  limitations:
-  - biggest issue in qualitative analysis: not knowing why a sentence was classfied (in)correctly (indeed, self-explained decisions would be nice, right?). 
-  - at least knowing focus would help: easy to do with attention models, could be done differently (masking out words) for any kind of model
-  - should analyse more sentences, not just samples. but it's very time-consuming.
+    My results show that different tasks may need different minimum student sizes in order to retain decent accuracy. This reflects the intuition that some tasks are more difficult than others, or require extracting more abstract representations of the input.
+    While a student that is several thousand times smaller than the BERT\textsubscript{Large} teacher can still achieve over 95\% of the teacher's score on tasks like binary sentiment classification (SST-2) or multi-class intent classification (Sara), a complex linguistic task like CoLA requires students much larger students and even then the standard knowledge distillation leads to significant gaps between the teacher and the students.
+    Moreover, I show that while student models can be very shallow -- 1-3 BiLSTM layers or Transformer layers seems to suffice -- the model width (representation size) should be kept around 300 or above.
 
-  CONCLUSIONS
-  % This is further broken down into three aims:
-  %   \begin{itemize}
-  %     \item{
-  %       Explore the effectiveness of knowledge distillation for very different NLP tasks. 
-  %       The chosen tasks focus on identifying the sentiment, intent, and linguistic acceptability of single sentences.
-  %       }
-  KD for different tasks
-  - task-specific adjustments should be made in terms of student size, otherwise general setup works well
-  - successful compression by XX\% and speedup by XX\%
+    Besides the student size, it can be very important to give the students access to various types of knowledge.
+    In standard knowledge distillation, the teacher's knowledge enters the student ``from the top'' (in the logits-producing layer).
+    On the bottom end of the student architecture, which tends to learn task-agnostic, general representations, it can be very beneficial to ``inject'' general knowledge upon student initialisation, e.g. from pre-trained word embeddings like word2vec or even from the teacher's embedding layer.
+    Naturally, this approach could be extended to early layers beyond the embedding layer, even though this comes with several caveats\footnote{Most notably, knowledge injection into layers such as those in BERT's encoder becomes more difficult because these layers no longer operate just on the token level, but rather on the sentence level.}. As an interesting direction for future research, probing could be used to shed more light into the knowledge flow in distillation approaches that aim to match the teacher and student's intermediate layers (e.g. \citet{Jiao_2019,Sun_2019a}). Additionally, copying the teacher's encoder layer parameters directly into the student is an attractive idea (used by \citet{Sanh_2019}); however, in its simplest form, this approach requires the student to be as wide as the teacher, which may be undesirable.
 
-  %     \item{
-  %       Explore how distilling knowledge from BERT varies when using different student architectures.
-  %       In particular, I use a down-scaled BERT student architecturally similar to the teacher, and a BiLSTM student used previously by \citet{Tang_2019a,Tang_2019b}, very different from the teacher.
-  %       }
-  KD with different students
-  - works well, no big differences. rather than difference architectures, difference in width may be crucial
-  - recurrent models may be slightly better for order/length but this should be further verified
-  %     \item{
-  %       Explore the linguistic knowledge present in the teacher and how successfully it is learned by the students.
-  %       First, I quantitatively measure and localise different types of knowledge inside the teacher and student models (building on \citet{Conneau_2018,Tenney_2019b}).
-  %       Then, I qualitatively inspect the models' predictions on concrete sentences, focusing on correctness as well as confidence.
-  %     }
-  Exploring knowledge transferred
-  - both probing and pred. analysis helpful and complementary
-  - probing good also for general knowledge flow tracking because easy to apply; pred. analysis can discover all kinds of things, not limited to 10 tasks
-  - considering confidence (not just correctness) is a promising thing
-  %   \end{itemize}
-}
+    Last but not least, the choice of student architecture may be important.
+    While many works on distilling BERT work towards smaller BERT versions and propose distillation approaches tied to Transformer architectures, there is no reason to believe that other student architectures should be inferior.
+    While in my experiments both students tend to perform comparably well, I observe the BiLSTM student to be more sensitive to order and length phenomena.
+    Recently, \citet{Huang_2020} showed that the BiLSTM architecture may complement the skills of BERT -- by combining the two into a single model, they improved on BERT's accuracy.
+    Finally, in practical applications, the inference speed of different architectures can differ due to architectureal details which are uninteresting from a research perspective. For instance, LSTMs can process variable-size batches whereas BERT requires all inputs to be padded to a fixed maximum sequence length; this way, LSTMs can process shorter inputs faster, but BERT can not.
+  }
 
-\chapter{Future work}{
-  prediction analysis with important words highlighted by self-attention (much like in the original self-atention work of \citet{Lin_2017} but somehow aggregate over multiple heads or visualise all of them?
-  prediction analysis considering sentence parts (words, phrases) to see how the belief in model evolves (when RNN processes words) or how it differs for components of sentences (especially in things like compositional sentiment for which there are labels)
-  explore Tenney's probing w.r.t. pre-trained knowledge
-  extend this work to sentence-pair tasks (perhaps starting with GLUE sp tasks)
-  explore the effect of augmentation data:
-  - varying amounts
-  - I noticed it's mostly non-sensical sentences -- maybe try to fine-tune GPT-2 for longer? also try to amplify the presence of original training data or, on the other hand, train only on augmented data?
-  probing using TCAV \citep{Kim_2017} could work, using easy-to-gather concepts: length, sentence type (statement vs question vs imperative), sentiment, tense. this is different from conneau probing -- we're not inerested in classification, only in having the notion of the phenomenon.
-  probing not just layer outputs but also attention heads. could use Conneau's probing tasks, but could also be more like \citet{Clark_2019} who probe heads only to find out that each specialises in some kind of relation, e.g. spotting direct objects, subjects, etc.)
+  \section{What can models tell us}{
+    Coming up with an idea for improvement; building a new model; evaluating it on a benchmark like GLUE -- these are the typical steps shared by many works on improving language models.
+    I am of the opinion that trained models can reveal a lot about themselves and make suggestions for improvements. In this work, I demonstrate the use of two complementary analysis approaches with this aim.
+
+    Probing tasks can be used in many ways.
+    \citet{Conneau_2018} use them to quantify the language knowledge present in the last layer of a model.
+    \citet{Tenney_2019a,Tenney_2019b} inspect individual model layers and localise different linguistic capabilities within BERT.
+    I combine the above approaches and, additionally, use probing to ``track'' the knowledge as it enters and propagates through the models before and during training.
+    For instance, one can better characterise (and quantify) the impact of initialising the embedding layer from trained parameters, or the loss of general language knowledge in the top layers of the pre-trained BERT when this is fine-tuned on a concrete downstream task.
+
+    Both probing and inspecting the models' predictions can help characterise the skills possessed by the teacher but not learnt well by the students.
+    In particular, I notice that semantic skills are diminished in the students even when the downstream task clearly requires them (CoLA). As a remedy, distilling this complex knowledge from the teacher's intermediate layers could be used (different realisations proposed by \citet{Jiao_2019,Sun_2019a}), while measuring the impact using probing.
+
+    Probing can be used to characterise a downstream task by the linguistic skills it requires, and to motivate model adjustments.
+    While the sentiment analysis task (SST-2) is shown to not depend much on language knowledge, the CoLA students leverage many linguistic skills, including the most complex, semantic ones. Thus, a student for CoLA can be made deeper to facilitate the learning of complex, semantic sentence representations.
+    On a task like Sara, inspecting the model's predictions reveals the students' tendency to learn characteristic keywords. Depending on whether this property is desirable or not, one can try enabling/disabling residual connections in the models so as to make internal input-copying easier or harder for the models.
+
+    Considering the confidence of predictions can reveal more about models' behaviour.
+    I observe that unconfident predictions correspond to challenging examples while confident predictions are made on easy examples (classified correctly) and on ``tricky'' examples where models are mislead, often by a single word, and misclassify the sentence.
+    By calculating the correlation between two models' prediction confidences, one can better understand whether the models behave similarly or differently, i.e. whether they share the same definition of \textit{easy} and \textit{difficult} in the context of input examples.
+    Using this approach, I observe that the teacher and student models differ the most on CoLA and SST-2, but behave similarly on Sara examples.
+
+    Naturally, both probing and prediction analysis have their limitations.
+    Interpreting probing results correctly is difficult. A high probing score may not mean that the model actively learnt the skill in question. It may even be that a skill is captured in the transfer dataset and subsequently learnt by a student, but the skill is not essential for the downstream task at hand and is only a reflection of the teacher's knowledge.
+    Furthermore, just because a probing task is aimed for measuring a specific skill, it does not mean that it measures this well -- for instance, a semantic task may still heavily rely on easy lexical cues, or may represent only a very narrow part of general semantic knowledge.
+    Inspecting a model's predictions has its own caveats -- in particular, it is difficult to grasp why exactly a model misclassifies a sentence. While this can be sometimes clarified by testing the model on numerous hand-crafted perturbations of the original sentence, this approach is extremely tedious.
+  }
+
+  \section{Conclusions}{
+    In this work, I have explored the use of teacher-student knowledge distillation for compressing the large BERT language model into architecturally different, smaller models, separately on different sentence-classification tasks.
+    With the aim of extreme model compression, I adopt the approach of first fine-tuning BERT on a specific task and subsequently distilling it into student models.
+
+    My findings show that easier tasks like SST-2 (binary sentiment classification from movie reviews) and Sara (57-way intent classification of human messages from human-bot conversations) can be successfully handled by student models several thousand times smaller and faster than the BERT\textsubscript{Large} teacher model.
+    However, these tasks are very easy to start with, and applying BERT to them may be questioned.
+    On the very challenging task of linguistic acceptability judgement (CoLA), standard knowledge distillation cannot bridge the gap between the teacher and the students, and a more sophisticated way of knowledge transfer may be needed, especially to help the students acquire semantic skills.
+
+    Working with different student architectures and on different downstream tasks is relatively easy.
+    In particular, roughly the same hyperparameter configuration can be re-used.
+    However, the students' depth is best adjusted on each task (the more complex the task, the deeper the students), as is the choice of pre-trained embeddings (word-level vs wordpiece).
+    Both a bi-directional LSTM student and a down-scaled BERT student are found to work similarly well, with the former one learning to copy the teacher's behaviour more closely, despite the architectural disparity.
+
+    I show that probing the models for specific linguistic knowledge as well as inspecting the models' predictions can be used to mine various insights about the models, the tasks, and about knowledge distillation.
+    While the first approach quantitatively measures different linguistic skills possessed by a model, the latter approach can provide useful concrete examples for further analysis.
+    In general, both students are found to lack especially the complex semantic understanding possessed by the teacher, and challenging sentences are presented on which the teacher succeeds but the students fail.
+    Further, probing is shown to usefully trace the different sources of knowledge in models, producing insights which can be used to adjust the student architecture and initialisation.
+
+    Overall, I have produced useful insights both by using knowledge distillation in different settings and by analysing the trained teacher and student models.
+  }
+
+  \section{Directions for future work}{
+    While the approach of applying knowledge distillation to large Transformers is new and many things are yet to be properly researched, my focus is primarily on analysing the technique and the models it produces, the main aim being better understanding.
+
+    As the biggest downside of prediction analysis, I identify my uncertainty in identifying why a model misclassified a given sentence.
+    While I show that this can be partly addressed by perturbing the sentence and effectively testing different hypotheses, the approach is very laborious.
+    Naturally, being able to easily and quickly interpret a model's predictions is desirable.
+    In future work, inspecting predictions could hugely benefit from automatically generated ``saliency maps'', i.e. highlighting the input tokens which are most responsible for the particular prediction outcome.
+    In practice, such saliency highlighting can be achieved either by using attentional weights like in the original self-attention \citep{Lin_2017}, or, where the student doesn't use attention, by more general methods (several of them recently built into a NLP model interpretation toolkit by \citet{Wallace_2019}).
+    Additional automated approaches include masking out one or more words at a time and scoring such incomplete sentences, or, with sequential models such as LSTMs, scoring progressively larger parts of the input to observe how the model's beliefs evolve while ``reading'' the sentence.
+    
+    Observing that probing can be used for effectively ``tracking'' the flow of language knowledge, one promising research direction is making such tracking more systematic.
+    Importantly, creating a proper methodology around the use of probing tasks is desirable. Such methodology should facilitate more careful interpretation of probing scores, in particular by controlling for language knowledge which is present in the model for reasons other than the hypothesised one (e.g. as residual knowledge form pre-trained parameters).
+    It is desirable to know how and why certain knowledge was acquired by a model, not just where and how much of this knowledge is possessed by the model.
+    As another improvement of the probing approach, it could be applied not just to layer outputs, but also to the self-attention heads' outputs in Transformer models. This could either use existing general probing suites like that of \citet{Conneau_2018}, or adopt a more bespoke approach similar to \citet{Clark_2019} who probe the heads for relational language knowledge.
+
+    While the probing tasks used today rely on classification tasks\footnote{For instance, a model is tested on its ability to distinguish between the past and present tense of a sentence's main verb.}, a different approach to probing may be to quantify the general sensitivity of a model to a particular \textit{concept} (such as the concept grammatical tense).
+    For this purpose, the recently proposed approach of \citet{Kim_2017} could be used, which enables measuring any neural model's sensitivity to any concept representable by a collection of input examples.
+    In the NLP domain, several concepts are especially easy to gather examples for: the concept of sentence length (exemplified perhaps by a collection of long sentences), the concept of sentence type (e.g. a collection of interrogative sentences, identified automatically by the final ``?''), the concept of tense (curated with the help of an automatic lexical parser), the concept of formal or informal language (as warrented by a particular text source), etc.
+    Ideally, this would enable probing tasks to be more easily extended beyond linguistic skills. Additionally, it is interesting to know a model's general sensitivity to, say, the concept of tense, and compare this with the model's score on a binary tense-classification task.
+    
+    Naturally, further exploration could focus more directly on improving knowledge distillation as such.
+    In particular, since student training takes long on the large transfer datasets, it would be interesting to try varying the amount of augmentation data while observing not just the students' scores on downstream tasks, but also the various language knowledge acquired.
+    Additionally, I observe that the GPT-2-generated augmentation sentences (especially on SST-2 and Sara) are often non-sensical (e.g. \textit{what management nyy} or \textit{done str prevents them}). Generating more credible input examples -- by fine-tuning GPT-2 for longer, or by scoring the generated sentences for grammaticality by another model -- could improve knowledge distillation. The importance of the presence of the original training data in the transfer dataset is also unclear; this could be reduced or, on the other hand, amplified (by including the data multiple times), while observing the effects of such manipulation.
+
+    Finally, other model compression techniques can be explored, similarly to knowledge distillation.
+    One attractive approach is model pruning which removes individual weight connections or neurons \citep{Han_2015,Sajjad_2020}, or even entire attentional heads \citep{Michel_2019} or model layers \citep{Mao_2020}, often without significantly affecting the model's accuracy.
+    The question is if and what linguistic skills are lost in this process, and whether these were useful at all in the given context, or were correctly identified as spurious during the pruning procedure.
+  }
 }
 
 \bibliographystyle{apalike}
