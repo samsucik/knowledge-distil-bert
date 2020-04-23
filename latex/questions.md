@@ -18,3 +18,23 @@ ch5: explain methodoogy (chronology) but then jump to outcomes (all best hparams
 ch6: make descriptions shorter
 pred-anal: mention in intro also the main findings
 probing: remove chronology, only present findings
+
+
+merge aims and contributions
+
+// make discussion more concise and precise
+
+// get rid of "without doubt", etc
+
+// short intro at the beginning of the discussion chapter
+
+// change bars into dots
+
+tables 6.1 and 6.2 on the same page
+
+// "speed" change to "time" or sth
+// "size" add units (M)
+
+// include all own CoLA diag. sentences in the appendix
+
+

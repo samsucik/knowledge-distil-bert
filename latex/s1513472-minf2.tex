@@ -78,6 +78,16 @@
 % For verbatim in footnotes
 \usepackage{fancyvrb}
 
+% redefine \VerbatimInput
+\RecustomVerbatimCommand{\VerbatimInput}{VerbatimInput}%
+{
+ fontsize=\footnotesize,
+ frame=lines,  % top and bottom rule only
+ framesep=2em, % separation between frame and text
+ % label=\fbox{\color{Black}},
+ % labelposition=all,
+ }
+
 % Background colour for text
 \def\reviewready{\colorbox{yellow}{[READY FOR REVIEW]}}
 \def\reviewed{\colorbox{green}{[REVIEWED]}}
@@ -138,7 +148,7 @@
   \tableofcontents
 }
 
-\chapter{Introduction \reviewready}{
+\chapter{Introduction}{
   \pagenumbering{arabic}
   \setcounter{page}{1}
   % what's the problem, 
@@ -1045,7 +1055,7 @@
   }
 }
 
-\chapter{Training student models \reviewready}{
+\chapter{Training student models}{
   In this chapter, knowledge distillation is used to teach (train) student models \BERTS~and \LSTMS~from the fine-tuned teacher \BERTT. This is done separately on each of the three downstream tasks -- CoLA, SST-2, and Sara.
   The objective is to obtain students which are small but perform well -- relative to the teacher. Where possible, the student size is not increased above the initial dimensions outlined in \autoref{sec:student-bilstm} (\LSTMS) and \autoref{sec:student-bert} (\BERTS), which corresponds to keeping the number of trainable parameters at \mytilde2.4 million.
 
@@ -1114,7 +1124,7 @@
     \begin{table}[h!bt]
       \centering
       \footnotesize
-      \begin{tabular}{|l|l|l|l|l|c|l|c|c|}
+      \makebox[\textwidth][c]{\begin{tabular}{|l|l|l|l|l|c|c|c|c|}
         \hline
        &
         model  &
@@ -1122,7 +1132,7 @@
         training &
         embed. &
         size &
-        speed &
+        RPE &
         eval &
         test \\
         \hhline{|=|=|=|=|=|=|=|=|=|}
@@ -1132,7 +1142,7 @@
         \begin{tabular}{@{}l@{}}$L=24$, $d_h=1024$, \\$d_I=4096$, $A=16$ \end{tabular} &
         \begin{tabular}{@{}l@{}}$B=36$, $\eta=5\times10^{-5}$, \\$E_w=0.3$, decay\end{tabular} &
         \begin{tabular}{@{}l@{}}piece\end{tabular} &
-        340 &
+        340M &
         750ms &
         59.9 &
         54.6 \\
@@ -1143,7 +1153,7 @@
         \begin{tabular}{@{}l@{}}$L=5$, $d_h=816$, \\$d_I=3000$, $A=12$ \end{tabular} &
         \begin{tabular}{@{}l@{}}$B=128$, $\eta=7\times10^{-5}$, \\$E_w=15$, decay\end{tabular} &
         \begin{tabular}{@{}l@{}}word,\\multi\end{tabular} &
-        76.4 &
+        76.4M &
         100ms &
         45.0 &
         29.8 \\
@@ -1154,7 +1164,7 @@
         \begin{tabular}{@{}l@{}}$L=2$, $d_{LSTM}=600$,\\$d_{FC}=800$\end{tabular} &
         \begin{tabular}{@{}l@{}}$B=32$, $\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
         \begin{tabular}{@{}l@{}}word,\\multi\end{tabular} &
-        15.4 &
+        15.4M &
         2.3ms &
         44.2 &
         27.9 \\
@@ -1164,7 +1174,7 @@
         \begin{tabular}{@{}l@{}}$L=24$, $d_h=1024$, \\$d_I=4096$, $A=16$ \end{tabular} &
         \begin{tabular}{@{}l@{}}$B=36$, $\eta=5\times10^{-5}$, \\$E_w=0.3$, decay\end{tabular} &
         \begin{tabular}{@{}l@{}}piece\end{tabular} &
-        340 &
+        340M &
         750ms &
         91.5 &
         93.1 \\
@@ -1175,7 +1185,7 @@
         \begin{tabular}{@{}l@{}}$L=5$, $d_h=204$,\\$d_I=750$, $A=3$\end{tabular} &
         \begin{tabular}{@{}l@{}}$B=128$, $\eta=5\times10^{-4}$, \\$E_w=15$, decay\end{tabular} &
         \begin{tabular}{@{}l@{}}word,\\multi\end{tabular} &
-        2.42 &
+        2.42M &
         12ms &
         89.3 &
         87.8 \\
@@ -1186,7 +1196,7 @@
         \begin{tabular}{@{}l@{}}$L=1$, $d_{LSTM}=300$,\\$d_{FC}=400$\end{tabular} &
         \begin{tabular}{@{}l@{}}$B=32$, $\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
         \begin{tabular}{@{}l@{}}word,\\multi\end{tabular} &
-        2.41 &
+        2.41M &
         1.0ms &
         91.2 &
         92.2 \\
@@ -1196,7 +1206,7 @@
         \begin{tabular}{@{}l@{}}$L=24$, $d_h=1024$, \\$d_I=4096$, $A=16$ \end{tabular} &
         \begin{tabular}{@{}l@{}}$B=36$, $\eta=5\times10^{-5}$, \\$E_w=1$, decay\end{tabular} &
         \begin{tabular}{@{}l@{}}piece\end{tabular} &
-        340 &
+        340M &
         750ms &
         87.5 &
         88.3 \\
@@ -1207,7 +1217,7 @@
         \begin{tabular}{@{}l@{}}$L=5$, $d_h=204$,\\$d_I=750$, $A=3$\end{tabular} &
         \begin{tabular}{@{}l@{}}$B=128$, $\eta=5\times10^{-4}$, \\$E_w=15$, decay\end{tabular} &
         \begin{tabular}{@{}l@{}}piece\end{tabular} &
-        2.43 &
+        2.43M &
         11ms &
         87.1 &
         86.4 \\
@@ -1218,17 +1228,17 @@
         \begin{tabular}{@{}l@{}}$L=1$, $d_{LSTM}=300$,\\$d_{FC}=400$\end{tabular} &
         \begin{tabular}{@{}l@{}}$B=32$, $\eta=5\times10^{-4}$, \\$E_w=0$, decay\end{tabular} &
         \begin{tabular}{@{}l@{}}piece,\\multi\end{tabular} &
-        5.90 &
+        5.90M &
         0.68ms &
         86.5 &
         86.4 \\
       \hline
-      \end{tabular}
-      \caption{Essential information about the students and teachers on each downstream task. The model size is in millions of trainable non-embedding parameters. The embedding type (``embed.'') is ``word'' (word2vec) or ``piece'' (wordpiece), the mode is either ``multi'' (multichannel), or the default non-static mode where not explicitly stated. The inference speed is calculated by measuring the time for processing the entire evaluation set in batches of 256 (previously transformed from text into numerical form), then turned into time per single example and reported. Evaluation-set (``eval'') and test-set (``test'') scores are reported using the appropriate metric (accuracy, MCC, $\text{F1}_{micro}$). The student size differs between SST-2 and Sara due to the higher dimensionality of wordpiece embeddings (1024) compared to word2vec (300).}
+      \end{tabular}}
+      \caption{Essential information about the students and teachers on each downstream task. The model size is in millions of trainable non-embedding parameters. The embedding type (``embed.'') is ``word'' (word2vec) or ``piece'' (wordpiece), the mode is either ``multi'' (multichannel), or the default non-static mode where not explicitly stated. The inference runtime per example (RPE) is calculated by measuring the time for processing the entire evaluation set in batches of 256 (previously transformed from text into numerical form), then turned into time per single example and reported. Evaluation-set (``eval'') and test-set (``test'') scores are reported using the appropriate metric (accuracy, MCC, $\text{F1}_{micro}$). The student size differs between SST-2 and Sara due to the higher dimensionality of wordpiece embeddings (1024) compared to word2vec (300).}
       \label{tab:best-students}
     \end{table}
 
-    \autoref{tab:best-students} summarises the hyperparameters chosen for each student on each task, and compares all models in terms of their size, prediction speed and score.
+    \autoref{tab:best-students} summarises the hyperparameters chosen for each student on each task, and compares all models in terms of their size, prediction speed\footnote{Timed on a laptop with an Intel Core i7-6600U CPU, i.e. not using a GPU.} and score.
     Clearly, CoLA is more difficult of a task than SST-2 and Sara: In the student size exploration, even models with over 100 million parameters achieve only below 75\% of the teacher's score. As a compromise between accuracy and model size, I choose for analysis students that are 4.5x (\BERTS) and 22x (\LSTMS) smaller than the teacher.
     On SST-2 and Sara, on the other hand, the 2.4-million-parameter students, being 140x smaller than \BERTT, reach comparable accuracy. The students can be even smaller while staying above 95\% of the teacher's score: E.g. \LSTMS~on SST-2 can be 14,000x smaller (64x slimmer than the 2.4-million-parameter version), and \BERTS~can be 2000x smaller (3x slimmer and 2x shallower than the 2.4-million-parameter version).
     The students are also much faster than the teacher models, with \LSTMS~being particularly fast\footnote{\LSTMS~may be faster than \BERTS~partly due to different input feeding strategies; while for \BERTS~all input examples are padded to the model's maximum sequence length of 128, for \LSTMS, I only pad all examples within a batch to the length of the longest example, which leads to more compact batches.} -- up to 1100x faster than \BERTT.
@@ -1250,7 +1260,7 @@
   }
 }
 
-\chapter{Analysing the models \reviewready}{
+\chapter{Analysing the models}{
   In this chapter, probing and prediction analysis are used to analyse, interpret and compare the teacher and the student models for each downstream task. 
   The aim is to produce insights into the nature of the downstream tasks, the models, and knowledge distillation.
 
@@ -1351,32 +1361,6 @@
       \label{tab:prediction-analysis-structure}
     \end{table}
 
-    Because I am not aware of established structured methods in this area, I propose these three objectives, each realised as a number of analysis tasks (see \autoref{tab:prediction-analysis-structure}):
-    1) characterising the teacher and student models individually;
-    2) characterising the differences between the models;
-    and 3) characterising knowledge distillation through its limitations.
-
-    \begin{figure}[h!tb]
-      \centering
-      \makebox[\textwidth][c]{\includegraphics[width=17cm]{graphics/prediction-analysis-example1}}
-      \caption{Example of the interface used for inspecting the predictions, in this case the predictions of \LSTMS~on the Sara task.}
-      \label{fig:prediction-analysis-example}
-    \end{figure}
-    
-    \begin{figure}[h!tb]
-      \centering
-      \makebox[\textwidth][c]{\includegraphics[width=13cm]{../experiments/analysis/img/confidence-correlation}}
-      \caption{Correlation between the prediction confidences of different models, measured as the Pearson correlation coefficient $R$. The ``*'' marks statistically significant correlation (for $p < 0.05$).}
-      \label{fig:confidence-correlation}
-    \end{figure}
-
-    \begin{figure}[h!tb]
-      \centering
-      \makebox[\textwidth][c]{\includegraphics[width=14.5cm]{../experiments/analysis/img/average-confidence}}
-      \caption{The average confidence of evaluation-set predictions. Standard deviation errorbars are shown.}
-      \label{fig:prediction-analysis-avg-confidence}
-    \end{figure}
-
     \begin{table}[h!tb]
       \centering
       \footnotesize
@@ -1419,6 +1403,32 @@
       \label{tab:prediction-analysis-findings}
     \end{table}
 
+    To give the analysis a logical structure, I propose these three objectives, each realised as a number of analysis tasks (see \autoref{tab:prediction-analysis-structure}):
+    1) characterising the teacher and student models individually;
+    2) characterising the differences between the models;
+    and 3) characterising knowledge distillation through its limitations.
+
+    \begin{figure}[h!tb]
+      \centering
+      \makebox[\textwidth][c]{\includegraphics[width=17cm]{graphics/prediction-analysis-example1}}
+      \caption{Example of the interface used for inspecting the predictions, in this case the predictions of \LSTMS~on the Sara task.}
+      \label{fig:prediction-analysis-example}
+    \end{figure}
+    
+    \begin{figure}[h!tb]
+      \centering
+      \makebox[\textwidth][c]{\includegraphics[width=13cm]{../experiments/analysis/img/confidence-correlation}}
+      \caption{Correlation between the prediction confidences of different models, measured as the Pearson correlation coefficient $R$. The ``*'' marks statistically significant correlation (for $p < 0.05$).}
+      \label{fig:confidence-correlation}
+    \end{figure}
+
+    \begin{figure}[h!tb]
+      \centering
+      \makebox[\textwidth][c]{\includegraphics[width=14.5cm]{../experiments/analysis/img/average-confidence}}
+      \caption{The average confidence of evaluation-set predictions. Standard deviation errorbars are shown.}
+      \label{fig:prediction-analysis-avg-confidence}
+    \end{figure}
+
     When choosing examples for inspection, I select the most extreme cases, i.e. taking the most/least confident hits in P1 or the examples with largest confidence gap between the relevant models (P5, P8).
     Where such sorting is not possible, examples are selected randomly from all suitable ones (P4, P7).
     In all cases, 10 examples are selected for inspection in order to reasonably constrain the task\footnote{This still means inspecting 360 sentences for P1: For each downstream task and each model, the 10 most confident hits and mistakes, as well as the 10 most unconfident hits and mistakes.}.
@@ -1426,7 +1436,7 @@
 
     \autoref{tab:prediction-analysis-findings} summarises the observations from each analysis task. In general, examples referred to as ``easy'' are mostly simple sentences on CoLA (\textit{the witch poisoned the children.}), sentences with clear sentiment on SST-2 (\textit{a gorgeous, witty, seductive movie.}), and sentences with clear keywords on Sara (\textit{the bot speaks \textbf{spanish}}\footnote{Names of several languages appear extremely often in the enter\_data intent examples.}). Difficult examples may require detailed understanding, e.g. recognising the broken semantics in \textit{my heart is pounding me.} (CoLA).
 
-    In order to aid my understanding of predictions on CoLA, lastly, I employ an experimental approach: I let all models classify numerous perturbed variants of 21 interesting CoLA sentences which were originally predicted correctly by \BERTT~but incorrectly by both students.
+    In order to aid my understanding of predictions on CoLA, lastly, I employ an experimental approach: I let all models classify numerous perturbed variants of 21 interesting CoLA sentences which were originally predicted correctly by \BERTT~but incorrectly by one or both students\footnote{The complete list of the sentences and their perturbed versions is in \autoref{tab:own-CoLA-diagnostics} in \autoref{chap:A-model-analysis}.}.
     This produces further and cleared evidence of students not being sensitive to valid/broken sentence semantics, see \autoref{tab:pred-anal-cola-case-studies}.
     In addition to ``allowing'' John to be a tree, the students are also found to be sensitive to concrete word choices where these should not matter, e.g. \textit{most of the fruit is ripened.} is classified differently from \textit{most of the fruit is spoiled.}
 
@@ -1465,56 +1475,72 @@
   }
 }
 
-\chapter{Overall discussion, conclusions and future work \reviewready}{
+\chapter{Overall discussion, conclusions and future work}{
+  In this chapter, findings from all of this work are broadly discussed, before overall conclusions and ideas for future research are presented.
+  In the discussion, I focus on knowledge distillation in an applied context where model size and speed is to be optimised.
+  The model analysis approaches are viewed as tools for understanding and subsequently improving knowledge distillation in practice.
+
   \section{Distilling BERT into tiny models}{
-    With no doubt, knowledge distillation is an effective and flexible tool for compressing pre-trained Transformer models like BERT.
-    However, when assessing the results of different works that distill BERT's knowledge, one should bear in mind the different motivations.
-    In particular, I identify one stream of work which aims to retain practically all of BERT's accuracy \citep{Sanh_2019,Sun_2019a,Jiao_2019}, and another stream of work which aims at compressing BERT as much as possible \citep{Tang_2019a,Tang_2019b}. While the first stream leads to high-quality students, they are only several times smaller and faster than BERT. For many practical applications, the second stream of work is more interesting, which explores the limits of extreme model compression using knowledge distillation (at the cost of losing some of BERT's accuracy). My work belongs to the second stream, as it originated from previous research driven by the need to heavily accelerate BERT \citep{Sucik_2019}. Moreover, instead of proposing a universally well-performing student model, I adopt a more applied mindset and instead focus on how the distillation process can be tailored for individual tasks.
-    While I observe that extensive hyperparameter tuning is not necessary and one configuration can work well across several downstream tasks, some decisions are best made on a case-by-case basis, as discussed in what follows.
+    With a lot of recent reseach on knowledge distillation for compressing BERT, one should carefully recognise that different works have different objectives.
+    One stream of work aims to retain all of BERT's accuracy \citep{Sanh_2019,Sun_2019a,Jiao_2019}, but the size compression ratio is 2-10x, which may still produce models too large and slow for many applications.
+    Another stream \citep{Tang_2019a,Tang_2019b} explores the limits of model compression using knowledge distillation at the cost of losing some of BERT's accuracy. 
+    My work is closer to the second stream, originating from previous attempts at heavily accelerating BERT \citep{Sucik_2019}.
+    Adopting an applied mindset, I also focus on how the distillation process can be tailored for individual tasks, instead of proposing a universally well-performing student.
+    While I observe that one student configuration can work well across several tasks, several decisions are best made on a case-by-case basis, as discussed in what follows.
 
+    The student model dimensions should reflect the task at hand.
+    In particular, in research and applications aiming to compress models as much as possible, it may be preferred to tailor the student size individually to each task, as opposed to benchmarking a fixed-size architecture on a diverse suite like GLUE.
+    I showed that on easy tasks like SST-2 or Sara, a student can be several thousand times smaller than the BERT\textsubscript{Large} teacher and still retain over 95\% of the teacher's score.
+    However, CoLA, as a complex linguistic task, requires students to be both wider and deeper, and still they only achieve \mytilde75\% of the teacher's score.
+    Moreover, I observe that it is the student width, not depth, that plays a key role: 
+    Increasing the number of BiLSTM or Transformer layers beyond 1-3 generally does not improve scores, but accuracy degrades when the layer width is below 200-300 (with CoLA requiring \mytilde2-3x wider representations).
 
-    My results show that different tasks may need different minimum student sizes in order to retain decent accuracy. This reflects the intuition that some tasks are more difficult than others, or require extracting more abstract representations of the input.
-    While a student that is several thousand times smaller than the BERT\textsubscript{Large} teacher can still achieve over 95\% of the teacher's score on tasks like binary sentiment classification (SST-2) or multi-class intent classification (Sara), a complex linguistic task like CoLA requires students much larger students and even then the standard knowledge distillation leads to significant gaps between the teacher and the students.
-    Moreover, I show that while student models can be very shallow -- 1-3 BiLSTM layers or Transformer layers seems to suffice -- the model width (representation size) should be kept around 300 or above.
+    Besides the student size, model initialisation from trained parameters is important -- as a way of giving students language knowledge to start with.
+    Such initialisation makes sense especially in the lower layers, which 1) tend to learn task-agnostic features (thus, general trained parameters can be re-used across tasks), and 2) are located far from the top layer through which the teacher's knowledge ``enters'' (which makes learning in these lower layers more difficult).
+    I observe that the choice of embeddings (word-level vs wordpiece) can improve performance and is also possible to reason about, given some knowledge of the data.
+    While initialisation from trained parameters is most easily done in the embedding layer, ideally, this would be extended to multiple early layers\footnote{This is not commonly done, as these parameters are specific to each architecture, unlike the token-level embeddings, which are highly re-usable.}. 
+    In the future, probing could be used to explore the flow of teacher's knowledge in distillation variants that force students to mimic internal teacher layers (e.g. \citet{Jiao_2019,Sun_2019a}).
+    When possible, copying the teacher's encoder layer parameters directly into the student is an attractive option \citep{Sanh_2019};
+    however, this requires the student to be as wide as the teacher, which can be undesirable.
 
-    Besides the student size, it can be very important to give the students access to various types of knowledge.
-    In standard knowledge distillation, the teacher's knowledge enters the student ``from the top'' (in the logits-producing layer).
-    On the bottom end of the student architecture, which tends to learn task-agnostic, general representations, it can be very beneficial to ``inject'' general knowledge upon student initialisation, e.g. from pre-trained word embeddings like word2vec or even from the teacher's embedding layer.
-    Naturally, this approach could be extended to early layers beyond the embedding layer, even though this comes with several caveats\footnote{Most notably, knowledge injection into layers such as those in BERT's encoder becomes more difficult because these layers no longer operate just on the token level, but rather on the sentence level.}. As an interesting direction for future research, probing could be used to shed more light into the knowledge flow in distillation approaches that aim to match the teacher and student's intermediate layers (e.g. \citet{Jiao_2019,Sun_2019a}). Additionally, copying the teacher's encoder layer parameters directly into the student is an attractive idea (used by \citet{Sanh_2019}); however, in its simplest form, this approach requires the student to be as wide as the teacher, which may be undesirable.
-
-    Last but not least, the choice of student architecture may be important.
-    While many works on distilling BERT work towards smaller BERT versions and propose distillation approaches tied to Transformer architectures, there is no reason to believe that other student architectures should be inferior.
+    Last but not least, the choice of student architecture is important.
+    While most studies on distilling BERT work towards smaller BERT versions, there is no reason to believe that other student architectures should be inferior.
     While in my experiments both students tend to perform comparably well, I observe the BiLSTM student to be more sensitive to order and length phenomena.
-    Recently, \citet{Huang_2020} showed that the BiLSTM architecture may complement the skills of BERT -- by combining the two into a single model, they improved on BERT's accuracy.
-    Finally, in practical applications, the inference speed of different architectures can differ due to architectureal details which are uninteresting from a research perspective. For instance, LSTMs can process variable-size batches whereas BERT requires all inputs to be padded to a fixed maximum sequence length; this way, LSTMs can process shorter inputs faster, but BERT can not.
+    Recently, \citet{Huang_2020} showed that the two architectures can complement each other -- by combining them into one, they improved on BERT's accuracy.
+    In practical applications, inference speed can make one architecture preferred, perhaps because its concrete implementation is more optimised.
+    For instance, LSTMs can process variable-size batches whereas BERT requires all inputs to be padded to a fixed maximum sequence length; this way, LSTMs can process shorter inputs faster, but BERT can not.
   }
 
   \section{What can models tell us}{
     Coming up with an idea for improvement; building a new model; evaluating it on a benchmark like GLUE -- these are the typical steps shared by many works on improving language models.
     I am of the opinion that trained models can reveal a lot about themselves and make suggestions for improvements. In this work, I demonstrate the use of two complementary analysis approaches with this aim.
 
-    Probing tasks can be used in many ways.
-    \citet{Conneau_2018} use them to quantify the language knowledge present in the last layer of a model.
+    Probing tasks can be used beyond the purposes they were originally meant for.
+    \citet{Conneau_2018} propose tasks for quantifying the language knowledge present in the last layer of a sentence encoder model.
     \citet{Tenney_2019a,Tenney_2019b} inspect individual model layers and localise different linguistic capabilities within BERT.
-    I combine the above approaches and, additionally, use probing to ``track'' the knowledge as it enters and propagates through the models before and during training.
-    For instance, one can better characterise (and quantify) the impact of initialising the embedding layer from trained parameters, or the loss of general language knowledge in the top layers of the pre-trained BERT when this is fine-tuned on a concrete downstream task.
+    I combine the above approaches and, additionally, use probing to ``track'' language knowledge as it enters and propagates through the models before and during training.
+    This way, I characterise the impact of initialising the students' embedding layer from trained parameters, and the loss of general language knowledge in the top layers of the pre-trained BERT when this is fine-tuned on concrete downstream tasks.
 
-    Both probing and inspecting the models' predictions can help characterise the skills possessed by the teacher but not learnt well by the students.
-    In particular, I notice that semantic skills are diminished in the students even when the downstream task clearly requires them (CoLA). As a remedy, distilling this complex knowledge from the teacher's intermediate layers could be used (different realisations proposed by \citet{Jiao_2019,Sun_2019a}), while measuring the impact using probing.
+    Both probing and inspecting the models' predictions helps to describe the teacher's skills not learnt well by students.
+    In particular, I observe that semantic skills are diminished in the students even when the downstream task clearly requires them (CoLA).
+    As a remedy, distilling this complex knowledge from the teacher's intermediate layers \citep{Jiao_2019,Sun_2019a} could be tried, with the effects monitored by student probing.
 
-    Probing can be used to characterise a downstream task by the linguistic skills it requires, and to motivate model adjustments.
-    While the sentiment analysis task (SST-2) is shown to not depend much on language knowledge, the CoLA students leverage many linguistic skills, including the most complex, semantic ones. Thus, a student for CoLA can be made deeper to facilitate the learning of complex, semantic sentence representations.
-    On a task like Sara, inspecting the model's predictions reveals the students' tendency to learn characteristic keywords. Depending on whether this property is desirable or not, one can try enabling/disabling residual connections in the models so as to make internal input-copying easier or harder for the models.
+    Probing can motivate task-specific model adjustments.
+    On CoLA, which is found to leverage complex linguistic skills from later model layer, the students can be made deeper to facilitate the learning of complex, semantic representations.
+    On Sara, inspecting the model's predictions reveals tendency for learning characteristic keywords.
+    Depending on whether this behaviour is desirable or not, residual connections in students can be added/removed to make internal input-copying easier or harder.
 
-    Considering the confidence of predictions can reveal more about models' behaviour.
-    I observe that unconfident predictions correspond to challenging examples while confident predictions are made on easy examples (classified correctly) and on ``tricky'' examples where models are mislead, often by a single word, and misclassify the sentence.
-    By calculating the correlation between two models' prediction confidences, one can better understand whether the models behave similarly or differently, i.e. whether they share the same definition of \textit{easy} and \textit{difficult} in the context of input examples.
-    Using this approach, I observe that the teacher and student models differ the most on CoLA and SST-2, but behave similarly on Sara examples.
+    Considering the confidence of predictions provides richer insights into model behaviour.
+    I observe that unconfident predictions correspond to challenging examples, whereas confident predictions are made on easy examples (classified correctly) and on ``tricky'' misclassified examples where models are mislead often by a single word.
+    Calculating the correlation between two models' prediction confidences can quantify the extent to which models behave similarly in their perception of examples as easy or difficult.
+    This way, I observe that the teacher and student models diverge the most on CoLA and SST-2, but behave similarly on Sara examples.
 
-    Naturally, both probing and prediction analysis have their limitations.
-    Interpreting probing results correctly is difficult. A high probing score may not mean that the model actively learnt the skill in question. It may even be that a skill is captured in the transfer dataset and subsequently learnt by a student, but the skill is not essential for the downstream task at hand and is only a reflection of the teacher's knowledge.
-    Furthermore, just because a probing task is aimed for measuring a specific skill, it does not mean that it measures this well -- for instance, a semantic task may still heavily rely on easy lexical cues, or may represent only a very narrow part of general semantic knowledge.
-    Inspecting a model's predictions has its own caveats -- in particular, it is difficult to grasp why exactly a model misclassifies a sentence. While this can be sometimes clarified by testing the model on numerous hand-crafted perturbations of the original sentence, this approach is extremely tedious.
+    Both probing and prediction analysis have their limitations.
+    Correct interpreting of probing results is difficult: A high probing score does not imply that the model actively learnt the skill in question. 
+    Instead, the knowledge may have been present in trained embeddings, or acquired from the transfer dataset which reflects the teacher's knowledge but not necessarilly the task's needs.
+    Furthermore, just because a probing task is aimed for measuring a specific skill, it may not measure this well -- for instance, a semantic task may still heavily rely on easy lexical cues, or may represent only a very narrow part of general semantic knowledge.
+    Inspecting a model's predictions has its own caveats -- in particular, it is difficult to grasp why exactly a model misclassifies a given sentence.
+    While I show that this can be sometimes clarified by testing the model on numerous hand-crafted perturbations of the original sentence, this approach is extremely laborious.
   }
 
   \section{Conclusions}{
@@ -1712,6 +1738,7 @@
     \label{tab:sara-intent-list}
     \end{longtable}
   \end{center}
+
   \begin{figure}[h!tb]
     \centering
     \makebox[\textwidth][c]{\includegraphics[width=23cm,angle=-90]{../experiments/analysis/img/class-balance.pdf}}
@@ -1727,22 +1754,20 @@
 
 \chapter{Details of model analysis}{
   \label{chap:A-model-analysis}
-  \section{Probing}{
-    \begin{figure}[h!tb]
-      \centering
-      \makebox[\textwidth][c]{\includegraphics[width=13.5cm]{../experiments/analysis/img/probing_students_scratch.pdf}}
-      \caption{Probing results comparing students initialised in the standard way (with embeddings from word2vec) with students initialised randomly and trained from scratch. Bounding the expected model performance from below and from above are again the majority-class baseline and the human performance baseline, as reported by \citet{Conneau_2018}.}
-      \label{fig:probing-students-scratch}
-    \end{figure}
-  }
-  \section{Prediction analysis}{
-    \begin{figure}[h!tb]
-      \centering
-      \makebox[\textwidth][c]{\includegraphics[width=11cm]{../experiments/analysis/img/hits-mistakes-overlap-all}}
-      \caption{Overlap of models' evaluation-set mistakes and hits. Each cell shows the fraction of hits or mistakes shared by models M1 and M2, as a percentage of the total hits or mistakes made by model M1.}
-      \label{fig:hits-mistakes-overlap-all}
-    \end{figure} 
-  }
+  \begin{figure}[h!tb]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=13.5cm]{../experiments/analysis/img/probing_students_scratch.pdf}}
+    \caption{Probing results comparing students initialised in the standard way (with embeddings from word2vec) with students initialised randomly and trained from scratch. Bounding the expected model performance from below and from above are again the majority-class baseline and the human performance baseline, as reported by \citet{Conneau_2018}.}
+    \label{fig:probing-students-scratch}
+  \end{figure}
+  \begin{figure}[h!tb]
+    \centering
+    \makebox[\textwidth][c]{\includegraphics[width=11cm]{../experiments/analysis/img/hits-mistakes-overlap-all}}
+    \caption{Overlap of models' evaluation-set mistakes and hits. Each cell shows the fraction of hits or mistakes shared by models M1 and M2, as a percentage of the total hits or mistakes made by model M1.}
+    \label{fig:hits-mistakes-overlap-all}
+  \end{figure}
+
+  \include{own-CoLA-diagnostics}
 }
 
 \end{document}
