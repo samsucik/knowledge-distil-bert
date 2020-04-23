@@ -186,7 +186,7 @@
 
       \begin{figure}[h!t]
         \centering
-        \makebox[\textwidth][c]{\includegraphics[width=12cm]{../experiments/analysis/img/exploding-grads.png}}
+        \makebox[\textwidth][c]{\includegraphics[width=12cm]{../experiments/analysis/img/exploding-grads}}
         \caption{Gradient explosion in \BERTS~with $W=2$ and $D=2$. The MCC values have been smoothed with a 0.1-epoch-wide sliding average window.}
         \label{fig:exploding-grads}
       \end{figure}
@@ -196,7 +196,7 @@
       
       \begin{figure}[h!t]
         \centering
-        \makebox[\textwidth][c]{\includegraphics[width=12cm]{../experiments/analysis/img/exploding-grads-choosing-lr.png}}
+        \makebox[\textwidth][c]{\includegraphics[width=12cm]{../experiments/analysis/img/exploding-grads-choosing-lr}}
         \caption{Learning progress (MCC over time) vs $\eta$ for \BERTS~with $W=2$ and $D=2$ -- the model experiencing gradient explosion in \autoref{fig:exploding-grads}. The dashed lines show the position I identify as the approximate latest point of training before the learning starts to slow down, and the learning rate at that position.
         The MCC values have been smoothed with a 0.1-epoch-wide sliding average window.}
         \label{fig:exploding-grads-choosing-lr}
