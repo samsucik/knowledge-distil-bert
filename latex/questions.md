@@ -20,7 +20,7 @@ pred-anal: mention in intro also the main findings
 probing: remove chronology, only present findings
 
 
-merge aims and contributions
+// merge aims and contributions
 
 // make discussion more concise and precise
 
@@ -30,7 +30,7 @@ merge aims and contributions
 
 // change bars into dots
 
-tables 6.1 and 6.2 on the same page
+// tables 6.1 and 6.2 on the same page
 
 // "speed" change to "time" or sth
 // "size" add units (M)

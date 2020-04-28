@@ -108,7 +108,6 @@
   \href{https://#1}{\nolinkurl{#1}}%
 }
 
-% TO-DO: Change .png figures to .pdf.
 \begin{document}
   \colorlet{CoLA-l}{white!80!CoLA}
   \colorlet{SST-2-l}{white!80!SST-2}
@@ -132,15 +131,35 @@
 
 \pagenumbering{roman}
 \abstract{
-  TO-DO
+  Since 2017, natural language processing (NLP) has seen a~revolution due to new neural language models -- Transformers \citep{Vaswani_2017}.
+  Pre-trained on large text corpora and widely applicable even for NLP tasks with little data, Transformer models like BERT \citep{Devlin_2018} became widely used.
+  While powerful, these large models are too computationally expensive and slow for many practical applications.
+  This inspired a~lot of recent effort in compressing BERT to make it smaller and faster.
+  One particularly promising approach is knowledge distillation, where the large BERT is used as a~``teacher'' from which much smaller  ``student'' models ``learn''.
+  
+  Today, there is a~lot of work on understanding the linguistic skills possessed by BERT, and on compressing the model using knowledge distillation.
+  However, little is known about the learning process itself and about the skills learnt by the student models.
+  I~aim to explore both via practical means: By distilling BERT into two architecturally diverse students on diverse NLP tasks, and by subsequently analysing what the students learnt.
+  For analysis, all models are \textit{probed} for different linguistic capabilities (as proposed by \citet{Conneau_2018}), and the models' behaviour is inspected in terms of concrete decisions and the confidences with which they are made.
+
+  Both students -- a down-scaled BERT and a~bidirectional LSTM model -- are found to learn well, resulting in models up to 14,000x smaller and 1,100x faster than the teacher.
+  However, each NLP task is shown to rely on different linguistic skills and be of different difficulty, thus requiring a~different student size and embedding type (word-level embeddings vs sub-word embeddings).
+  On a~difficult linguistic acceptability task, both students' learning is hindered by their inability to match the teacher's understanding of semantics.
+  Even where students perform on par with their teacher, they are found to rely on easier cues such as characteristic keywords.
+  Analysing the models' correctness and confidence patterns shows how all models behave similarly on certain tasks and differ on others, with the shallower BiLSTM student better mimicking the teacher's behaviour.
+  Finally, by probing all models, I~measure and localise diverse linguistic capabilities.
+  Some possessed language knowledge is found to be merely residual (not necessary),
+  and I~demonstrate a~novel use of probing for tracing such knowledge back to its origins.
 }
 
 \maketitle
 
 \section*{Acknowledgements}{
-  I~thank Steve Renals of University of Edinburgh and Vova Vlasov of Rasa for supervising me throughout the~academic year; patiently listening to my never-ending reports and providing helpful and optimistic comments.
+  I~thank Steve Renals of the University of Edinburgh for being incredibly approachable, professional yet friendly. Having had almost 60~weekly meetings with Steve in the past 2~years, I have seen him patiently listening to my updates, providing well-rounded, encouraging feedback and inspiration, helping me to thoroughly enjoy this learning experience.
 
-  Many thanks also to Ralph Tang whose work inspired this project, and to Sl\'avka He\v{z}elyov\'a who constantly supported me and motivated me to explain all of my work in non-technical stories and metaphors.
+  I am very grateful for being co-supervised by Vladimir Vlasov of Rasa. Throughout the summer internship which inspired this work, as well as later through the academic year, Vova's guidance, endless curiosity and honest opinions helped me to be more ambitious yet realistic, and to critically view the work of others and my own in the particular area.
+
+  Many thanks also to Ralph Tang whose work provided a solid starting point for this project, and to Sl\'avka He\v{z}elyov\'a who constantly supported me and motivated me to explain my work in non-technical stories and metaphors.
 }
 
 {
@@ -708,7 +727,7 @@
       }
       \item{Semantic information:
         \begin{itemize}
-          \item \textbf{Tense} is a binary classification task, identifying the~tense (present or past) of the~sentence's main verb (the~verb in the~main clause). At the~first sight, this is mainly a~morphological task (in English, most verbs have the~past tense marked by the~``-d/ed'' suffix). However, the~model first has to identify the~main verb within a~sentence, which makes this task also syntactic and semantic.
+          \item \textbf{Tense} is a~binary classification task, identifying the~tense (present or past) of the~sentence's main verb (the~verb in the~main clause). At the~first sight, this is mainly a~morphological task (in English, most verbs have the~past tense marked by the~``-d/ed'' suffix). However, the~model first has to identify the~main verb within a~sentence, which makes this task also syntactic and semantic.
           \item \textbf{SubjNumber} is about determining the~number (singular or plural) of the~sentence's subject (binary classification). Similar to the~previous task, this one (and the~next one too) is arguably about both morphology and syntax/semantics.
           \item \textbf{ObjNumber} is the~same as SubjNumber, applied to the~direct object of a~sentence.
           \item \textbf{OddManOut} is binary classification, identifying sentences in which a~randomly chosen verb or noun has been replaced with a~different random verb or noun. Presumably, the~random replacement in most cases makes the~sentence semantically unusual or invalid (e.g. in ``He reached inside his persona and pulled out a~slim, rectangular black case.'' the~word ``persona'' is clearly odd). To make this task more difficult, the~replacement word is chosen such that the~frequency of the~bigrams in the~sentence stays roughly the~same. (Otherwise, in many cases, the~random replacement would create easy hints for the~probing classifier, in the~form of bigrams that are very unusual.)
@@ -718,7 +737,7 @@
     \end{enumerate}
 
     When choosing from the~existing probing suites, I~considered that of \citet{Tenney_2019b} as well. As the~authors showed, their tasks and methods can effectively localise different types of linguistic knowledge in a~Transformer model like BERT.
-    However, the~task data are not freely available, the~tasks have a~relatively narrow coverage with a heavy focus on the~most complex NLP tasks like entity recognition and natural language inference, and the~probing is done on single-token representations.
+    However, the~task data are not freely available, the~tasks have a~relatively narrow coverage with a~heavy focus on the~most complex NLP tasks like entity recognition and natural language inference, and the~probing is done on single-token representations.
     The~suite of \citeauthor{Conneau_2018}, on the~other hand, is publicly available, better covers the~easier tasks (surface and syntactic information), and examines whole-sentence representations.
     One interesting direction for future work is to use both of these probing suites, compare the~results they lead to (in particular their agreement), and explore the~extent to which the~different probing approaches complement each other.
   }
@@ -1272,7 +1291,7 @@
     \begin{figure}[h!t]
       \centering
       \makebox[\textwidth][c]{\includegraphics[width=18cm]{../experiments/analysis/img/probing_students.pdf}}
-      \caption{Probing results for the~best student models. For comparison, results achieved just by using the~embeddings (taken before student training) are shown as well (``embed.'') (the average pooling strategy was used to construct probing sentence encodings from the individual embeddings of a sentence's words/wordpieces). For \LSTMS, the~probing encodings were extracted only after the~last LSTM layer; for \BERTS, they were extracted after each encoder layer (1-5) and before the~first layer (``E''). The~majority-class baseline and the~human performance baseline are shown, same as in \autoref{fig:probing-teachers}.}
+      \caption{Probing results for the~best student models. For comparison, results achieved just by using the~embeddings (taken before student training) are shown as well (``embed.'') (the average pooling strategy was used to construct probing sentence encodings from the individual embeddings of a~sentence's words/wordpieces). For \LSTMS, the~probing encodings were extracted only after the~last LSTM layer; for \BERTS, they were extracted after each encoder layer (1-5) and before the~first layer (``E''). The~majority-class baseline and the~human performance baseline are shown, same as in \autoref{fig:probing-teachers}.}
       \label{fig:probing-students}
     \end{figure}
 
