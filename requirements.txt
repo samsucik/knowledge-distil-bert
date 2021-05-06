@@ -19,7 +19,7 @@ easydict==1.9
 editdistance==0.5.3
 flaky==3.6.1
 flask==1.1.1
-flask-cors==3.0.8
+flask-cors==3.0.9
 ftfy==5.6
 gensim==3.8.1
 gevent==1.4.0
